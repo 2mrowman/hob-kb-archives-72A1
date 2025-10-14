@@ -21,7 +21,7 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---
 
 ## 🧩 Scripts
-- [Checklist V6 – V7.1.0R](./scripts/1_CHECKLIST_V6_V7.1.0R.md)
+- scripts/1. CHECKLIST V6 - Checklist.gs_V7.1.0R.md
 - [Blink Helper](./scripts/2_Blink.gs.md)
 - [Auto Duplicate / Delete Tabs](./scripts/3_AutoDupl_File&DeleteTabs.gs.md)
 

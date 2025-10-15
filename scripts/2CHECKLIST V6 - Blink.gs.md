@@ -1,117 +1,68 @@
-/\*\*\*\*\* ΡΥΘΜΙΣΕΙΣ \*\*\*\*\*/
-
+/***** ΡΥΘΜΙΣΕΙΣ *****/
 const NAME_PROMPT = 'Όνομα Επώνυμο?';
-
 const COL_B = 2;
-
 const BLINK_CYCLES = 3; // Αριθμός εναλλαγών (π.χ. Γκρι/Κόκκινο 3 φορές)
 
-/\*\*
-
-\* 📌 Εντοπίζει όλα τα "Όνομα Επώνυμο?" στη στήλη B του ενεργού φύλλου
-
-\* και εμφανίζει custom popup. Όταν ο χρήστης πατήσει OK, κάνει blinking.
-
-\* Δεν τρέχει UI ενέργειες αν το script εκτελείται χωρίς χρήστη (π.χ. από trigger).
-
-\*/
-
+/**
+ * 📌 Εντοπίζει όλα τα "Όνομα Επώνυμο?" στη στήλη B του ενεργού φύλλου
+ * και εμφανίζει custom popup. Όταν ο χρήστης πατήσει OK, κάνει blinking.
+ * Δεν τρέχει UI ενέργειες αν το script εκτελείται χωρίς χρήστη (π.χ. από trigger).
+ */
 function remindMissingNames() {
+  // ✅ Αν το script τρέχει από background (π.χ. time trigger), δεν συνεχίζουμε
+  try {
+    SpreadsheetApp.getUi(); // Αν δεν πετάξει σφάλμα, είμαστε σε UI context
+  } catch (e) {
+    console.warn("❌ Χωρίς UI context – τερματισμός remindMissingNames");
+    return;
+  }
 
-// ✅ Αν το script τρέχει από background (π.χ. time trigger), δεν συνεχίζουμε
+  const sh = SpreadsheetApp.getActiveSheet();
+  const name = sh.getName();
+  if (["START", "MASTER"].includes(name)) return;
 
-try {
+  const last = sh.getLastRow();
+  if (last < 2) return;
 
-SpreadsheetApp.getUi(); // Αν δεν πετάξει σφάλμα, είμαστε σε UI context
+  const rngB = sh.getRange(2, COL_B, last - 1, 1);
+  const vals = rngB.getValues();
+  const targets = [];
 
-} catch (e) {
+  for (let i = 0; i < vals.length; i++) {
+    const val = String(vals[i][0] || "").trim();
+    if (val === NAME_PROMPT) {
+      targets.push(rngB.getCell(i + 1, 1));
+    }
+  }
 
-console.warn("❌ Χωρίς UI context - τερματισμός remindMissingNames");
+  if (targets.length > 0) {
+    const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
+    const message = '🚨 Εντοπίστηκαν ' + targets.length + ' κελιά με ασυμπλήρωτο το "<strong>' + NAME_PROMPT + '</strong>" !!!<br><br>' +
+      '📍 Κελιά: <strong>' + cellRefs + '</strong><br><br>' +
+      '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη <strong>B</strong>.';
 
-return;
-
+    PopupLib.showCustomPopup(message, 'error');
+    Utilities.sleep(500); // 📌 για σιγουριά πριν το blinking
+  //  blinkCellFontColor_(targets, BLINK_CYCLES);
+  }
 }
 
-const sh = SpreadsheetApp.getActiveSheet();
-
-const name = sh.getName();
-
-if (\["START", "MASTER"\].includes(name)) return;
-
-const last = sh.getLastRow();
-
-if (last < 2) return;
-
-const rngB = sh.getRange(2, COL_B, last - 1, 1);
-
-const vals = rngB.getValues();
-
-const targets = \[\];
-
-for (let i = 0; i < vals.length; i++) {
-
-const val = String(vals\[i\]\[0\] || "").trim();
-
-if (val === NAME_PROMPT) {
-
-targets.push(rngB.getCell(i + 1, 1));
-
-}
-
-}
-
-if (targets.length > 0) {
-
-const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
-
-const message = '🚨 Εντοπίστηκαν ' + targets.length + ' κελιά με ασυμπλήρωτο το "&lt;strong&gt;' + NAME_PROMPT + '&lt;/strong&gt;" !!!&lt;br&gt;&lt;br&gt;' +
-
-'📍 Κελιά: &lt;strong&gt;' + cellRefs + '&lt;/strong&gt;&lt;br&gt;&lt;br&gt;' +
-
-'📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη &lt;strong&gt;B&lt;/strong&gt;.';
-
-PopupLib.showCustomPopup(message, 'error');
-
-Utilities.sleep(500); // 📌 για σιγουριά πριν το blinking
-
-// blinkCellFontColor_(targets, BLINK_CYCLES);
-
-}
-
-}
-
-/\*\*
-
-\* 🔁 Εναλλάσσει το χρώμα γραμματοσειράς ανάμεσα σε ανοιχτό γκρι και κόκκινο.
-
-\* Τελειώνει πάντα με κόκκινο (προεπιλεγμένο χρώμα προειδοποίησης).
-
-\*/
-
+/**
+ * 🔁 Εναλλάσσει το χρώμα γραμματοσειράς ανάμεσα σε ανοιχτό γκρι και κόκκινο.
+ * Τελειώνει πάντα με κόκκινο (προεπιλεγμένο χρώμα προειδοποίησης).
+ */
 function blinkCellFontColor_(targetRanges, blinkTimes) {
+  for (let i = 0; i < blinkTimes; i++) {
+    targetRanges.forEach(r => {
+      r.setFontColor("#f3f3f3"); // ⚪ Ανοιχτό Γκρι
+    });
+    SpreadsheetApp.flush();
+    Utilities.sleep(100);
 
-for (let i = 0; i < blinkTimes; i++) {
-
-targetRanges.forEach(r => {
-
-r.setFontColor("#f3f3f3"); // ⚪ Ανοιχτό Γκρι
-
-});
-
-SpreadsheetApp.flush();
-
-Utilities.sleep(100);
-
-targetRanges.forEach(r => {
-
-r.setFontColor("#d32f2f"); // 🔴 Κόκκινο
-
-});
-
-SpreadsheetApp.flush();
-
-Utilities.sleep(100);
-
-}
-
+    targetRanges.forEach(r => {
+      r.setFontColor("#d32f2f"); // 🔴 Κόκκινο
+    });
+    SpreadsheetApp.flush();
+    Utilities.sleep(100);
+  }
 }

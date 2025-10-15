@@ -31,57 +31,64 @@ Important:
 
 
 ---
+# 🧠 Hall of Brands – GPT Knowledge Base (Central Index)
 
-## 🧠 Hall of Brands – GPT Knowledge Base (Centralized Index)
-
-Use this file as the single Knowledge Base entry for all Custom GPTs  
-(e.g., ChecklistGPT, GitHub Coach, HoB Analyst).  
-It provides structured links to all technical and documentation assets hosted in this repository.
+This repository represents the **full automation system of Hall of Brands CHECKLIST (V7.1.0R)**.  
+It contains all scripts, libraries, and documentation used across store checklists.
 
 ---
 
-### 🔗 Core Repository
-**Main URL:**  
-https://2mrowman.github.io/hob-kb-archives-72A1/  
-**GitHub Source:**  
+## 🔗 Core Repository
+**Main GitHub Repo:**  
 https://github.com/2mrowman/hob-kb-archives-72A1  
 
+**Primary Index:**  
+[INDEX_Checklist_Docs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/INDEX_Checklist_Docs.md)
+
 ---
 
-### 📘 Documentation
+## 📘 Documentation
 | Area | Link |
 |------|------|
-| System Overview | https://2mrowman.github.io/hob-kb-archives-72A1/SYSTEM_OVERVIEW.md |
-| Functional Flow (Checklist V7) | https://2mrowman.github.io/hob-kb-archives-72A1/docs/Functional_Flow_CHECKLIST_V7.md |
-| Flow Mapping (Checklist V7) | https://2mrowman.github.io/hob-kb-archives-72A1/docs/Flow_Mapping_CHECKLIST_V7.md |
-| Project Settings (GAS) | https://2mrowman.github.io/hob-kb-archives-72A1/docs/GAS_CHECKLIST_V6.2_Project_Settings.md |
+| System Overview | [SYSTEM_OVERVIEW.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SYSTEM_OVERVIEW.md) |
+| Functional Flow (Checklist V7) | [Functional_Flow_CHECKLIST_V7.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Functional_Flow_CHECKLIST_V7.md) |
+| Flow Mapping (Checklist V7) | [Flow_Mapping_CHECKLIST_V7.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Flow_Mapping_CHECKLIST_V7.md) |
+| Project Settings (GAS V6.2) | [GAS ChecklistV6.2_Project Settings.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/GAS%20ChecklistV6.2_Project%20Settings.md) |
+| Prompt Reference | [Prompt_Current.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Prompt_Current.md) |
 
 ---
 
-### ⚙️ Libraries
+## ⚙️ Libraries
 | Library | Version | Link |
 |----------|----------|------|
-| MenuLib | V7.0.0 | https://2mrowman.github.io/hob-kb-archives-72A1/libraries/B_MenuLib_V7.0.0.md |
-| PopupLib | V2.0.0R | https://2mrowman.github.io/hob-kb-archives-72A1/libraries/C_PopupLib_Code.gs_V2.0.0R.md |
-| AdminToolsLib | V6.7.4 | https://2mrowman.github.io/hob-kb-archives-72A1/libraries/D_AdminToolsLib_V6.7.4.md |
-| HoBMastersLib | V7.1.0R | https://2mrowman.github.io/hob-kb-archives-72A1/libraries/E_HoBMastersLib_V7.1.0R.md |
+| **HoBMastersLib** | V1.3 | [A. HoBMasterLib - Duplicate.gsV1.3.MD](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/A.%20HoBMasterLib%20-%20Duplicate.gsV1.3.MD) |
+| **MenuLib** | V7.0.0 | [B. MenuLib - MenuLib.gs _V7.0.0.MD](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/B.%20MenuLib%20-%20MenuLib.gs%20_V7.0.0.MD) |
+| **PopupLib** | V2.0.0R | [C. PopupLib - Code.gs_V2.0.0R.MD](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/C.%20PopupLib%20-%20Code.gs_V2.0.0R.MD) |
+| **AdminToolsLib** | V6.7.6 | [D. AdminToolsLib - AdminToolsLib.gs_V6.7.6.MD](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/D.%20AdminToolsLib%20-%20AdminToolsLib.gs_V6.7.6.MD) |
 
 ---
 
-### 🧩 Scripts
+## 🧩 Scripts
 | Script | Version | Link |
 |---------|----------|------|
-| Checklist (V6 → V7.1.0R) | https://2mrowman.github.io/hob-kb-archives-72A1/scripts/1_CHECKLIST_V6_V7.1.0R.md |
-| Auto Duplicate & Delete Tabs | https://2mrowman.github.io/hob-kb-archives-72A1/scripts/Auto%20Duplicate%20Delete%20Tabs.md |
-| Blink Helper | https://2mrowman.github.io/hob-kb-archives-72A1/scripts/Blink%20Helper.md |
+| **Checklist.gs** | V7.1.0R | [1CHECKLIST V6 - Checklist.gs_V7.1.0R.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md) |
+| **Blink Helper** | — | [2CHECKLIST V6 - Blink.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/2CHECKLIST%20V6%20-%20Blink.gs.md) |
+| **Auto Duplicate / Delete Tabs** | — | [3CHECKLIST V6 - AutoDupl_File&DeleteTabs.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/3CHECKLIST%20V6%20-%20AutoDupl_File%26DeleteTabs.gs.md) |
 
 ---
 
-### 🧰 Additional Docs
-| Title | Link |
-|--------|------|
-| Functional Reference Table | https://2mrowman.github.io/hob-kb-archives-72A1/docs/Functional_Reference_Table.md |
-| Troubleshooting Guide | https://2mrowman.github.io/hob-kb-archives-72A1/docs/Troubleshooting.md |
+## 🧾 GPT Builder Setup
+When connecting this repository to a Custom GPT (e.g. *ChecklistGPT V5.0*):
+1. In the GPT editor → **Edit → Knowledge → Add URL**
+2. Paste this link:  
+   👉 https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/INDEX_Checklist_Docs.md
+3. Add tag:  
+   `[Category: HoB Automation / Checklist System / GAS Integration]`
+
+---
+
+**Maintained by ChecklistGPT V5.0 – Hall of Brands Automation Stack**  
+*Last Updated: 15 Oct 2025*
 
 ---
 
@@ -92,6 +99,7 @@ When setting up a Custom GPT (e.g., *ChecklistGPT V5*):
 
 Knowledge Base Tagging:
 [Category: HoB Automation / Checklist System / GAS Integration]
+
 
 
 

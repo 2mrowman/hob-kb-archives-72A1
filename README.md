@@ -5,25 +5,25 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---
 
 ## 📁 Docs
-- [Flow Mapping – CHECKLIST V7.1.0R](./docs/Flow_Mapping_CHECKLIST_V7.md)
-- [Functional Flow – CHECKLIST V7.1.0R](./docs/Functional_Flow_CHECKLIST_V7.md)
-- [GAS Checklist V6.2 Project Settings](./docs/GAS%20ChecklistV6.2_Project%20Settings.md)
+- [Flow Mapping – CHECKLIST V7.1.0R](./docs/Flow%20Mapping_CHECKLIST_V7.1.0R.MD)
+- [Functional Flow – CHECKLIST V7.1.0R](./docs/Functional%20Flow_CHECKLIST_V7.1.0R.MD)
+- [GAS Checklist V6.2 Project Settings](./docs/GAS%20Checklist_V6.2_Project_Settings.MD)
 - [Prompt – Current Version](./docs/Prompt_Current.md)
 
 ---
 
 ## ⚙️ Libraries
 - [HoBMasterLib – Duplicate.gs V1.3](./libraries/A.%20HoBMasterLib%20-%20Duplicate.gsV1.3.MD)
-- [MenuLib – V7.0.0](./libraries/B_MenuLib_V7.0.0.md)
-- [PopupLib – Code.gs V2.0.0R](./libraries/C_PopupLib_Code.gs_V2.0.0R.md)
-- [AdminToolsLib – V6.7.6](./libraries/D_AdminToolsLib_V6.7.6.md)
+- [MenuLib – V7.0.0](./libraries/B.%20MenuLib%20-%20MenuLib.gs%20_V7.0.0.MD)
+- [PopupLib – Code.gs V2.0.0R](./libraries/C.%20PopupLib%20-%20Code.gs_V2.0.0R.MD)
+- [AdminToolsLib – V6.7.6](./libraries/D.%20AdminToolsLib%20-%20AdminToolsLib.gs_V6.7.6.MD)
 
 ---
 
 ## 🧩 Scripts
-- [Checklist]scripts/1. CHECKLIST V6 - Checklist.gs_V7.1.0R.md)
-- [Blink Helper](./scripts/2_Blink.gs.md)
-- [Auto Duplicate / Delete Tabs](./scripts/3_AutoDupl_File&DeleteTabs.gs.md)
+- [CHECKLIST V6 – Checklist.gs V7.1.0R](./scripts/1.%20CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.MD)
+- [Blink Helper](./scripts/Blink%20Helper.MD)
+- [Auto Duplicate / Delete Tabs](./scripts/Auto%20Duplicate%20Delete%20Tabs.MD)
 
 ---
 

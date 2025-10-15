@@ -1,77 +1,51 @@
-# 🗂️ **INDEX – HoB CHECKLIST Documentation (V7.1.0R)**
-
-## 📘 Overview
-This index provides a complete documentation map for the **Hall of Brands CHECKLIST Automation System (V7.1.0R – Popup Restoration Build)**.  
-All references below point to the relevant Markdown files, libraries, and images within this repository.
+# 🧠 Hall of Brands – Checklist Knowledge Base (V7.1.0R)
+Centralized Index for all documentation, scripts, and libraries used in HoB automation systems.
 
 ---
 
-## 📁 Documentation (Docs/)
-| File | Description |
-|------|--------------|
-| [README.MD](../README.MD) | Main repository overview and architecture summary |
-| [notes_for_gpt.md](../notes_for_gpt.md) | GPT indexing context and knowledge base structure |
-| [Docs/GAS ChecklistV6.2_Project Settings.md](GAS%20ChecklistV6.2_Project%20Settings.md) | GAS configuration details, IDs, and permissions |
-| [Docs/Flow_Mapping_CHECKLIST_V7.md](Flow_Mapping_CHECKLIST_V7.md) | Technical flow mapping – triggers, libraries, dependencies |
-| [Docs/Functional_Flow_CHECKLIST_V7.md](Functional_Flow_CHECKLIST_V7.md) | Functional flow – user perspective and daily logic |
+## 📁 Documentation (`/docs`)
+- [Functional Flow – CHECKLIST V7](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Functional_Flow_CHECKLIST_V7.md)
+- [Flow Mapping – CHECKLIST V7](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Flow_Mapping_CHECKLIST_V7.md)
+- [GAS Checklist Project Settings (V6.2)](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/GAS%20ChecklistV6.2_Project%20Settings.md)
+- [Prompt Reference (Current)](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Prompt_Current.md)
+- [Images Folder](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs/Images)
 
 ---
 
-## 🧩 Libraries (Overview)
-| Library | Description | Version |
-|----------|--------------|----------|
-| `AdminToolsLib` | Central automation and workflow engine | V6.7.6 |
-| `PopupLib` | Custom popup, modal & fallback UI handling | V2.0.0 |
-| `MenuLib` | Dynamic HoB menu generator | V7.0.0 |
-| `HoBMastersLib` | Template duplication and master tab handler | V1.3 |
-| `DuplicateDeleteTABS` | Controlled file duplication and cleanup | V1.1 |
+## ⚙️ Libraries (`/libraries`)
+| Library | Version | File | Link |
+|----------|----------|------|------|
+| **HoBMastersLib** | V1.3 | A. HoBMasterLib - Duplicate.gsV1.3.MD | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/A.%20HoBMasterLib%20-%20Duplicate.gsV1.3.MD) |
+| **MenuLib** | V7.0.0 | B. MenuLib - MenuLib.gs _V7.0.0.MD | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/B.%20MenuLib%20-%20MenuLib.gs%20_V7.0.0.MD) |
+| **PopupLib** | V2.0.0R | C. PopupLib - Code.gs_V2.0.0R.MD | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/C.%20PopupLib%20-%20Code.gs_V2.0.0R.MD) |
+| **AdminToolsLib** | V6.7.6 | D. AdminToolsLib - AdminToolsLib.gs_V6.7.6.MD | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/D.%20AdminToolsLib%20-%20AdminToolsLib.gs_V6.7.6.MD) |
 
 ---
 
-## 🧱 Core Scripts
-| Script | Purpose |
-|---------|----------|
-| `Checklist.gs` | Main trigger handler (onOpen, onEdit, onInstall) |
-| `Blink.gs` | Visual user feedback (cell blinking, missing name alerts) |
-| `AutoDupl_File&DeleteTabs.gs` | Monthly duplication and cleanup routine |
+## 🧩 Scripts (`/scripts`)
+| Script | Version | Description | Link |
+|---------|----------|-------------|------|
+| **Checklist.gs** | V7.1.0R | Main entrypoint for store automation | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md) |
+| **Blink Helper** | — | UI feedback script | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/2CHECKLIST%20V6%20-%20Blink.gs.md) |
+| **Auto Duplicate / Delete Tabs** | — | Automates master duplication and cleanup | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/3CHECKLIST%20V6%20-%20AutoDupl_File%26DeleteTabs.gs.md) |
 
 ---
 
-## 🖼️ Visual References (Docs/Images/)
-| Diagram | File | Description |
-|----------|------|-------------|
-| **Core Script Structure** | `flow_core_script_structure.png` | Displays the global logic of `Checklist.gs` and library connections |
-| **Trigger Flow (onOpen / onEdit / Time)** | `flow_onOpen_onEdit_triggers.png` | Illustrates trigger-based flow of events |
-| **Inter-library Dependencies** | `flow_interlibrary_dependencies.png` | Shows dependency and communication between libraries |
+## 🗂 Root Files
+- [SYSTEM_OVERVIEW.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SYSTEM_OVERVIEW.md)
+- [index.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/index.md)
+- [notes_for_gpt.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/notes_for_gpt.md)
 
 ---
 
-## 🧠 Knowledge Base Metadata
-- **Main Context File:** `notes_for_gpt.md`  
-- **Tagging:** `[Category: HoB Automation / Checklist System / GAS Integration]`
-- **Knowledge Hierarchy:**
-  1. `Functional_Flow_CHECKLIST_V7.md` → operational flow reference  
-  2. `Flow_Mapping_CHECKLIST_V7.md` → technical mapping reference  
-  3. `GAS_ChecklistV6.2_Project_Settings.md` → configuration reference
+## 📌 Version Reference
+- **Checklist.gs** – V7.1.0R  
+- **AdminToolsLib** – V6.7.6  
+- **PopupLib** – V2.0.0R  
+- **MenuLib** – V7.0.0  
+- **HoBMastersLib** – V1.3  
 
 ---
 
-## 🕹️ Version Information
-| Component | Version | Date | Notes |
-|------------|----------|------|-------|
-| Checklist System | V7.1.0R | 13/10/2025 | Popup Restoration Build |
-| AdminToolsLib | V6.7.6 | 25/09/2025 | Stable automation build |
-| PopupLib | V2.0.0 | 07/10/2025 | Modal + native fallback |
-| MenuLib | V7.0.0 | 25/09/2025 | Dynamic menu builder |
-| HoBMastersLib | V1.3 | 25/09/2025 | Template duplication handler |
-
----
-
-## 🧾 Author & Credits
-**Author:** DEK – BD‑PM (Business Development & Project Manager)  
-**Organization:** Hall of Brands  
-**Email:** dek@beyondlimits.events  
-**Location:** Athens, Greece  
-**Revision Date:** 13 October 2025
-
-© 2025 Hall of Brands | Internal Developer Documentation Only
+Maintained by **ChecklistGPT V5.0** – Hall of Brands Automation Stack  
+(Last Updated: 15 Oct 2025)

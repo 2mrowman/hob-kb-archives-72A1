@@ -90,15 +90,9 @@ When connecting this repository to a Custom GPT (e.g. *ChecklistGPT V5.0*):
 **Maintained by ChecklistGPT V5.0 – Hall of Brands Automation Stack**  
 *Last Updated: 15 Oct 2025*
 
----
-
-### 🧾 For GPT Builder Connection
-When setting up a Custom GPT (e.g., *ChecklistGPT V5*):
-1. Open **Edit → Knowledge → Add URLs**  
-2. Paste this single link:  
-
 Knowledge Base Tagging:
 [Category: HoB Automation / Checklist System / GAS Integration]
+
 
 
 

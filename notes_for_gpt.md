@@ -90,10 +90,8 @@ When setting up a Custom GPT (e.g., *ChecklistGPT V5*):
 1. Open **Edit → Knowledge → Add URLs**  
 2. Paste this single link:  
 
-📅 **Last Updated:** 15 Oct 2025  
-🔖 **Maintainer:** DEK / Hall of Brands Automation System
-
 Knowledge Base Tagging:
 [Category: HoB Automation / Checklist System / GAS Integration]
+
 
 

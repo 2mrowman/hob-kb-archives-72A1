@@ -5,9 +5,9 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---
 
 ## 📁 Docs
-- [Flow Mapping – CHECKLIST V7.1.0R](./docs/Flow%20Mapping_CHECKLIST_V7.1.0R.MD)
-- [Functional Flow – CHECKLIST V7.1.0R](./docs/Functional%20Flow_CHECKLIST_V7.1.0R.MD)
-- [GAS Checklist V6.2 Project Settings](./docs/GAS%20Checklist_V6.2_Project_Settings.MD)
+- [Flow Mapping – CHECKLIST V7.1.0R](./docs/Flow_Mapping_CHECKLIST_V7.md)
+- [Functional Flow – CHECKLIST V7.1.0R](./docs/Functional_Flow_CHECKLIST_V7.md)
+- [GAS Checklist V6.2 Project Settings](./docs/GAS%20ChecklistV6.2_Project%20Settings.md)
 - [Prompt – Current Version](./docs/Prompt_Current.md)
 
 ---
@@ -21,9 +21,9 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---
 
 ## 🧩 Scripts
-- [CHECKLIST V6 – Checklist.gs V7.1.0R](./scripts/1.%20CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.MD)
-- [Blink Helper](./scripts/Blink%20Helper.MD)
-- [Auto Duplicate / Delete Tabs](./scripts/Auto%20Duplicate%20Delete%20Tabs.MD)
+- [CHECKLIST V6 – Checklist.gs V7.1.0R](./scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md)
+- [Blink Helper](./scripts/2CHECKLIST%20V6%20-%20Blink.gs.md)
+- [Auto Duplicate / Delete Tabs](./scripts/3CHECKLIST%20V6%20-%20AutoDupl_File%26DeleteTabs.gs.md)
 
 ---
 

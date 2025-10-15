@@ -13,7 +13,7 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---
 
 ## ⚙️ Libraries
-- [HoBMasterLib – Duplicate.gs V1.3](./libraries/A_HoBMasterLib_Duplicate.gs_V1.3.md)
+- [HoBMasterLib – Duplicate.gs V1.3](./libraries/A.%20HoBMasterLib%20-%20Duplicate.gsV1.3.MD)
 - [MenuLib – V7.0.0](./libraries/B_MenuLib_V7.0.0.md)
 - [PopupLib – Code.gs V2.0.0R](./libraries/C_PopupLib_Code.gs_V2.0.0R.md)
 - [AdminToolsLib – V6.7.6](./libraries/D_AdminToolsLib_V6.7.6.md)

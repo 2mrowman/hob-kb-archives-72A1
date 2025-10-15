@@ -7,8 +7,8 @@ on:
       - "docs/**"
       - "libraries/**"
       - "scripts/**"
-      - "index.md"
       - "update_index_links.py"
+      - ".github/workflows/auto-update.yml"
   workflow_dispatch:
 
 jobs:

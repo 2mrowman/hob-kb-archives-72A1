@@ -35,6 +35,9 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 
 ## 📘 Technical Reference
 - [System Overview – Full Documentation](./SYSTEM_OVERVIEW.md)
+
+- (test trigger)
+
 - [Notes for GPT Assistant](./notes_for_gpt.md)
 
 ---

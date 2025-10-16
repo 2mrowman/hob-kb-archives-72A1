@@ -1,4 +1,4 @@
-// Version: V7.1.0R – 08/10/2025 – Classic Stable Revert (based on V7.1.0)
+// Version: V7.1.1R – 16/10/2025 – Classic Stable Revert (based on V7.1.0)
 // Summary:
 // – Επιστροφή 1:1 στη σταθερή λογική του V7.1.0 (όπως δούλευε χθες).
 // – Απλό, ελαφρύ onOpen + δυναμικό μενού που φορτώνει όταν το πατήσεις.
@@ -53,37 +53,6 @@ function onOpen(e) {
   }
 }
 
-// ==========================
-// Δημιουργία νέας ημέρας (τοπικός wrapper όπως στο V7.1.0)
-// ==========================
-function createNewDay_AUTO_Local() {
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const todayName = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'dd/MM');
-    const existingSheet = ss.getSheetByName(todayName);
-
-    // Μικρή καθυστέρηση για να προλάβει να “σταθεί” το UI
-    Utilities.sleep(1500);
-
-    if (existingSheet) {
-      try { PopupLib.showInfoMessage('ℹ️ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>'); } catch (_) {}
-      return;
-    }
-
-    try { PopupLib.showInfoMessage('⏳ Δημιουργία νέας ημέρας σε εξέλιξη…'); } catch (_) {}
-
-    const templateTab = getTemplateTabFromHoBMasters_(); // μπορεί να επιστρέψει null (ασφαλές)
-    if (templateTab) {
-      AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
-    } else {
-      try { PopupLib.showErrorMessage('❌ Δεν βρέθηκε template στο HoB_Masters.'); } catch (_) {}
-    }
-  } catch (err) {
-    Logger.log('⚠️ createNewDay_AUTO_Local error: ' + err);
-  }
-}
-
-// ==========================
 // Ανάγνωση template από HoB_Masters/“Templates” (safe catch όπως στο V7.1.0)
 // ✅ Ανάγνωση template από HoB_Masters (διορθωμένη για full column scan A–C)
 // ==========================
@@ -124,8 +93,35 @@ function getTemplateTabFromHoBMasters() {
   }
 }
 
-
+// Δημιουργία νέας ημέρας (τοπικός wrapper όπως στο V7.1.0)
 // ==========================
+function createNewDay_AUTO_Local() {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const todayName = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'dd/MM');
+    const existingSheet = ss.getSheetByName(todayName);
+
+    // Μικρή καθυστέρηση για να προλάβει να “σταθεί” το UI
+    Utilities.sleep(1500);
+
+    if (existingSheet) {
+      try { PopupLib.showInfoMessage('ℹ️ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>'); } catch (_) {}
+      return;
+    }
+
+    try { PopupLib.showInfoMessage('⏳ Δημιουργία νέας ημέρας σε εξέλιξη…'); } catch (_) {}
+
+    const templateTab = getTemplateTabFromHoBMasters_(); // μπορεί να επιστρέψει null (ασφαλές)
+    if (templateTab) {
+      AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
+    } else {
+      try { PopupLib.showErrorMessage('❌ Δεν βρέθηκε template στο HoB_Masters.'); } catch (_) {}
+    }
+  } catch (err) {
+    Logger.log('⚠️ createNewDay_AUTO_Local error: ' + err);
+  }
+}
+
 // Trigger Setup (όπως στο V7.1.0 – + reminder κάθε 30’ αν θέλεις)
 // ==========================
 function installAllTriggers() {

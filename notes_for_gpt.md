@@ -75,8 +75,7 @@ https://github.com/2mrowman/hob-kb-archives-72A1
 | Script | Version | Link |
 |---------|----------|------|
 | **Checklist.gs** | V7.1.0R | [1CHECKLIST V6 - Checklist.gs_V7.1.0R.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md) |
-Raw file (for GPT indexing):  
-https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/main/scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md
+Raw file (for GPT indexing):  [https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/main/scripts/1CHECKLIST%20V6%20-%20Checklist.gs_V7.1.0R.md) | 
 | **Blink Helper** | — | [2CHECKLIST V6 - Blink.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/2CHECKLIST%20V6%20-%20Blink.gs.md) |
 | **Auto Duplicate / Delete Tabs** | — | [3CHECKLIST V6 - AutoDupl_File&DeleteTabs.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/3CHECKLIST%20V6%20-%20AutoDupl_File%26DeleteTabs.gs.md) |
 
@@ -97,6 +96,7 @@ When connecting this repository to a Custom GPT (e.g. *ChecklistGPT V5.0*):
 
 Knowledge Base Tagging:
 [Category: HoB Automation / Checklist System / GAS Integration]
+
 
 
 

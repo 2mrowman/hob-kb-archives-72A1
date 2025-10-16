@@ -29,6 +29,7 @@ Important:
 - Treat "Flow_Mapping_CHECKLIST_V7.md" as the technical map.
 - Treat "Functional_Flow_CHECKLIST_V7.md" as operational flow reference.
 
+| Chat History (continuous reference) | https://2mrowman.github.io/hob-kb-archives-72A1/docs/CHAT_HISTORY.pdf |
 
 ---
 # 🧠 Hall of Brands – GPT Knowledge Base (Central Index)
@@ -92,6 +93,7 @@ When connecting this repository to a Custom GPT (e.g. *ChecklistGPT V5.0*):
 
 Knowledge Base Tagging:
 [Category: HoB Automation / Checklist System / GAS Integration]
+
 
 
 

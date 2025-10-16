@@ -129,6 +129,7 @@ AutoDupl_File&DeleteTabs.gs
 ```
 
 ---
+![Dependency Map](https://2mrowman.github.io/hob-kb-archives-72A1/docs/Images/DEPENDENCY_MAP.png)
 
 ## 🧾 7. Dependencies Map (textual)
 

@@ -1,5 +1,6 @@
 // ==========================
 // HoB - Admin Tools Library
+// Version: V6.8.0 – 17.10.2025 – Added Universal Version Updater (updateVersionInfo_Universal)
 // Version: V6.7.6 – 30.09.2025 – Bugfixes (Drive addFile FileRef, wrappers) – no logic changes
 // ==========================
 //
@@ -237,3 +238,123 @@ function testAllPopupsFromAdmin() {
     Logger.log('Σφάλμα στο testAllPopupsFromAdmin: ' + err);
   }
 }
+
+// =====================================================================================
+// ADMINTOOLSLIB V6.8.0 — Universal Version Updater – 17.10.2025 – 13:55
+// =====================================================================================
+// 🔧 Function: updateVersionInfo_Universal()
+// Description:
+//  • Updates version header for ANY HoB script (Checklist, Blink, AutoDuplicate, etc.)
+//  • Automatically detects prefix (e.g. CHECKLIST / BLINK / AUTODUPLICATE).
+//  • Increments patch version (+0.0.1).
+//  • Updates build date & time.
+//  • Appends line to changelog block at the bottom.
+// =====================================================================================
+// Usage:
+//   1️⃣ Run → AdminToolsLib.updateVersionInfo_Universal()
+//   2️⃣ Type the script filename (e.g. Checklist.gs)
+//   3️⃣ Type a short description of the change
+//   4️⃣ The header and changelog update automatically
+// =====================================================================================
+
+function updateVersionInfo_Universal() {
+  const ui = SpreadsheetApp.getUi();
+  const promptFile = ui.prompt(
+    "🔧 Universal Version Updater",
+    "Πληκτρολόγησε το ακριβές όνομα του αρχείου (π.χ. Checklist.gs, Blink.gs):",
+    ui.ButtonSet.OK_CANCEL
+  );
+
+  if (promptFile.getSelectedButton() !== ui.Button.OK) return;
+  const filename = promptFile.getResponseText().trim();
+  if (!filename) return ui.alert("❌ Δεν δόθηκε όνομα αρχείου.");
+
+  const files = DriveApp.getFilesByName(filename);
+  if (!files.hasNext()) {
+    ui.alert(`❌ Δεν βρέθηκε αρχείο με όνομα "${filename}" στο Drive.`);
+    return;
+  }
+
+  const file = files.next();
+  const content = file.getBlob().getDataAsString();
+
+  // Detect prefix (CHECKLIST / BLINK / AUTODUPLICATE / HOBMASTERS / etc.)
+  const prefixMatch = content.match(/\/\/\s*([A-Z_]+)\s+V(\d+)\.(\d+)\.(\d+)/);
+  if (!prefixMatch) {
+    ui.alert("⚠️ Δεν βρέθηκε συμβατή γραμμή header (π.χ. // CHECKLIST Vx.x.x).");
+    return;
+  }
+
+  const prefix = prefixMatch[1];
+  const major = parseInt(prefixMatch[2], 10);
+  const minor = parseInt(prefixMatch[3], 10);
+  const patch = parseInt(prefixMatch[4], 10);
+
+  const newPatch = patch + 1;
+  const newVersion = `V${major}.${minor}.${newPatch}`;
+  const dateStr = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy – HH:mm");
+
+  const descPrompt = ui.prompt(
+    `Αρχείο: ${filename}\nPrefix: ${prefix}\nΤρέχουσα έκδοση: V${major}.${minor}.${patch}\nΝέα έκδοση: ${newVersion}\n\nΠληκτρολόγησε σύντομη περιγραφή αλλαγής:`,
+    ui.ButtonSet.OK_CANCEL
+  );
+  if (descPrompt.getSelectedButton() !== ui.Button.OK) return;
+  const desc = descPrompt.getResponseText().trim() || "(no description)";
+
+  // Build new header
+  const newHeader = `// ${prefix} ${newVersion} — ${dateStr}\n// ${desc}`;
+  const updated = content.replace(/\/\/\s*[A-Z_]+\s+V.*\n\/\/.*/, newHeader);
+
+  // Append changelog entry
+  const logLine = `// ${prefix} ${newVersion} — ${dateStr} — ${desc}\n`;
+  const newContent = updated + "\n" + logLine;
+
+  // Save new version
+  file.setContent(newContent);
+
+  ui.alert(`✅ ${prefix} ενημερώθηκε επιτυχώς!\n\nΈκδοση: ${newVersion}\nΠεριγραφή: ${desc}`);
+}
+
+// =====================================================================================
+// REMOTE CLIENT VERSION UPDATER (for use from Checklist menu)
+// =====================================================================================
+function updateVersionInfo_Remote_() {
+  const user = Session.getEffectiveUser().getEmail();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const owner = ss.getOwner().getEmail();
+  const allowed = "hobdeks@gmail.com";
+  if (user !== owner || user !== allowed) {
+    throw new Error("⛔ Μόνο ο ιδιοκτήτης μπορεί να ενημερώσει την έκδοση.");
+  }
+
+  const file = DriveApp.getFileById(ss.getId());
+  const content = file.getBlob().getDataAsString();
+  const versionRegex = /(\/\/\s*[A-Z_]+\s+V)(\d+)\.(\d+)\.(\d+)/;
+  const match = content.match(versionRegex);
+  if (!match) throw new Error("Δεν βρέθηκε γραμμή έκδοσης στο αρχείο.");
+
+  const prefix = match[1].replace(/\/|\s|V/g, "").trim();
+  const major = parseInt(match[2], 10);
+  const minor = parseInt(match[3], 10);
+  const patch = parseInt(match[4], 10) + 1;
+  const newVersion = `V${major}.${minor}.${patch}`;
+  const dateStr = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy – HH:mm");
+
+  const ui = SpreadsheetApp.getUi();
+  const prompt = ui.prompt(
+    "🧩 Ενημέρωση Έκδοσης",
+    "Γράψε σύντομη περιγραφή αλλαγής:",
+    ui.ButtonSet.OK_CANCEL
+  );
+  if (prompt.getSelectedButton() !== ui.Button.OK) return;
+  const desc = prompt.getResponseText().trim() || "(no description)";
+
+  const newHeader = `// ${prefix} ${newVersion} — ${dateStr}\n// ${desc}`;
+  const updated = content.replace(/\/\/\s*[A-Z_]+\s+V.*\n\/\/.*/, newHeader);
+  const logLine = `// ${prefix} ${newVersion} — ${dateStr} — ${desc}\n`;
+  const finalContent = updated + "\n" + logLine;
+
+  file.setContent(finalContent);
+  PopupLib.showSuccessMessage("✅ Ενημερώθηκε η έκδοση σε " + newVersion);
+}
+

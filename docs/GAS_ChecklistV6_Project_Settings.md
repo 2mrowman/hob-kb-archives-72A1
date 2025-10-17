@@ -1,5 +1,5 @@
 *Build: ${SHORT_SHA}*
-*Last updated: 17/10/2025 – 17:40 (Europe/Athens)*
+*Last updated: 17/10/2025 – 17:43 (Europe/Athens)*
 **CHECKLIST SETTINGS**
 
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)

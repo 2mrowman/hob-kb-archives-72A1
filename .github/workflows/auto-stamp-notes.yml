@@ -1,0 +1,54 @@
+name: Auto-stamp notes_for_gpt
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "notes_for_gpt.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stamp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Write Athens time + short SHA into notes_for_gpt.md
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          p="notes_for_gpt.md"
+          now=datetime.now(ZoneInfo("Europe/Athens")).strftime("%d/%m/%Y – %H:%M")
+          with open(p,"r",encoding="utf-8") as f:
+              t=f.read()
+          import re
+          def set_line(txt, key, val):
+              if key in txt:
+                  return re.sub(rf"(?im)^\*{key}.*$", f"*{key}: {val}*", txt)
+              else:
+                  return f"*{key}: {val}*\n"+txt
+          t=set_line(t,"Last updated", f"{now} (Europe/Athens)")
+          t=set_line(t,"Build", "${SHORT_SHA}")
+          with open(p,"w",encoding="utf-8") as f:
+              f.write(t)
+          PY
+
+      - name: Commit changes (if any)
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "kb-bot"
+            git config user.email "kb-bot@users.noreply.github.com"
+            git add notes_for_gpt.md
+            git commit -m "ci: auto-stamp notes_for_gpt (Last updated + Build)"
+            git push
+          else
+            echo "No changes to commit."
+          fi

@@ -17,10 +17,10 @@ It enables GPT-based systems and developers to:
 ## 📘 Libraries (`/libraries`)
 | Library | Type | Script ID | Description | Notes |
 |----------|------|------------|-------------|-------|
-| **HoBMastersLib** | Library | `1HOBM_LIB_MASTER_2025` | Core duplication & day-creation logic (Master Template functions). | Used in all Checklists. |
-| **MenuLib** | Library | `1xMENU_LIB_v7_HOB` | Dynamic menu builder for Checklist UI. | Called on `onOpen()` trigger. |
-| **PopupLib** | Library | `1xPOPUP_LIB_v2R` | Custom popup modal for user notifications. | Supports modal & alert styles. |
-| **AdminToolsLib** | Library | `1xADMTOOLS_v6_7_6` | Admin & protection utilities for Sheets. | Handles un/protect & sheet control. |
+| **HoBMastersLib** | Library | `1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI` | Core duplication & day-creation logic (Master Template functions). | Used in all Checklists. |
+| **MenuLib** | Library | `18liAb8q4WMrLheskvRq3XQz2y5_EM-J71Df0PsNsQMzlRRRQflCMgAul` | Dynamic menu builder for Checklist UI. | Called on `onOpen()` trigger. |
+| **PopupLib** | Library | `12dL6B4_pErrHEDQmFoxAu7jVdKGuzHjt-3NsVgernsqKpgrSXm86C329` | Custom popup modal for user notifications. | Supports modal & alert styles. |
+| **AdminToolsLib** | Library | `1ALGlsiH5xHvo_qLscY258CYsOqbYbCZ2HQKz6tl-qj-etV0p2v9r8cZx` | Admin & protection utilities for Sheets. | Handles un/protect & sheet control. |
 
 🟢 *All four libraries are permanently linked in every active CHECKLIST file (V6–V7 series).*
 

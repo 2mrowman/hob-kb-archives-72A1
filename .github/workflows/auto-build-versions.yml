@@ -1,0 +1,89 @@
+name: Build VERSIONS_INDEX (scripts + libraries)
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "scripts/**"
+      - "libraries/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+
+      - name: Build VERSIONS_INDEX.md
+        run: |
+          python - <<'PY'
+          import re, glob, os
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          ATH = ZoneInfo("Europe/Athens")
+
+          def extract_version(text):
+              # πιάνει μορφές: V7.2.1R, V7.2.1R3, V7.2R, V7.2.0
+              m = re.search(r"\bV\d+(?:\.\d+){0,2}R?\d*\b", text)
+              if m: return m.group(0)
+              # εναλλακτικό: header με "(V7.2.0R)"
+              m = re.search(r"\(V\d+(?:\.\d+){0,2}R?\d*\)", text)
+              if m: return m.group(0).strip("()")
+              # εναλλακτικό: _Version: Vx.y.zR_
+              m = re.search(r"_Version:\s*(V[0-9\.]+R?\d*)_", text, re.I)
+              if m: return m.group(1)
+              return "unknown"
+
+          def last_change(path):
+              # παίρνουμε short sha & χρόνο τελευταίου commit για το αρχείο
+              import subprocess
+              fmt = "%h|%cI"
+              out = subprocess.check_output(["git","log","-1",f"--format={fmt}","--",path], text=True).strip()
+              if not out: return "", ""
+              sha, iso = out.split("|")
+              ts = datetime.fromisoformat(iso.replace("Z","+00:00")).astimezone(ATH).strftime("%d/%m/%Y – %H:%M")
+              return sha, ts
+
+          rows = []
+          for folder in ("scripts","libraries"):
+              for p in sorted(glob.glob(f"{folder}/*.md")):
+                  name = os.path.basename(p)
+                  with open(p,"r",encoding="utf-8") as f:
+                      txt = f.read()
+                  ver = extract_version(txt)
+                  sha, ts = last_change(p)
+                  rows.append((folder, name, ver, ts, sha, p))
+
+          # φτιάχνουμε αρχείο
+          out = []
+          out.append("*Last updated: {} (Europe/Athens)*".format(datetime.now(ATH).strftime("%d/%m/%Y – %H:%M")))
+          out.append("*Build: {}*".format(os.environ.get("GITHUB_SHA","")[:7]))
+          out.append("\n# HoB — VERSIONS INDEX\n")
+          out.append("Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.\n")
+          out.append("| Type | File | Version | Last change (Athens) | Build | Path |")
+          out.append("|---|---|---|---|---|---|")
+          for typ, fname, ver, ts, sha, path in rows:
+              link = f"/{path}"
+              out.append(f"| {typ} | {fname} | `{ver}` | {ts} | `{sha}` | [{path}]({link}) |")
+
+          with open("VERSIONS_INDEX.md","w",encoding="utf-8") as f:
+              f.write("\n".join(out))
+          PY
+
+      - name: Commit VERSIONS_INDEX.md (if changed)
+        run: |
+          if [[ -n "$(git status --porcelain VERSIONS_INDEX.md)" ]]; then
+            git config user.name "KB-bot"
+            git config user.email "kb-bot@users.noreply.github.com"
+            git add VERSIONS_INDEX.md
+            git commit -m "ci: rebuild VERSIONS_INDEX (scripts + libraries)"
+            git push
+          else
+            echo "No changes to VERSIONS_INDEX.md"
+          fi

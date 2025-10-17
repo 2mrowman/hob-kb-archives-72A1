@@ -16,6 +16,7 @@ Welcome to the **Hall of Brands Automation & Checklist Repository**.
 - [/libraries/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/libraries) → Core Apps Script Libraries (MenuLib, PopupLib, AdminToolsLib, HoBMastersLib)  
 - [/scripts/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/scripts) → GAS Checklist, Blink, AutoDuplicate, Cleanup Scripts  
 - [/docs/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs) → Prompt, Model, Functional Flow & Mapping Documents  
+⚙️ [SCRIPT_IDS_INDEX.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SCRIPT_IDS_INDEX.md)
 
 ---
 

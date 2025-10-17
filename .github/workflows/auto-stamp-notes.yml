@@ -22,65 +22,66 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Write Athens time + short SHA into many files
+      - name: Write Athens time + Build hash into many files
+        env:
+          GITHUB_SHA: ${{ github.sha }}   # δίνει full SHA στο Python
         run: |
-          SHORT_SHA=$(git rev-parse --short HEAD)
           python - <<'PY'
           import re, glob, os
           from datetime import datetime
           from zoneinfo import ZoneInfo
-          ATH="Europe/Athens"
-          now = datetime.now(ZoneInfo(ATH)).strftime("%d/%m/%Y – %H:%M")
 
-          # Σταθεροί στόχοι (αν υπάρχουν στο repo)
+          ATH = "Europe/Athens"
+          now = datetime.now(ZoneInfo(ATH)).strftime("%d/%m/%Y – %H:%M")
+          sha = os.environ.get("GITHUB_SHA","")[:7]  # short SHA από το Actions
+
+          # Σταθεροί στόχοι (αν υπάρχουν)
           targets = [
             "notes_for_gpt.md",
             "index.md",
             "INDEX_Checklist_Docs.md",
             "RAW_LINKS_INDEX.md",
+            "README.md",
+            "SCRIPT_IDS_INDEX.md",
+            "SYSTEM_OVERVIEW.md",
           ]
 
-          # + Όλα τα .md από τους φακέλους
-          for g in ("docs/*.md","libraries/*.md","scripts/*.md"):
-              targets.extend(glob.glob(g))
+          # + όλα τα .md από φακέλους
+          for g in ("docs/*.md","libraries/*.md","scripts/*.md","*.md"):
+              for p in glob.glob(g):
+                  if os.path.isfile(p) and p.endswith(".md"):
+                      targets.append(p)
 
-          def stamp(path):
-              if not os.path.exists(path): 
-                  return
-              with open(path,"r",encoding="utf-8") as f:
-                  t=f.read()
-
-              def set_line(txt, key, val):
-                  pat = rf"(?im)^\*{key}\s*:\s*.*$"
-                  line = f"*{key}: {val}*"
-                  if re.search(pat, txt):
-                      return re.sub(pat, line, txt)
-                  # Αν δεν υπάρχει, βάλ’ το στην κορυφή (πάνω-πάνω)
-                  return line + "\n" + txt
-
-              t = set_line(t, "Last updated", f"{now} (Europe/Athens)")
-              t = set_line(t, "Build", "${SHORT_SHA}")
-
-              with open(path,"w",encoding="utf-8") as f:
-                  f.write(t)
-
-          # Αφαίρεσε διπλές εγγραφές κρατώντας σειρά/μοναδικότητα
+          # μοναδικοποίηση με διατήρηση σειράς
           seen=set(); ordered=[]
           for p in targets:
-              if p not in seen:
+              if p not in seen and os.path.exists(p):
                   seen.add(p); ordered.append(p)
 
-          for p in ordered:
-              stamp(p)
+          def set_or_prepend(txt, key, val):
+              # αντικαθιστά ολόκληρη τη γραμμή αν υπάρχει, αλλιώς την προσθέτει στην κορυφή
+              pat = rf"(?im)^\*{re.escape(key)}\s*:\s*.*$"
+              line = f"*{key}: {val}*"
+              if re.search(pat, txt):
+                  return re.sub(pat, line, txt)
+              return line + "\n" + txt
+
+          for path in ordered:
+              with open(path,"r",encoding="utf-8") as f:
+                  t=f.read()
+              t = set_or_prepend(t, "Last updated", f"{now} (Europe/Athens)")
+              t = set_or_prepend(t, "Build", sha)
+              with open(path,"w",encoding="utf-8") as f:
+                  f.write(t)
           PY
 
       - name: Commit changes (if any)
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "kb-bot"
+            git config user.name "KB-bot"
             git config user.email "kb-bot@users.noreply.github.com"
             git add -A
-            git commit -m "ci: auto-stamp KB (Last updated + Build)"
+            git commit -m "ci: auto-stamp KB (Last updated + Build) — fix SHA + include root .md"
             git push
           else
             echo "No changes to commit."

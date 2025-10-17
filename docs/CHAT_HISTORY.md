@@ -1,5 +1,5 @@
 *Build: ${SHORT_SHA}*
-*Last updated: 17/10/2025 – 17:49 (Europe/Athens)*
+*Last updated: 17/10/2025 – 17:50 (Europe/Athens)*
  PDF To Markdown Converter
 Debug View
 Result View

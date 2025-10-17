@@ -1,4 +1,4 @@
-*Last updated: 17/10/2025 – 17:49 (Europe/Athens)*
+*Last updated: 17/10/2025 – 17:50 (Europe/Athens)*
 *Build: ${SHORT_SHA}*
 
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)

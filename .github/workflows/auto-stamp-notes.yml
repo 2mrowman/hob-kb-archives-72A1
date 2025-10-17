@@ -4,11 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "notes_for_gpt.md"
-      - "index.md"
-      - "INDEX_Checklist_Docs.md"
-      - "RAW_LINKS_INDEX.md"
-      - "SYSTEM_OVERVIEW.md"
+      - "*.md"               # όλα τα .md στο root (README.md, SYSTEM_OVERVIEW.md, SCRIPT_IDS_INDEX.md, κ.λπ.)
       - "docs/**"
       - "libraries/**"
       - "scripts/**"

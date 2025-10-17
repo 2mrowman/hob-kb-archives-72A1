@@ -1,3 +1,6 @@
+*Last updated: TBD (Europe/Athens)*
+*Build: TBD*
+
 # 🧭 Hall of Brands – Checklist Knowledge Base
 Internal reference for HoB automations & libraries.  
 All documents, libraries, and scripts of the Checklist System (V7.1.0R).

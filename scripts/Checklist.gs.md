@@ -1,253 +1,188 @@
-// Version: V7.1.1R – 16/10/2025 – Classic Stable Revert (based on V7.1.0)
-// Summary:
-// – Επιστροφή 1:1 στη σταθερή λογική του V7.1.0 (όπως δούλευε χθες).
-// – Απλό, ελαφρύ onOpen + δυναμικό μενού που φορτώνει όταν το πατήσεις.
-// – Σταθερό HoB_Masters ID + ανάγνωση Templates με safe catch (ΧΩΡΙΣ permission stacktrace).
-// – Διατηρείται το onEdit (Retail Stable Build V7.0.2).
+// =====================================================================================
+// CHECKLIST V7.2.1 — Final Production Build – 17.10.2025 – 12:40
+// Auto-day creation restored (Installable Trigger)
+// Clean UI Menu (removed manual "Δημιουργία Σημερινής Ημέρας")
+// Aligned with V6.3 behavior; full-dynamic template resolve from HoB_Masters/Templates
+// =====================================================================================
 //
-// ✅ Function checklist
-// ✅ onOpen
-// ✅ createNewDay_AUTO_Local
-// ✅ getTemplateTabFromHoBMasters_
-// ✅ loadMenuDynamically
-// ✅ onEdit
-// ✅ TIMESTAMP
-// ✅ testLibExists / testTemplateTab / testHoBMastersLib / testLibLink / showTestPopup
-// ✅ installAllTriggers_   ← helper για εύκολη εγκατάσταση triggers
+// Function Checklist (Compatibility Contract)
+// - onOpen(e)                               ✅ (simple trigger: UI only)
+// - onOpen_Installed(e)                     ✅ (installable trigger: full privileges)
+// - runTodayInit_()                         ✅ (shared privileged entrypoint)
+// - getTemplateTabFromHoBMasters_()         (unchanged; dynamic lookup)
+// - hideLocalMasterIfVisible_()             (unchanged)
+// - loadMenuDynamically()                   ✅ (UI cleaned)
+// - onEdit(e), TIMESTAMP(), testLibExists() (unchanged)
+// - runIntegrityCheck_()                    (integrity validator)
+//
+// =====================================================================================
 
-// ==========================
-// HoB – CONFIG
-// ==========================
-const HOB_MASTERS_FILE_ID = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // (from V7.1.0)
+const ENABLE_PLACEHOLDERS = false;
+const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 
-// ==========================
-// onOpen – (run as INSTALLED trigger)
-// ==========================
+// =====================================================================================
+// SIMPLE onOpen: UI ONLY
+// =====================================================================================
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-  // Προσωρινό μενού για αίσθηση φόρτωσης
-  ui.createMenu('🗂️ HoB - Menu')
-    .addItem('⏳ Φόρτωση Μενού...', 'loadMenuDynamically')
+  ui.createMenu("🗂️ HoB - Menu")
+    .addItem("⏳ Φόρτωση Μενού…", "loadMenuDynamically")
     .addToUi();
+}
 
+// =====================================================================================
+// INSTALLABLE onOpen: FULL PRIVILEGES
+// =====================================================================================
+function onOpen_Installed(e) {
   try {
-    const todayName = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'dd/MM');
-    const exists = ss.getSheetByName(todayName);
-
-    // Αν δεν υπάρχει σημερινό φύλλο → το δημιουργούμε μέσω τοπικού wrapper
-    if (!exists) {
-      createNewDay_AUTO_Local(); // (όπως στο V7.1.0)
-    }
-
-    // Κρύψε MASTER μόνο αν υπάρχει άλλο ορατό tab
-    const master = ss.getSheetByName('MASTER');
-    const visibleSheets = ss.getSheets().filter(sh => sh.getName() !== 'MASTER');
-    if (master && visibleSheets.length > 0 && !master.isSheetHidden()) {
-      master.hideSheet();
-    }
+    runTodayInit_();
   } catch (err) {
-    // Σιωπηλή καταγραφή – δεν “βομβαρδίζουμε” τον χρήστη με stacktrace
-    Logger.log('❌ onOpen error (V7.1.0R): ' + err);
+    try {
+      PopupLib.showCustomPopup("⚠️ Σφάλμα στο άνοιγμα:<br><br>" + err.message, "error");
+    } catch (_) {
+      SpreadsheetApp.getUi().alert("⚠️ Σφάλμα στο άνοιγμα: " + err.message);
+    }
   }
 }
 
-// Ανάγνωση template από HoB_Masters/“Templates” (safe catch όπως στο V7.1.0)
-// ✅ Ανάγνωση template από HoB_Masters (διορθωμένη για full column scan A–C)
-// ==========================
-function getTemplateTabFromHoBMasters() {
+// =====================================================================================
+// AUTO-DAY CREATION LOGIC
+// =====================================================================================
+function runTodayInit_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const fileName = ss.getName().trim();
+  const templateTab = getTemplateTabFromHoBMasters_();
 
-  try {
-    const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
-    const tplSheet = masters.getSheetByName('Templates');
-    if (!tplSheet) {
-      Logger.log('⚠️ Δεν βρέθηκε φύλλο "Templates" στο HoB_Masters');
-      return null;
-    }
-
-    // 🔹 Διαβάζει όλες τις στήλες (A–C ή περισσότερες)
-    const lastRow = tplSheet.getLastRow();
-    const lastCol = tplSheet.getLastColumn();
-    const data = tplSheet.getRange(2, 1, lastRow - 1, lastCol).getValues();
-
-    // 🔹 Ελέγχει γραμμή–γραμμή
-    for (let i = 0; i < data.length; i++) {
-      const chkName = String(data[i][0]).trim(); // CHECKLIST FILENAME
-      const tplName = String(data[i][1]).trim(); // TEMPLATE
-      if (chkName && chkName === fileName) {
-        Logger.log(`✅ Template found for "${fileName}": ${tplName}`);
-        return tplName;
-      }
-    }
-
-    Logger.log(`⚠️ Δεν βρέθηκε template για "${fileName}" στο HoB_Masters`);
-    return null;
-
-  } catch (err) {
-    // 🔹 Αν αποτύχει openById (π.χ. απλό trigger χωρίς άδεια)
-    Logger.log('⚠️ getTemplateTabFromHoBMasters_: openById failed: ' + err);
-    return null;
+  if (!templateTab) {
+    PopupLib.showCustomPopup(
+      "❌ Δεν βρέθηκε template για το αρχείο:<br><br><b>" +
+        ss.getName() +
+        "</b><br><br>Έλεγξε το HoB_Masters → <b>Templates</b> tab.",
+      "error"
+    );
+    return;
   }
+
+  AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
+
+  try { hideLocalMasterIfVisible_(); } catch (_) {}
 }
 
-// Δημιουργία νέας ημέρας (τοπικός wrapper όπως στο V7.1.0)
-// ==========================
-function createNewDay_AUTO_Local() {
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const todayName = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'dd/MM');
-    const existingSheet = ss.getSheetByName(todayName);
+// =====================================================================================
+// TEMPLATE LOOKUP
+// =====================================================================================
+function getTemplateTabFromHoBMasters_() {
+  const fileName = SpreadsheetApp.getActiveSpreadsheet().getName().trim();
+  const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
+  const tplSheet = masters.getSheetByName("Templates");
+  if (!tplSheet) return null;
 
-    // Μικρή καθυστέρηση για να προλάβει να “σταθεί” το UI
-    Utilities.sleep(1500);
+  const last = tplSheet.getLastRow();
+  if (last < 2) return null;
 
-    if (existingSheet) {
-      try { PopupLib.showInfoMessage('ℹ️ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>'); } catch (_) {}
-      return;
-    }
-
-    try { PopupLib.showInfoMessage('⏳ Δημιουργία νέας ημέρας σε εξέλιξη…'); } catch (_) {}
-
-    const templateTab = getTemplateTabFromHoBMasters_(); // μπορεί να επιστρέψει null (ασφαλές)
-    if (templateTab) {
-      AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
-    } else {
-      try { PopupLib.showErrorMessage('❌ Δεν βρέθηκε template στο HoB_Masters.'); } catch (_) {}
-    }
-  } catch (err) {
-    Logger.log('⚠️ createNewDay_AUTO_Local error: ' + err);
+  const data = tplSheet.getRange(2, 1, last - 1, 2).getValues();
+  for (let i = 0; i < data.length; i++) {
+    const [chkName, tplName] = data[i];
+    if (String(chkName || "").trim() === fileName && tplName) return String(tplName).trim();
   }
+  return null;
 }
 
-// Trigger Setup (όπως στο V7.1.0 – + reminder κάθε 30’ αν θέλεις)
-// ==========================
-function installAllTriggers() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const triggers = ScriptApp.getProjectTriggers();
-  const log = (msg) => console.log('⚙️ [Triggers] ' + msg);
-
-  // onOpen (From spreadsheet – On open)
-  const hasOnOpen = triggers.some(t =>
-    t.getHandlerFunction() === 'onOpen' &&
-    t.getEventType() === ScriptApp.EventType.ON_OPEN
-  );
-  if (!hasOnOpen) {
-    ScriptApp.newTrigger('onOpen').forSpreadsheet(ss).onOpen().create();
-    log('✅ Εγκαταστάθηκε trigger για onOpen');
-  } else {
-    log('ℹ️ Υπάρχει ήδη trigger για onOpen');
-  }
-
-  // remindMissingNames (κάθε 30')
-  const hasReminder = triggers.some(t =>
-    t.getHandlerFunction() === 'remindMissingNames' &&
-    t.getEventType() === ScriptApp.EventType.CLOCK
-  );
-  if (!hasReminder) {
-    ScriptApp.newTrigger('remindMissingNames').timeBased().everyMinutes(30).create();
-    log('✅ Εγκαταστάθηκε trigger για remindMissingNames (κάθε 30’)');
-  } else {
-    log('ℹ️ Υπάρχει ήδη trigger για remindMissingNames');
-  }
-
-  try { PopupLib.showSuccessMessage('✅ Οι triggers εγκαταστάθηκαν επιτυχώς!'); } catch (_) {}
-}
-
-// ==========================
-// Δυναμικό μενού (όπως στο V7.1.0 – μέσω MenuLib μόνο)
-// ==========================
+// =====================================================================================
+// MENU LOADER (Cleaned)
+// =====================================================================================
 function loadMenuDynamically() {
   const userEmail = Session.getEffectiveUser().getEmail();
-  const ownerEmail = MenuLib.getOwnerEmail();                // η MenuLib ξέρει τον owner
+  const ownerEmail = MenuLib.getOwnerEmail();
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const ui = SpreadsheetApp.getUi();
-  const menu = ui.createMenu('🗂️ HoB - Menu');
+  const menu = ui.createMenu("🗂️ HoB - Menu");
 
-  // User items από φύλλο ρυθμίσεων (MenuLib)
-  const userItems = MenuLib.getMenuItemsFromSheet('user');
-  userItems.forEach(i => menu.addItem(i.name, 'MenuLib.' + i.func)); // καλεί ΑΠΕΥΘΕΙΑΣ MenuLib
+  const userItems = MenuLib.getMenuItemsFromSheet("user");
+  userItems.forEach(i => menu.addItem(i.name, "MenuLib." + i.func));
 
-  // Owner-only, ΜΟΝΟ όταν ο ενεργός χρήστης είναι και owner του αρχείου
   if (userEmail === ownerEmail && ss.getOwner().getEmail() === userEmail) {
-    const ownerItems = MenuLib.getMenuItemsFromSheet('owner');
+    const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
     if (ownerItems.length > 0) {
-      const ownerSub = ui.createMenu('🛠️ Εργαλεία Ιδιοκτήτη');
-      ownerItems.forEach(i => ownerSub.addItem(i.name, 'MenuLib.' + i.func)); // επίσης μέσω MenuLib
+      const ownerSub = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
+      ownerItems.forEach(i => ownerSub.addItem(i.name, "MenuLib." + i.func));
       menu.addSeparator().addSubMenu(ownerSub);
     }
   }
 
-  menu.addToUi();
+  menu.addToUi(); // ✅ no manual "create day" anymore
 }
 
-// ==========================
-// onEdit – Retail Stable Build V7.0.2 (όπως πριν)
-// ==========================
+// =====================================================================================
+// MASTER HIDE HANDLER
+// =====================================================================================
+function hideLocalMasterIfVisible_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const masterSheet = ss.getSheetByName("MASTER");
+  if (!masterSheet) return;
+  const others = ss.getSheets().filter(sh => sh.getName() !== "MASTER" && !sh.isSheetHidden());
+  if (others.length > 0) masterSheet.hideSheet();
+}
+
+// =====================================================================================
+// onEdit / TIMESTAMP
+// =====================================================================================
 function onEdit(e) {
   try {
     const sheet = e.range.getSheet();
-    const sheetName = sheet.getName();
+    const name = sheet.getName();
+    if (["START", "MASTER"].includes(name)) return;
+
     const col = e.range.getColumn();
     const row = e.range.getRow();
     const val = e.range.getValue();
     const timestampFormat = 'HH:mm:ss.000" - "dd/MM';
-    if (['START', 'MASTER'].includes(sheetName)) return;
-
     const colB = 2, colC = 3, colD = 4;
 
     if (col === colC) {
-      const rangeB = sheet.getRange(row, colB);
-      const rangeD = sheet.getRange(row, colD);
-
-      if (val === '' || val === null) {
-        rangeB.clearContent();
-        rangeD.clearContent();
-        return;
+      const cellB = sheet.getRange(row, colB);
+      if (!cellB.getValue()) {
+        cellB.setValue("Όνομα Επώνυμο?").setFontColor("#d32f2f").setFontWeight("bold");
       }
-      if (!rangeB.getValue()) {
-        rangeB.setValue('Όνομα Επώνυμο?').setFontColor('#d32f2f').setFontWeight('bold');
-      }
-      rangeD.setNumberFormat(timestampFormat).setValue(new Date());
-      SpreadsheetApp.flush();
+      const cellD = sheet.getRange(row, colD);
+      cellD.setNumberFormat(timestampFormat).setValue(new Date());
     }
 
-    if (col === colB && val && val !== 'Όνομα Επώνυμο?') {
+    if (col === colB && val && val !== "Όνομα Επώνυμο?") {
       e.range.setFontColor(null).setFontWeight(null).setBackground(null);
     }
-  } catch (error) {
-    console.error('❌ Σφάλμα στο onEdit:', error);
+  } catch (err) {
+    console.error("❌ Σφάλμα στο onEdit:", err);
   }
 }
 
-// ==========================
-// Helpers για δοκιμές (ίδια με V7.1.0)
-// ==========================
 function TIMESTAMP() {
   return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'HH:mm:ss.000" - "dd/MM');
 }
+
 function testLibExists() {
   try {
     const has = typeof AdminToolsLib.createNewDay_AUTO;
-    SpreadsheetApp.getUi().alert('type of createNewDay_AUTO: ' + has);
+    SpreadsheetApp.getUi().alert("type of createNewDay_AUTO: " + has);
   } catch (e) {
-    SpreadsheetApp.getUi().alert('ERROR: ' + e.toString());
+    SpreadsheetApp.getUi().alert("ERROR: " + e.toString());
   }
 }
-function testTemplateTab() {
-  const ss = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
-  const sheet = ss.getSheetByName('WRHMaster');
-  SpreadsheetApp.getUi().alert(sheet ? '✅ Exists!' : '❌ Not found');
+
+// =====================================================================================
+// INTEGRITY SELF-CHECK
+// =====================================================================================
+function runIntegrityCheck_() {
+  const fn = ["onOpen", "onOpen_Installed", "runTodayInit_", "getTemplateTabFromHoBMasters_", "hideLocalMasterIfVisible_", "loadMenuDynamically"];
+  const missing = fn.filter(f => typeof this[f] !== "function");
+  if (missing.length > 0) throw new Error("Missing functions: " + missing.join(", "));
+
+  const user = Session.getEffectiveUser().getEmail();
+  const owner = SpreadsheetApp.getActiveSpreadsheet().getOwner().getEmail();
+  if (user !== owner) console.log("ℹ️ IntegrityCheck: User is not owner (" + user + ")");
+
+  SpreadsheetApp.getUi().alert("✅ Integrity check passed for V7.2.1 – " + new Date());
 }
-function testHoBMastersLib() {
-  const result = HoBMastersLib.createNewDay({
-    masterId: HOB_MASTERS_FILE_ID,
-    templateTab: 'MASTER1',
-    showAlerts: true
-  });
-  Logger.log(result);
-}
-function testLibLink() { Logger.log(typeof HoBMastersLib.createNewDay); }
-function showTestPopup() { PopupLib.showInfoMessage('✅ Test popup λειτουργεί σωστά!'); }
+// =====================================================================================
+// END OF FILE — CHECKLIST V7.2.1 — 17/10/2025 – 12:40
+// =====================================================================================

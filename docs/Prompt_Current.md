@@ -1,3 +1,5 @@
+*Build: ${SHORT_SHA}*
+*Last updated: 17/10/2025 – 17:35 (Europe/Athens)*
 # Prompt – Current Version
 
 **Version:** V1.0 – 14/10/2025  

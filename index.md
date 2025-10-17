@@ -1,3 +1,5 @@
+*Build: ${SHORT_SHA}*
+*Last updated: 17/10/2025 – 17:35 (Europe/Athens)*
 # Hall of Brands – Knowledge Base (Central Entry)
 
 Welcome to the **Hall of Brands Automation & Checklist Repository**.

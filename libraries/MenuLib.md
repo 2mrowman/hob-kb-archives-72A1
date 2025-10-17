@@ -1,14 +1,19 @@
-// HoB - Menu Library (Dynamic Version)
-// Version: V7.0.0 – 07/10/2025 – Owner Visibility Fix + Session Flush
-// ==========================
+// =====================================================================================
+// HoB - Menu Library
+// Version: V7.2.0 – 17/10/2025 – Cleaned menu loader + Owner submenu with version updater
+// =====================================================================================
+//
 // ✅ Functions included in this version:
 // getOwnerEmail
 // getMenuItemsFromSheet
-// loadMenuDynamically
+// loadMenuDynamically (cleaned)
 // getTemplateTabFromHoBMasters_
 // User Tools (openNeaParalaviForm … openForm_EmailsList)
 // openUrlInNewTab
 // Wrappers (AdminToolsLib, PopupLib, HoBMastersLib)
+// createNewDayFromMenu
+// updateVersionFromMenu
+// =====================================================================================
 
 // --------------------------
 // Constants
@@ -22,6 +27,32 @@ const MENU_SHEET_NAME     = 'Menu';
 // --------------------------
 function getOwnerEmail() {
   return "hobdeks@gmail.com";
+}
+
+// =====================================================================================
+// MENU LOADER (Cleaned)
+// =====================================================================================
+function loadMenuDynamically() {
+  const userEmail = Session.getEffectiveUser().getEmail();
+  const ownerEmail = MenuLib.getOwnerEmail();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ui = SpreadsheetApp.getUi();
+  const menu = ui.createMenu("🗂️ HoB - Menu");
+
+  const userItems = MenuLib.getMenuItemsFromSheet("user");
+  userItems.forEach(i => menu.addItem(i.name, "MenuLib." + i.func));
+
+  if (userEmail === ownerEmail && ss.getOwner().getEmail() === userEmail) {
+    const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
+    if (ownerItems.length > 0) {
+      const ownerSub = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
+      ownerItems.forEach(i => ownerSub.addItem(i.name, "MenuLib." + i.func));
+      ownerSub.addItem("🧩 Ενημέρωση Έκδοσης Script", "MenuLib.updateVersionFromMenu"); // ✅ new entry
+      menu.addSeparator().addSubMenu(ownerSub);
+    }
+  }
+
+  menu.addToUi(); // ✅ fully dynamic (no hardcoded items)
 }
 
 // --------------------------
@@ -64,48 +95,6 @@ function getMenuItemsFromSheet(menuType) {
 }
 
 // --------------------------
-// Dynamic menu loader (Owner-safe + Session Flush)
-// --------------------------
-function loadMenuDynamically() {
-  var lock = LockService.getDocumentLock();
-  if (!lock.tryLock(5000)) return;
-
-  try {
-    var ui = SpreadsheetApp.getUi();
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var userEmail = Session.getEffectiveUser().getEmail();
-    var realOwner = ss.getOwner().getEmail();
-    var ownerEmail = getOwnerEmail();
-
-    SpreadsheetApp.flush(); // ✅ συγχρονισμός session για αποφυγή race condition
-
-    var menu = ui.createMenu("🗂️ HoB - Menu");
-
-    // --- User Menu ---
-    var userItems = getMenuItemsFromSheet("user");
-    userItems.forEach(function (item) {
-      if (item.name && item.func) menu.addItem(item.name, item.func);
-    });
-
-    // --- Owner Menu (μόνο για πραγματικό Owner) ---
-    if (userEmail === realOwner && userEmail === ownerEmail) {
-      menu.addSeparator();
-      var ownerMenu = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
-      var ownerItems = getMenuItemsFromSheet("owner");
-      ownerItems.forEach(function (item) {
-        if (item.name && item.func) ownerMenu.addItem(item.name, item.func);
-      });
-      menu.addSubMenu(ownerMenu);
-    }
-
-    menu.addToUi();
-
-  } finally {
-    try { lock.releaseLock(); } catch (_) {}
-  }
-}
-
-// --------------------------
 // Lookup template from HoB_Masters/Templates
 // --------------------------
 function getTemplateTabFromHoBMasters_() {
@@ -117,8 +106,6 @@ function getTemplateTabFromHoBMasters_() {
   if (!tplSheet) return null;
 
   const data = tplSheet.getRange(2, 1, tplSheet.getLastRow() - 1, 3).getValues();
-  // Columns: A=CHECKLIST FILENAME, B=TEMPLATE, C=FILE ID
-
   for (let i = 0; i < data.length; i++) {
     const [chkName, tplName] = data[i];
     if (chkName && String(chkName).trim() === fileName) {
@@ -129,7 +116,7 @@ function getTemplateTabFromHoBMasters_() {
 }
 
 // --------------------------
-// User Tools (Links)
+// User Tools (Forms / Links)
 // --------------------------
 function openNeaParalaviForm() { openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8kO0/edit?usp=sharing"); }
 function openSakoulesForm() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing"); }
@@ -153,7 +140,7 @@ function openUrlInNewTab(url) {
 }
 
 // --------------------------
-// Wrappers
+// Wrappers (AdminToolsLib / PopupLib / HoBMastersLib)
 // --------------------------
 function clearAllNotesFromMenu() { AdminToolsLib.clearAllNotes(); }
 function debugUserContextFromMenu() { AdminToolsLib.debugUserContext(); }
@@ -180,5 +167,26 @@ function createNewDayFromMenu() {
     AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab); // ✅ Proxy call
   } catch (err) {
     PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu:<br>" + err);
+  }
+}
+
+// --------------------------
+// ✅ Owner-only: Trigger Version Updater
+// --------------------------
+function updateVersionFromMenu() {
+  const user = Session.getEffectiveUser().getEmail();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const owner = ss.getOwner().getEmail();
+  const allowed = getOwnerEmail();
+
+  if (user !== owner || user !== allowed) {
+    PopupLib.showErrorMessage("⛔ Μόνο ο ιδιοκτήτης (" + allowed + ") μπορεί να ενημερώσει την έκδοση.");
+    return;
+  }
+
+  try {
+    AdminToolsLib.updateVersionInfo_Remote_();
+  } catch (err) {
+    PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση:<br><br>" + err.message);
   }
 }

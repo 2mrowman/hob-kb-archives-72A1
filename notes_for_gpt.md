@@ -1,3 +1,6 @@
+*Last updated: TBD (Europe/Athens)*
+*Build: TBD*
+
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.
@@ -93,4 +96,5 @@ When validating access, the GPT Model should confirm:
 
 **Maintained by:** ChecklistGPT V5.0  
 **Repository:** [https://github.com/2mrowman/hob-kb-archives-72A1](https://github.com/2mrowman/hob-kb-archives-72A1)
+
 

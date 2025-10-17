@@ -1,5 +1,5 @@
 *Build: ${SHORT_SHA}*
-*Last updated: 17/10/2025 – 17:43 (Europe/Athens)*
+*Last updated: 17/10/2025 – 17:49 (Europe/Athens)*
 # 📘 Hall of Brands – RAW LINKS INDEX
 Κεντρική αναφορά όλων των RAW URL για χρήση από GPT Models, Apps Script και n8n integrations.  
 _Last updated: 16/10/2025_

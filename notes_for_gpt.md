@@ -25,9 +25,14 @@ The GPT Model should read from the following Markdown documents and use them as 
 ## 📁 Documentation (`/docs`)
 All project-related documentation and visual mapping files are stored in `/docs/`.  
 These include:
-- `Functional_Flow_CHECKLIST_V7.md` → Functional overview  
-- `Flow_Mapping_CHECKLIST_V7.md` → Process diagrams  
-- `GAS_ChecklistV6_Project_Settings.md` → Technical configuration  
+- [Functional_Flow_CHECKLIST_V7.md](/docs/Functional_Flow_CHECKLIST_V7.md)  
+  *(raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Functional_Flow_CHECKLIST_V7.md)*
+- [Flow_Mapping_CHECKLIST_V7.md](/docs/Flow_Mapping_CHECKLIST_V7.md)  
+  *(raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V7.md)*
+- [GAS_ChecklistV6_Project_Settings.md](/docs/GAS_ChecklistV6_Project_Settings.md)  
+  *(raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md)*
+- [Prompt_Current.md](/docs/Prompt_Current.md)
+ 
 - `Prompt_Current.md` → Active prompt version reference  
 
 📍 *For historical conversation context:*  
@@ -88,3 +93,4 @@ When validating access, the GPT Model should confirm:
 
 **Maintained by:** ChecklistGPT V5.0  
 **Repository:** [https://github.com/2mrowman/hob-kb-archives-72A1](https://github.com/2mrowman/hob-kb-archives-72A1)
+

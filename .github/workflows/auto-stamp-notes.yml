@@ -8,6 +8,7 @@ on:
       - "index.md"
       - "INDEX_Checklist_Docs.md"
       - "RAW_LINKS_INDEX.md"
+      - "SYSTEM_OVERVIEW.md"
       - "docs/**"
       - "libraries/**"
       - "scripts/**"

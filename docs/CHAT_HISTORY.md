@@ -1,5 +1,5 @@
-*Build: eac0d38*
-*Last updated: 18/10/2025 – 13:34 (Europe/Athens)*
+*Build: a3e5638*
+*Last updated: 18/10/2025 – 13:35 (Europe/Athens)*
  PDF To Markdown Converter
 Debug View
 Result View

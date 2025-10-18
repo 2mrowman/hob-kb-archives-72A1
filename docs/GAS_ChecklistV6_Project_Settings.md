@@ -1,5 +1,5 @@
-*Build: eac0d38*
-*Last updated: 18/10/2025 – 13:34 (Europe/Athens)*
+*Build: a3e5638*
+*Last updated: 18/10/2025 – 13:35 (Europe/Athens)*
 **CHECKLIST SETTINGS**
 
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)

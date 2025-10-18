@@ -1,5 +1,5 @@
-*Build: 318d9b0*
-*Last updated: 18/10/2025 – 11:45 (Europe/Athens)*
+*Build: f2b5ce6*
+*Last updated: 18/10/2025 – 13:32 (Europe/Athens)*
 // Version: V2.0.0R – 07/10/2025 – Native Fallback Edition (PopupLib): custom modal όπου είναι εφικτό + αυτόματο fallback σε native alert/toast όταν δεν υπάρχει ενεργό UI context
 
 /**

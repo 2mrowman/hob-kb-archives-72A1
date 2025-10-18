@@ -1,5 +1,5 @@
-*Last updated: 18/10/2025 – 11:39 (Europe/Athens)*
-*Build: 30b7dd5*
+*Last updated: 18/10/2025 – 11:41 (Europe/Athens)*
+*Build: 95c45a5*
 
 
 # ⚙️ SCRIPT_IDS_INDEX.md – Hall of Brands Automation Stack

@@ -1,5 +1,5 @@
-*Build: 30b7dd5*
-*Last updated: 18/10/2025 – 11:39 (Europe/Athens)*
+*Build: 95c45a5*
+*Last updated: 18/10/2025 – 11:41 (Europe/Athens)*
 # Prompt – Current Version
 
 **Version:** V1.0 – 14/10/2025  

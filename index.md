@@ -1,4 +1,4 @@
-*Build: 5701479*
+*Build: eac0d38*
 *Last updated: 18/10/2025 – 13:34 (Europe/Athens)*
 # Hall of Brands – Knowledge Base (Central Entry)
 

@@ -35392,4 +35392,6 @@ function runIntegrityCheck_() { const checks = [ "createNewDay_AUTO", "updateVer
 This is a offline tool, your data stays locally and is not send to any server!
 
 Feedback & Bug Reports
+
+
 18/10/2025 - Summary DEK

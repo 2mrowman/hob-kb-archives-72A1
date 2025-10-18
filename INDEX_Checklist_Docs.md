@@ -1,5 +1,5 @@
 *Last updated: 18/10/2025 – 13:32 (Europe/Athens)*
-*Build: f2b5ce6*
+*Build: 40bc1b3*
 
 # 🧠 Hall of Brands – Checklist Knowledge Base (V7.2.0R)
 Centralized index for all documentation, scripts, and libraries used in the Hall of Brands automation systems.  

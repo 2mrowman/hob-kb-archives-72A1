@@ -1,5 +1,5 @@
-*Build: b6137ac*
-*Last updated: 18/10/2025 – 11:35 (Europe/Athens)*
+*Build: 30b7dd5*
+*Last updated: 18/10/2025 – 11:39 (Europe/Athens)*
 // =====================================================================================
 // CHECKLIST V7.2.1 — Final Production Build – 17.10.2025 – 12:40
 // Auto-day creation restored (Installable Trigger)

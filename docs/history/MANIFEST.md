@@ -1,6 +1,9 @@
 # CHAT_HISTORY manifest (newest first, MD only)
-
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_8.md
 - https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_7.md
 - https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_6.md
 - https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_5.md
-- ...
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_4.md
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_3.md
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_2.md
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_1.md

@@ -1,10 +1,9 @@
-*Last updated: 19/10/2025 – 09:12 (Europe/Athens)*
+*Last updated: 19/10/2025 – 10:37 (Europe/Athens)*
 *Build: 789e6ef*
-
 
 # ⚙️ SCRIPT_IDS_INDEX.md – Hall of Brands Automation Stack
 Centralized reference of all **Google Apps Script** and **Library IDs** used across the HoB ecosystem.  
-_Last Updated: 17 Oct 2025_  
+_Last Updated: 19 Oct 2025_  
 _Version: V1.0.0R_  
 
 ---
@@ -37,7 +36,7 @@ It enables GPT-based systems and developers to:
 | **HoB_Masters_Template** | Script | `1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI` | Main Master Template used in all Checklists. | Basis for V6–V7 builds. |
 | **1. CHECKLIST V6 Template (RENTIHOBTEST)** | Script | `1_BWHcIAGz3Jvwj00tB493Q9CKgOdq5ydr4tMmK6cmzA` | Store test version used for RENTIHOB workflow. | Reference for integration testing. |
 | **GLYHOBTEST** | Script | `1S02d3Cdh88UMbmDtix6eHEirMpcAkx22X6lpBCWR37c` | Store test version for Glyfada store. | Mirrors RENTIHOBTEST structure. |
-| **CHECKLIST V7 Active (Main)** | Script | _To be assigned_ | Production template for 2025 rollout. | Linked with all libraries above. |
+| **CHECKLIST V7 Active (Main)** | Script | `1djJdbfzqQHvoQODevC61P-DoKvUW7cz90noZPrUGIYoFR_2qX3m4O4S0` | Production template for 2025 rollout. | **Active** – Updated: 19/10/2025. |
 
 ---
 
@@ -78,6 +77,5 @@ It enables GPT-based systems and developers to:
 ---
 
 **Maintained by:** ChecklistGPT V5.0  
-**Repository:** [https://github.com/2mrowman/hob-kb-archives-72A1](https://github.com/2mrowman/hob-kb-archives-72A1)  
+**Repository:** https://github.com/2mrowman/hob-kb-archives-72A1  
 **Document ID:** SCRIPT_IDS_INDEX.md – V1.0.0R
-

@@ -5,14 +5,6 @@
 *Build:* 6427626
 
 
-
-*
-
-
-
-*
-
-
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.
 
@@ -51,7 +43,7 @@ These include:
 ---
 ## ⚙️ Libraries (`/libraries`)
 Core Apps Script libraries referenced across all checklists:
-| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md |
+- AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md
 | HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md |
 | MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md |
 | PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md |

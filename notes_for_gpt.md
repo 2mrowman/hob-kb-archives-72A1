@@ -92,6 +92,7 @@ When validating access, the GPT Model should confirm:
   `https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/main/notes_for_gpt.md`
 - It recognizes the full folder tree: `/docs`, `/libraries`, `/scripts`.
 
+
 ---
 
 **Maintained by:** ChecklistGPT V5.0  

@@ -1,5 +1,5 @@
-*Last updated: 19/10/2025 – 10:38 (Europe/Athens)*
-*Build: 7544fcd*
+*Last updated: 19/10/2025 – 10:46 (Europe/Athens)*
+*Build: 8cdd241*
 
 # 🧭 Hall of Brands – Checklist Knowledge Base
 Internal reference for HoB automations & libraries.  

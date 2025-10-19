@@ -1,12 +1,13 @@
-﻿*Build: dc10d44*
+*Last updated:* 19/10/2025 – 13:24 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:24 (DEV-only)
+*Build:* 7c7f1c2
+﻿*
 *Last updated: 18/10/2025 – 08:43 (Europe/Athens)*
  PDF To Markdown Converter
 Debug View
 Result View
 # 1Checklistsetup
-*Last updated:* 19/10/2025 – 13:06 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:06 (DEV-only)
-*Build:* ae82683
+*
 
 Θα περιμένεις πρώτα να σου δώσω όλα τα αρχεία και όταν θα σου πω «ολοκλήρωσα» και θέλω να μου πεις
 αυτό, τότε θα συνεχίσεις

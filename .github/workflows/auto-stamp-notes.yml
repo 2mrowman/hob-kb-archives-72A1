@@ -26,40 +26,34 @@ jobs:
           SHA="${GITHUB_SHA::7}"
           printf "NOW=%s\nSHA=%s\n" "$NOW" "$SHA" >> $GITHUB_ENV
 
-      - name: Update all Markdown headers
+           - name: Update all Markdown headers
         shell: bash
         run: |
           set -euo pipefail
           update_file() {
             local f="$1"
-            # 1) Εντόπισε πρώτη γραμμή τίτλου (H1) ή αλλιώς την 1η γραμμή
-            local insert_line
-            if grep -n -m1 '^# ' "$f" >/dev/null; then
-              insert_line=$(grep -n -m1 '^# ' "$f" | cut -d: -f1)
-            else
-              insert_line=1
-            fi
+            local insert_line; insert_line=$(grep -n -m1 '^# ' "$f" | cut -d: -f1 || echo 1)
 
-            # 2) Γράμμες-στόχοι (πλάγια όπως ζήτησες)
+            # Targets (πλάγια όπως ζήτησες)
             local LU="*Last updated:* ${NOW} (Europe/Athens)"
             local LS="*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
             local BL="*Build:* ${SHA}"
 
-            # 3) Αντικατάσταση αν υπάρχουν· αλλιώς εισαγωγή κάτω από τον τίτλο
+            # Καθάρισε τυχόν inline Build μετά το 'Last updated:'
+            sed -i "1,20{s/[[:space:]]*Build:.*$//}" "$f"
+
+            # Αντικατάσταση υπαρχόντων headers
             sed -i "1,20{/^\*Last updated:\*/s#^.*#${LU}#}" "$f" || true
             sed -i "1,20{/^\*Last synced with VERSIONS_INDEX\.md:\*/s#^.*#${LS}#}" "$f" || true
             sed -i "1,20{/^\*Build:\*/s#^.*#${BL}#}" "$f" || true
 
-            # Έλεγχος αν λείπουν και τα τρία -> εισαγωγή στοχευμένα
+            # Εισαγωγή αν λείπουν (κάτω από το H1)
             grep -q '^\*Last updated:\*' "$f" || sed -i "$((insert_line+1)) i ${LU}" "$f"
             grep -q '^\*Last synced with VERSIONS_INDEX\.md:\*' "$f" || sed -i "$((insert_line+2)) i ${LS}" "$f"
             grep -q '^\*Build:\*' "$f" || sed -i "$((insert_line+3)) i ${BL}" "$f"
           }
+          while IFS= read -r f; do update_file "$f"; done < <(git ls-files '*.md')
 
-          # Επεξεργασία όλων των .md
-          while IFS= read -r f; do
-            update_file "$f"
-          done < <(git ls-files '*.md')
 
       - name: Commit & push stamps
         run: |

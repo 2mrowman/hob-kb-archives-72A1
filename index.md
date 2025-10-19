@@ -16,11 +16,14 @@ Welcome to the **Hall of Brands Automation & Checklist Repository**.
 
 ---
 
-## ⚙️ Key Library Folders
-- [/libraries/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/libraries) → Core Apps Script Libraries  
-  *(MenuLib, PopupLib, AdminToolsLib, HoBMastersLib)*  
-- [/scripts/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/scripts) → GAS Checklist, Blink, AutoDuplicate, Cleanup Scripts  
-- [/docs/](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs) → Prompt, Model, Functional Flow & Mapping Documents  
+## 🗂 Key Library Folders
+- Libraries (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md#-libraries
+  • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/libraries
+- Scripts (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md#-scripts
+  • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/scripts
+- Docs/History (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md
+  • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs/history
+- Primary prompt (raw): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/prompts/GitHub_Prompt.md
 
 ---
 

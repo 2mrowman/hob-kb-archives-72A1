@@ -3,12 +3,6 @@
 *Build:* 698f4a9
 *
 *
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
-*
-
-
 # 🧩 Hall of Brands – CHECKLIST Automation System (V7.1.0R)
 *
 

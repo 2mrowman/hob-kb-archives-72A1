@@ -26,34 +26,31 @@ jobs:
           SHA="${GITHUB_SHA::7}"
           printf "NOW=%s\nSHA=%s\n" "$NOW" "$SHA" >> $GITHUB_ENV
 
-           - name: Update all Markdown headers
+      - name: Normalize KB headers (top-of-file 3 markers)
         shell: bash
         run: |
           set -euo pipefail
-          update_file() {
-            local f="$1"
-            local insert_line; insert_line=$(grep -n -m1 '^# ' "$f" | cut -d: -f1 || echo 1)
+          sudo timedatectl set-timezone Europe/Athens
+          NOW="$(date '+%d/%m/%Y – %H:%M')"
+          SHA="${GITHUB_SHA::7}"
 
-            # Targets (πλάγια όπως ζήτησες)
-            local LU="*Last updated:* ${NOW} (Europe/Athens)"
-            local LS="*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
-            local BL="*Build:* ${SHA}"
+          for f in $(git ls-files '*.md'); do
+            # 1) Αφαίρεσε inline 'Build:' από τη γραμμή Last updated (αν υπάρχει)
+            sed -i '1,15{s/[[:space:]]*Build:.*$//}' "$f"
 
-            # Καθάρισε τυχόν inline Build μετά το 'Last updated:'
-            sed -i "1,20{s/[[:space:]]*Build:.*$//}" "$f"
+            # 2) Καθάρισε παλιές γραμμές-στόχους στους πρώτους 15 στίχους
+            sed -i '1,15{/^\*Last updated:\*/d; /^\*Last synced with VERSIONS_INDEX\.md:\*/d; /^\*Build:\*/d}' "$f"
 
-            # Αντικατάσταση υπαρχόντων headers
-            sed -i "1,20{/^\*Last updated:\*/s#^.*#${LU}#}" "$f" || true
-            sed -i "1,20{/^\*Last synced with VERSIONS_INDEX\.md:\*/s#^.*#${LS}#}" "$f" || true
-            sed -i "1,20{/^\*Build:\*/s#^.*#${BL}#}" "$f" || true
-
-            # Εισαγωγή αν λείπουν (κάτω από το H1)
-            grep -q '^\*Last updated:\*' "$f" || sed -i "$((insert_line+1)) i ${LU}" "$f"
-            grep -q '^\*Last synced with VERSIONS_INDEX\.md:\*' "$f" || sed -i "$((insert_line+2)) i ${LS}" "$f"
-            grep -q '^\*Build:\*' "$f" || sed -i "$((insert_line+3)) i ${BL}" "$f"
-          }
-          while IFS= read -r f; do update_file "$f"; done < <(git ls-files '*.md')
-
+            # 3) Πρόσθεσε 3 ξεχωριστές γραμμές στην ΚΟΡΥΦΗ του αρχείου
+            tmp="$(mktemp)"
+            {
+              echo "*Last updated:* ${NOW} (Europe/Athens)"
+              echo "*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
+              echo "*Build:* ${SHA}"
+              cat "$f"
+            } > "$tmp"
+            mv "$tmp" "$f"
+          done
 
       - name: Commit & push stamps
         run: |

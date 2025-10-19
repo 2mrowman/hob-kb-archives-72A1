@@ -27,7 +27,7 @@ jobs:
           echo "NOW=$NOW" >> $GITHUB_ENV
           echo "SHA=$SHA" >> $GITHUB_ENV
 
-           - name: Normalize KB headers (top-of-file 3 markers)
+      - name: Normalize KB headers (top-of-file 3 markers)
         shell: bash
         run: |
           set -euo pipefail
@@ -37,14 +37,27 @@ jobs:
             tmp="$(mktemp)"
             {
               echo "*Last updated:* ${NOW} (Europe/Athens)"
-              echo ""                                     # κενή γραμμή
+              echo ""
               echo "*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
-              echo ""                                     # κενή γραμμή
+              echo ""
               echo "*Build:* ${SHA}"
-              echo ""                                     # κενή γραμμή πριν το υπόλοιπο
+              echo ""
               cat "$f"
             } > "$tmp" && mv "$tmp" "$f"
           done
+
+      - name: Commit & push stamps
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(kb-stamp): Update Last updated / Last synced / Build"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
 
 
       - name: Commit & push stamps

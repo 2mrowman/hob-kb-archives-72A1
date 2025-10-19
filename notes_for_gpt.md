@@ -47,10 +47,11 @@ These include:
 ---
 ## ⚙️ Libraries (`/libraries`)
 Core Apps Script libraries referenced across all checklists:
-- [HoBMastersLib.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/HoBMastersLib.md)  
-- [MenuLib.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/MenuLib.md)  
-- [PopupLib.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/PopupLib.md)  
-- [AdminToolsLib.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/AdminToolsLib.md)
+| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md |
+| HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md |
+| MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md |
+| PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md |
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md |
 
 ---
 

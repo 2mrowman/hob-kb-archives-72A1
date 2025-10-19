@@ -1,5 +1,5 @@
-*Build: c73c151*
-*Last updated: 18/10/2025 – 17:07 (Europe/Athens)*
+*Build: 2fa8103*
+*Last updated: 19/10/2025 – 04:59 (Europe/Athens)*
 // =====================================================================================
 // HoB - Menu Library
 // Version: V7.2.0 – 17/10/2025 – Cleaned menu loader + Owner submenu with version updater

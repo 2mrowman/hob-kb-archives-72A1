@@ -26,12 +26,11 @@ The GPT Model should read from the following Markdown documents and use them as 
 
 ---
 
-## 🧩 Primary Index Files
-| File | Description | Link |
-|------|--------------|------|
-| **index.md** | Main entry page for the Knowledge Base | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/index.md) |
-| **INDEX_Checklist_Docs.md** | Centralized structured index for all docs, libraries, and scripts | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/INDEX_Checklist_Docs.md) |
-| **RAW_LINKS_INDEX.md** | Complete list of all raw file URLs (GPT-readable) | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/RAW_LINKS_INDEX.md) |
+## 🧩 Primary Index Files (RAW)
+- index.md — Main entry: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md
+- INDEX_Checklist_Docs.md — Structured index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md
+- RAW_LINKS_INDEX.md — All raw URLs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md
+
 
 ---
 

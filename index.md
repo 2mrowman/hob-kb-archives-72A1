@@ -7,11 +7,12 @@ Welcome to the **Hall of Brands Automation & Checklist Repository**.
 ---
 
 ## 📘 Documentation & Index
-👉 [INDEX_Checklist_Docs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/INDEX_Checklist_Docs.md)  
-📄 [RAW_LINKS_INDEX.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/RAW_LINKS_INDEX.md)  
-🧭 [SYSTEM_OVERVIEW.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SYSTEM_OVERVIEW.md)  
-🧩 [notes_for_gpt.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/notes_for_gpt.md)  
-⚙️ [SCRIPT_IDS_INDEX.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SCRIPT_IDS_INDEX.md)
+👉 [INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md)
+📄 [RAW_LINKS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md)
+🧭 [SYSTEM_OVERVIEW.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md)
+🧩 [notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md)
+⚙️ [SCRIPT_IDS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md)
+🕒 [RAW_HISTORY_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md)
 
 ---
 
@@ -34,10 +35,10 @@ It serves as the single verified source for:
 ---
 
 ## 🧾 Quick Validation (for GPT Models)
-Before referencing any code or library, always verify:
-1. Script or Library IDs → [SCRIPT_IDS_INDEX.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SCRIPT_IDS_INDEX.md)  
-2. Version and structure → [INDEX_Checklist_Docs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/INDEX_Checklist_Docs.md)  
-3. Raw accessibility → [RAW_LINKS_INDEX.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/RAW_LINKS_INDEX.md)
+1. IDs → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md
+2. Versions/structure → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md
+3. Raw accessibility → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md
+
 
 ---
 

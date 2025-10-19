@@ -1,5 +1,5 @@
-*Last updated: 19/10/2025 – 10:54 (Europe/Athens)*
-*Build: be26c0a*
+*Last updated: 19/10/2025 – 11:03 (Europe/Athens)*
+*Build: 6e62426*
 
 # ⚙️ SCRIPT_IDS_INDEX.md – Hall of Brands Automation Stack
 Centralized reference of all **Google Apps Script** and **Library IDs** used across the HoB ecosystem.  

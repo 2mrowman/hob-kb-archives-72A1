@@ -1,5 +1,5 @@
-*Build: b87f6b5*
-*Last updated: 19/10/2025 – 05:01 (Europe/Athens)*
+*Build: f8c6d8c*
+*Last updated: 19/10/2025 – 08:23 (Europe/Athens)*
 # 📘 **Flow Mapping – CHECKLIST V7.1.0R (Popup Restoration Build)**
 
 ## 🧩 Overview

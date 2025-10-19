@@ -5,13 +5,6 @@
 *Build:* 5152d02
 
 
-
-*
-
-
-
-*
-
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.
 

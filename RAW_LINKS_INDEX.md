@@ -1,6 +1,7 @@
-*Last updated:* 19/10/2025 – 13:31 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:31 (DEV-only)
-*Build:* 3ea3fde
+*Last updated:* 19/10/2025 – 13:33 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:33 (DEV-only)
+*Build:* 698f4a9
+*
 *
 
 # 📘 Hall of Brands – RAW LINKS INDEX

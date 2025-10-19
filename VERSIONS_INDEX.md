@@ -16,3 +16,14 @@
 | libraries | MenuLib.md | `V7.2.0` | 18/10/2025 – 17:07 | `5f59753` | [libraries/MenuLib.md](/libraries/MenuLib.md) |
 | libraries | PopupLib.md | `V2.0.0R` | 18/10/2025 – 17:07 | `5f59753` | [libraries/PopupLib.md](/libraries/PopupLib.md) |
 | libraries | README.md | `unknown` | 18/10/2025 – 17:07 | `5f59753` | [libraries/README.md](/libraries/README.md) |
+
+## 📚 Libraries — Canonical Versions
+
+| Library        | Version | Status  | Notes                          |
+|----------------|---------|---------|--------------------------------|
+| AdminToolsLib  | V6.8.0  | Stable  | Admin & protection utilities   |
+| MenuLib        | V7.2.0  | Stable  | Dynamic UI menu                |
+| PopupLib       | V2.0.0R | Stable  | Modal popups                   |
+| HoBMastersLib  | V1.3    | Stable  | Core master template helpers   |
+
+*Last synced: 19/10/2025 – 10:55 (Europe/Athens)*

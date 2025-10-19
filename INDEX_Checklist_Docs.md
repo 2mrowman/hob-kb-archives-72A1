@@ -4,66 +4,6 @@
 
 *Build:* a6e2aa4
 
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
 *
 *
 *
@@ -96,6 +36,7 @@ _Last Updated: 16 Oct 2025_
 | **MenuLib.md** | V7.0.0 | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/MenuLib.md) |
 | **PopupLib.md** | V2.0.0R | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/PopupLib.md) |
 | **AdminToolsLib.md** | V6.7.6 | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/AdminToolsLib.md) |
+| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md |
 
 ---
 

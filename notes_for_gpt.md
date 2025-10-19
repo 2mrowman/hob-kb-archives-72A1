@@ -1,5 +1,5 @@
-*Last updated: 19/10/2025 – 10:28 (Europe/Athens)*
-*Build: a14bd40*
+*Last updated: 19/10/2025 – 10:35 (Europe/Athens)*
+*Build: a9137bc*
 
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 

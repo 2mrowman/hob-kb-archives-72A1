@@ -1,5 +1,10 @@
-*Last updated:* 19/10/2025 – 11:58 (Europe/Athens)  
-*Build:* <auto by Action>  
+*Last updated:* 19/10/2025 – 15:07 (Europe/Athens)
+
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 15:07 (DEV-only)
+
+*Build:* f37c300
+
+*
 
 # 🧩 AdminToolsLib — Capability Map (V6.8.0)
 

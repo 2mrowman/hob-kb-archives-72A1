@@ -3,57 +3,8 @@
 *Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 14:28 (DEV-only)
 
 *Build:* 6877b8f
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-*
-*
-*
 *
 # 🧩 Hall of Brands – CHECKLIST Automation System (V7.1.0R)
-*
 
 ## 📘 Overview
 Το **HoB Checklist System** είναι ένα ολοκληρωμένο σύστημα αυτοματοποίησης σε περιβάλλον Google Sheets + Google Apps Script.  

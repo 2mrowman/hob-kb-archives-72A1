@@ -1,8 +1,12 @@
-*Last updated:* 19/10/2025 – 14:07 (Europe/Athens)
+*Last updated:* 19/10/2025 – 14:13 (Europe/Athens)
 
-*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 14:07 (DEV-only)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 14:13 (DEV-only)
 
-*Build:* 2ae3de2
+*Build:* 5d57b05
+
+
+
+*
 
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.

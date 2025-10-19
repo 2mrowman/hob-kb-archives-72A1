@@ -2,6 +2,9 @@
 *Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
 
 # 📘 Hall of Brands – RAW LINKS INDEX
+*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
+*Build:* edd2da0
 Κεντρική αναφορά όλων των RAW URL για χρήση από GPT Models, Apps Script και n8n integrations.
 
 ---

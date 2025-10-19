@@ -3517,6 +3517,9 @@ section):
 
 � CHANGELOG ENTRY
 # CHECKLIST SCRIPT – CHANGELOG
+*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
+*Build:* edd2da0
 ──────────────────────────────────────────────
 Version: V7.2.
 Date: 17 / 10 /2025 – 12: 40

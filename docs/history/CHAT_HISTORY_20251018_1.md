@@ -4,6 +4,9 @@
 Debug View
 Result View
 # 1Checklistsetup
+*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
+*Build:* edd2da0
 
 Θα περιμένεις πρώτα να σου δώσω όλα τα αρχεία και όταν θα σου πω «ολοκλήρωσα» και θέλω να μου πεις
 αυτό, τότε θα συνεχίσεις

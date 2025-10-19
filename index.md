@@ -1,6 +1,9 @@
 *Build: e56343a*
 *Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
 # Hall of Brands – Knowledge Base (Central Entry)
+*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
+*Build:* edd2da0
 
 Welcome to the **Hall of Brands Automation & Checklist Repository**.
 

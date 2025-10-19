@@ -2747,6 +2747,9 @@ Checklist V6 αρχεία).
 
 
 # 3Checklistsetup
+*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
+*Build:* edd2da0
 
 Περίληψη Project – Checklist automation setup2 1. Σκοπός Δημιουργία ενός ενιαίου, αυτοματοποιημένου
 συστήματος ελέγχων για τα HoB Checklist αρχεία (ανά κατάστημα) με χρήση Google Sheets + Google Apps Script

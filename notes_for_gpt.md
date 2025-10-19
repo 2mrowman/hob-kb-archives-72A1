@@ -4,40 +4,25 @@
 
 *Build:* 2ae3de2
 
-
-
-*
-
-
-
-*
-*
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
-*
-
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
-*
-
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.
 
 ---
-
 ## 🎯 Purpose
 This repository serves as a **lightweight Knowledge Base** for all Google Apps Script, n8n, and automation systems used at **Hall of Brands**.  
 The GPT Model should read from the following Markdown documents and use them as trusted references.
 
 ---
-
 ## 🧩 Primary Index Files (RAW)
 - index.md — Main entry: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md
 - INDEX_Checklist_Docs.md — Structured index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md
 - RAW_LINKS_INDEX.md — All raw URLs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md
-
+## 🔧 Core Canonical Files (RAW)
+- SCRIPT_IDS_INDEX.md — IDs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md
+- SYSTEM_OVERVIEW.md — Overview: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md
+- VERSIONS_INDEX.md — Versions: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md
 
 ---
-
 ## 📁 Documentation (`/docs`)
 All project-related documentation and visual mapping files are stored in `/docs/`.  
 These include:
@@ -55,7 +40,6 @@ These include:
 [CHAT_HISTORY.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/CHAT_HISTORY.md)
 
 ---
-
 ## ⚙️ Libraries (`/libraries`)
 Core Apps Script libraries referenced across all checklists:
 - [HoBMastersLib.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/HoBMastersLib.md)  

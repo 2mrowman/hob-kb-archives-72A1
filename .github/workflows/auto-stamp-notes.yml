@@ -27,24 +27,25 @@ jobs:
           echo "NOW=$NOW" >> $GITHUB_ENV
           echo "SHA=$SHA" >> $GITHUB_ENV
 
-      - name: Normalize KB headers (top-of-file 3 markers)
+           - name: Normalize KB headers (top-of-file 3 markers)
         shell: bash
         run: |
           set -euo pipefail
           for f in $(git ls-files '*.md'); do
-            # 1) Καθάρισε τυχόν inline 'Build:' από 'Last updated:'
             sed -i '1,15{s/[[:space:]]*Build:.*$//}' "$f"
-            # 2) Διέγραψε παλιές γραμμές-στόχους στους πρώτους 15 στίχους
             sed -i '1,15{/^\*Last updated:\*/d; /^\*Last synced with VERSIONS_INDEX\.md:\*/d; /^\*Build:\*/d}' "$f"
-            # 3) Πρόσθεσε 3 χωριστές γραμμές στην κορυφή
             tmp="$(mktemp)"
             {
               echo "*Last updated:* ${NOW} (Europe/Athens)"
+              echo ""                                     # κενή γραμμή
               echo "*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
+              echo ""                                     # κενή γραμμή
               echo "*Build:* ${SHA}"
+              echo ""                                     # κενή γραμμή πριν το υπόλοιπο
               cat "$f"
             } > "$tmp" && mv "$tmp" "$f"
           done
+
 
       - name: Commit & push stamps
         run: |

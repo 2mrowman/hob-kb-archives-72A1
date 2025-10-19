@@ -1,9 +1,9 @@
 *Build: e56343a*
 *Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
 # 🧩 **Functional Flow – CHECKLIST System (V7.1.0R)**
-*Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:05 (DEV-only)
-*Build:* edd2da0
+*Last updated:* 19/10/2025 – 13:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 19/10/2025 – 13:06 (DEV-only)
+*Build:* ae82683
 
 ## 📘 Επισκόπηση
 Το παρόν έγγραφο περιγράφει με απλό και λειτουργικό τρόπο τη ροή λειτουργίας του CHECKLIST συστήματος (έκδοση V7.1.0R – Popup Restoration Build).

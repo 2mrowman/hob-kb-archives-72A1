@@ -48,14 +48,20 @@ _Last Updated: 16 Oct 2025_
 
 ---
 
-## 📌 Version Reference
-| Component | Version |
-|------------|----------|
-| Checklist.gs | V7.1.0R |
-| AdminToolsLib | V6.7.6 |
-| PopupLib | V2.0.0R |
-| MenuLib | V7.0.0 |
-| HoBMastersLib | V1.3 |
+## 🔐 Version Reference (canonical)
+
+| Component                      | Version | Status         | Notes                                 |
+|--------------------------------|---------|----------------|----------------------------------------|
+| Checklist.gs                   | V7.2.1  | Stable Build   | Retail Stable Build                    |
+| AdminToolsLib                  | V6.8.0  | Stable         | Admin & protection utilities           |
+| MenuLib                        | V7.2.0  | Stable         | Dynamic UI menu                        |
+| PopupLib                       | V2.0.0R | Stable         | Modal popups                           |
+| HoBMastersLib                  | V1.3    | Stable         | Core master template helpers           |
+| Blink.gs.md                    | V2.0.1  | Stable         | Lightweight notifier utilities         |
+| AutoDupl_File&DeleteTabs.gs.md | V1.0.0  | Stable         | Monthly duplicate & cleanup workflow   |
+
+*Last synced with `VERSIONS_INDEX.md` on 19/10/2025 – 10:53 (Europe/Athens).*
+
 
 ---
 

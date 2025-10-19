@@ -1,10 +1,10 @@
-name: Auto-stamp KB (Last updated + Build)
+name: Auto-stamp KB (Last updated + Build + Last synced)
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - "*.md"               # όλα τα .md στο root (README.md, SYSTEM_OVERVIEW.md, SCRIPT_IDS_INDEX.md, κ.λπ.)
+      - "*.md"
       - "docs/**"
       - "libraries/**"
       - "scripts/**"
@@ -17,71 +17,57 @@ jobs:
   stamp:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
+      - uses: actions/checkout@v4
 
-      - name: Write Athens time + Build hash into many files
-        env:
-          GITHUB_SHA: ${{ github.sha }}   # δίνει full SHA στο Python
+      - name: Set TZ & build stamps
         run: |
-          python - <<'PY'
-          import re, glob, os
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
+          sudo timedatectl set-timezone Europe/Athens
+          NOW="$(date '+%d/%m/%Y – %H:%M')"
+          SHA="${GITHUB_SHA::7}"
+          printf "NOW=%s\nSHA=%s\n" "$NOW" "$SHA" >> $GITHUB_ENV
 
-          ATH = "Europe/Athens"
-          now = datetime.now(ZoneInfo(ATH)).strftime("%d/%m/%Y – %H:%M")
-          sha = os.environ.get("GITHUB_SHA","")[:7]  # short SHA από το Actions
-
-          # Σταθεροί στόχοι (αν υπάρχουν)
-          targets = [
-            "notes_for_gpt.md",
-            "index.md",
-            "INDEX_Checklist_Docs.md",
-            "RAW_LINKS_INDEX.md",
-            "README.md",
-            "SCRIPT_IDS_INDEX.md",
-            "SYSTEM_OVERVIEW.md",
-          ]
-
-          # + όλα τα .md από φακέλους
-          for g in ("docs/*.md","libraries/*.md","scripts/*.md","*.md"):
-              for p in glob.glob(g):
-                  if os.path.isfile(p) and p.endswith(".md"):
-                      targets.append(p)
-
-          # μοναδικοποίηση με διατήρηση σειράς
-          seen=set(); ordered=[]
-          for p in targets:
-              if p not in seen and os.path.exists(p):
-                  seen.add(p); ordered.append(p)
-
-          def set_or_prepend(txt, key, val):
-              # αντικαθιστά ολόκληρη τη γραμμή αν υπάρχει, αλλιώς την προσθέτει στην κορυφή
-              pat = rf"(?im)^\*{re.escape(key)}\s*:\s*.*$"
-              line = f"*{key}: {val}*"
-              if re.search(pat, txt):
-                  return re.sub(pat, line, txt)
-              return line + "\n" + txt
-
-          for path in ordered:
-              with open(path,"r",encoding="utf-8") as f:
-                  t=f.read()
-              t = set_or_prepend(t, "Last updated", f"{now} (Europe/Athens)")
-              t = set_or_prepend(t, "Build", sha)
-              with open(path,"w",encoding="utf-8") as f:
-                  f.write(t)
-          PY
-
-      - name: Commit changes (if any)
+      - name: Update all Markdown headers
+        shell: bash
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "KB-bot"
-            git config user.email "kb-bot@users.noreply.github.com"
-            git add -A
-            git commit -m "ci: auto-stamp KB (Last updated + Build) — fix SHA + include root .md"
+          set -euo pipefail
+          update_file() {
+            local f="$1"
+            # 1) Εντόπισε πρώτη γραμμή τίτλου (H1) ή αλλιώς την 1η γραμμή
+            local insert_line
+            if grep -n -m1 '^# ' "$f" >/dev/null; then
+              insert_line=$(grep -n -m1 '^# ' "$f" | cut -d: -f1)
+            else
+              insert_line=1
+            fi
+
+            # 2) Γράμμες-στόχοι (πλάγια όπως ζήτησες)
+            local LU="*Last updated:* ${NOW} (Europe/Athens)"
+            local LS="*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
+            local BL="*Build:* ${SHA}"
+
+            # 3) Αντικατάσταση αν υπάρχουν· αλλιώς εισαγωγή κάτω από τον τίτλο
+            sed -i "1,20{/^\*Last updated:\*/s#^.*#${LU}#}" "$f" || true
+            sed -i "1,20{/^\*Last synced with VERSIONS_INDEX\.md:\*/s#^.*#${LS}#}" "$f" || true
+            sed -i "1,20{/^\*Build:\*/s#^.*#${BL}#}" "$f" || true
+
+            # Έλεγχος αν λείπουν και τα τρία -> εισαγωγή στοχευμένα
+            grep -q '^\*Last updated:\*' "$f" || sed -i "$((insert_line+1)) i ${LU}" "$f"
+            grep -q '^\*Last synced with VERSIONS_INDEX\.md:\*' "$f" || sed -i "$((insert_line+2)) i ${LS}" "$f"
+            grep -q '^\*Build:\*' "$f" || sed -i "$((insert_line+3)) i ${BL}" "$f"
+          }
+
+          # Επεξεργασία όλων των .md
+          while IFS= read -r f; do
+            update_file "$f"
+          done < <(git ls-files '*.md')
+
+      - name: Commit & push stamps
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(kb-stamp): Update Last updated / Last synced / Build"
             git push
           else
             echo "No changes to commit."

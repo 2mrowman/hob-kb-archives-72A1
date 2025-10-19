@@ -24,32 +24,26 @@ jobs:
           sudo timedatectl set-timezone Europe/Athens
           NOW="$(date '+%d/%m/%Y – %H:%M')"
           SHA="${GITHUB_SHA::7}"
-          printf "NOW=%s\nSHA=%s\n" "$NOW" "$SHA" >> $GITHUB_ENV
+          echo "NOW=$NOW" >> $GITHUB_ENV
+          echo "SHA=$SHA" >> $GITHUB_ENV
 
       - name: Normalize KB headers (top-of-file 3 markers)
         shell: bash
         run: |
           set -euo pipefail
-          sudo timedatectl set-timezone Europe/Athens
-          NOW="$(date '+%d/%m/%Y – %H:%M')"
-          SHA="${GITHUB_SHA::7}"
-
           for f in $(git ls-files '*.md'); do
-            # 1) Αφαίρεσε inline 'Build:' από τη γραμμή Last updated (αν υπάρχει)
+            # 1) Καθάρισε τυχόν inline 'Build:' από 'Last updated:'
             sed -i '1,15{s/[[:space:]]*Build:.*$//}' "$f"
-
-            # 2) Καθάρισε παλιές γραμμές-στόχους στους πρώτους 15 στίχους
+            # 2) Διέγραψε παλιές γραμμές-στόχους στους πρώτους 15 στίχους
             sed -i '1,15{/^\*Last updated:\*/d; /^\*Last synced with VERSIONS_INDEX\.md:\*/d; /^\*Build:\*/d}' "$f"
-
-            # 3) Πρόσθεσε 3 ξεχωριστές γραμμές στην ΚΟΡΥΦΗ του αρχείου
+            # 3) Πρόσθεσε 3 χωριστές γραμμές στην κορυφή
             tmp="$(mktemp)"
             {
               echo "*Last updated:* ${NOW} (Europe/Athens)"
               echo "*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
               echo "*Build:* ${SHA}"
               cat "$f"
-            } > "$tmp"
-            mv "$tmp" "$f"
+            } > "$tmp" && mv "$tmp" "$f"
           done
 
       - name: Commit & push stamps
@@ -63,3 +57,4 @@ jobs:
           else
             echo "No changes to commit."
           fi
+

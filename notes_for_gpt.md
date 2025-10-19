@@ -5,9 +5,6 @@
 
 This file defines where the GPT Model should look for all context, dependencies, and documentation related to the **Hall of Brands Automation Stack**.
 
-_Last Updated: 16 Oct 2025_  
-_Maintained by: ChecklistGPT V5.0_
-
 ---
 
 ## 🎯 Purpose

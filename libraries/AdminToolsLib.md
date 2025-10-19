@@ -1,5 +1,5 @@
-*Build: a9137bc*
-*Last updated: 19/10/2025 – 10:35 (Europe/Athens)*
+*Build: 7544fcd*
+*Last updated: 19/10/2025 – 10:38 (Europe/Athens)*
 // ==========================
 // HoB - Admin Tools Library
 // Version: V6.8.0 – 17.10.2025 – Added Universal Version Updater (updateVersionInfo_Universal)

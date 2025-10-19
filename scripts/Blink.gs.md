@@ -1,5 +1,5 @@
-*Build: a9137bc*
-*Last updated: 19/10/2025 – 10:35 (Europe/Athens)*
+*Build: 7544fcd*
+*Last updated: 19/10/2025 – 10:38 (Europe/Athens)*
 
 
 // === BLINK V2.0.1 — Hotfix: “server error” exclusion (no throws when no UI) ======

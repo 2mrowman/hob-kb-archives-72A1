@@ -65,9 +65,10 @@ Core Apps Script libraries referenced across all checklists:
 
 ## 🧠 Scripts (`/scripts`)
 Execution-level Apps Script files for HoB automation:
-- [Checklist.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/Checklist.gs.md) → Daily store operations logic  
-- [Blink.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/Blink.gs.md) → UI feedback handler  
-- [AutoDupl_File&DeleteTabs.gs.md](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/AutoDupl_File&DeleteTabs.gs.md) → Automatic duplication and cleanup
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md |
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Blink.gs.md |
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md |
+- https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/README.md |
 
 ---
 

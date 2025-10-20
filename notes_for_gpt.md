@@ -4,22 +4,6 @@
 
 *Build:* 1840bb9
 
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
 *
 
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)

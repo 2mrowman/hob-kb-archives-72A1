@@ -24,12 +24,10 @@ jobs:
         run: |
           set -euo pipefail
           sudo timedatectl set-timezone Europe/Athens || true
-          NOW="$(date '+%d/%m/%Y – %H:%M')"
+          NOW="$(date '+%d/%m/%Y - %H:%M')"
           SHA="${GITHUB_SHA::7}"
-          echo "NOW<<EOF" >> $GITHUB_ENV
-          echo "$NOW" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          echo "SHA=$SHA" >> $GITHUB_ENV
+          echo "NOW=$NOW" >> $GITHUB_ENV
+          echo "SHA=$SHA"   >> $GITHUB_ENV
 
       - name: Normalize KB headers (idempotent, UTF-8, no stray *)
         shell: bash
@@ -38,13 +36,8 @@ jobs:
           git config --global core.quotepath false
           export LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-          git ls-files -z -- '*.md' 'docs/**/*.md' 'libraries/**/*.md' 'scripts/**/*.md' |
-          while IFS= read -r -d '' f; do
-            # Normalize CRLF → LF
-            sed -i 's/
-$//' "$f"
-
-            # Rebuild top 3-line header exactly once; remove any previous header/stray "*" at top
+          git ls-files -z -- '*.md' 'docs/**/*.md' 'libraries/**/*.md' 'scripts/**/*.md' |           while IFS= read -r -d '' f; do
+            sed -i 's/\r$//' "$f"
             awk -v NOW="$NOW" -v SHA="$SHA" '
               BEGIN{
                 lu="*Last updated:* " NOW " (Europe/Athens)";
@@ -52,7 +45,6 @@ $//' "$f"
                 bd="*Build:* " SHA;
                 printed=0;
               }
-              # skip any pre-existing header noise in the first 20 lines:
               NR<=20 && (
                   $0 ~ /^\*?Last updated:/ ||
                   $0 ~ /^\*?Last synced with VERSIONS_INDEX\.md:/ ||
@@ -72,7 +64,6 @@ $//' "$f"
               }
             ' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
 
-            # Collapse 2+ blank runs to a single blank line
             awk 'BEGIN{b=0} { if($0~/^[[:space:]]*$/){ if(b) next; b=1; print "" } else { b=0; print } }' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
           done
 

@@ -3,13 +3,6 @@
 *Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 10:47 (DEV-only)
 
 *Build:* 2a404e5
-
-
-
-*
-
-*
-
 # 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V5.2.1R)
 Οδηγός για το GPT Model: από πού να διαβάζει **structure, versions, flow, history** του HoB automation stack.
 

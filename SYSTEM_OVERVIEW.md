@@ -6,59 +6,9 @@
 
 
 
-*
+### Hall of Brands – CHECKLIST Automation System (V7.1.0R)
 
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-*
-# 🧩 Hall of Brands – CHECKLIST Automation System (V7.1.0R)
-
-## 📘 Overview
+## Overview
 Το **HoB Checklist System** είναι ένα ολοκληρωμένο σύστημα αυτοματοποίησης σε περιβάλλον Google Sheets + Google Apps Script.  
 Αναπτύχθηκε για την πλήρη οργάνωση, εκτέλεση και αναφορά των καθημερινών εργασιών των καταστημάτων Hall of Brands & Saint Soles.
 

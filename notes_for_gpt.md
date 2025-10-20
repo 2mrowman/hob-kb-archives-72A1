@@ -694,6 +694,21 @@ Execution-level Apps Script files (RAW):
 5) **HISTORY_OK + Top3** από `docs/history/RAW_HISTORY_INDEX.md`.
 
 ---
+## 📋 VERSION HISTORY
+
+**CHANGELOG.md** — Version history and release notes
+- RAW: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=XXXXXXXXXX
+---
+
+## 🧪 VALIDATION & TESTING
+
+**tests/** — Validation scripts for KB quality assurance
+- README: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/README.md?ts=XXXXXXXXXX
+- validate_links.py — Check URL accessibility
+- validate_timestamps.py — Verify ?ts= parameters
+- validate_structure.py — Verify KB file structure
+---
+
 
 **Maintained by:** ChecklistGPT V5.4.0  
 **Repository:** https://github.com/2mrowman/hob-kb-archives-72A1  

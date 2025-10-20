@@ -709,7 +709,6 @@ Execution-level Apps Script files (RAW):
 - validate_structure.py — Verify KB file structure
 ---
 
-
 **Maintained by:** ChecklistGPT V5.4.0  
 **Repository:** https://github.com/2mrowman/hob-kb-archives-72A1  
 **Manus Audited:** 20/10/2025 – 08:20 (Europe/Athens)

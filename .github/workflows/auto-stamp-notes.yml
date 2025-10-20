@@ -27,24 +27,52 @@ jobs:
           echo "NOW=$NOW" >> $GITHUB_ENV
           echo "SHA=$SHA" >> $GITHUB_ENV
 
-      - name: Normalize KB headers (top-of-file 3 markers)
-        shell: bash
-        run: |
-          set -euo pipefail
-          for f in $(git ls-files '*.md'); do
-            sed -i '1,15{s/[[:space:]]*Build:.*$//}' "$f"
-            sed -i '1,15{/^\*Last updated:\*/d; /^\*Last synced with VERSIONS_INDEX\.md:\*/d; /^\*Build:\*/d}' "$f"
-            tmp="$(mktemp)"
-            {
-              echo "*Last updated:* ${NOW} (Europe/Athens)"
-              echo ""
-              echo "*Last synced with VERSIONS_INDEX.md:* ${NOW} (DEV-only)"
-              echo ""
-              echo "*Build:* ${SHA}"
-              echo ""
-              cat "$f"
-            } > "$tmp" && mv "$tmp" "$f"
-          done
+    - name: Normalize KB headers (idempotent, UTF-8, no stray *)
+  shell: bash
+  run: |
+    set -euo pipefail
+    git config --global core.quotepath false
+    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+    git ls-files -z -- '*.md' 'docs/**/*.md' 'libraries/**/*.md' 'scripts/**/*.md' |
+    while IFS= read -r -d '' f; do
+      # Normalize CRLF → LF
+      sed -i 's/\r$//' "$f"
+
+      # Rebuild top 3-line header exactly once; remove any previous header/stray "*" at top
+      awk -v NOW="$NOW" -v SHA="$SHA" '
+        BEGIN{
+          lu="*Last updated:* " NOW " (Europe/Athens)";
+          ls="*Last synced with VERSIONS_INDEX.md:* " NOW " (DEV-only)";
+          bd="*Build:* " SHA;
+          printed=0; in_top=1; skip_lines=0
+        }
+        NR==1 { in_top=1 }
+        # skip any pre-existing header noise in the first 12 lines:
+        in_top && NR<=12 && (
+            $0 ~ /^\*?Last updated:/ ||
+            $0 ~ /^\*?Last synced with VERSIONS_INDEX\.md:/ ||
+            $0 ~ /^\*?Build:/ ||
+            $0 ~ /^[[:space:]]*\*+[[:space:]]*$/ ||
+            $0 ~ /^[[:space:]]*$/
+        ) { next }
+        { 
+          if (printed==0) {
+            print lu; print ls; print bd; print "";
+            printed=1; in_top=0;
+          }
+          print
+        }
+        END{
+          # if file had <12 lines and we never printed header yet
+          if (printed==0) { print lu; print ls; print bd; print "" }
+        }
+      ' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
+
+      # Collapse 2+ blank runs to a single blank line (defensive)
+      awk 'BEGIN{b=0} { if($0~/^[[:space:]]*$/){ if(b) next; b=1; print "" } else { b=0; print } }' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
+    done
+
 
       - name: Commit & push stamps
         run: |

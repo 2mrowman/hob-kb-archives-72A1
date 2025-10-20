@@ -1,14 +1,13 @@
-# 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)
-
-**URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
-
----
-
 *Last updated:* 20/10/2025 – 08:20 (Europe/Athens)
 
 *Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 08:20 (DEV-only)
 
 *Build:* [to be generated]
+
+
+# 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)
+
+**URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
 
 ---
 

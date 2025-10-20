@@ -4,8 +4,7 @@
 
 *Build:* [to be generated]
 
-
-# 🧠 notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)
+### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)
 
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
 

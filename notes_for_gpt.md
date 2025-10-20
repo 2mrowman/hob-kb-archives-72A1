@@ -703,7 +703,7 @@ Execution-level Apps Script files (RAW):
 ## 🧪 VALIDATION & TESTING
 
 **tests/** — Validation scripts for KB quality assurance
-- README: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/README.md?ts=XXXXXXXXXX
+- README: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/README.md?ts=1760968445
 - validate_links.py — Check URL accessibility
 - validate_timestamps.py — Verify ?ts= parameters
 - validate_structure.py — Verify KB file structure

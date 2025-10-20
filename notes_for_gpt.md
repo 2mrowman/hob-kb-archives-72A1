@@ -609,26 +609,26 @@ const [a1, b1, c1] = values;
 ---
 
 ## 🧩 Primary Index Files (RAW)
-- index.md — Main entry: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md?ts=1730011140  
-- INDEX_Checklist_Docs.md — Structured index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1730011140  
-- RAW_LINKS_INDEX.md — All raw URLs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1730011140
+- index.md — Main entry: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md?ts=1760960086  
+- INDEX_Checklist_Docs.md — Structured index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1760960086  
+- RAW_LINKS_INDEX.md — All raw URLs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1760960086
 
 ---
 
 ## 🔧 Core Canonical Files (RAW)
-- SCRIPT_IDS_INDEX.md — IDs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1730011140  
-- SYSTEM_OVERVIEW.md — Overview: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1730011140  
-- VERSIONS_INDEX.md — Versions: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md?ts=1730011140
+- SCRIPT_IDS_INDEX.md — IDs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1760960086  
+- SYSTEM_OVERVIEW.md — Overview: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1760960086  
+- VERSIONS_INDEX.md — Versions: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md?ts=1760960086
 
 ---
 
 ## 📁 Documentation (`/docs`)
 Κύρια έγγραφα ροών & ρυθμίσεων:
-- Functional_Flow_CHECKLIST_V7.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Functional_Flow_CHECKLIST_V7.md?ts=1730011140  
-- Flow_Mapping_CHECKLIST_V7.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V7.md?ts=1730011140  
-- GAS_ChecklistV6_Project_Settings.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md?ts=1730011140  
-- Prompt_Current.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1730011140  
-- Ιστορικό συνομιλιών — RAW history index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md?ts=1730011140
+- Functional_Flow_CHECKLIST_V7.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Functional_Flow_CHECKLIST_V7.md?ts=1760960086  
+- Flow_Mapping_CHECKLIST_V7.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V7.md?ts=1760960086  
+- GAS_ChecklistV6_Project_Settings.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md?ts=1760960086  
+- Prompt_Current.md — raw: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1760960086  
+- Ιστορικό συνομιλιών — RAW history index: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md?ts=1760960086
 
 ---
 
@@ -637,15 +637,15 @@ Core Apps Script libraries (RAW):
 
 | File | RAW URL |
 |------|---------|
-| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md?ts=1730011140 |
-| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md?ts=1730011140 |
+| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md?ts=1760960086 |
+| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md?ts=1760960086 |
 | CAPABILITY_MAP_HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md?ts=1730280000 |
 | CAPABILITY_MAP_MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md?ts=1730280000 |
 | CAPABILITY_MAP_PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md?ts=1730280000 |
-| HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md?ts=1730011140 |
-| MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md?ts=1730011140 |
-| PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md?ts=1730011140 |
-| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1730011140 |
+| HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md?ts=1760960086 |
+| MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md?ts=1760960086 |
+| PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md?ts=1760960086 |
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1760960086 |
 ---
 
 ## 🧠 Scripts (`/scripts`)
@@ -653,19 +653,19 @@ Execution-level Apps Script files (RAW):
 
 | File | RAW URL |
 |------|---------|
-| Checklist.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md?ts=1730011140 |
-| Blink.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Blink.gs.md?ts=1730011140 |
-| AutoDupl_File&DeleteTabs.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md?ts=1730011140 |
-| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/README.md?ts=1730011140 |
+| Checklist.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md?ts=1760960086 |
+| Blink.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Blink.gs.md?ts=1760960086 |
+| AutoDupl_File&DeleteTabs.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md?ts=1760960086 |
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/README.md?ts=1760960086 |
 
 ---
 
 ## 🧾 Root-Level Files (RAW)
 | File | Purpose | Link |
 |------|---------|------|
-| SYSTEM_OVERVIEW.md | Technical overview of the automation system | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1730011140 |
-| robots.txt | Prevents search engine indexing | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/robots.txt?ts=1730011140 |
-| .nojekyll | Disables Jekyll on GitHub Pages (raw access) | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/.nojekyll?ts=1730011140 |
+| SYSTEM_OVERVIEW.md | Technical overview of the automation system | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1760960086 |
+| robots.txt | Prevents search engine indexing | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/robots.txt?ts=1760960086 |
+| .nojekyll | Disables Jekyll on GitHub Pages (raw access) | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/.nojekyll?ts=1760960086 |
 
 ---
 

@@ -4,8 +4,6 @@
 
 *Build:* f1d244f
 
-
-
 ### Hall of Brands – CHECKLIST Automation System (V7.1.0R)
 
 ## Overview
@@ -52,7 +50,6 @@
 │
 ├── README.md
 └── notes_for_gpt.txt
-
 
 ---
 
@@ -124,5 +121,4 @@ Contact: `dek@beyondlimits.events`
 ---
 
 © Hall of Brands Automation Initiative | All rights reserved.
-
 

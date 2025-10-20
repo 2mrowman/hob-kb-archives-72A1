@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -118,7 +70,6 @@ userItems.forEach(function(item) {
 if (item.name && item.func) {
 menu.addItem(item.name, item.func);
 }
-
 
 ## });
 
@@ -172,7 +123,6 @@ AdminToolsLib.automatedDuplicateAndCleanup();
 
 Θέλετε να κάνουμε τώρα το **C) PopupLib – Code.gs (V1.9.3)** ή να σταθούμε πρώτα να ελέγξουμε το MenuLib
 V6.9.11 σε κάποιο από τα Checklist αρχεία σας;
-
 
 Sources
 **You said:**
@@ -230,7 +180,6 @@ Do not ask at the end if the user wants the full code – provide it immediately
 
 - Αφαίρεσα **κάθε αναφορά σε CacheLib**.
 
-
 - Κράτησα **όλες τις User Tools συναρτήσεις** και το openUrlInNewTab.
 - Πρόσθεσα **σαφές version tag** στην κορυφή.
 
@@ -282,7 +231,6 @@ if (typeFilter && typeVal !== typeFilter) continue;
 out.push({
 store: (row[idxStore] || '').toString(),
 name: (row[idxMenu] || '').toString(),
-
 
 func: (row[idxFunc] || '').toString(),
 type: typeVal
@@ -338,7 +286,6 @@ try { lock.releaseLock(); } catch (_) {}
 
 // ✅ User Tools (Links → νέο tab χωρίς popup μηνύματα)
 
-
 ## // ==========================
 
 function openNeaParalaviForm() {
@@ -392,7 +339,6 @@ openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-
 
 // Helper: Άνοιγμα URL σε νέο tab (χωρίς errors)
 // ==========================
-
 
 function openUrlInNewTab(url) {
 var html = HtmlService.createHtmlOutput(
@@ -449,7 +395,6 @@ DEK ,
 
 - Εντοπίζει από το αρχείο **HoB_Masters** → tab **Templates** ποιο template αντιστοιχεί σε κάθε Checklist file.
 
-
 - Επιστρέφει το κατάλληλο tplName ώστε τα daily tabs να δημιουργούνται από το σωστό MASTER (π.χ.
     Master 1, Master 2, EshopMaster, CashierMaster, WRHMaster).
 - Χρησιμοποιείται από τη ροή **createNewDay** (μέ σω AdminToolsLib), για να ξέρει ποιο template να
@@ -504,7 +449,6 @@ DEK ,
 **You said:**
 ΟΚ Version discipline (υποχρεωτικά tags)
 **ChatGPT said:**
-
 
 ## 30/09/2025 – 10:27
 
@@ -562,7 +506,6 @@ Version: V6.9.11 – 30.09.2025 – Removed CacheLib, kept full functions**
 // getTemplateTabFromHoBMasters_
 // openNeaParalaviForm
 
-
 // openSakoulesForm
 // openForm_CreditTAXFree
 // openForm_Elleipseis
@@ -613,7 +556,6 @@ var t ypeFilter = (menuType != null)? String(menuType) : null;
 for (var r = 1; r < data.length; r++) {
 var row = data[r];
 if (!row || row.length === 0) continue;
-
 
 var typeVal = (row[idxType] || '').toString().trim();
 if (typeFilter && typeVal !== typeFilter) continue;
@@ -666,7 +608,6 @@ menu.addSubMenu(ownerMenu);
 menu.addToUi();
 
 } finally {
-
 
 try { lock.releaseLock(); } catch (_) {}
 }
@@ -722,7 +663,6 @@ function openForm_AllagesTimon() {
 openUrlInNewTab("https://docs.google.com/document/d/14QROsEOZZx8DT_MFfLZOJPLq89wVo41cPT4JTpPen5
 w/edit?usp=sharing");
 
-
 ## }
 
 function openForm_ElattomatikosProion() {
@@ -777,7 +717,6 @@ function testTemplateTabFromMenu() {
 AdminToolsLib.testTemplateTab();
 }
 function testAllPopupsFromMenu() {
-
 
 PopupLib.testAllPopups();
 }
@@ -837,7 +776,6 @@ warning: { bg: "#FFF4E5", border: "#FF9800", title: "⚠ Προειδοποίη�
 error: { bg: "#FDECEA", border: "#F44336", title: "⛔ Σφάλμα" }
 };
 
-
 var style = colors[type] || colors.info;
 
 var html = HtmlService.createHtmlOutput(
@@ -892,7 +830,6 @@ showErrorMessage("Αυτό είναι popup σφάλματος.");
 - Προστέθηκε **header + manifest** για version discipline.
 
 Θέλετε να περάσουμε τώρα στο **D) AdminToolsLib – AdminToolsLib.gs (V6.7.4)** ;
-
 
 Sources
 **You said:**
@@ -949,7 +886,6 @@ Version: V1.9.4 – 30.09.2025 – Sequential popups, added success type**
 // showInfoMessage
 // showWarningMessage
 // showSuccessMessage
-
 
 // showErrorMessage
 // testAllPopupsFromMenu
@@ -1008,7 +944,6 @@ function showInfoMessage(message, callback) {
 return showCustomPopup(message, 'info', callback);
 }
 function showWarningMessage(message, callback) {
-
 
 return showCustomPopup(message, 'warning', callback);
 }
@@ -1070,7 +1005,6 @@ D. AdminToolsLib - AdminToolsLi...
 
 👉👉 Συνεπώς: **Δεν χρειάζεται αλλαγή στον κώδικα**. Θα εφαρμόσω μόνο το **Version Discipline** (heade r + manifest).
 
-
 📌📌 **AdminToolsLib – AdminToolsLib.gs
 Version: V6.7.4 – 30.09.2025 – Verified, no CacheLib dependency**
 // ==========================
@@ -1125,7 +1059,6 @@ PopupLib.showSuccessMessage("� Καθαρίστηκαν όλα τα Notes!");
 PopupLib.showErrorMessage("❌ Σφάλμα στο clearAllNotes: " + err);
 throw err;
 }
-
 
 ## }
 
@@ -1187,7 +1120,6 @@ editors.forEach(ed => copy.removeEditor(ed));
 // Cleanup στο τρέχον αρχείο → μόνο MASTER
 const master = ss.getSheetByName("MASTER");
 
-
 if (master) master.showSheet();
 ss.getSheets().forEach(sh => {
 if (s h.getName().toUpperCase() !== "MASTER") {
@@ -1247,7 +1179,6 @@ automatedDuplicateAndCleanup).
 
 📌📌 Προτείνω το εξής βήμα:
 
-
 1. Κρατάμε το AdminToolsLib καθαρό σαν βιβλιοθήκη (όπως ήδη το φτιάξαμε).
 2. Στο Checklist.gs αφήνουμε μόνο τα απαραίτητα entrypoints (π.χ. onOpen , createNewDay_AUTO wrapper
     αν θέλεις direct call , triggers ).
@@ -1304,7 +1235,6 @@ Version: V6.3 – 30.09.2025 – Verified, no CacheLib dependency**
 // getTemplateTabFromHoBMasters_
 // loadMenuDynamically
 // onEdit
-
 
 ## // TIMESTAMP
 
@@ -1364,7 +1294,6 @@ if (otherSheets.length > 0) {
 masterSheet.hideSheet();
 }
 
-
 ## }
 
 // 📌📌 Helper: Βρίσκει το σωστό template από το HoB_Masters/Templates
@@ -1416,7 +1345,6 @@ try { hideLocalMasterIfVisible_(); } catch (_) {}
 function onEdit(e) {
 try {
 const sheet = e.range.getSheet();
-
 
 const sheetName = sheet.getName();
 const col = e.range.getColumn();
@@ -1471,7 +1399,6 @@ const sheet = ss.getSheetByName("WRHMaster");
 SpreadsheetApp.getUi().alert(sheet? "✅ Exists!" : "❌ Not found");
 }
 
-
 📌📌 Τώρα έχεις:
 
 - ✅ Όλες τις functions όπως ήταν.
@@ -1524,7 +1451,6 @@ Version: V6.3 – 30.09.2025 – Verified, no CacheLib dependency**
 // HoB - Auto Duplicate & Cleanup Tabs
 // Version: V6.3 – 30.09.2025 – Verified, no CacheLib dependency
 // ==========================
-
 
 // ✅ Funct ions included in this version:
 // automatedDuplicateAndCleanupCurrent
@@ -1579,7 +1505,6 @@ AutoDupl_File&DeleteTabs.gs) είναι:
 
 Θέλεις να σου ετοιμάσω έναν **πίνακα-σύνοψη** με όλες τις βιβλιοθήκες/αρχεία, την τρέχουσα έκδοση τους και τι
 αλλαγή κάναμε σε καθένα;
-
 
 **You said:**
 πρώτα πρέπει να κάνω έλεγχο ότι όλα δουλεύουν σωστα
@@ -1636,7 +1561,6 @@ MenuLib .createNewDayFromMenu Head loadMenuDynamically Menu Sep 30, 2025, 10:38:
 Completed Head onOpen Simple Trigger Sep 30, 2025, 10:37:26 AM 5.917 s Failed Cloud logs Sep 30, 2025,
 
 10:37:32  AM Info ⚠ Σφάλμα στο onOpen : Exception : Specified permissions are not sufficient to call
-
 
 SpreadsheetApp.openById. Required permissions: https :// www .googleapis.com/auth/spreadsheets Sep 30, 2025,
 10:37:32  AM Error Exception : Specified permissions are not sufficient to call Ui.showModalDialog. Required
@@ -1702,7 +1626,6 @@ DEK , πολύ χρήσιμα τα logs και το **MenuListTable** 👌👌
 
 📌📌 **Συμπέρασμα**
 
-
 Το πρόβλημα είναι ότι το **MenuListTable** περιέχει entries που δεν έχουν αντίστοιχους wrappers στη MenuLib.
 Αυτή τη στιγμή λείπουν wrappers για:
 
@@ -1758,7 +1681,6 @@ const MENU_SHEET_NAME = 'Menu';
 
 // ✅ Επιστρέφει email ιδιοκτήτη
 
-
 function getOwnerEmail() {
 return "hobdeks@gmail.com";
 }
@@ -1810,7 +1732,6 @@ try {
 var ui = SpreadsheetApp.getUi();
 var userEmail = Session.getEffectiveUser().getEmail();
 var ownerEmail = getOwnerEmail();
-
 
 var menu = ui.createMenu("🗂🗂 HoB - Menu");
 
@@ -1864,7 +1785,6 @@ const tplName = data[i][1];
 if (chkName && String(chkName).trim() === fileName) {
 return tplName;
 }
-
 
 ## }
 
@@ -1922,7 +1842,6 @@ SpreadsheetApp.getUi().showModelessDialog(html, "Άνοιγμα");
 function clearAllNotesFromMenu() {
 AdminToolsLib.clearAllNotes();
 
-
 ## }
 
 function debugUserContextFromMenu() {
@@ -1973,7 +1892,6 @@ ReminderLib.remindMissingNames(); // πρέπει να υπάρχει ReminderLi
 Υπάρχει άλλη μία δική μου παράληψη που ξέχασα να σου πω. Εκτός από το Menu List Table , το οποίο έχει όλα τα
 items στο μενού, πολύ ωραία, υπάρχει και ένα άλλο που λέγεται Hub Masters. Το οποίο εκεί πέρα είναι όλα τα
 Master Templates, τα οποία κάνει το Create a New Day. Και γιατί τώρα, έτσι όπως το έχουμε κάνει Create a New
-
 
 Day , απλώς κάνει ένα καινούργιο sheet, οπότε έχει χαθεί αυτή η φιλοσοφία. Περίμενω να σας τα δείξω.
 https :// docs .google .com/spreadsheets/d/1j4xXEVYhVTzg57nhV-19V 16F7AeoUjf 6 tJimFx 4KOPI/edit ?usp =sharing
@@ -2034,7 +1952,6 @@ Version: V6.9.13 – 30.09.2025 – CreateNewDay linked with HoB_Masters (CHECKL
 // openUrlInNewTab
 // Wrappers:
 
-
 // clearAllNotesFromMenu
 // debugUserContextFromMenu
 // testLibExistsFromMenu
@@ -2086,7 +2003,6 @@ store: (row[idxStore] || '').toString(),
 name: (row[idxMenu] || '').toString(),
 func: (row[idxFunc] || '').toString(),
 type: typeVal
-
 
 ## });
 
@@ -2143,7 +2059,6 @@ function getTemplateTabFromHoBMasters_() {
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const fileName = ss.getName().trim(); // π.χ. RENTIHOB, GLYHOB
 
-
 const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName('Templates');
 if (!tplSheet) return null;
@@ -2196,7 +2111,6 @@ lms/edit?usp=sharing"); }
 // ==========================
 // Helper : Άνοιγμα URL σε νέο tab
 // ==========================
-
 
 function openUrlInNewTab(url) {
 var html = HtmlService.createHtmlOutput(
@@ -2252,7 +2166,6 @@ ReminderLib.remindMissingNames(); // πρέπει να υπάρχει ReminderLi
 ναι
 **ChatGPT said:**
 30/09/2025 – 12:35
-
 
 Ωραία DEK ✅
 Τώρα πρέπει να ελέγξουμε το **AdminToolsLib (V6.7.4)** για το κομμάτι **createNewDay_AUTO**.
@@ -2313,7 +2226,6 @@ function createNewDay_AUTO(masterId, templateTab) {
 try {
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-
 const today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM");
 
 // 📂📂 Άνοιγμα HoB_Masters
@@ -2369,7 +2281,6 @@ PopupLib.showSuccessMessage("� Καθαρίστηκαν όλα τα Notes!");
 PopupLib.showErrorMessage("❌ Σφάλμα στο clearAll Notes: " + err);
 throw err;
 }
-
 
 ## }
 
@@ -2431,7 +2342,6 @@ editors.forEach(ed => copy.removeEditor(ed));
 // Cleanup στο τρέχον αρχείο → μόνο MASTER
 const master = ss.getSheetByName("MASTER");
 
-
 if (master) master.showSheet();
 ss.getSheets().forEach(sh => {
 if (sh.getName().toUpperCase() !== "MASTER") {
@@ -2488,7 +2398,6 @@ copyTo () απευθείας από ένα **Range του HoB_Masters** σε έ�
 
 Θέλεις να σου ετοιμάσω τώρα το **AdminToolsLib V6.7.6** με αυτή τη διόρθωση, ώστε να μην ξαναβγαίνει το
 σφάλμα;
-
 
 **You said:**
 παλιά που δούλευε σούπερ το κάναμε με αυτό τον τρόπο: "function onOpen(e) { const ui =
@@ -2553,7 +2462,6 @@ formatting + setValues για data ) ώστε να δουλεύει ακριβώ
 
 📌📌 Ο “παλιός τρόπος” ήταν πιο απλός και σταθερός:
 
-
 - Κάθε Checklist αρχείο είχε ήδη μέσα του τα template tabs (MASTER1, MASTER2, WRHMaster,
     CashierMaster).
 - Το HoB_Masters/Templates χρησίμευε μόνο για **mapping** → να ξέρουμε ποιο template να
@@ -2608,7 +2516,6 @@ Version: V6.7.5 – 30.09.2025 – Simplified (local template copy, stable)**
 // --------------------------
 function createNewDay_AUTO(masterId, templateTab) {
 try {
-
 
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM");
@@ -2666,7 +2573,6 @@ throw err;
 function debugUserContext() {
 const email = Session.getEffectiveUser().getEmail();
 const locale = Session.getActiveUserLocale();
-
 
 const tz = Session.getScriptTimeZone();
 
@@ -2726,7 +2632,6 @@ ss.deleteSheet(sh);
 
 PopupLib.showSuccessMessage("📂📂 Δημιουργήθηκε YYMM αντίγραφο & καθάρισε το αρχείο.");
 
-
 return;
 
 } catch (err) {
@@ -2785,7 +2690,6 @@ Document
 
 ✅ **Πρόταση Σχεδιασμού**
 
-
 - **HoBMasterLib** → Κεντρική βιβλιοθήκη για δημιουργία νέας ημέρας (έτοιμη, με protections, alerts κλπ).
 - **AdminToolsLib** → Utilities (clear notes, duplicate & cleanup, debug, κλπ).
 - **MenuLib** → Φορτώνει το σωστό template από το HoB_Masters/Templates και μετά καλεί
@@ -2843,7 +2747,6 @@ Document
 
 **4. PopupLib (V1.9.4)**
 
-
 - **Ο ρόλος της:** Όλα τα custom popups.
 - **Έχει:**
     o showInfoMessage / showWarningMessage / showErrorMessage / showSuccessMessage.
@@ -2900,7 +2803,6 @@ Version: V6.9.14 – 30.09.2025 – CreateNewDay via HoBMasterLib**
 // ✅ Functions included in this version:
 // getOwnerEmail
 
-
 // getMenuItemsFromSheet
 // loadMenuDynamically
 // getTemplateTabFromHoBMasters_
@@ -2956,7 +2858,6 @@ if (typeFilter && typeVal !== typeFilter) continue;
 
 out.push({
 
-
 store: (row[idxStore] || '').toString(),
 name: (row[idxMenu] || '').toString(),
 func: (row[idxFunc] || '').toString(),
@@ -3011,7 +2912,6 @@ try { lock.releaseLock(); } catch (_) {}
 
 ## // --------------------------
 
-
 // Lookup template from HoB_Masters/Templates
 // --------------------------
 function getTemplateTabFromHoBMasters_() {
@@ -3063,7 +2963,6 @@ openUrlInNewTab("https://docs.google.com/document/d/1c1tyNvI70_Qd4GnblSau9NVhSGK
 function openForm_GenikiTaxydromiki() {
 openUrlInNewTab("https://docs.google.com/document/d/1nZEajIgrwQOyMWBcZ61KDPagnvacZfDsMcCI69XVkXI/
 edit?usp=sharing"); }
-
 
 function openForm_EmailsList() {
 openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-3sOYvihsFmQ8VZmEJsVmqPGu-
@@ -3122,7 +3021,6 @@ function remindMissingNamesFromMenu() {
 ReminderLib.remindMissingNames();
 }
 
-
 📌📌 Τι αλλάξαμε σε σχέση με V6.9. 13:
 
 - Το createNewDayFromMenu() αντί να καλεί AdminToolsLib.createNewDay_AUTO () → τώρα καλεί
@@ -3178,7 +3076,6 @@ HoBMastersLib
 HoBMasterLib
 
 👉👉 Ένα γράμμα “s” κάνει όλη τη διαφορά → γι’ αυτό το σύστημα λέει **not defined**.
-
 
 📌📌 **Λύση**
 Έχουμε δύο επιλογές:
@@ -3236,7 +3133,6 @@ return "hobdeks@gmail.com";
 
 ## // --------------------------
 
-
 // Load menu items from MenuListTable
 // --------------------------
 function getMenuItemsFromSheet(menuType) {
@@ -3290,7 +3186,6 @@ var ownerEmail = getOwnerEmail();
 
 var menu = ui.createMenu("🗂🗂 HoB - Menu");
 
-
 // --- User Menu ---
 var userItems = getMenuItemsFromSheet("user");
 userItems.forEach(function(item) {
@@ -3343,7 +3238,6 @@ return tplName;
 }
 return null;
 }
-
 
 ## // --------------------------
 
@@ -3400,7 +3294,6 @@ function testTemplateTabFromMenu() { AdminToolsLib.testTemplateTab(); }
 function testAllPopupsFromMenu() { PopupLib.testAllPopupsFromMenu(); }
 function automatedDuplicateAndCleanupFromMenu() { AdminToolsLib.automatedDuplicateAndCleanup(); }
 
-
 ## // --------------------------
 
 // ✅ Create New Day (via HoBMastersLib)
@@ -3456,7 +3349,6 @@ pic 1=onOpen pic 2=απο το μενου δημιουργία νεας ημέρ
 ψάχνει για MASTER 1 τοπικά.
 Γι’ αυτό λέει ότι δεν βρίσκει το “τοπικό template”.
 
-
 📌📌 **Πρόβλημα 2 (pic2 – από το μενού “Δημιουργία Νέας Ημέρας”)**
 
 ❌ ReferenceError: HoBMastersLib is not defined
@@ -3486,7 +3378,6 @@ HoBMastersLib**.
 
 👉👉 Να σου ετοιμάσω εγώ τώρα ένα **διορθωμένο Checklist.gs (V6.7.5)** όπου το onOpen() δεν προσπαθεί να
 δημιουργήσει ημέρα, αλλά απλά φορτώνει μενού;
-
 
 # 5Checklistsetup
 *Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
@@ -3549,7 +3440,6 @@ HoBMastersLib**.
 
 1. Προσθέτει προσωρινό μενού ⏳ Φόρτωση Μενού...
 2. Καλεί getTemplateTabFromHoBMasters_() (local)
-
 
 3. Αν βρεθεί template ➜ τρέχει AdminToolsLib.createNewDay_AUTO(...)
 4. Popup : Αν υπάρξει ήδη σημερινή καρτέλα → δείχνει info message και δεν κάνει τίποτα
@@ -3618,7 +3508,6 @@ Updated saved memory
 const templateTab = getTemplateTabFromHoBMasters_();
 AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
 
-
 ❌ Αν το getTemplateTabFromHoBMasters_() **δεν επιστρέψει σωστό template** , ή το createNewDay_AUTO (...)
 αποτύχει (π.χ. λόγω λάθους στην αντιγραφή), τότε εμφανίζεται σφάλμα popup ή δεν δημιουργείται νέα ημέρα.
 
@@ -3680,7 +3569,6 @@ Menu Name Function Name
 ```
 ✅ Όλες αυτές υπάρχουν ήδη στον MenuLib, με openUrlInNewTab(...).
 
-
 👑👑 **owner Menu (φαίνεται μόνο στον hobdeks@gmail.com)**
 
 ```
@@ -3734,7 +3622,6 @@ You said:**
 Βήμα 1: Πήγαινε στο αρχείο CHECKLIST V6**
 
 🔗🔗 https ://docs.google.com/spreadsheets/d/1ZFUa3jzJl1o4ZuYDzsFZWBKogdd-m3CzyDYNQm__jc0/edit
-
 
 **Βήμα 2: Πίεσε
 View → Hidden sheets → [MASTER1] → Unhide**
@@ -3794,7 +3681,6 @@ AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
 MASTER 1 που υπάρχει στο ίδιο αρχείο).
 
 ✅ **Σωστός τρόπος: Να χρησιμοποιείται η HoBMastersLib.createNewDay({...})**
-
 
 Ακριβώς όπως στο μενού createNewDayFromMenu():
 HoBMastersLib.createNewDay({
@@ -3862,7 +3748,6 @@ template
 ```
 **� Τελικός Έλεγχος**
 
-
 1. Αντικαθιστάς τη function onOpen(e) με την παραπάνω
 2. Πατάς **Run** ▶ → onOpen
 3. ✅ Αν όλα πάνε καλά:
@@ -3919,7 +3804,6 @@ Library”** στο περιβάλλον του αρχείου CHECKLIST V6.
 1. Πάτα “Run” → createNewDayFromMenu
 2. Αν η βιβλιοθήκη είναι ορατή, θα δουλέψει σωστά:
 
-
 ```
 o Θα φτιάξει νέο tab
 o Θα δώσει popup: ✅ Δημιουργήθηκε
@@ -3974,7 +3858,6 @@ Script ID: 1Lj-3dkjMbLQO_VaOXWXC7G55hceL2zx35D2f1CcUva35DF5aLnmFM5lY
 - **Libraries → + Add Library**
 - Επικόλλησε το παραπάνω ID
 - Όρισε όνομα **HoBMastersLib** _(ακριβώς έτσι)_
-
 
 ✔ Τέλος. Η createNewDayFromMenu() θα δουλέψει αμέσως.
 
@@ -4033,7 +3916,6 @@ Updated saved memory
 
 - Το 📅📅 Δημιουργία Νέας Ημέρας από μενού δουλεύει σωστά
 
-
 - Δεν βγάζει πλέον HoBMastersLib is not defined
 ... περνάμε στην **επαλήθευση όλων των menu items** (user + owner ).
 Περιμένω το **OK από το μενού** για να ξεκινήσουμε validation.
@@ -4088,7 +3970,6 @@ Logger.log(result);
 Το HoBMastersLib έχει δικό του project και Script ID ✅
 Το CHECKLIST V6 έχει κάνει import τη βιβλιοθήκη ✅
 
-
 ```
 Βήμα Έγινε;
 ```
@@ -4138,7 +4019,6 @@ MenuLib.createNewDayFromMenu() δεν το βρίσκει.
 3. Θα πρέπει να δεις:
     o ✅ Δημιουργία tab (αν δεν υπάρχει)
     o ✅ Popup με Επιτυχία
-
 
 ✳ **Εναλλακτικά test:**
 Εκτέλεσε το εξής μέσα στο MenuLib.gs:
@@ -4194,7 +4074,6 @@ entries.
 **� Test**
 Μετά ξανατρέχεις στο CHECKLIST V6:
 function testLibLink() {
-
 
 Logger.log(typeof HoBMastersLib.createNewDay);
 }
@@ -4255,7 +4134,6 @@ to ;ekana
 
 - Το σφάλμα **ReferenceError: HoBMastersLib is not defined** δεν θα ξαναεμφανιστεί.
 
-
 - Το menu item 📅📅 **Δημιουργία Νέας Ημέρας** τώρα πρέπει να τρέχει χωρίς πρόβλημα, ακριβώς όπως το
     onOpen().
 
@@ -4307,7 +4185,6 @@ Test PopUps testAllPopupsFromMenu PopupLib
     o Popup: ✅ “Έγινε”.
 4. 🔴🔴 **Check Invalid (Όνομα Επώνυμο)**
     o Τρέξε το.
-
 
 ```
 o Αν υπάρχουν κελιά με Όνομα Επώνυμο? στη στήλη B → popup με λίστα κελιών.
@@ -4362,7 +4239,6 @@ DriveApp.getFolderById(folderId).addFile(ss);
 **Διόρθωση**
 const file = DriveApp.getFileById(ss.getId());
 DriveApp.getFolderById(folderId).addFile(file);
-
 
 📌📌 Έτσι περνάμε το σωστό αντικείμενο.
 
@@ -4423,7 +4299,6 @@ HoBMastersLib
 
 📂📂 **AdminToolsLib – Διόρθωση automatedDuplicateAndCleanup**
 
-
 // Version: V6.7.6 – 30/09/2025 – Fix DriveApp.addFile parameter
 // Διορθώθηκε το σφάλμα όπου περνούσε Spreadsheet object αντί για File object
 
@@ -4479,7 +4354,6 @@ throw err;
 2. Στο project **MenuLib** , ενημέρωσε την έκδοση σε **V6.9.15** με το νέο remindMissingNamesFromMenu.
     3. Στο **CHECKLIST V6** :
        o Πήγαινε στα **Libraries**
-
 
 ```
 o Για AdminToolsLib → επίλεξε V6.7.6
@@ -4539,7 +4413,6 @@ DEK, συμφωνώ: έπρεπε να σου δώσω **ολόκληρα τα �
 // showMasterAndDeleteOthers
 // remindMissingNames
 
-
 // clearAllNotes
 // debugUserContext
 // testLibExists
@@ -4594,7 +4467,6 @@ ss.moveActiveSheet(0);
 
 const master = ss.getSheetByName(MASTER_SHEET_NAME);
 if (master && !master.isSheetHidden()) master.hideSheet();
-
 
 try { PropertiesService.getDocumentProperties().setProperty('lastTabCreated', new Date().toISOString()); } catch
 (_) {}
@@ -4653,7 +4525,6 @@ const newFile = originalFile.makeCopy(newFileName, folder);
 
 Logger.log('✅ Αντίγραφο αρχείου : ' + newFileName);
 
-
 // (4) Αφαίρεση editors εκτός owner στο ΝΕΟ αντίγραφο
 removeAllUsersExceptOwner_(newFile);
 
@@ -4709,7 +4580,6 @@ if (sheet.getName() !== MASTER_SHEET_NAME) ss.deleteSheet(sheet);
 
 try { PopupLib.showCustomPopup('📋📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν
 τα υπόλοιπα.', 'info'); } catch (_) {}
-
 
 ## }
 
@@ -4768,7 +4638,6 @@ try { PopupLib.showCustomPopup('� Καθαρίστηκαν όλα τα Notes.'
 
 // 📌📌 Debug Context
 // ==========================
-
 
 function debugUserContext() {
 const email = Session.getEffectiveUser().getEmail();
@@ -4830,7 +4699,6 @@ HoBM astersLib
 // --------------------------
 // Constants
 
-
 ## // --------------------------
 
 const HOB_MASTERS_FILE_ID = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI';
@@ -4884,7 +4752,6 @@ type: typeVal
 }
 return out;
 }
-
 
 ## // --------------------------
 
@@ -4941,7 +4808,6 @@ const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName('Templates');
 if (!tplSheet) return null;
 
-
 const data = tplSheet.getRange(2, 1, tplSheet.getLastRow() - 1, 3).getValues();
 // Columns: A=CHECKLIST FILENAME, B=TEMPLATE, C=FILE ID (προαιρετικό)
 
@@ -4994,7 +4860,6 @@ lms/edit?usp=sharing"); }
 function openUrlInNewTab(url) {
 var html = HtmlService.createHtmlOutput(
 "<script>window.open('" + url + "', '_blank');google.script.host.close();</script>"
-
 
 ## );
 
@@ -5052,7 +4917,6 @@ templateTab: templateTab
 PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu:<br>" + err);
 }
 }
-
 
 **Τι να κάνετε τώρα (σύντομα)**
 

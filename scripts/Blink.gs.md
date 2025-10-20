@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -109,7 +61,6 @@
 *
 *
 *Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
-
 
 // === BLINK V2.0.1 — Hotfix: “server error” exclusion (no throws when no UI) ======
 // Aligned with V2.0.0 (15.10.2025) — minimal, safe UI-guard; no behavior change for users.

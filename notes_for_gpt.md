@@ -161,10 +161,10 @@ function functionName(paramName) {
   if (!paramName) {
     throw new Error('paramName is required');
   }
-  
+
   // 2. Execute logic
   const result = _processData(paramName);
-  
+
   // 3. Return result
   return result;
 }
@@ -392,11 +392,11 @@ function getUserData(userId) {
 // Log function entry
 function myFunction(param) {
   Logger.log('[ENTRY] myFunction called with: ' + param);
-  
+
   // Log intermediate values
   const result = _processData(param);
   Logger.log('[DEBUG] processData returned: ' + result);
-  
+
   // Log function exit
   Logger.log('[EXIT] myFunction returning: ' + result);
   return result;
@@ -433,7 +433,7 @@ Before committing code, verify:
     const data = _getData();
     const props = PropertiesService.getScriptProperties();
     const lastIndex = parseInt(props.getProperty('lastIndex') || '0');
-    
+
     for (let i = lastIndex; i < data.length; i++) {
       // Check if approaching timeout (5 min 30 sec)
       if (new Date().getTime() - startTime > 330000) {
@@ -446,10 +446,10 @@ Before committing code, verify:
         Logger.log('Timeout approaching, saved progress at index: ' + i);
         return;
       }
-      
+
       _processRow(data[i]);
     }
-    
+
     // Clear progress marker when done
     props.deleteProperty('lastIndex');
     Logger.log('Processing complete');
@@ -464,11 +464,11 @@ Before committing code, verify:
   function getUserData(userId) {
     const owner = Session.getActiveUser().getEmail();
     const AUTHORIZED_OWNER = 'hobdeks@gmail.com';
-    
+
     if (owner !== AUTHORIZED_OWNER) {
       throw new Error('Unauthorized access: ' + owner);
     }
-    
+
     // ... rest of function
   }
   ```
@@ -482,7 +482,7 @@ Before committing code, verify:
   function onOpenMenu() {
     MenuLib.createMenu(); // 1-to-1 mapping
   }
-  
+
   // INCORRECT
   function onOpenMenu() {
     MenuLib.createMenu();
@@ -502,7 +502,7 @@ Before committing code, verify:
     if (!_arraysMatch(checklist, actualFunctions)) {
       throw new Error('Function checklist mismatch');
     }
-    
+
     // Check 2: Dependencies exist
     const deps = _getDependencies();
     for (let dep of deps) {
@@ -510,12 +510,12 @@ Before committing code, verify:
         throw new Error('Missing dependency: ' + dep);
       }
     }
-    
+
     // Check 3: Owner filter present
     if (!_hasOwnerFilter()) {
       throw new Error('Owner filter missing');
     }
-    
+
     return 'INTEGRITY_OK';
   }
   ```
@@ -529,11 +529,11 @@ Before committing code, verify:
   function remindMissingNames() {
     // This is a time-driven trigger
     const missingNames = _getMissingNames();
-    
+
     if (missingNames.length > 0) {
       // CORRECT: Use toast (works in time-driven)
       PopupLib.showToast('Missing names: ' + missingNames.join(', '));
-      
+
       // INCORRECT: Use dialog (fails in time-driven)
       // PopupLib.showDialog('Missing names', missingNames.join(', '));
     }

@@ -38,7 +38,7 @@
 function onOpen(e) {
   // 1. Create menu
   MenuLib.createMenu();
-  
+
   // 2. Auto-create new day (if needed)
   createNewDay_AUTO_Local();
 }
@@ -49,21 +49,21 @@ function onOpen(e) {
 function createMenu() {
   const owner = Session.getActiveUser().getEmail();
   const AUTHORIZED_OWNER = 'hobdeks@gmail.com';
-  
+
   // Determine user type
   const userType = (owner === AUTHORIZED_OWNER) ? 'owner' : 'user';
-  
+
   // Get menu items for user type
   const menuItems = MenuLib.getMenuItems(userType);
-  
+
   // Create menu
   const ui = SpreadsheetApp.getUi();
   const menu = ui.createMenu('HoB Checklist');
-  
+
   for (let item of menuItems) {
     menu.addItem(item.name, item.functionName);
   }
-  
+
   menu.addToUi();
 }
 ```

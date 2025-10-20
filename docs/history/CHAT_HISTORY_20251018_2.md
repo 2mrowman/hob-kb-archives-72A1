@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -122,7 +74,6 @@ catch (err) { PopupLib.showCustomPopup('⚠ Σφάλμα (Test Template Tab):<br
 // ==========================
 
 function openNeaParalaviForm() {
-
 
 openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8k
 O0/edit?usp=sharing");
@@ -174,7 +125,6 @@ function openForm_GenikiTaxydromiki() {
 openUrlInNewTab("https://docs.google.com/document/d/1nZEajIgrwQOyMWBcZ61KDPagnvacZfDsMcCI69XVkXI/
 edit?usp=sharing");
 }
-
 
 function openForm_EmailsList() {
 openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-
@@ -231,7 +181,6 @@ return null;
 
 🔑🔑 **Τι αλλάζει:**
 
-
 - Πρόσθεσα **δύο νέες wrapper functions** :
     o testLibExistsFromMenu() → καλεί AdminToolsLib.testLibExists()
     o testTemplateTabFromMenu() → καλεί AdminToolsLib.testTemplateTab()
@@ -287,7 +236,6 @@ CHECKLIST V6 MENU erroLS01
 
 1. Άνοιξε το **Apps Script project** του αρχείου **CHECKLIST V6**.
 2. Πήγαινε στο **Libraries** :
-
 
 ```
 o Menu: Extensions → Apps Script → Project Settings → Libraries
@@ -347,7 +295,6 @@ const BLINK_CYCLES = 3; // Αριθμός εναλλαγών για blinking (α
 function createNewDay_AUTO(masterId, templateTab) {
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 
-
 var tz = Session.getScriptTimeZone();
 var todayName = Utilities.formatDate(new Date(), tz, "dd/MM"); // π.χ. 25/09
 
@@ -402,7 +349,6 @@ var newName = Utilities.formatDate(new Date(), tz, "dd/MM") + " Copy";
 
 var newSheet = activeSheet.copyTo(ss).setName(newName);
 newSheet.getDataRange().clearNotes().clearFormat().setFontWeight("normal");
-
 
 try { PopupLib.showCustomPopup("✅ Δημιουργήθηκε αντίγραφο και καθαρίστηκε: <b>" + newName + "</b>",
 "success"); } catch (_) {}
@@ -459,7 +405,6 @@ var cellRefs = targets.map(function(c){ return c.getA1Notation(); }).join(', ');
 var message =
 
 "🚨🚨 Εντοπίστηκαν " + targets.length +
-
 
 " κελ ιά με ασυμπλήρωτο το \"<strong>" + NAME_PROMPT + "</strong>\" !!!<br><br>" +
 
@@ -520,7 +465,6 @@ SpreadsheetApp.getUi().alert("ERROR in AdminToolsLib.testLibExists: " + e.toStri
 
 ## // ==========================
 
-
 // ✅ Test ύπαρξης συγκεκριμένου Template Tab (χωρίς εξάρτηση από εξωτερική σταθερά )
 // ==========================
 function testTemplateTab() {
@@ -576,7 +520,6 @@ o 📑📑 **Test Template Tab** → αναμένεται alert: ✅ Exists!
 Thought for 2m 21s
 25/09/2025 – 14:02
 DEK,
-
 
 Κατανοώ την ενόχλησή σας. Δεν αλλάζω καμία υφιστάμενη ροή. Δίνω **πλήρη, ασφαλή λύση** ώστε:
 
@@ -635,7 +578,6 @@ ss.moveActiveSheet(0);
 
 // Κρύψιμο MASTER αν υπάρχει
 
-
 var master = ss.getSheetByName("MASTER");
 if (master && !master.isSheetHidden()) master.hideSheet();
 
@@ -693,7 +635,6 @@ try { PopupLib.showCustomPopup("📋📋 Εμφανίστηκε το <b>MASTER</
 // 📌📌 Remind Missing Names (τρέχον φύλλο, λίστα κελιών, popup)
 // ==========================
 
-
 function remindMissingNames() {
 try { SpreadsheetApp.getUi(); } catch (e) { return; } // UI context only
 
@@ -749,7 +690,6 @@ try { PopupLib.showCustomPopup("� Καθαρίστηκαν όλα τα Notes."
 function debugUserContext() {
 var email = Session.getEffectiveUser().getEmail();
 var docTitle = SpreadsheetApp.getActiveSpreadsheet().getName();
-
 
 var msg = "👤👤 Χρήστης: <b>" + email + "</b><br>" +
 
@@ -810,7 +750,6 @@ CheckList.gs) γίνεται κλήση MenuLib.getOwnerEmail() αλλά το φ
 συγκεκριμένη function.
 Χωρίς να πειράξουμε καμία υπάρχουσα κλήση, προσθέστε **ένα μικρό αρχείο** στο project σας με όνομα π.χ.
 
-
 Z_Shims.gs και το παρακάτω περιεχόμενο. Αν η βιβλιοθήκη τη δίνει, χρησιμοποιείται αυτή· αν όχι, δίνουμε
 **fallback** ώστε να μην ξανασπάει τίποτα.
 /** SHIM: Εγγυάται ότι υπάρχει MenuLib.getOwnerEmail() χωρίς να αλλάξουμε υπάρχουσες κλήσεις */
@@ -865,7 +804,6 @@ onOpen. Αν ζητήσετε, μπορώ να προσθέσω **1 γραμμή
 **Τι να περιμένετε μετά την ενημέρωση**
 
 1. Από Owner Menu → 🔧🔧 **Test AdminToolsLib** : Alert createNewDay_AUTO typeof = function.
-
 
 2. Από Owner Menu → 📑📑 **Test Template Tab** : Alert ✅ Exists! (ή ❌ Not found αν λείπει το WRHMaster
     στο HoB_Masters).
@@ -923,7 +861,6 @@ ALL (^) 📑📑 Test Template Tab testTemplateTabFromMenu Owner
 
 - Στο AdminToolsLib: **καμία αλλαγή** (ήδη έτοιμο).
 - Στο MenuLib: **μόνο οι 2 wrappers** που βλέπεις πιο πάνω.
-
 
 - Στο Google Sheet Menu: **2 νέες γραμμές** με αυτά τα στοιχεία.
 
@@ -989,7 +926,6 @@ cellRefs + "</strong><br><br>" + "📝📝 Παρακαλώ συμπληρώστ
 blinkCellFontColor_(targets, BLINK_CYCLES); } } // ========================== // 📌📌 Clear All Notes (όλα τα
 tabs εκτός START/MASTER) // ========================== function clearAllNotes() { var ss =
 
-
 SpreadsheetApp.getActiveSpreadsheet(); ss.getSheets().forEach(function (sheet) { var nm = sheet.getName(); if
 (nm === "START" || nm === "MASTER") return; sheet.getDataRange().clearNote(); }); try {
 PopupLib.showCustomPopup("� Καθαρίστηκαν όλα τα Notes.", "success"); } catch (_) {} } //
@@ -1051,7 +987,6 @@ return;
 var masters = SpreadsheetApp.openById(masterId);
 var tpl = masters.getSheetByName(templateTab);
 
-
 if (!tpl) {
 
 try { PopupLib.showCustomPopup("❌ Δεν βρέθηκε template: <b>" + templateTab + "</b>", "error"); } catch (_) {}
@@ -1108,7 +1043,6 @@ const idxFunc = header.indexOf('Function Name') + 1;
 const idxType = header.indexOf('Type') + 1;
 if (idxName === 0 || idxFunc === 0 || idxType === 0) return [];
 
-
 const lastRow = sheet.getLastRow();
 if (lastRow < 2) return [];
 
@@ -1162,7 +1096,6 @@ const sheet = ss.getSheetByName(MENU_SHEET_NAME);
 if (!sheet) return [];
 
 const header = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(String);
-
 
 const idxStore = header.indexOf('Store Name') + 1;
 const idxName = header.indexOf('Menu Name') + 1;
@@ -1288,7 +1221,6 @@ Names (τρέχον φύλλο, λίστα κελιών, popup) // =============
 // Βεβαιώσου ότι υπάρχει UI context (όχι background trigger) try { SpreadsheetApp.getUi(); } catch (e) { return; }
 var sh = SpreadsheetApp.getActiveSheet(); var name = sh.getName(); if (name === "START" || name ===
 
-
 "MASTER") return; var last = sh.getLastRow(); if (last < 2) return; var rngB = sh.getRange(2, COL_B, last - 1, 1); var
 vals = rngB.getValues(); var targets = []; for (var i = 0; i < vals.length; i++) { var v = String(vals[i][0] || "").trim(); if (v
 === NAME_PROMPT) targets.push(rngB.getCell(i + 1, 1)); } if (targets.length > 0) { var cellRefs =
@@ -1352,7 +1284,6 @@ return;
 AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
 } catch (err) {
 
-
 PopupLib.showCustomPopup('⚠ Σφάλμα (Create New Day):<br><br>' + (err.message || err), 'error');
 }
 }
@@ -1413,7 +1344,6 @@ catch (err) { PopupLib.showCustomPopup('⚠ Σφάλμα (Test Template Tab):<br
 
 // ✅ User Tools (Links → νέ ο tab χωρίς popup μηνύματα)
 
-
 ## // ==========================
 
 function openNeaParalaviForm() {
@@ -1467,7 +1397,6 @@ openUrlInNewTab("https://docs.google.com/document/d/1c1tyNvI70_Qd4GnblSau9NVhSGK
 Θέλεις να περάσουμε και το **AdminToolsLib** σε έκδοση **V6.7.2** με τον ίδιο τρόπο (όλα μέσα, σχολιασμένα, καθαρό
 copy–paste);
 **You said:**
-
 
 αυτα μου βγάζει και δεν κάνει τίποτα. ΜΟΝΟ αυτα δες και ΜΗΝ αΛΛΑΞΕΙΣ ΤΙΠΟΤΑ ΑΛΛΟ ΣΤΟΝ ΚΩΔΙΚΑ
 **ChatGPT said:**
@@ -1523,7 +1452,6 @@ try { PopupLib.showCustomPopup("❌ Δεν βρέθηκε template: <b>" + templ
 Μπορείς να το κάνεις **copy–paste 1:1** και να ξαναδοκιμάσεις τα κουμπιά Test.
 Θέλεις να σου δώσω και το **MenuLib (V6.9.4)** και το **AdminToolsLib (V6.7.2)** σε ένα ενιαίο σετ (με πλήρη σχόλια)
 ώστε να τα περνάς μαζί και να είσαι σίγουρος ότι ταιριάζουν;
-
 
 **You said:**
 
@@ -1584,7 +1512,6 @@ PopupLib.showCustomPopup('⚠ Δεν επιστράφηκε true από το tes
 δεις το popup live πριν το ξαναπεράσουμε στο μεγάλο Checklist;
 **You said:**
 
-
 Θέλω: 1. Να έχει πάνω χρωματιστή μπάρα (header) με το ανάλογο χρώμα (κόκκινο, μπλε κλπ). 2. Να αφαιρέσω
 τη λέξη "Προσοχή!" ή άλλα κείμενα και τα διπλά emoji από το σώμα του παραθύρου. Να εμφανίζεται ΜΟΝΟ το
 μήνυμα που δίνεις (όπως "Εντοπίστηκαν..." ή "Πληροφορία...") μαζί με το αντίστοιχο emoji. Παρακάτω είναι ο
@@ -1643,7 +1570,6 @@ ${message}
 globalThis.__popupCallback__ = callback;
 SpreadsheetApp.getUi().showModalDialog(html, ""); // Κενός τίτλος, για να μην φαίνεται τίποτα extra
 }
-
 
 🔹🔹 Τι αλλάζει τώρα:
 
@@ -1704,7 +1630,6 @@ PopupLib.showCustomPopup(message, type);
 Θέλεις να σου ετοιμάσω ξανά το showCustomPopup σε απλή έκδοση **μέσα στην PopupLib** , που κρατάει σίγουρα
 την εμφάνιση, και μετά να προσθέσουμε βήμα-βήμα τα design (header bar, χρώματα κλπ.);
 
-
 **You said:**
 D. AdminToolsLib - AdminToolsLib.gs - Copy.txt
 Document
@@ -1758,7 +1683,6 @@ C. PopupLib - Code.gs - Copy
 function showCustomPopup(message, type, callback) {
 // Επιλογή χρώματος & emoji
 var color, icon;
-
 
 if (type === "success") { color = "#4CAF50"; icon = "✅"; }
 
@@ -1814,7 +1738,6 @@ function showInfoMessage(message) { return showCustomPopup(message, 'info'); }
 function showWarningMessage(message) { return showCustomPopup(message, 'warning'); }
 // (προαιρετικά αν υπάρχουν αλλού:) showSuccessMessage/showErrorMessage μπορούν να καλέσουν
 showCustomPopup
-
 
 **Οδηγίες εφαρμογής**
 
@@ -1872,7 +1795,6 @@ bar να είναι σωστό Σώμα απλό, μόνο τα μηνύματα
     (δεν φτιάχνουμε custom).
 - **Σώμα** : καθαρό, μόνο το emoji + το μήνυμα που περνάς.
 
-
 - **Container** : με στρογγυλεμένες γωνίες (ή τετράγωνο αν θέλεις, είναι 1 γραμμή CSS).
 Ορίστε η νέα έκδοση PopupLib V1.5:
 // ==========================
@@ -1929,7 +1851,6 @@ try { globalThis.__popupCallback__(); } finally { globalThis.__popupCallback__ =
 function showInfoMessage(message) { return showCustomPopup(message, 'info'); }
 function showWarningMessage(message) { return showCustomPopup(message, 'warning'); }
 function showSuccessMessage(message) { return showCustomPopup(message, 'success'); }
-
 
 function showErrorMessage(message) { return showCustomPopup(message, 'error'); }
 Με αυτό:
@@ -1991,7 +1912,6 @@ SpreadsheetApp.getUi().showModalDialog(html, `${icon} ${title}`);
 
 🔹🔹 Έτσι:
 
-
 - Το **Google modal** παίρνει αυτόματα το σωστό ύψος/πλάτος, χωρίς scrollbars.
 - Στην κεφαλίδα του modal θα έχεις: «❌ Προσοχή!» και το default Χ δεξιά.
 - Στο σώμα μόνο το μήνυμα που του δίνεις.
@@ -2051,7 +1971,6 @@ function showErrorMessage(message) { return showCustomPopup(message, 'error'); }
 - Το modal θα έχει **τίτλο με χρώμα & emoji** (π.χ. ❌ Προσοχή !) και το **default Χ**.
 - Το μέγεθος θα **προσαρμόζεται** στο μήνυμα (χωρίς scrollbar).
 
-
 - Στο σώμα βλέπεις **μόνο το μήνυμα + emoji**.
 Θέλεις να το δοκιμάσεις πρώτα με ένα απλό test όπως:
 function testPopup() {
@@ -2107,7 +2026,6 @@ try { globalThis.__popupCallback__(); } finally { globalThis.__popupCallback__ =
 // Wrappers
 function showInfoMessage(message) { return showCustomPopup(message, 'info'); }
 function showWarningMessage(message) { return showCustomPopup(message, 'warning'); }
-
 
 function showSuccessMessage(message) { return showCustomPopup(message, 'success'); }
 function showErrorMessage(message) { return showCustomPopup(message, 'error'); }
@@ -2173,7 +2091,6 @@ else { title = "Πληροφορία"; icon = "ℹ"; }
 
 const html = HtmlService.createHtmlOutput(`
 
-
 <div style="display:flex; justify-content:center; align-items:center;
 width:100%; height:100%; min-height:120px;
 font-family:Arial, sans-serif; font-size:16px;
@@ -2229,7 +2146,6 @@ function showErrorMessage(message) { return showCustomPopup(message, 'error'); }
 // 3) Κρατάμε το default Google X στο πάνω δεξιά.
 
 function showCustomPopup(message, type, callback) {
-
 
 let color, title, icon;
 
@@ -2290,7 +2206,6 @@ warning) για να δεις τα χρώματα;
 **ChatGPT said:**
 
 Πολύ σωστή παρατήρηση DEK 👌👌
-
 
 Τα **διπλά emoji** εμφανίζονται επειδή:
 
@@ -2353,7 +2268,6 @@ ${message}
 
 globalThis.__popupCallback__ = callback;
 
-
 SpreadsheetApp.getUi().showModalDialog(html, `${icon} ${title}`);
 }
 
@@ -2413,7 +2327,6 @@ const html = HtmlService.createHtmlOutput(`
 <!-- Container με border -->
 <div style="border:2px solid ${color}; border-radius:8px; overflow:hidden;">
 
-
 <!-- Header bar -->
 <div style="height:10px; background:${color};"></div>
 
@@ -2465,7 +2378,6 @@ container”**.
 rounded corners), τότε πρέπει το border να εφαρμόσει **στον εξωτερικό container** του HTML, όχι μόνο στο “inner
 div”.
 Ορίστε το **PopupLib V1.9.3** για full border γύρω από όλο το παράθυρο:
-
 
 ## // ==========================
 
@@ -2525,7 +2437,6 @@ function showErrorMessage(message) { return showCustomPopup(message, 'error'); }
 
 📌📌 Έτσι:
 
-
 - Αν το τρέξεις, θα δεις border γύρω-γύρω όπως στην **εικόνα 2**.
 - Με το border-radius:12px το popup παίρνει πιο στρογγυλεμένη μορφή ( **εικόνα 3** ).
 - Αν θες εντελώς τετράγωνο όπως στην εικόνα 2 → άλλαξε border-radius:12px; σε border-radius:0;.
@@ -2582,7 +2493,6 @@ showWarningMessage("⚠ Αυτό είναι test μήνυμα προειδοπο
 3. Έτσι ελέγχεις άμεσα το **border** , το **header bar** και το **default Χ** σε όλα τα σενάρια.
 Θέλεις να το φτιάξω ώστε να εμφανίζεται **ένα popup κάθε φορά με κουμπί ΟΚ** (και μετά να περνάει στο
 επόμενο), αντί για αυτόματο 2 δευτερόλεπτα delay;
-
 
 **You said:**
 να το βάλουμε μέσα στο AdminToolsLib και στο MenuLib?
@@ -2646,7 +2556,6 @@ Logger.log("Σφάλμα στο testAllPopupsFromMenu: " + err);
 - Η **PopupLib** παραμένει η «πηγή» της εμφάνισης.
 - Από **AdminToolsLib** και **MenuLib** μπορείς να καλέσεις το test εύκολα, χωρίς να ανοίγεις ξεχωριστά τη
     PopupLib.
-
 
 Θέλεις να το προσθέσουμε και **στο μενού Owner** (π.χ. επιλογή _Test Popups_ ) ώστε να μπορείς να το τρέχεις με ένα
 click μέσα από το Google Sheet;
@@ -2713,7 +2622,6 @@ Utilities.sleep(800);
 
 PopupLib.showWarningMessage("⚠ Test Warning από MenuLib");
 
-
 } catch (err) {
 PopupLib.showCustomPopup('Σφάλμα (Test PopUps):<br><br>' + (err && err.message? err.message : err),
 'error');
@@ -2772,7 +2680,6 @@ _"Checklist automation setup3"_ :
 
 **Περίληψη Project –** **_Checklist automation setup2_**
 
-
 1. **Σκοπός**
     Δημιουργία ενός ενιαίου, αυτοματοποιημένου συστήματος ελέγχων για τα HoB Checklist αρχεία (ανά
     κατάστημα) με χρήση Google Sheets + Google Apps Script βιβλιοθηκών.
@@ -2826,7 +2733,6 @@ Checklist V6 αρχεία).
 Ορίστε έτοιμο κείμενο για να ξεκινήσει ς τη νέα συζήτηση **"Checklist automation setup3"** με καθαρή περίληψη
 και σημείο εκκίνησης:
 
-
 **Checklist automation setup3
 Περίληψη προηγούμενου project (** **_Checklist automation setup2_** **)**
 
@@ -2852,7 +2758,6 @@ Checklist V6 αρχεία).
 
 Θέλεις να σου ετοιμάσω και **template Google Sheet MenuLib** (γραμμές Menu Name | Function Name | Type) με
 το _Test PopUps_ ενσωματωμένο, ώστε να το έχεις σαν reference στην αρχή του νέου setup;
-
 
 # 3Checklistsetup
 *Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
@@ -2912,7 +2817,6 @@ automation setup 3**.
     o Default manual close (ο χρήστης πατάει το Χ).
     o Αν δεν το κλείσει μέσα σε π.χ. 5 δευτερόλεπτα, κλείνει μόνο του και ανοίγει το επόμενο.
 
-
 🔧🔧 **Πρόταση για το δικό σου Setup**
 Επειδή είμαστε σε **Checklist περιβάλλον καταστημάτων HoB** , όπου το προσωπικό μπορεί να μην δώσει προσοχή
 αν κλείνει μόνο του, θα πρότεινα:
@@ -2969,7 +2873,6 @@ C. PopupLib - Code.gs - V1.9.3
 // Αλλαγές:
 // 1) Νέο testAllPopups() → sequential display (manual close με Χ).
 // 2) Κάθε popup ανοίγει μόνο όταν κλείσει το προηγούμενο.
-
 
 ## // ==========================
 
@@ -3030,7 +2933,6 @@ showErrorMessage("🚨🚨 Test Error από PopupLib", function() {
 showInfoMessage("ℹ Test Inf o από PopupLib", function() {
 
 showSuccessMessage("✅ Test Success από PopupLib", function() {
-
 
 showWarningMessage("⚠ Test Warning από PopupLib");
 });
@@ -3093,7 +2995,6 @@ showWarningMessage("⚠ Test Warning από PopupLib");
 } catch (err) {
 Logger.log("Σφάλμα στο testAllPopupsFromMenu: " + err);
 
-
 ## }
 
 ## }
@@ -3151,7 +3052,6 @@ setup 3** , ή να σου ετοιμάσω ένα **νέο prototype “Popup M
 
 👉👉 Άρα από εδώ και πέρα συνεχίζουμε κανονικά στο **Checklist automation setup 3** με τα υπόλοιπα (triggers ,
 reports , performance).
-
 
 Θέλεις να βάλουμε επόμενο βήμα **ενοποίηση triggers (onOpen / onEdit)** ή να περάσουμε στα **reports για Area
 Managers** ;
@@ -3213,7 +3113,6 @@ copy–paste ), ή προτιμάς να αλλάξεις μόνοι σου τη
 
 - Το λάθος clearNotes() βρίσκεται μέσα στο **AdminToolsLib V6.7.3**.
 
-
 - Πρέπει να το αλλάξουμε σε **clearNote()** εκεί (μία γραμμή).
 
 Θέλεις να σου δώσω έτοιμο ολόκληρο το **διορθωμένο automatedDuplicateAndCleanupFromMenu** όπως πρέπει
@@ -3272,7 +3171,6 @@ automatedDuplicateAndCleanupFromMenu). Παρακάτω είναι το **πλή
 * - formats
 * - font weight
 
-
 * Επιστρέφει το νέο Sheet για περαιτέρω χρήση αν χρειαστεί.
 */
 function automatedDuplicateAndCleanup() {
@@ -3328,7 +3226,6 @@ throw err; // για logging στο executions panel
 
 ## /**
 
-
 * Βοηθητικό: επιστρέφει μοναδικό όνομα φύλλου με suffix (2), (3) αν χρειαστεί.
 */
 function getUniqueSheetName_(ss, desiredName) {
@@ -3382,7 +3279,6 @@ automatedDuplicateAndCleanup
     - Ο κώδικας στο **3. CHECKLIST V6** αντιγράφει **ολόκληρο το αρχείο (Drive file)** σε φάκελο, μετονομάζει σε
        **YYMM_OriginalName** , αφαιρεί editors **και μετά** εκτελεί καθαρισμό **στο MASTER** — αλλά ο καθαρισμός
        τρέχει στο **ενεργό Spreadsheet** , όχι στο **καινούργιο αντίγραφο** (bug ).
-
 
 3. CHECKLIST V6 - AutoDupl_File...
     - Το δικό σου **AdminToolsLib** που έδειξες, αντιγράφει **μόνο το ενεργό sheet** μέσα στο ίδιο αρχείο και
@@ -3441,7 +3337,6 @@ throw err;
 * - Κάνει αντιγραφή σε φάκελο με όνομα YYMM_OriginalName (μήνας προηγούμενος όπως στο V6)
 * - Ανοίγει το ΝΕΟ αρχείο και διατηρεί μόνο το MASTER (unhide ), διαγράφοντας όλα τα υπόλοιπα tabs
 
-
 * - Αφαιρεί όλους τους editors εκτός του owner
 * - Επιστρέφει το νέο Drive File
 */
@@ -3494,7 +3389,6 @@ removeAllUsersExceptOwner_(newFile);
 Logger.log("✅ Επιτυχής δημιουργία αντιγράφου & καθαρισμός tabs στο νέο αρχείο .");
 return newFile;
 }
-
 
 ## /**
 
@@ -3550,7 +3444,6 @@ DEK,
 4. **File → Manage versions... → Save new version** (δώσε π.χ. _V6.7.4 FileDuplicateFix_ ).
 5. Επίστρεψε στο project του **CHECKLIST V6** (client), **Extensions → Apps Script → Libraries → AdminToolsLib**
     και αλλάξε την **Version** στη νέα έκδοση που μόλις δημοσίευσες. **Save**.
-
 
 6. Τρέξε από το μενού σου την επιλογή που καλεί automatedDuplicateAndCleanupFromMenu.
 **Περίπτωση Β — Η AdminToolsLib είναι τοπικό αρχείο μέσα στο ίδιο project του CHECKLIST**
@@ -3608,7 +3501,6 @@ function automatedDuplicateAndCleanup() {
 
 Logger.log("🚀🚀 Έναρξη Duplicate & Cleanup");
 
-
 // 1) Πηγαίο αρχείο
 const originalFileId = SpreadsheetApp.getActive().getId();
 const originalFile = DriveApp.getFileById(originalFileId);
@@ -3661,7 +3553,6 @@ if (user.getEmail() !== owner.getEmail()) {
 file.removeEditor(user);
 }
 });
-
 
 Logger.log("ℹ Καθαρίστηκαν οι editors (εκτός owner) για: " + file.getName());
 }
@@ -3719,7 +3610,6 @@ if (exists) {
 
 try { PopupLib.showCustomPopup('ℹ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>', 'info'); } catch (_) {}
 
-
 const masterSheet = ss.getSheetByName(MASTER_SHEET_NAME);
 if (masterSheet && !masterSheet.isSheetHidden()) masterSheet.hideSheet();
 return;
@@ -3775,7 +3665,6 @@ PopupLib.showErrorMessage('⚠ Σφάλμα (Duplicate & Cleanup):<br><br><code>
 SpreadsheetApp.getUi().alert('Σφάλμα (Duplicate & Cleanup): ' + String(err));
 }
 
-
 throw err;
 }
 }
@@ -3828,7 +3717,6 @@ return newFile;
 /** Αφαίρεση όλων των editors εκτός owner (Drive File) */
 function removeAllUsersExceptOwner_(file) {
 const editors = file.getEditors();
-
 
 const owner = file.getOwner();
 editors.forEach(function(user) {
@@ -3884,7 +3772,6 @@ for (let i = 0; i < vals.length; i++) {
 const v = String(vals[i][0] || '').trim();
 if (v === NAME_PROMPT) targets.push(rngB.getCell(i + 1, 1));
 }
-
 
 if (targets.length > 0) {
 const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
@@ -3945,7 +3832,6 @@ return true;
 
 function testAllPopupsFromAdmin() {
 
-
 try {
 
 PopupLib.showErrorMessage('🚨🚨 Test Error από AdminToolsLib'); Utilities.sleep(2000);
@@ -4005,7 +3891,6 @@ const HOB_MASTERS_FILE_ID = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // H
 const DESTINATION_FOLDER_ID = '1ryekzwj3owrxXSjt7ty0veKniq9TQq2K'; // Φάκελος προορισμού για
 μηνιαία αντίγραφα
 
-
 const MASTER_SHEET_NAME = 'MASTER';
 
 const NAME_PROMPT = 'Όνομα Επώνυμο?';
@@ -4062,7 +3947,6 @@ try {
 autom atedDuplicateAndCleanup(); // κάνει copy αρχείου + remove editors στο νέο + cleanup στο ΤΡΕΧΟΝ
 } catch (err) {
 
-
 try {
 
 PopupLib.showErrorMessage('⚠ Σφάλμα (Duplicate & Cleanup):<br><br><code>' + String(err) + '</code>');
@@ -4115,7 +3999,6 @@ PopupLib.showSuccessMessage(
 (κρατήθηκε μόνο το <b>MASTER</b>).'
 );
 } catch (_) {}
-
 
 Logger .log ('✅ Ολοκλήρωση Duplicate & Cleanup (copy →remove editors στο νέο , cleanup στο τρέχον ).');
 return newFile;
@@ -4173,7 +4056,6 @@ if (name === 'START' || name === MASTER_SHEET_NAME) return;
 
 const last = sh.getLastRow();
 if (last < 2) return;
-
 
 const rngB = sh.getRange(2, COL_B, last - 1, 1);
 const vals = rngB.getValues();
@@ -4233,7 +4115,6 @@ t ry { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 // ==========================
 function testLibExists() { return true; }
 
-
 function testTemplateTab() {
 const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName('Templates');
@@ -4290,7 +4171,6 @@ HoB - AdminTools Library (V6.7.3+ δεν πρέπει να αλλάξεις το
 3. **Καθαρισμός στο ΤΡΕΧΟΝ** αρχείο (εμφάνιση MASTER , διαγραφή λοιπών tabs).
 - Διόρθωση API: clearNote() (όχι clearNotes()).
 
-
 **Header για copy/paste στην κορυφή του αρχείου**
 // ==========================
 // HoB - AdminTools Library (V6.7.4)
@@ -4345,7 +4225,6 @@ return ; // βοηθά το UI να “κλείσει” οπτικά την ε�
 
 1. Ανοίξτε το **πηγαίο project** της βιβλιοθήκης **AdminToolsLib**.
 2. Ανοίξτε το αρχείο: **AdminToolsLib.gs**.
-
 
 3. Εντοπίστε τη function **automatedDuplicateAndCleanupFromMenu()**.
 4. Τοποθετήστε **return;** ακριβώς **μετά** το success popup.
@@ -4403,7 +4282,6 @@ automatedDuplicateAndCleanupFromMenu, σωστή ροή copy→remove editors σ
 // ==========================
 // HoB - AdminTools Library (V6.7.4)
 
-
 // Release: 29/09/2025
 // Changes:
 // - Align with V6 AutoDupl_File&DeleteTabs flow (copy file → remove editors on NEW copy → cleanup CURRENT
@@ -4457,7 +4335,6 @@ if (master && !master.isSheetHidden()) master.hideSheet();
 
 try { PropertiesService.getDocumentProperties().setProperty('lastTabCreated', new Date().toISOString()); } catch
 (_) {}
-
 
 try { PopupLib.showCustomPopup('✅ Δημιουργήθηκε η νέα ημέρα : <b>' + todayName + '</b>', 'success'); }
 catch (_) {}
@@ -4517,7 +4394,6 @@ let yy = today.getFullYear().toString().slice(-2);
 let mm = today.getMonth(); // 0..11
 i f (mm === 0) { mm = 12; yy = (parseInt(yy, 10) - 1).toString(); }
 
-
 const yymm = yy + ('0' + mm).slice(-2);
 
 // (3) Αντιγραφή στο φάκελο
@@ -4574,7 +4450,6 @@ if (sheet.getName() !== MASTER_SHEET_NAME) ss.deleteSheet(sheet);
 
 try { PopupLib.showCustomPopup('📋📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν
 τα υπόλοιπα.', 'info'); } catch (_) {}
-
 
 ## }
 
@@ -4634,7 +4509,6 @@ try { PopupLib.showCustomPopup('� Καθαρίστηκαν όλα τα Notes.'
 
 // 📌📌 Debug Context
 // ==========================
-
 
 function debugUserContext() {
 const email = Session.getEffectiveUser().getEmail();
@@ -4697,7 +4571,6 @@ SpreadsheetApp.flush(); Utilities.sleep(250);
 δώσε μου την περίληψη για να πάμε σε άλλη συζήτηση την "Checklist automation setup4" με όλες τι
 λεπτομέρειες οδηγίες
 
-
 **ChatGPT said:**
 29/09/2025 – 15:29
 DEK,
@@ -4751,7 +4624,6 @@ testAllPopupsFromMenu() παραμένει ως έχει στην PopupLib V1.9.
 o Αν είναι **βιβλιοθήκη** : άνοιγμα source project → replace ολόκληρο το αρχείο → **Manage versions...
 → Save new version (V6.7.4)** → στο CHECKLIST V6, Libraries → ενημέρωση έκδοσης σε V6.7.4.
 
-
 ```
 o Αν είναι τοπικό αρχείο : επικόλληση ολόκληρου κώδικα σε AdminToolsLib.gs και Save.
 ```
@@ -4795,7 +4667,6 @@ o Batch κλήσεις (getValues/setValues), ελαχιστοποίηση flush
 Cleanup).
 Αν συμφωνείτε, προχωράμε στο “Checklist automati on setup 4” με πρώτο αντικείμενο: **Ενοποίηση triggers
 (onOpen/onEdit) και σταθεροποίηση ενημερωτικών popups με σαφή κανόνες εμφάνισης.**
-
 
 # 4Checklistsetup
 
@@ -4850,7 +4721,6 @@ Checklist αρχεία HoB και να σ υνεχίσουν όλα να λει�
 αρχείο που μου ανεβάσατε.
 CacheLib(V1.0.0)
 
-
 ## )
 
 **Πλήρης Κώδικας (έτοιμος για επικόλληση)
@@ -4903,7 +4773,6 @@ type : typeVal
 }
 return out;
 }
-
 
 **B) Προαιρετικό hardening για loadMenuDynamically() (χωρίς να αλλάξει η λογική σας)
 Δεν απαιτείται** αλλαγή στη ροή σας. Αν θέλετε καλύτερη σταθερότητα σε βαριά αρχεία, βάλτε lock **στην αρχή** της
@@ -4960,7 +4829,6 @@ _(Δεν απαιτείται αντικατάσταση κώδικα εδώ —
     o **Διαγράψτε** τυχόν invalidateMenuCacheFromMenu() και το αντίστοιχο owner menu item , εφόσον
        υπάρχουν.
 
-
 3. **Έλεγχος ύπαρξης κλήσεων CacheLib σε όλο το project**
     o _Edit → Find in project..._ και αναζήτηση CacheLib.
     o Αν βρεθούν, διαγράψτε τις ή αντικαταστήστε τις με απλή κλήση της underlying λογικής (π.χ.
@@ -5013,7 +4881,6 @@ hobmasterLib.duplicate gs = Δεν αλλάζεις τίποτα. Δεύτερο
 **ChatGPT said:**
 Thought for 29s
 30/09/2025 – 09:38
-
 
 ## DEK ,
 
@@ -5069,7 +4936,6 @@ function getMenuItemsFromSheet(menuType) {
 var ss = SpreadsheetApp.openById(MENU_SHEET_ID);
 var sheet = ss.getSheetByName(MENU_SHEET_NAME);
 var data = sheet.getDataRange().getValues();
-
 
 if (!data || data.length < 2) return [];
 

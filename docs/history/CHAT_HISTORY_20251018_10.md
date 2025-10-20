@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -662,11 +614,7 @@ function blinkCellFontColor_(targetRanges, blinkTimes) {
 Εξήγηση (σύντομα): Προσθέσαμε _safeUi_() και φρουρό στο remindMissingNames() ώστε σε headless triggers να τερματίζει χωρίς εξαίρεση, άρα δεν στέλνεται το γενικό “We’re sorry, a server error occurred…”. Πηγή/στοίχιση με τη βάση: BLINK V2.0.0 (15.10.2025) από το KB. 
 raw.githubusercontent.com
 
-
 αυτά που με ρωτάς δεν τα χρειάζεσαι.  Το μόνο που θέλω να κάνω είναι  1. "Το μήνυμα “We’re sorry, a server error occurred…” είναι γενικό και βγαίνει όταν το script ρίχνει εξαίρεση πριν προλάβει να τη λογαριάσει/καταγράψει." μπορεί να εξαιρείται
-
-
-
 
 No file chosenNo file chosen
 New version of GPT available - Continue chatting to use the old version, or start a new chat for the latest version.

@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -123,10 +75,10 @@ function automatedDuplicateAndCleanup() {
 
     var folder = DriveApp.getFolderById(folderId);
     var originalFile = DriveApp.getFileById(originalFileId);
-    
+
     // 🔹 Ανάκτηση του ονόματος του αρχείου και αφαίρεση "Copy of" και "of"
     var originalFileName = originalFile.getName().replace(/Copy of |of /gi, "").trim();
-    
+
     // 🔹 Υπολογισμός μήνα και έτους για την ονομασία YYMM
     var today = new Date();
     var year = today.getFullYear().toString().slice(-2);

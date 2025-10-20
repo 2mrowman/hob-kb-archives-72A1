@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -143,7 +95,6 @@ It serves as the single verified source for:
 1. IDs → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md
 2. Versions/structure → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md
 3. Raw accessibility → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md
-
 
 ---
 

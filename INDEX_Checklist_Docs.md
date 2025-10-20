@@ -67,7 +67,6 @@ _Last Updated: 16 Oct 2025_
 
 *Last synced with `VERSIONS_INDEX.md` on 19/10/2025 – 10:53 (Europe/Athens).*
 
-
 ---
 
 Maintained by **ChecklistGPT V5.0** – Hall of Brands Automation Stack  

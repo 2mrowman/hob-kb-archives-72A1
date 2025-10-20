@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -627,8 +579,6 @@ MenuLib	Εσωτερικό module που ελέγχουμε τώρα	Είναι 
 ώστε να κάνεις μία φορά copy-paste στους Library settings και να σταθεροποιηθεί το περιβάλλον.
 
 Να το ετοιμάσω;
-
-
 
 No file chosenNo file chosen
 New version of GPT available - Continue chatting to use the old version, or start a new chat for the latest version.

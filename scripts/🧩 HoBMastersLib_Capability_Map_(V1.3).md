@@ -38,14 +38,14 @@
 function createNewDay_AUTO() {
   // 1. Get template from HoB_Masters
   const template = HoBMastersLib.getTemplateTab('Master1');
-  
+
   // 2. Duplicate template to current spreadsheet
   const newSheet = template.copyTo(SpreadsheetApp.getActiveSpreadsheet());
-  
+
   // 3. Rename to today's date
   const today = Utilities.formatDate(new Date(), 'Europe/Athens', 'yyyyMMdd_EEEE');
   newSheet.setName(today);
-  
+
   return newSheet;
 }
 ```
@@ -54,11 +54,11 @@ function createNewDay_AUTO() {
 ```javascript
 function checkTemplateExists() {
   const templateName = 'Master1';
-  
+
   if (!HoBMastersLib.validateTemplate(templateName)) {
     throw new Error('Template not found: ' + templateName);
   }
-  
+
   return true;
 }
 ```

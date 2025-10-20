@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -132,7 +84,6 @@
 και να σου ετοιμάσω **V7.2.0 – Local Popup Restore Build** , δηλαδή _την πλήρη επιστροφή της συμπεριφοράς του
 V5_ ;
 **You said:**
-
 
 Όχι, δεν θέλω να το δοκιμάσω. Αν δεν το κάνουμε με custom pop-up και το κάνουμε με κανονικό pop-up,
 μπορούσε να το τραβάμε από τη βιβλιοθήκη? Θα μπορούσε να γίνει χωρίς να έχουμε πρόβλημα. Αν δημιουργεί
@@ -197,7 +148,6 @@ Custom (showModalDialog) ❌ ❌ ✖ Όχι
 Native (SpreadsheetApp.getUi().alert) (^) ✅ ⚠ (μόνο installed) ✅ Μερικώς
 Silent log / console ✅ ✅ ✖ Ναι (background actions)
 
-
 Αν θες, μπορώ να σου φτιάξω **V7.1.4 – Native Alert Edition**
 που αντικαθιστά μόνο τα custom popups με κανονικά SpreadsheetApp.getUi (). alert ()
 χωρίς να πειράξουμε τίποτα άλλο.
@@ -251,7 +201,6 @@ Logger.log("❌ PopupLib Error: " + err);
 function isUiAvailable_() {
 try {
 const active = SpreadsheetApp.getActiveSpreadsheet();
-
 
 if (!active) return false;
 active.getName(); // μικρό test για permission
@@ -308,7 +257,6 @@ Thought for 57s
 fallback σε native alert/toast όταν δεν υπάρχει ενεργό UI context
 
 ## /**
-
 
 * PopupLib – Version 2.0.0
 * Στόχος: Να παραμείνει 100% συμβατό με τα υπάρχοντα calls (showCustomPopup, showInfoMessage,
@@ -369,7 +317,6 @@ ui.alert(title + "\n\n" + plain);
 // Κλήση onClose (αν υπάρχει) ακόμη και μετά από native alert
 if (onClose && typeof this[onClose] === "function") {
 
-
 try { this[onClose](); } catch (cbErr1) { Logger.log("PopupLib: onClose after alert failed: " + cbErr1); }
 }
 return;
@@ -426,7 +373,6 @@ showSuccessMessage("✅ Δοκιμή Success popup<br><small>Με native fallbac
 }
 function POPUP_TEST_warning_() {
 
-
 showWarningMessage("⚠ Δοκιμή Warning popup<br><small>Τέλος ακολουθίας</small>");
 }
 
@@ -480,7 +426,6 @@ error: "#d32f2f",
 warning: "#F9A825",
 info: "#1976D2",
 default: "#424242"
-
 
 ## };
 
@@ -540,7 +485,6 @@ return html;
 **Λίστα functions (για διπλό έλεγχο)**
 - ✅ showCustomPopup
 - showInfoMessage
-
 
 - showWarningMessage
 - showErrorMessage
@@ -609,7 +553,6 @@ open”)
 
 🔧🔧 **Οδηγίες (μόνο μία φορά για κάθε αρχείο)**
 
-
 1. Άνοιξε το Apps Script (του CHECKLIST V6).
 2. Πήγαινε αριστερά στο ⏰ “Triggers”.
 3. Πάτα **“Add Trigger” (+)**.
@@ -665,7 +608,6 @@ const triggers = ScriptApp.getProjectTriggers();
 
 // --- Helper για καθαρό logging ---
 const log = (msg) => { console.log("⚙ [Triggers] " + msg); };
-
 
 // --- Έλεγχος για onOpen ---
 const hasOnOpen = triggers.some(t =>
@@ -723,7 +665,6 @@ function onOpen(e) {
 try {
 addTriggerMenu_();
 // Η υπόλοιπη ροή onOpen (δημιουργία νέας ημέρας, cache, popup , κ.λπ.) ακολουθεί παρακάτω...
-
 
 } catch (err) {
 
@@ -868,7 +809,6 @@ AdminToolsLib → PopupLib , ώστε να βλέπεις όλο το pipeline ;
 Τέλεια ✅ DEK — εδώ είναι το **διάγραμμα ροής (flow)** του CHECKLIST συστήματος,
 όπως ακριβώς λειτουργεί στο **V7.1.0 (Popup Restoration Build)** με τις βιβλιοθήκες σου:
 
-
 ## � HALL OF BRANDS CHECKLIST SYSTEM – FUNCTIONAL FLOW
 
 [Spreadsheet OPEN]
@@ -921,7 +861,6 @@ AdminToolsLib → PopupLib , ώστε να βλέπεις όλο το pipeline ;
 └────────────────────────────┘
 
 ⚙ **Πώς συνεργάζονται**
-
 
 ```
 Ρόλος Αρχείο / Βιβλιοθήκη Περιγραφή
@@ -982,7 +921,6 @@ documentation folder σου;
 // ==========================
 // Trigg er Setup Section
 
-
 // Version: V7.1.5 – 07/10/2025 – Automatic Installation of onOpen + Reminder Triggers
 // ==========================
 
@@ -1039,7 +977,6 @@ try {
 addTriggerMenu_();
 
 // 📌📌 Κάλεσε εδώ τη δική σου onOpen ροή (αν υπάρχει)
-
 
 // π.χ. createNewDay_AUTO_Local(); ή loadMenuDynamically();
 // Μην αφαιρέσεις καμία από αυτές αν υπάρχουν ήδη!
@@ -1100,7 +1037,6 @@ t.getHandlerFunction() === "onOpen" &&
 t.getEventType() === ScriptApp.EventType.ON_OPEN
 );
 
-
 if (!hasOnOpen) {
 ScriptApp.newTrigger("onOpen").forSpreadsheet(ss).onOpen().create();
 
@@ -1159,7 +1095,6 @@ Session .getEffectiveUser(). getEmail (); const ownerEmail = MenuLib .getOwnerEm
 SpreadsheetApp.getActiveSpreadsheet(); const ui = SpreadsheetApp.getUi (); const menu = ui.createMenu('🗂🗂
 HoB - Menu '); const userItems = MenuLib .getMenuItemsFromSheet("user "); userItems.forEach (i =>
 menu .addItem (i.name , ' MenuLib .' + i.func )); if (userEmail === ownerEmail && ss. getOwner().getEmail () ===
-
 
 userEmail ) { const ownerItems = MenuLib .getMenuItemsFromSheet("owner "); if (ownerItems.length > 0) { const
 
@@ -1220,7 +1155,6 @@ console.error("❌ Σφάλμα στο onOpen (Trigger Setup Section): " + err);
 - Όλα φορτώνονται με τη σωστή σειρά.
 - Οι δύο βιβλιοθήκες (MenuLib & AdminToolsLib) λειτουργούν **μαζί**.
 
-
 - Τα popups του PopupLib δουλεύουν **και στο onOpen** , επειδή τώρα είναι **installed trigger**.
 
 ✅ **Τι να κάνεις**
@@ -1276,7 +1210,6 @@ loadMenuDynamically();
 createNewDay_AUTO_Local();
 
 } catch (err) {
-
 
 console.error("❌ Σφάλμα στο onOpen (Trigger Setup Section): " + err);
 }
@@ -1334,7 +1267,6 @@ if (existingSheet) {
 PopupLib.showInfoMessage("ℹ Υπάρχει ήδη ημέρα: <b>" + todayName + "</b>");
 return ;
 }
-
 
 PopupLib.showInfoMessage("⏳ Η εργασία δημιουργίας νέας ημέρας είναι σε εξέλιξη ...");
 const templateTab = getTemplateTabFromHoBMasters_();
@@ -1394,7 +1326,6 @@ t.getHandlerFunction() === "onOpen" &&
 t.getEventType() === ScriptApp.EventType.ON_OPEN
 );
 
-
 if (!hasOnOpen) {
 ScriptApp.newTrigger("onOpen").forSpreadsheet(ss).onOpen().create();
 
@@ -1450,7 +1381,6 @@ addTriggerMenu_();
 loadMenuDynamically();
 
 // --- Δημιουργία ή έλεγχος νέας ημέρας ---
-
 
 createNewDay_AUTO_Local();
 
@@ -1514,7 +1444,6 @@ onOpen(e) Καλεί όλα με σωστή σειρά + owner check
 4. Κάνε **Paste ολόκληρο** το block του V7.1.8 (όπως σου το έδωσα).
 5. **Save → Close → Reopen το spreadsheet.**
 
-
 🔧🔧 **Έλεγχος λειτουργίας**
 
 - Αν είσαι owner → βλέπεις � Admin Tools + 🗂🗂 HoB Menu.
@@ -1577,7 +1506,6 @@ V7.0.2**
 // HoB - Checklist Script
 // Version: V7.1.9 – 07/10/2025
 
-
 // � Retail Stable Build + Popup Restoration + Owner-Only Menu + Installed Triggers
 // ==========================
 
@@ -1630,7 +1558,6 @@ e.range.setFontColor(null)
 
 console.error("❌ Σφάλμα στο onEdit:", error);
 }
-
 
 ## }
 
@@ -1686,7 +1613,6 @@ if (existingSheet) {
 
 PopupLib.showInfoMessage("ℹ Υπάρχει ήδη ημέρα: <b>" + todayName + "</b>");
 return ;
-
 
 ## }
 
@@ -1746,7 +1672,6 @@ const log = (msg) => console.log("⚙ [Triggers] " + msg);
 const hasOnOpen = triggers.some(t =>
 t.getHandlerFunction() === "onOpen" &&
 
-
 t.getEventType() === ScriptApp.EventType.ON_OPEN
 );
 
@@ -1803,7 +1728,6 @@ addTriggerMenu_();
 // --- Κανονικό δυναμικό μενού (MenuLib) ---
 loadMenuDynamically();
 
-
 // --- Δημιουργία ή έλεγχος νέας ημέρας ---
 createNewDay_AUTO_Local();
 
@@ -1859,7 +1783,6 @@ const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 // ✅ Κύριο onEdit handler (Retail Stable Build logic V7.0.2)
 function onEdit(e) {
 
-
 try {
 const sheet = e.range.getSheet();
 const sheetName = sheet.getName();
@@ -1912,7 +1835,6 @@ return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'HH:mm:ss.0
 
 // ✅ Βοηθητικές functions για testing / debugging
 function testLibExists() {
-
 
 try {
 const has = typeof AdminToolsLib.createNewDay_AUTO;
@@ -1970,7 +1892,6 @@ AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab);
 
 PopupLib.showErrorMessage("❌ Δεν βρέθηκε template στο HoB_Masters.");
 
-
 ## }
 
 } catch (err) {
@@ -2024,7 +1945,6 @@ menu.addSeparator().addSubMenu(ownerSubmenu);
 
 menu.addToUi();
 }
-
 
 ## // ==========================
 
@@ -2083,7 +2003,6 @@ if (userEmail === ownerEmail) addTriggerMenu_();
 loadMenuDynamically();
 createNewDay_AUTO_Local();
 
-
 const master = ss.getSheetByName("MASTER");
 const visibleSheets = ss.getSheets().filter(sh => sh.getName() !== "MASTER");
 if (master && visibleSheets.length > 0 && !master.isSheetHidden()) master.hideSheet();
@@ -2138,7 +2057,6 @@ Checklist.gs (Core)
 - 💬💬 PopupLib – native + custom popups
 - 📁📁 HoBMastersLib – ανάγνωση Templates
 - � Checklist.gs – local logic (onOpen/onEdit/wrappers)
-
 
 Θα το δημιουργήσω πρώτα ως .dot (Graphviz format για πλήρη control)
 και θα π αραχθεί PNG “wizard-style”, με ίδιο στυλ όπως τα υπόλοιπα σου documentation (μοντέρνο, σκιερό,
@@ -2195,7 +2113,6 @@ const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
 ...
 }
 
-
 📍📍 Αν ο OwnerEmail είναι αποθηκευμένος λάθος (π.χ. hobdeks @gmail .com ) αλλά το αρχείο έχει διαφορετικό
 Owner (π.χ. εσύ το έκανες copy, άρα dek @beyondlimits.events είναι το ss. getOwner()), τότε το condition **δεν
 περνά** , αλλά μπορεί να **τρέχει ολόκληρο το loadMenu χωρί ς φραγή** , με αποτέλεσμα να εμφανίζονται και τα
@@ -2251,7 +2168,6 @@ if (userEmail === ownerEmail)
 Επιπλέον, στο **Checklist.gs (V7.2.0)** , το loadMenuDynamically() καλεί ξανά τη MenuLib,
 οπότε ο έλεγχος εκεί πρέπει **επίσης να φιλτράρει** μη–owners για να μην τους επιτρέπει
 να δουν το Admin Tools submenu.
-
 
 ✅ **Σωστή διόρθωση**
 Σου δίνω **έτοιμους κώδικες 1:1** για **copy-paste** , μόνο με τις αλλαγές που χρειάζονται.
@@ -2310,7 +2226,6 @@ var userEmail = Session.getEffectiveUser().getEmail();
 var realOwner = ss.getOwner().getEmail();
 var ownerEmail = getOwnerEmail();
 
-
 var menu = ui.createMenu("🗂🗂 HoB - Menu");
 
 // --- User Menu ---
@@ -2365,7 +2280,6 @@ CHECKLIST.gs .5.3 τα φορτώναμε δυναμικά μήπως αυτό �
 Εξαιρετικά, DEK — τώρα έχουμε ξεκάθαρη εικόνα γιατί στο **V5.3** (που δουλεύει σωστά) το menu εμφανίζεται
 σωστά **μόνο για τον owner**.
 Η συμπεριφορά αυτή οφείλεται σε δύο κρίσιμες διαφορές:
-
 
 ⚙ **Διαφορά 1 — Διπλό Check στο Owner**
 Στο V5.3, το loadMenuDynamically() έχει:
@@ -2424,7 +2338,6 @@ console.log("Trigger menu skipped:", err);
 function loadMenuDynamically() {
 const userEmail = Session.getEffectiveUser().getEmail();
 
-
 const ownerEmail = MenuLib.getOwnerEmail();
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const ui = SpreadsheetApp.getUi();
@@ -2478,7 +2391,6 @@ menu.addToUi();
 Έτσι εμφανίζεται και το “Εργαλεία Ιδιοκτήτη” και το “Admin Tools ”.
 
 ⚙ **Τι προτείνω (με προσοχή)**
-
 
 Δεν αλλάζουμε όλη τη ροή.
 Απλώς **θα καθυστερήσουμε ελαφρά τη φόρτωση του menu (0.5–1 δευτερόλεπτο)**
@@ -2537,7 +2449,6 @@ const userEmail = Session.getEffectiveUser().getEmail();
 const realOwner = ss.getOwner().getEmail();
 const libOwner = MenuLib.getOwnerEmail();
 
-
 const menu = ui.createMenu("🗂🗂 HoB - Menu");
 
 SpreadsheetApp.flush(); // ✅ εξασφαλίζει σωστό Session πριν τον έλεγχο
@@ -2590,7 +2501,6 @@ console.log("Error on onOpen createNewDay:", err);
 }
 
 📌📌 **Τι κάνει τώρα:**
-
 
 1. Προσθέτει **0.8s καθυστέρηση** στην εκτέλεση του μενού → εξασφαλίζει ότι το Google έχει φορτώσει το
     σωστό session.
@@ -2645,7 +2555,6 @@ Menu Lib V7 0 0
 userEmail === ownerEmail).
 Θες να τον προσθέσω και στο Release Log (xlsx ) ως **V7.0.0 – Owner Visibility Fix + Session Flush** ;
 **You said:**
-
 
 Δείχνει ότι δουλεύει σωστά, όπως απλώς πετάει αυτό pop-up το μήνυμα του λάθος, που δεν ξέρω τι σημαίνει.?
 **ChatGPT said:**
@@ -2704,7 +2613,6 @@ Template Error While Success
 ✅ Άρα το popup **«Δεν βρέθηκε template»** δεν σημαίνει πραγματικό σφάλμα —
 η function απλώς καλείται _νωρίτερα_ (π.χ. από το onOpen) πριν ολοκληρωθεί πλήρως η πρόσβαση στο
 
-
 HoB_Masters.
 Η δεύτερη εκτέλεση τρέχει κανονικά και δημιουργεί τη νέα ημέρα.
 
@@ -2757,7 +2665,6 @@ PopupLib=// Version: V2.0.0 – 07/10/2025 – Native Fallback Edition (PopupLib
 **You said:**
 
 Αυτό είναι το execution screenshot από ανοιγμα του αρχείου
-
 
 # 8Checklistsetup
 *Last updated:* 19/10/2025 – 13:05 (Europe/Athens)
@@ -2818,7 +2725,6 @@ V7.0.2 λειτουργεί σταθερά σε όλα τα checklists ✅ MenuL
 Θα προχωρήσω ακριβώς ως εξής:
 
 1. **Θα εντοπίσω τη ρίζα του σφάλματος** (αν είναι context loss, UI instance, ή library stack delay).
-
 
 2. **Θα ενσωματώσω ένα diagnostic trace system (lightweight logging)** ώστε να εμφανίζει στο console log
     ποια function ενεργοποιήθηκε και με ποια σειρά.
@@ -2933,7 +2839,6 @@ startup sequence.
 Exceeded maximum execution time
 και
 
-
 Δεν επιτράπηκε openById στο simple trigger
 → Το δεύτερο **δεν είναι αληθές “permission” σφάλμα** , αλλά **throwed event** που προκύπτει όταν η σύνδεση στο
 DriveApp ή SpreadsheetApp.openById() αποτυγχάνει προσωρινά λόγω latency ή quota throttling.
@@ -2994,7 +2899,6 @@ getTemplateTabFromHoBMasters_ // ✅ resolveHoBMastersId_ // ✅ showInfoMessage
 _sleep_ (utility), _log_ (utility) // =============================== // 🔧🔧 CONFIG //
 =============================== const CFG = { // Προαιρετικά: “κλειδώνουμε” Owner για Owner-only
 μενού/ενέργειες. OWNER_EMAIL: 'hobdeks@gmail.com', // Script Properties key για caching του ID του
-
 
 HoB_Masters: PROP_HOB_MASTERS_ID: 'HOB_MASTERS_ID', // Όνομα sheet με map templates:
 TEMPLATES_SHEET_NAME: 'Templates', // Πόσες προσπάθειες θα γίνουν για context/drive:
@@ -3058,7 +2962,6 @@ masters.getSheetByName(CFG.TEMPLATES_SHEET_NAME); if (!sh) throw new Error(Το 
 const templateTab = String(rng[r][1] || '').trim(); // στήλη B: Template Tab if (!fileName || !templateTab)
 continue; if (fileName === ssName) { candidate = templateTab; break; } if (!candidate && fileName &&
 
-
 ssName.includes(fileName)) candidate = templateTab; } if (!candidate) { throw new Error(Δεν βρέθηκε εγγραφή
 στο "${CFG.TEMPLATES_SHEET_NAME}" για αρχείο: ${ssName}); } return candidate; } function
 getTemplateTabFromHoBMasters_() { // Resilient wrapper με backoff/diagnostics let lastErr = null; for (let i = 0; i <
@@ -3113,7 +3016,6 @@ trigger**. Επιπλέον, υποστηρίζει cross-account HoB_Masters μ
 // – ADD: handleOnOpenInstalled(e) με backoff, μόνο σε installable context (AuthMode≠NONE).
 // – ADD: resolveHoBMastersId_: προτεραιότητα σε σταθερό CFG.HOB_MASTERS_ID ή Script Properties (cross-
 account).
-
 
 // – KEEP: Popup fallback, diagnostic logs, MenuLib/AdminToolsLib συμβατότητα.
 //
@@ -3184,7 +3086,6 @@ return CFG.OWNER_EMAIL;
 function _isInstallable_(e) {
 try {
 
-
 return e && e.authMode && e.authMode !== ScriptApp.AuthMode.NONE;
 } catch (_) {
 return false;
@@ -3241,7 +3142,6 @@ break;
 _log_(`handleOnOpenInstalled: UI attach attempt ${i + 1} failed: ${err}`);
 _sleep_(CFG.OPEN_BACKOFF_SECS[i] * 1000);
 }
-
 
 ## }
 
@@ -3300,7 +3200,6 @@ return;
 } catch (err) {
 _log_(`MenuLib.loadMenuDynamically error: ${err}`);
 
-
 ## }
 
 // Fallback ελάχιστο μενού
@@ -3358,7 +3257,6 @@ _sleep_(CFG.FETCH_BACKOFF_SECS[i] * 1000);
 return getTemplateTabFromHoB_Masters_Internal_();
 }
 
-
 ## // ===============================
 
 // 🔎🔎 Εύρεση/Cache του HoB_Masters ID (Cross-Account aware)
@@ -3411,7 +3309,6 @@ return PopupLib.showCustomPopup(message, type);
 }
 } catch (err) {
 _log_(`PopupLib fallback due to: ${err}`);
-
 
 ## }
 
@@ -3469,7 +3366,6 @@ function _log_(msg) { console.info(msg); try { Logger.log(msg); } catch (_) {} }
 Είμαι στη διάθεσή σας για επιβεβαίωση εκτέλεσης στα Cloud Logs μετά την εγκατάσταση.
 **You said:**
 
-
 Executions Showing 50 executions of many over last 7 daysShow in real time:  Add a filter Deployment Function
 Type Start Time Duration Status Head loadMenuDynamically Menu Oct 8, 2025, 1:50:57 PM 5.23 s Completed
 Head loadMenuDynamically Menu Oct 8, 2025, 1:50:44 PM 4.876 s Completed Head onOpen Trigger Oct 8, 2025,
@@ -3519,7 +3415,6 @@ permissions: https://www.googleapis.com/auth/script.container.ui Oct 8, 2025, 1:
 maximum execution time αΑυτά είναι τα αποτελέσματα από τον κώδικα που έτρεξε.
 **ChatGPT said:**
 Thought for 35s
-
 
 ## 08/10/2025 – 13:58
 
@@ -3582,7 +3477,6 @@ FETCH_BACKOFF_SECS: [1, 2, 3],
 HOB_MASTERS_FILENAME_PREFIX: 'HoB_Masters',
 };
 
-
 ## // ===============================
 
 ## // � OWNER
@@ -3644,7 +3538,6 @@ _log_(`handleOnOpenInstalled: UI attach attempt ${i + 1} failed: ${err}`);
 _sleep_(CFG.OPEN_BACKOFF_SECS[i] * 1000);
 }
 
-
 ## }
 
 if (!uiReady) _log_('handleOnOpenInstalled: UI attach skipped – continue headless.');
@@ -3702,7 +3595,6 @@ return;
 _log_(`MenuLib.loadMenuDynamically error: ${err}`);
 }
 
-
 // Fallback ελάχιστο μενού
 const isOwner = (Session.getActiveUser().getEmail() || '').toLowerCase() === getOwnerEmail_().toLowerCase();
 
@@ -3759,7 +3651,6 @@ return getTemplateTabFromHoB_Masters_Internal_(); // τελικό trace
 
 ## // ===============================
 
-
 // 🔎🔎 HoB_Masters ID (Cross-Account aware)
 // ===============================
 function resolveHoBMastersId_() {
@@ -3812,7 +3703,6 @@ catch (_) { SpreadsheetApp.getActive().toast(String(message).substring(0, 250));
 }
 
 ## // ===============================
-
 
 // 🌐🌐 Helper
 // ===============================
@@ -3868,7 +3758,6 @@ timeouts).
 19 V 16 F7AeoUjf 6 tJimFx4KOPI',"?
 **ChatGPT said:**
 08/10/2025 – 14:06
-
 
 Σωστότατη παρατήρηση, DEK ✅
 Πράγματι , στο περιβάλλον σου το **HoB_Masters** είναι **cross-account shared file** , όχι “My Drive” του εκτελούντος
@@ -3927,7 +3816,6 @@ _log_(`handleOnOpenInstalled: start for "${ss.getName()}"`);
 
 let uiReady = false;
 
-
 for (let i = 0; i < CFG.OPEN_BACKOFF_SECS.length; i++) {
 try {
 
@@ -3984,7 +3872,6 @@ return;
 }
 } catch (err) { _log_(`MenuLib.loadMenuDynamically error: ${err}`); }
 
-
 const isOwner = (Session.getActiveUser().getEmail() || '').toLowerCase() === getOwnerEmail_().toLowerCase();
 
 const m = ui.createMenu('🗂🗂 HoB - Menu');
@@ -4040,7 +3927,6 @@ function showErrorMessage(m){return _popupWrapper_(m,'error');}
 function _popupWrapper_(message,type){
 try{
 
-
 if(typeof PopupLib!=='undefined'&&PopupLib.showCustomPopup)
 return PopupLib.showCustomPopup(message,type);
 }catch(err){_log_(`PopupLib fallback:${err}`);}
@@ -4093,7 +3979,6 @@ DEK, παρακάτω είναι **τα ακριβή βήματα** (με πλή
 ✅ **Βήματα Ρύθμισης Triggers
 1 ⃣ Άνοιξε το Script Editor**
 
-
 - Από το αρχείο **CHECKLIST V6**
     → Μενού **Extensions > Apps Script**
 
@@ -4145,7 +4030,6 @@ handleOnOpenInstalled: done.
 - Function: handleOnOpenInstalled – Status: Completed
 - Δεν θα υπάρχει άλλο simple trigger με 32.8 s timeout.
 **Έλεγχος 2 – Popup**
-
 
 Δεν εμφανίζεται **κανένα μήνυμα “Δεν βρέθηκε template...”**
 Αν δεις popup, σημαίνει ότι ξαναυπάρχει ενεργός trigger στο onOpen.
@@ -4208,7 +4092,6 @@ DEK, συμφωνώ: τα failures προέρχονται επειδή **λεί�
 
 // ✅ ✅ Host Wrappers (Menu / Owner):
 // – openNeaParalaviForm, openSakoulesForm, openForm_CreditTAXFree,
-
 
 // openForm_Elleipseis, openForm_AllagesTimon, openForm_DefectiveProduct,
 // openForm_CheckKodikou, openForm_AstoxiaParaggelias,
@@ -4273,7 +4156,6 @@ _log_(`handleOnOpenInstalled: start for "${ss.getName()}"`);
 // 1) UI attach (χωρίς modal)
 let uiReady = false;
 
-
 for (let i = 0; i < CFG.OPEN_BACKOFF_SECS.length; i++) {
 try {
 
@@ -4330,7 +4212,6 @@ const ui = SpreadsheetApp.getUi();
 try {
 if (typeof MenuLib !== 'undefined' && MenuLib.loadMenuDynamically) {
 MenuLib.loadMenuDynamically();
-
 
 SpreadsheetApp.flush();
 _log_('MenuLib.loadMenuDynamically: OK');
@@ -4390,7 +4271,6 @@ return CFG.HOB_MASTERS_ID.trim();
 function showInfoMessage(m){return _popupWrapper_(m,'info');}
 function showWarningMessage(m){return _popupWrapper_(m,'warning');}
 
-
 function showErrorMessage(m){return _popupWrapper_(m,'error');}
 function _popupWrapper_(message,type){
 try{ if(typeof PopupLib!=='undefined' && PopupLib.showCustomPopup){ return
@@ -4446,7 +4326,6 @@ function automatedDuplicateAndCleanupFromMenu(){ return
 _callAdminLib_('automatedDuplicateAndCleanupFromMenu'); }
 function deleteAllTabsShowMaster(){ return _callAdminLib_('deleteAllTabsShowMaster'); }
 
-
 function checkInvalidName(){ return _callAdminLib_('checkInvalidName'); }
 function clearNotes(){ return _callAdminLib_('clearNotes'); }
 function showInfo(){ return _callAdminLib_('showInfo'); }
@@ -4500,7 +4379,6 @@ Thought for 59 s
 DEK, παραδίδω **πλήρη σταθερή έκδοση** που **επαναφέρει όλους τους menu-wrappers** και διορθώνει οριστικά το
 σφάλμα
 AdminToolsLib function missing: createNewDayFromMenu με **σωστό mapping** προς τις διαθέσιμες συναρτήσεις
-
 
 της βιβλιοθήκης σου
 (createNewDay_AUTO, automatedDuplicateAndCleanup, showMasterAndDeleteOthers, κ.λπ.) και **ενσωματωμένο
@@ -4569,7 +4447,6 @@ HOB_MASTERS_FILENAME_PREFIX: 'HoB_Masters',
 // � OWNER
 // ===============================
 
-
 function getOwnerEmail_() { return CFG.OWNER_EMAIL; }
 
 ## // ===============================
@@ -4628,7 +4505,6 @@ _log_(`handleOnOpenInstalled: templateTabName="${templateTabName}"`);
 _log_(`handleOnOpenInstalled: template resolve failed: ${err}`);
 
 showErrorMessage(`❌ Δεν βρέθηκε template για το αρχείο : ${ss.getName()}`);
-
 
 return;
 }
@@ -4689,7 +4565,6 @@ function getTemplateTabFromHoB_Masters_Internal_() {
 const ssName = SpreadsheetApp.getActiveSpreadsheet().getName();
 const mastersId= resolveHoBMastersId_();
 
-
 const masters = SpreadsheetApp.openById(mastersId);
 const sh = masters.getSheetByName(CFG.TEMPLATES_SHEET_NAME);
 if (!sh) throw new Error(`Το sheet "${CFG.TEMPLATES_SHEET_NAME}" δεν υπάρχει στο HoB_Masters.`);
@@ -4745,7 +4620,6 @@ SpreadsheetApp.getUi().showModalDialog(html,'Open');
 
 // ⏰ Time-based helper
 
-
 ## // ===============================
 
 function remindMissingNames(){
@@ -4799,7 +4673,6 @@ throw err;
 
 function automatedDuplicateAndCleanupFromMenu(){
 if (typeof AdminToolsLib!=='undefined' && AdminToolsLib.automatedDuplicateAndCleanup){
-
 
 try{ AdminToolsLib.automatedDuplicateAndCleanup(); }catch(e){ _reportOwnerToolError_('Duplicate &
 Cleanup', e); throw e; }
@@ -4856,7 +4729,6 @@ showInfoMessage('👤👤 ' + email + '\n' + '📄📄 ' + SpreadsheetApp.getAct
 }
 
 function testAdminToolsLib(){
-
 
 try{
 if (typeof AdminToolsLib!=='undefined' && AdminToolsLib.testLibExists && AdminToolsLib.testLibExists()){
@@ -4917,7 +4789,6 @@ catch(_){ SpreadsheetApp.getUi().alert(`Σφάλμα (${label}): ${String(err)}`
 // ===============================
 function _createNewDayLocal_(mastersId, templateTab){
 
-
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const tz = Session.getScriptTimeZone();
 const todayName = Utilities.formatDate(new Date(), tz, 'dd/MM');
@@ -4972,7 +4843,6 @@ functions, και τα έβαλες μέσα στο κώδικα του checklis
 ακόμα (π.χ. σε installed trigger context ή cross-account file).
 
 🔍🔍 **Τι ακριβώς περιέχει το V7.2.6:**
-
 
 - Οι functions όπως createNewDayFromMenu, deleteAllTabsShowMaster, checkInvalidName **δεν εκτελούν**
     **τίποτα από μόνες τους**.
@@ -5047,7 +4917,6 @@ Version: V7.2.7 – 08/10/2025 – Single Menu + Owner Filter Fix (V7.1.0 logic 
 Αντιγράφεις **ολόκληρο** όπως είναι:
 // ==========================
 
-
 // HoB - Checklist Script
 // Version: V7.2.7 – 08/10/2025 – Single Menu + Owner Filter Fix
 // ==========================
@@ -5102,7 +4971,6 @@ if (existingSheet) {
 PopupLib.showInfoMessage("ℹ Υπάρχει ήδη ημέρα: <b>" + todayName + "</b>");
 return;
 }
-
 
 PopupLib.showInfoMessage("⏳ Η εργασία δημιουργίας νέας ημέρας είναι σε εξέλιξη ...");
 const templateTab = getTemplateTabFromHoBMasters_();

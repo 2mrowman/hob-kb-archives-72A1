@@ -48,7 +48,7 @@ function showWelcomeMessage() {
 ```javascript
 function remindMissingNames() {
   const missingNames = _getMissingNames();
-  
+
   if (missingNames.length > 0) {
     // Use toast (works in time-driven triggers)
     PopupLib.showToast(
@@ -66,7 +66,7 @@ function deleteOldTabs() {
   const confirmed = PopupLib.confirm(
     'Are you sure you want to delete old tabs? This action cannot be undone.'
   );
-  
+
   if (confirmed) {
     _performDeletion();
   }
@@ -80,7 +80,7 @@ function askForUserName() {
     'Enter your name',
     'Please enter your full name:'
   );
-  
+
   if (userName) {
     Logger.log('User name: ' + userName);
   }

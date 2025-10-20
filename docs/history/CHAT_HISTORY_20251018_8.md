@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -497,10 +449,8 @@ function runIntegrityCheck_() { const checks = [ "createNewDay_AUTO", "updateVer
 ώστε να βλέπεις με μία εκτέλεση ποιες functions είναι διαθέσιμες.
 Θες να το προσθέσουμε στο επόμενο build (6.8.1);
 
-
 This is a offline tool, your data stays locally and is not send to any server!
 
 Feedback & Bug Reports
-
 
 18/10/2025 - Summary DEK

@@ -4,99 +4,51 @@
 
 *Build:* f1d244f
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
+*
 
 *
 
-
-
 *
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
-
-*
-
-
 
 *
 
@@ -113,7 +65,6 @@ function _log_(msg){ console.info(msg); try{ Logger.log(msg); }catch(_){ } }
 **Σύντομη επεξήγηση**
 
 - Το **onEdit** προστέθηκε αυτούσιο (όπως μου υποδείξατε) και λειτουργεί με την ίδια λογική της **V7.0.2**.
-
 
 - Παραμένει **ένα μόνο μενού** (καμία simple onOpen).
 - Τα **Owner Tools** εμφανίζονται μόνο στον **hobdeks@gmail.com** (μέσω getOwnerEmail_() και isOwner_()).
@@ -168,7 +119,6 @@ _log_('showMasterAndDeleteOthersFromMenu error: ' + err);
 
 showErrorMessage('❌ Σφάλμα : ' + err);
 }
-
 
 ## }
 
@@ -226,7 +176,6 @@ Compatibility Wrappers
 // ✅ Function checklist (περιλαμβάνονται ΟΛΕΣ ):
 
 // ✅ getOwnerEmail_ / isOwner_
-
 
 // ✅ handleOnOpenInstalled
 
@@ -292,7 +241,6 @@ if (templateTabName && typeof AdminToolsLib !== 'undefined' && AdminToolsLib.cre
 AdminToolsLib.createNewDay_AUTO(resolveHoBMastersId_(), templateTabName);
 _log_('handleOnOpenInstalled: AdminToolsLib.createNewDay_AUTO OK');
 
-
 ## }
 
 } catch (err) {
@@ -354,7 +302,6 @@ if (last < 2) throw new Error('Το Templates δεν έχει δεδομένα.'
 const vals = sh.getRange(2, 1, last - 1, 2).getValues();
 for (let i = 0; i < vals.length; i++) {
 
-
 const fileName = String(vals[i][0] || '').trim();
 const tplName = String(vals[i][1] || '').trim();
 if (fileName && tplName && (fileName === ssName || ssName.includes(fileName))) return tplName;
@@ -408,7 +355,6 @@ AdminToolsLib.remindMissingNames(); _log_('remindMissingNames: AdminToolsLib OK'
 }
 SpreadsheetApp.getActive().toast('Υπενθύμιση: Συμπληρώστε τα ονόματα στη στήλη B.');
 }catch(err){ _log_(`remindMissingNames error: ${err}`); }
-
 
 ## }
 
@@ -465,7 +411,6 @@ console.error("❌ Σφάλμα στο onEdit:", error);
 // ✅ HOST WRAPPERS (Menu actions)
 // ===============================
 
-
 function openNeaParalaviForm(){ return _callMenuLib_('openNeaParalaviForm'); }
 function openSakoulesForm(){ return _callMenuLib_('openSakoulesForm'); }
 function openForm_CreditTAXFree(){ return _callMenuLib_('openForm_CreditTAXFree'); }
@@ -520,7 +465,6 @@ AdminToolsLib.debugUserContext();
 const email = Session.getEffectiveUser().getEmail();
 
 showInfoMessage('👤👤 ' + email + '\n' + '📄📄 ' + SpreadsheetApp.getActive().getName());
-
 
 ## }
 
@@ -582,7 +526,6 @@ try { remindMissingNames(); }
 catch (err) { _log_('remindMissingNamesFromMenu error: ' + err); showErrorMessage('❌ Σφάλμα : ' + err); }
 }
 
-
 ✅ **Τι διορθώθηκε**
 
 - Τα μενού που καλούν showMasterAndDeleteOthersFromMenu & remindMissingNamesFromMenu πλέον
@@ -641,7 +584,6 @@ function showMasterAndDeleteOthers() { ... }
 - Τρέξε **μία φορά** το showMasterAndDeleteOthersFromMenu() manual από το Apps Script περιβάλλον →
     “Run”
 - Αποδέξου τα permissions (Drive + Sheets)
-
 
 - Μετά θα λειτουργεί και από μενού για όλους.
 
@@ -703,7 +645,6 @@ const MASTER_SHEET_NAME = 'MASTER';
     το ss.getSheetByName(MASTER_SHEET_NAME) → ss.getSheetByName(undefined) → null,
     και μετά το .getName() κάνει crash.
 
-
 📌📌 **Μετά την προσθήκη:**
 
 1. Αποθήκευσε τη βιβλιοθήκη (ή κάνε **Deploy → New version → π.χ. V6.7.7** ).
@@ -762,7 +703,6 @@ ss.getSheetByName(...) // ❌ σφάλμα
     επίλεξε showMasterAndDeleteOthersFromMenu και πάτα **Run**.
 3. Αυτό θα καλέσει **τη function της βιβλιοθήκης** μέσα από το σωστό context.
 
-
 Τότε:
 
 - SpreadsheetApp.getActiveSpreadsheet() → το actual file (π.χ. CHECKLIST V6)
@@ -816,7 +756,6 @@ MenuLib.loadMenuDynamically();
 - να φορτώσουν οι βιβλιοθήκες,
 - να έχει ενεργό UI context,
 - και να περάσει σωστά το owner filtering.
-
 
 🔁🔁 **Προτεινόμενη λύση (δύο επιλογές)**
 
@@ -873,7 +812,6 @@ Checklist γιατί είναι τεράστιον. Θέλω να μπορω έ�
 Επιβεβαιώνω ότι το αρχείο **“1. CHECKLIST V 6 – Checklist.gs V7.1.0”** που ανέβασες είναι **η σταθερή έκδοση** με το
 ελαφρύ simple onOpen, το δυναμικό μενού που φορτώνει όταν το πατάς και χωρίς duplication ούτε owner-
 visibility bugs.
-
 
 ✅ **Τι θα κάνουμε τώρα**
 Θα επαναφέρουμε τον κώδικα σε αυτή τη λογική (όπως ζήτησες),
@@ -932,7 +870,6 @@ visibility bugs.
 // ✅ onOpen
 
 // ✅ loadMenuDynamically
-
 
 // ✅ getTemplateTabFromHoBMasters_
 
@@ -1001,7 +938,6 @@ _log_("onOpen: AdminToolsLib.createNewDayIfNeeded OK");
 showErrorMessage(`❌ Δεν βρέθηκε template: ${err}`);
 return;
 
-
 ## }
 
 // ✅ Κλήση MenuLib για πλήρες δυναμικό μενού
@@ -1060,7 +996,6 @@ const ssName = ss.getName();
 for (let r = 1; r < rng.length; r++) {
 const file = String(rng[r][0] || '').trim();
 
-
 const tab = String(rng[r][1] || '').trim();
 if (file && tab && ssName.includes(file)) return tab;
 }
@@ -1116,7 +1051,6 @@ _log_(`remindMissingNames error: ${err}`);
 
 ## // ===============================
 
-
 // ⏱ onEdit (Retail Stable Build V7.0.2)
 // ===============================
 function onEdit(e) {
@@ -1170,7 +1104,6 @@ https://www.googleapis.com/auth/script.container.ui Oct 8, 2025, 4:41:56 PM Er
 execution time " Δεν μπορείς μία φορά να τσεκάρεις ότι όλα δουλεύουν σωστά? Έχεις όλες τι βιβλιοθήκες; όλα τα
 script. Χρειαζεσαι κάτι από εμε ́να για να μην χάνουμε χρόνο> Σε παρακαλώ βοηθησέ με να τελειώσουμε είμαι
 απο το πρωί και δεν εχουμμε προχωρήσει από χτες καθόλου
-
 
 **ChatGPT said:**
 08/10/2025 – 17:13
@@ -1227,7 +1160,6 @@ PopupLib.showCustomPopup()
 Θες να το βάλω;
 **You said:**
 
-
 Και δεν δημιουργεί καινούρια μέρα στον Open, δεν κάνει τίποτα.
 **ChatGPT said:**
 08/10/2025 – 17:22
@@ -1282,7 +1214,6 @@ Event type On open
 
 ακριβώς το ίδιο δεν άλλαξε τίποτα
 **ChatGPT said:**
-
 
 Ωραία DEK, βλέπω ακριβώς τι συμβαίνει τώρα —
 το σφάλμα **παραμένει** γιατί το onOpen εξακολουθεί να εκτελείται **ως simple trigger** , όχι ως installed, παρότι
@@ -1343,7 +1274,6 @@ Logger.log('ℹ onOpen trigger already exists.');
 αν ναι, μετά από “Allow”, **όλα θα δουλεύουν σωστά** (template, popup, νέα ημέρα).
 **You said:**
 
-
 ### 2 ⃣ Εκτέλεσε το **onOpen χειροκίνητα** για να αναγκάσει authorization Στο Apps Script editor: * Πήγαινε
 πάνω από τη λίστα συναρτήσεων (dropdown) * Επίλεξε **onOpen** * Πάτα το ▶ **Run** 👉👉 Θα εμφανιστεί
 popup: **“Authorization required” → Review permissions → Allow.** **Αυτό είναι κρίσιμο.** Αν δεν το τρέξεις
@@ -1399,7 +1329,6 @@ triggers” εκτός του δικού σου (owner) ώστε να μη σε 
 **You said:**
 **Τώρα πήγαινε στο Apps Script και τρέξε χειροκίνητα:** js Copy code `installTriggersIfMissing_()` (αν το έχεις
 βάλει)
-
 
 Μην μου λες τα ίδια πράγματα. Ένα onOpen υπάρχει στο Trigger και τίποτα άλλο. Γι' αυτό σου λέω ότι δεν ξέρεις
 τι μου λες. Αυτό το "installTriggersIfMissing_()" δεν μου το έχεις δώσει μεσα στον κώδικα. Πως, από πού να το
@@ -1457,7 +1386,6 @@ Logger.log('❌ installTriggersIfMissing_ error: ' + err);
 
 **� Πώς το τρέχεις**
 
-
 1. Πήγαινε στο dropdown επάνω (όπου γράφει π.χ. onOpen ή loadMenuDynamically).
 2. Επίλεξε **installTriggersIfMissing_**.
 3. Πάτα ▶ **Run**.
@@ -1493,7 +1421,6 @@ installTriggersIfMissing_().
 **� Βήμα 2 — Reload το editor**
 Κάνε ένα **refresh (F5)** στο browser ενώ είσαι στο Apps Script tab.
 Περίμενε να φορτώσει ξανά (1-2 δευτ).
-
 
 **� Βήμα 3 — Ξαναάνοιξε το dropdown δίπλα στο** ▶
 Θα δεις τώρα τη νέα γραμμή:
@@ -1564,7 +1491,6 @@ const CFG = {
 OWNER_EMAIL: 'hobdeks@gmail.com',
 HOB_MASTERS_FILE_ID: '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI',
 
-
 TEMPLATES_SHEET_NAME: 'Templates'
 };
 
@@ -1625,7 +1551,6 @@ const ui = SpreadsheetApp.getUi();
 const activeUser = (Session.getActiveUser().getEmail() || "").toLowerCase();
 const isOwner = activeUser === getOwnerEmail_().toLowerCase();
 
-
 try {
 if (typeof MenuLib !== "undefined" && MenuLib.loadMenuDynamically) {
 MenuLib.loadMenuDynamically();
@@ -1683,7 +1608,6 @@ return PopupLib.showCustomPopup(message, type);
 } catch (err) { _log_(`PopupLib fallback: ${err}`); }
 try { SpreadsheetApp.getUi().alert(message); }
 
-
 catch (_) { SpreadsheetApp.getActive().toast(String(message).substring(0, 250)); }
 }
 
@@ -1738,7 +1662,6 @@ SpreadsheetApp.flush();
 }
 
 if (col === colB && val && val !== "Όνομα Επώνυμο?")
-
 
 e.range.setFontColor(null).setFontWeight(null).setBackground(null);
 
@@ -1798,7 +1721,6 @@ try {
 if (typeof AdminToolsLib==='undefined' || !AdminToolsLib.showMasterAndDeleteOthers)
 throw new Error('AdminToolsLib.showMasterAndDeleteOthers δεν είναι διαθέσιμο.');
 AdminToolsLib.showMasterAndDeleteOthers();
-
 
 } catch (err) {
 _log_('showMasterAndDeleteOthersFromMenu error: ' + err);
@@ -1863,7 +1785,6 @@ Thought for 59s
 
 // ✅ remindMissingNames (+ remindMissingNamesFromMenu)
 
-
 // ✅ onEdit (Retail Stable Build V7.0.2)
 
 // ✅ installTriggersIfMissing
@@ -1925,7 +1846,6 @@ _log_("onOpen: AdminToolsLib.createNewDayIfNeeded OK");
 }
 } catch (err) {
 
-
 showErrorMessage(`❌ Δεν βρέθηκε template: ${err}`);
 return;
 }
@@ -1985,7 +1905,6 @@ const ssName = ss.getName();
 for (let r = 1; r < rng.length; r++) {
 const file = String(rng[r][0] || '').trim();
 
-
 const tab = String(rng[r][1] || '').trim();
 if (file && tab && ssName.includes(file)) return tab;
 }
@@ -2041,7 +1960,6 @@ function remindMissingNamesFromMenu(){ return remindMissingNames(); }
 // ===============================
 
 // ⏱ onEdit (Retail Stable Build V7.0.2)
-
 
 ## // ===============================
 
@@ -2100,7 +2018,6 @@ ScriptApp.newTrigger('remindMissingNames')
 
 Logger.log('✅ Trigger created: remindMissingNames');
 
-
 } else {
 
 Logger.log('ℹ remindMissingNames trigger already exists.');
@@ -2157,7 +2074,6 @@ function showMasterAndDeleteOthersFromMenu(){ return deleteAllTabsShowMaster(); 
 function checkInvalidName(){
 const sh = SpreadsheetApp.getActiveSheet();
 const last = sh.getLastRow();
-
 
 if (last < 2) { SpreadsheetApp.getActive().toast('Δεν βρέθηκαν γραμμές για έλεγχο.'); return; }
 const vals = sh.getRange(2,2,last-1,1).getValues();
@@ -2218,7 +2134,6 @@ function _callMenuLib_(fn){
 if(typeof MenuLib==='undefined' || typeof MenuLib[fn]!=='function')
 throw new Error(`MenuLib function missing: ${fn}`);
 
-
 return MenuLib[fn]();
 }
 
@@ -2278,7 +2193,6 @@ Masters
 // ✅ showInfoMessage / showWarningMessage / showErrorMessage
 
 // ✅ openUrlInNewTab
-
 
 // ✅ remindMissingNames / remindMissingNamesFromMenu
 
@@ -2342,7 +2256,6 @@ _log_('handleOnOpenInstalled: template resolve error: ' + err);
 showErrorMessage(`❌ Δεν βρέθηκε template: ${err}`);
 }
 
-
 ## }
 
 ## // ===============================
@@ -2401,7 +2314,6 @@ function resolveHoBMastersId_() { return CFG.HOB_MASTERS_FILE_ID; }
 // � Popup helpers
 // ===============================
 
-
 function showInfoMessage(msg) { return _popupWrapper_(msg, 'info'); }
 function showWarningMessage(msg) { return _popupWrapper_(msg, 'warning'); }
 function showErrorMessage(msg) { return _popupWrapper_(msg, 'error'); }
@@ -2455,7 +2367,6 @@ if (['START', 'MASTER'].includes(name)) return;
 const col = e.range.getColumn(), row = e.range.getRow(), val = e.range.getValue();
 const fmt = 'HH:mm:ss.000" - "dd/MM';
 const colB = 2, colC = 3, colD = 4;
-
 
 if (col === colC) {
 const rangeB = sheet.getRange(row, colB);
@@ -2513,7 +2424,6 @@ Logger.log('❌ installTriggersIfMissing error: ' + err);
 
 SpreadsheetApp.getActive().toast('❌ Trigger setup error: ' + err);
 
-
 ## }
 
 ## }
@@ -2570,7 +2480,6 @@ if (!v || v==='Όνομα Επώνυμο?' || !/^[\p{L}.'\s-]{3,}$/u.test(v)) ba
 if (bad.length===0){ showInfoMessage('✅ Όλα τα ονόματα είναι συμπληρωμένα σωστά .'); }
 
 else { showWarningMessage('⚠ Λανθασμένα/κενά ονόματα στη στήλη B: γραμμές ' + bad.join(', ')); }
-
 
 ## }
 
@@ -2632,7 +2541,6 @@ function _sleep_(ms) { Utilities.sleep(ms); }
 function _log_(m) { try { console.info(m); } catch (_) {} }
 **Τι πρέπει να κάνεις (1 λεπτό)**
 
-
 1. **Αντικατάστησε 1:1** τον κώδικα στο CheckList.gs με τον παραπάνω.
     ➜ Δεν υπάρχει πια function onOpen στο αρχείο.
 2. **Triggers** (ρολόι):
@@ -2684,7 +2592,6 @@ found : onOpen_.
 **You said:**
 1. CHECKLIST V6 - Checklist.gs_V7.1.0.txt
 Document
-
 
 Executions Showing 52 executions of many over last 7 daysShow in real time:  Add a filter Deployment Function
 Type Start Time Duration Status Head createNewDayFromMenu Menu Oct 8, 2025, 5:39:57 PM 0 s Failed" ΌΛα
@@ -2750,7 +2657,6 @@ if (!exists) {
 createNewDay_AUTO_Local(); // (όπως στο V7.1.0)
 }
 
-
 // Κρύψε MASTER μόνο αν υπάρχει άλλο ορατό tab
 const master = ss.getSheetByName('MASTER');
 const visibleSheets = ss.getSheets().filter(sh => sh.getName() !== 'MASTER');
@@ -2806,7 +2712,6 @@ const ss = SpreadsheetApp.getActiveSpreadsheet();
 const fileName = ss.getName().trim();
 
 try {
-
 
 const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName('Templates');
@@ -2867,7 +2772,6 @@ log('ℹ Υπάρχει ήδη trigger για remindMissingNames');
 
 try { PopupLib.showSuccessMessage('✅ Οι triggers εγκαταστάθηκαν επιτυχώς !'); } catch (_) {}
 
-
 ## }
 
 ## // ==========================
@@ -2923,7 +2827,6 @@ const rangeD = sheet.getRange(row, colD);
 if (val === '' || val === null) {
 rangeB.clearContent();
 rangeD.clearContent();
-
 
 return;
 }
@@ -2981,7 +2884,6 @@ function showTestPopup() { PopupLib.showInfoMessage('✅ Test popup λειτου
 2. **Triggers (ρολόι):**
     o ΔΙΕΓΡΑΨΕ όλους τους υπάρχοντες.
     o Πάτα **Add Trigger** και βάλε:
-
 
 ```
  Function: onOpen
@@ -3094,7 +2996,6 @@ paste έτοιμο) με logging για να το ελέγξεις. Θες να 
 // ✅ Ανάγνωση template από HoB_Masters (διορθωμένη για full column scan A–C)
 // ==========================
 
-
 function getTemplateTabFromHoBMasters_() {
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const fileName = ss.getName().trim();
@@ -3150,7 +3051,6 @@ return null;
 1. Επικόλλησε αυτό το μπλοκ στη θέση του παλιού.
 2. Πάτησε **Run → getTemplateTabFromHoBMasters_()** (μία φορά για έλεγχο).
 3. Δες στο **Executions → Cloud logs** αν γράφει ✅ Template found for "CHECKLIST V6": MASTER1.
-
 
 Με αυτό είσαι στη σταθερότερη και καθαρότερη έκδοση του όλου flow — το V7.1.0R τώρα είναι πραγματικά
 **production-ready**.

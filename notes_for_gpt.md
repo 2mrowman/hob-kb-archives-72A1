@@ -697,7 +697,7 @@ Execution-level Apps Script files (RAW):
 ## 📋 VERSION HISTORY
 
 **CHANGELOG.md** — Version history and release notes
-- RAW: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=XXXXXXXXXX
+- RAW: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1760968445
 ---
 
 ## 🧪 VALIDATION & TESTING

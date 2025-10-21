@@ -2,66 +2,8 @@
 
 *Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
 
-*Build:* f1d244f
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-*
-*
-*
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
-*
-
-# 🧭 Hall of Brands – Checklist Knowledge Base
+*Build:* f1d244f*
+# Hall of Brands – Checklist Knowledge Base
 *
 Internal reference for HoB automations & libraries.  
 All documents, libraries, and scripts of the Checklist System (V7.1.0R).

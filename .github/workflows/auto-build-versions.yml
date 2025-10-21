@@ -1,4 +1,4 @@
-name: Build VERSIONS_INDEX (scripts + libraries)
+name: Auto-Build Versions
 
 on:
   push:
@@ -87,3 +87,4 @@ jobs:
           else
             echo "No changes to VERSIONS_INDEX.md"
           fi
+

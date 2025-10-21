@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 ### SCRIPT_IDS_INDEX.md – Hall of Brands Automation Stack
 Centralized reference of all **Google Apps Script** and **Library IDs** used across the HoB ecosystem.  
@@ -13,9 +13,7 @@ It enables GPT-based systems and developers to:
 - Quickly locate the correct library or script by ID.
 - Verify current active versions.
 - Detect outdated or deprecated IDs.
-
 ---
-
 ## 📘 Libraries (`/libraries`)
 | Library | Type | Script ID | Description | Notes |
 |----------|------|------------|-------------|-------|

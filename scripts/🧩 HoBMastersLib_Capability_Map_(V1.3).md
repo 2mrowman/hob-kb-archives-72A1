@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 # 🧩 HoBMastersLib — Capability Map (V1.3)
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md
@@ -12,9 +12,7 @@
 - **Permissions:** Spreadsheet scope, read access to `HoB_Masters` file
 - **Imports:** `HoBMastersLib` (V1.3) στο project (Apps Script → Libraries)
 - **Master File ID:** `1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI`
-
 ## Commands (API Surface)
-
 | Command | Params (type) | Returns | Purpose |
 |---|---|---|---|
 | `getTemplateTab` | templateName: string | Sheet | Επιστρέφει template tab από HoB_Masters file |

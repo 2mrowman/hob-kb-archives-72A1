@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 # Hall of Brands – Checklist Knowledge Base ΤΕΣΤ ΤΕΣΤ3 #####
 Internal reference for HoB automations & libraries.  
@@ -17,7 +17,6 @@ All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 - [MenuLib – V7.0.0](./libraries/B.%20MenuLib%20-%20MenuLib.gs%20_V7.0.0.MD)
 - [PopupLib – Code.gs V2.0.0R](./libraries/C.%20PopupLib%20-%20Code.gs_V2.0.0R.MD)
 - [AdminToolsLib – V6.7.6](./libraries/D.%20AdminToolsLib%20-%20AdminToolsLib.gs_V6.7.6.MD)
-
 ---
 
 ## 🧩 Scripts

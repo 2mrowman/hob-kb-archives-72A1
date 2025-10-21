@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 ### Hall of Brands – CHECKLIST Automation System (V7.1.0R)
 ## Overview
@@ -13,9 +13,7 @@
 - Διαχείριση triggers (onOpen, onEdit, time-driven)
 - Πλήρη υποστήριξη βιβλιοθηκών (Libraries Integration)
 ---
-
 ## ⚙️ Core Architecture
-
 | Module | File | Description |
 |--------|------|-------------|
 | **Main Project** | `1_CHECKLIST_V6_Checklist.gs_V7.1.0R.md` | Entry point – διαχείριση triggers, UI menu |

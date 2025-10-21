@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 ### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)]
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
@@ -11,13 +11,9 @@
 Το repo λειτουργεί ως **lightweight Knowledge Base** για Google Apps Script, n8n και σχετικά συστήματα.  
 Το μοντέλο πρέπει να χρησιμοποιεί τα παρακάτω ως **canonical** πηγές.
 ---
-
 ## 🏢 PROJECT OVERVIEW
-
 ### What is Hall of Brands (HoB)?
-
 **Hall of Brands (HoB)** is a retail operations management system for **Hall of Brands & Saint Soles** stores.
-
 **Core systems:**
 - **Checklist System (V7.1.0R)** — Daily task management for retail stores
 - **KPI Monitoring** — Performance tracking and reporting

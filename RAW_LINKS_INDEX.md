@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 ### Hall of Brands – RAW LINKS INDEX
 Κεντρική αναφορά όλων των RAW URL για χρήση από GPT Models, Apps Script και n8n integrations.
@@ -16,7 +16,6 @@
 | robots.txt | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/robots.txt |
 | .nojekyll | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/.nojekyll |
 | update_index_links.py | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py |
-
 ---
 ## 📂 /docs/
 | File | RAW URL |

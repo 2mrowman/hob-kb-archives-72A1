@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
-*Build:* ee84a7e
+*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
+*Build:* c3fb871
 
 # 🧩 **Functional Flow – CHECKLIST System (V7.1.0R)**
 ## 📘 Επισκόπηση
@@ -15,9 +15,7 @@
    - Αν ΟΧΙ → καλείται η λειτουργία `AdminToolsLib.createNewDay_AUTO()` για δημιουργία νέας ημέρας.  
 3. Η δημιουργία νέας ημέρας βασίζεται στο **template “Master1”** που λαμβάνεται από το αρχείο **HoB_Masters**.  
 4. Εμφανίζεται custom popup επιβεβαίωσης μέσω `PopupLib.showCustomPopup()`.
-
 ➡️ Στόχος: να διασφαλιστεί ότι κάθε αρχείο ξεκινά τη μέρα με καθαρή φόρμα και ενημερωμένο περιβάλλον εργασίας.
-
 ---
 
 ## ✏️ 2️⃣ Επεξεργασία – onEdit Trigger

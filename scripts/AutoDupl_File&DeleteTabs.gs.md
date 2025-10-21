@@ -1,21 +1,18 @@
-*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
-*Build:* c3fb871
+*Last updated:* 21/10/2025 - 17:58 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 17:58 (DEV-only)
+*Build:* 138e0a7
+
 // =====================================================================================
 // AutoDupl_File&DeleteTabs V1.0.0 — Final Production Build – 10.04.2025 – 12:50
 // =====================================================================================
-
 function automatedDuplicateAndCleanup() {
   try {
     Logger.log('🚀 Έναρξη διαδικασίας.');
-
     // 🔹 Ορισμός του φακέλου προορισμού και του αρχικού αρχείου
     var folderId = "1ryekzwj3owrxXSjt7ty0veKniq9TQq2K"; // ➜ Αντικατέστησε με το ID του φακέλου
     var originalFileId = "1ZqOvmW6TZxFD9LkGknSXlT-gO6fBqzGDDZKfU3mQOuI"; // ➜ Αντικατέστησε με το ID του αρχικού αρχείου
-
     var folder = DriveApp.getFolderById(folderId);
     var originalFile = DriveApp.getFileById(originalFileId);
-
     // 🔹 Ανάκτηση του ονόματος του αρχείου και αφαίρεση "Copy of" και "of"
     var originalFileName = originalFile.getName().replace(/Copy of |of /gi, "").trim();
 

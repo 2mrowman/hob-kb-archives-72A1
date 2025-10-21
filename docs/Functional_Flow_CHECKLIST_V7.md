@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 16:13 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
-*Build:* c3fb871
+*Last updated:* 21/10/2025 - 17:58 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 17:58 (DEV-only)
+*Build:* 138e0a7
 
 # 🧩 **Functional Flow – CHECKLIST System (V7.1.0R)**
 ## 📘 Επισκόπηση
@@ -17,7 +17,6 @@
 4. Εμφανίζεται custom popup επιβεβαίωσης μέσω `PopupLib.showCustomPopup()`.
 ➡️ Στόχος: να διασφαλιστεί ότι κάθε αρχείο ξεκινά τη μέρα με καθαρή φόρμα και ενημερωμένο περιβάλλον εργασίας.
 ---
-
 ## ✏️ 2️⃣ Επεξεργασία – onEdit Trigger
 Κάθε αλλαγή κελιού στο φύλλο ελέγχεται από το `onEdit(e)`:
 

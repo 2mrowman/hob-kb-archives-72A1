@@ -1,17 +1,12 @@
-*Last updated:* 20/10/2025 – 11:42 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
-
-*Build:* f1d244f
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
 ### SCRIPT_IDS_INDEX.md – Hall of Brands Automation Stack
-*
 Centralized reference of all **Google Apps Script** and **Library IDs** used across the HoB ecosystem.  
 _Last Updated: 19 Oct 2025_  
 _Version: V1.0.0R_  
-
 ---
-
 ## 🧭 Purpose
 This file provides a unified lookup table for all **Script IDs**, **Library IDs**, and **Integration Keys** related to the HoB automation system.  
 It enables GPT-based systems and developers to:

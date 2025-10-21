@@ -1,13 +1,13 @@
-# CHANGELOG – Hall of Brands Knowledge Base
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
+# CHANGELOG – Hall of Brands Knowledge Base
 **Repository:** hob-kb-archives-72A1  
 **Owner:** 2mrowman  
 **Timezone:** Europe/Athens (GMT+3)
-
 ---
-
 ## [V6.0.0] – 20/10/2025
-
 ### Added
 - **notes_for_gpt.md V6.0.0** — Complete rewrite with 6 new sections (706 lines vs 99 original)
   - PROJECT OVERVIEW — Business context, tech stack, users
@@ -16,7 +16,6 @@
   - DEPENDENCIES — Library dependency map, version table
   - COMMON PATTERNS — Reusable code patterns, best practices
   - GOTCHAS — Known issues, workarounds, debugging tips
-
 - **CAPABILITY_MAP_HoBMastersLib.md** — API surface documentation for template management library
   - Function signatures, parameters, return values
   - Usage examples, dependencies, error handling

@@ -1,20 +1,13 @@
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
+
 # 🧩 MenuLib — Capability Map (V7.0.0)
-
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md
-
 ---
-
-*Last updated:* 20/10/2025 – 08:23 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 08:23 (DEV-only)
-
-*Build:* [to be generated]
-
 ---
-
 ## Scope
 Ανάγνωση & φόρτωση δυναμικού μενού στο Google Sheets. Διαχειρίζεται User vs Owner functions.
-
 ## Prerequisites
 - **Permissions:** Spreadsheet scope, UI access
 - **Imports:** `MenuLib` (V7.0.0) στο project (Apps Script → Libraries)

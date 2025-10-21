@@ -1,20 +1,13 @@
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
+
 # 🧩 HoBMastersLib — Capability Map (V1.3)
-
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md
-
 ---
-
-*Last updated:* 20/10/2025 – 08:22 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 08:22 (DEV-only)
-
-*Build:* [to be generated]
-
 ---
-
 ## Scope
 Διαχείριση Templates από το κεντρικό αρχείο `HoB_Masters`. Παρέχει πρόσβαση σε template tabs για δημιουργία νέων ημερών.
-
 ## Prerequisites
 - **Permissions:** Spreadsheet scope, read access to `HoB_Masters` file
 - **Imports:** `HoBMastersLib` (V1.3) στο project (Apps Script → Libraries)

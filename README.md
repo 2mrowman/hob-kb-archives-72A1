@@ -1,23 +1,17 @@
-*Last updated:* 20/10/2025 – 11:42 (Europe/Athens)
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
-
-*Build:* f1d244f*
 # Hall of Brands – Checklist Knowledge Base ΤΕΣΤ ΤΕΣΤ3 #####
-*
 Internal reference for HoB automations & libraries.  
 All documents, libraries, and scripts of the Checklist System (V7.1.0R).
-
 ---
-
 ## 📁 Docs
 - [Flow Mapping – CHECKLIST V7.1.0R](./docs/Flow_Mapping_CHECKLIST_V7.md)
 - [Functional Flow – CHECKLIST V7.1.0R](./docs/Functional_Flow_CHECKLIST_V7.md)
 - [GAS Checklist V6.2 Project Settings](./docs/GAS%20ChecklistV6.2_Project%20Settings.md)
 - [Prompt – Current Version](./docs/Prompt_Current.md)
-
 ---
-
 ## ⚙️ Libraries
 - [HoBMasterLib – Duplicate.gs V1.3](./libraries/A.%20HoBMasterLib%20-%20Duplicate.gsV1.3.MD)
 - [MenuLib – V7.0.0](./libraries/B.%20MenuLib%20-%20MenuLib.gs%20_V7.0.0.MD)

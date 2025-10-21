@@ -1,23 +1,18 @@
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
+
 # INDEX_Checklist_Docs.md
 **Auto-Generated Documentation Index**
-
 **Repository:** hob-kb-archives-72A1
 **Generated:** 21/10/2025 - 13:10 (GMT+3)
 **Timestamp:** 1761052208
-
 ---
-
 ## Purpose
-
 This file is **auto-generated** by GitHub Actions whenever any `.md`, `.py`, or `.yml` file is modified in the repository.
-
 All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensure ChecklistGPT always reads the latest version of each file.
-
 ---
-
 ## Documentation Structure
-
-
 ### Root Level
 
 - [MD] **[CHANGELOG.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1761052208)**
@@ -41,7 +36,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensur
 - [PY] **[update_index_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py?ts=1761052208)**
   `update_index_links.py`
 
-
 ### Documentation (/docs/)
 
 - [MD] **[CHAT_HISTORY.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.md?ts=1761052208)**
@@ -54,7 +48,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensur
   `docs/GAS_ChecklistV6_Project_Settings.md`
 - [MD] **[Prompt_Current.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1761052208)**
   `docs/Prompt_Current.md`
-
 
 ### Version History (/docs/history/)
 
@@ -87,7 +80,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensur
 - [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/README.md?ts=1761052208)**
   `docs/history/README.md`
 
-
 ### Libraries (/libraries/)
 
 - [MD] **[AdminToolsLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md?ts=1761052208)**
@@ -109,7 +101,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensur
 - [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1761052208)**
   `libraries/README.md`
 
-
 ### Scripts (/scripts/)
 
 - [MD] **[AutoDupl_File&DeleteTabs.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md?ts=1761052208)**
@@ -126,7 +117,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761052208`) to ensur
   `scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md`
 - [MD] **[🧩 PopupLib_Capability_Map_(V2.0.0).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20PopupLib_Capability_Map_(V2.0.0).md?ts=1761052208)**
   `scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md`
-
 
 ### Tests (/tests/)
 

@@ -1,12 +1,9 @@
-*Last updated:* 20/10/2025 – 11:42 (Europe/Athens)
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
-
-*Build:* f1d244f
 ### Welcome to the **Hall of Brands Automation & Checklist Repository**.
-
 ---
-
 ## 📘 Documentation & Index
 👉 [INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md)
 📄 [RAW_LINKS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md)
@@ -14,9 +11,7 @@
 🧩 [notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md)
 ⚙️ [SCRIPT_IDS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md)
 🕒 [RAW_HISTORY_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md)
-
 ---
-
 ## 🗂 Key Library Folders
 - Libraries (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md#-libraries
   • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/libraries

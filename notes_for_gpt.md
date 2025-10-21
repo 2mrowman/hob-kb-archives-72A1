@@ -1,23 +1,15 @@
-*Last updated:* 20/10/2025 – 08:20 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 08:20 (DEV-only)
-
-*Build:* [to be generated]
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
 ### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.0.0)
-
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
-
 ---
-
 Οδηγός για το GPT Model: από πού να διαβάζει **structure, versions, flow, history** του HoB automation stack.
-
 ---
-
 ## 🎯 Purpose
 Το repo λειτουργεί ως **lightweight Knowledge Base** για Google Apps Script, n8n και σχετικά συστήματα.  
 Το μοντέλο πρέπει να χρησιμοποιεί τα παρακάτω ως **canonical** πηγές.
-
 ---
 
 ## 🏢 PROJECT OVERVIEW

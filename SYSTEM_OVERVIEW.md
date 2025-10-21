@@ -1,22 +1,17 @@
-*Last updated:* 20/10/2025 – 11:42 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
-
-*Build:* f1d244f
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
 
 ### Hall of Brands – CHECKLIST Automation System (V7.1.0R)
-
 ## Overview
 Το **HoB Checklist System** είναι ένα ολοκληρωμένο σύστημα αυτοματοποίησης σε περιβάλλον Google Sheets + Google Apps Script.  
 Αναπτύχθηκε για την πλήρη οργάνωση, εκτέλεση και αναφορά των καθημερινών εργασιών των καταστημάτων Hall of Brands & Saint Soles.
-
 Η τρέχουσα έκδοση (**V7.1.0R – Popup Restoration Build**) υποστηρίζει:
 - Αυτόματη δημιουργία νέας ημέρας (με προστασίες & templates)
 - Δυναμικό μενού (User / Owner functions)
 - Εμφάνιση μηνυμάτων με custom modal popups
 - Διαχείριση triggers (onOpen, onEdit, time-driven)
 - Πλήρη υποστήριξη βιβλιοθηκών (Libraries Integration)
-
 ---
 
 ## ⚙️ Core Architecture

@@ -1,20 +1,13 @@
+*Last updated:* 21/10/2025 - 16:11 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:11 (DEV-only)
+*Build:* ee84a7e
+
 # 🧩 PopupLib — Capability Map (V2.0.0)
-
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md
-
 ---
-
-*Last updated:* 20/10/2025 – 08:24 (Europe/Athens)
-
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 08:24 (DEV-only)
-
-*Build:* [to be generated]
-
 ---
-
 ## Scope
 Custom modal, native alert ή toast ανά trigger context. Εμφάνιση UI μηνυμάτων με context-aware fallback.
-
 ## Prerequisites
 - **Permissions:** Spreadsheet scope, UI access (for modal/alert)
 - **Imports:** `PopupLib` (V2.0.0) στο project (Apps Script → Libraries)

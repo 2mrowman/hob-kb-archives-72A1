@@ -17,7 +17,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
 
 ## Documentation Structure
 
-
 ### Root Level
 
 - [MD] **[CHANGELOG.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1761050541)**
@@ -41,7 +40,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
 - [PY] **[update_index_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py?ts=1761050541)**
   `update_index_links.py`
 
-
 ### Documentation (/docs/)
 
 - [MD] **[CHAT_HISTORY.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.md?ts=1761050541)**
@@ -54,7 +52,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
   `docs/GAS_ChecklistV6_Project_Settings.md`
 - [MD] **[Prompt_Current.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1761050541)**
   `docs/Prompt_Current.md`
-
 
 ### Version History (/docs/history/)
 
@@ -87,7 +84,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
 - [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/README.md?ts=1761050541)**
   `docs/history/README.md`
 
-
 ### Libraries (/libraries/)
 
 - [MD] **[AdminToolsLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md?ts=1761050541)**
@@ -109,7 +105,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
 - [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1761050541)**
   `libraries/README.md`
 
-
 ### Scripts (/scripts/)
 
 - [MD] **[AutoDupl_File&DeleteTabs.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md?ts=1761050541)**
@@ -126,7 +121,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050541`) to ensur
   `scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md`
 - [MD] **[🧩 PopupLib_Capability_Map_(V2.0.0).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20PopupLib_Capability_Map_(V2.0.0).md?ts=1761050541)**
   `scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md`
-
 
 ### Tests (/tests/)
 

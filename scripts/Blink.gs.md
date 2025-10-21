@@ -1,22 +1,9 @@
-*Last updated:* 21/10/2025 - 17:58 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 17:58 (DEV-only)
-*Build:* 138e0a7
-
-*
-
-*
-*
-*
-*
-*
-*
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
+*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
+*Build:* 00fcb53
 
 // === BLINK V2.0.1 — Hotfix: “server error” exclusion (no throws when no UI) ======
 // Aligned with V2.0.0 (15.10.2025) — minimal, safe UI-guard; no behavior change for users.
-
 // 0) Helper — returns Ui or null (prevents exceptions in headless triggers)
 function _safeUi_() {
   try { return SpreadsheetApp.getUi(); } catch (e) { return null; }

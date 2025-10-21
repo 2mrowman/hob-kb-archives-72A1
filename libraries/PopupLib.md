@@ -1,22 +1,9 @@
-*Last updated:* 21/10/2025 - 17:58 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 17:58 (DEV-only)
-*Build:* 138e0a7
-
-*
-
-*
-*
-*
-*
-*
-*
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
+*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
+*Build:* 00fcb53
 
 //
 // Version: V2.0.0R – 07/10/2025 – Native Fallback Edition (PopupLib): custom modal όπου είναι εφικτό + αυτόματο fallback σε native alert/toast όταν δεν υπάρχει ενεργό UI context
-
 /**
  * PopupLib – Version 2.0.0
  * Στόχος: Να παραμείνει 100% συμβατό με τα υπάρχοντα calls (showCustomPopup, showInfoMessage, showWarningMessage, showErrorMessage, showSuccessMessage, testAllPopupsFromMenu)

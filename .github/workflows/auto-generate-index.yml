@@ -1,0 +1,181 @@
+name: Auto-Generate INDEX_Checklist_Docs.md
+
+on:
+  push:
+    paths:
+      - '**.md'
+      - '**.py'
+      - '**.yml'
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate INDEX_Checklist_Docs.md
+        run: |
+          #!/bin/bash
+          set -e
+          
+          # Get current Unix timestamp
+          TIMESTAMP=$(date +%s)
+          
+          # Repository info
+          REPO_USER="2mrowman"
+          REPO_NAME="hob-kb-archives-72A1"
+          BASE_URL="https://raw.githubusercontent.com/${REPO_USER}/${REPO_NAME}/refs/heads/main"
+          
+          # Output file
+          OUTPUT_FILE="INDEX_Checklist_Docs.md"
+          
+          # Start building the index file
+          cat > "$OUTPUT_FILE" << 'EOF'
+# 📋 INDEX_Checklist_Docs.md
+**Auto-Generated Documentation Index**  
+**Repository:** hob-kb-archives-72A1  
+**Generated:** $(date '+%d/%m/%Y – %H:%M') (GMT+3)  
+**Timestamp:** TIMESTAMP_PLACEHOLDER
+
+---
+
+## 📖 Purpose
+This file is **auto-generated** by GitHub Actions whenever any `.md`, `.py`, or `.yml` file is modified in the repository.
+
+All RAW GitHub URLs include cache-busting timestamps (`?ts=TIMESTAMP_PLACEHOLDER`) to ensure ChecklistGPT always reads the latest version of each file.
+
+---
+
+## 📁 Documentation Structure
+
+EOF
+          
+          # Replace timestamp placeholder
+          sed -i "s/TIMESTAMP_PLACEHOLDER/$TIMESTAMP/g" "$OUTPUT_FILE"
+          
+          # Function to add files from a directory
+          add_section() {
+            local section_title="$1"
+            local section_emoji="$2"
+            local search_path="$3"
+            local file_pattern="$4"
+            
+            echo "" >> "$OUTPUT_FILE"
+            echo "### $section_emoji $section_title" >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            
+            # Find files matching pattern in the specified path
+            local found_files=false
+            
+            while IFS= read -r file; do
+              if [ -n "$file" ]; then
+                found_files=true
+                # Get relative path from repo root
+                rel_path="${file#./}"
+                # URL encode the path
+                encoded_path=$(echo "$rel_path" | sed 's/ /%20/g')
+                # Get filename
+                filename=$(basename "$file")
+                
+                # Determine file type emoji
+                case "${filename##*.}" in
+                  md) file_emoji="📄" ;;
+                  py) file_emoji="🐍" ;;
+                  yml|yaml) file_emoji="⚙️" ;;
+                  *) file_emoji="📄" ;;
+                esac
+                
+                # Add entry
+                echo "- $file_emoji **[$filename]($BASE_URL/$encoded_path?ts=$TIMESTAMP)**" >> "$OUTPUT_FILE"
+                echo "  \`$rel_path\`" >> "$OUTPUT_FILE"
+              fi
+            done < <(find "$search_path" -maxdepth 1 -type f \( -name "*.md" -o -name "*.py" -o -name "*.yml" \) 2>/dev/null | sort)
+            
+            if [ "$found_files" = false ]; then
+              echo "*No files found in this section.*" >> "$OUTPUT_FILE"
+            fi
+            
+            echo "" >> "$OUTPUT_FILE"
+          }
+          
+          # Add sections organized by folder structure
+          
+          # Root level files
+          add_section "Root Level" "📁" "." "*.md *.py *.yml"
+          
+          # /docs/ folder
+          if [ -d "docs" ]; then
+            add_section "Documentation (/docs/)" "📚" "docs" "*.md *.py *.yml"
+          fi
+          
+          # /docs/history/ folder
+          if [ -d "docs/history" ]; then
+            add_section "Version History (/docs/history/)" "📜" "docs/history" "*.md *.py *.yml"
+          fi
+          
+          # /libraries/ folder
+          if [ -d "libraries" ]; then
+            add_section "Libraries (/libraries/)" "📦" "libraries" "*.md *.py *.yml"
+          fi
+          
+          # /scripts/ folder
+          if [ -d "scripts" ]; then
+            add_section "Scripts (/scripts/)" "🔧" "scripts" "*.md *.py *.yml"
+          fi
+          
+          # /tests/ folder
+          if [ -d "tests" ]; then
+            add_section "Tests (/tests/)" "🧪" "tests" "*.md *.py *.yml"
+          fi
+          
+          # Add footer
+          cat >> "$OUTPUT_FILE" << 'EOF'
+---
+
+## 🔄 Auto-Update Information
+
+**Trigger:** This index is automatically regenerated whenever any `.md`, `.py`, or `.yml` file is pushed to the `main` branch.
+
+**Workflow:** `.github/workflows/auto-generate-index.yml`
+
+**Cache-Busting:** All URLs include `?ts=<timestamp>` to force fresh reads by ChecklistGPT.
+
+---
+
+**Last Updated:** $(date '+%d/%m/%Y – %H:%M') (GMT+3)  
+**Automation Status:** ✅ Active
+EOF
+          
+          # Replace date placeholder in footer
+          CURRENT_DATE=$(date '+%d/%m/%Y – %H:%M')
+          sed -i "s/\$(date '+%d\/%m\/%Y – %H:%M')/$CURRENT_DATE/g" "$OUTPUT_FILE"
+          
+          echo "✅ INDEX_Checklist_Docs.md generated successfully!"
+          echo "📊 Timestamp: $TIMESTAMP"
+          echo "📁 Output: $OUTPUT_FILE"
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Check if there are changes
+          if git diff --quiet INDEX_Checklist_Docs.md; then
+            echo "No changes to INDEX_Checklist_Docs.md"
+          else
+            git add INDEX_Checklist_Docs.md
+            git commit -m "🤖 Auto-update INDEX_Checklist_Docs.md [skip ci]"
+            git push
+            echo "✅ INDEX_Checklist_Docs.md updated and pushed"
+          fi
+

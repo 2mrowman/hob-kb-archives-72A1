@@ -1,4 +1,4 @@
-name: Auto-stamp KB (Last updated + Build + Last synced)
+name: Auto-Stamp Notes
 
 on:
   push:
@@ -80,3 +80,4 @@ jobs:
           else
             echo "No changes to commit."
           fi
+

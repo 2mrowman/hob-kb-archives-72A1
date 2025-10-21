@@ -3,60 +3,7 @@
 *Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
 
 *Build:* f1d244f
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-*
-*
-
-Welcome to the **Hall of Brands Automation & Checklist Repository**.
+### Welcome to the **Hall of Brands Automation & Checklist Repository**.
 
 ---
 

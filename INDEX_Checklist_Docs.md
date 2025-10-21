@@ -1,72 +1,155 @@
-*Last updated:* 20/10/2025 – 11:42 (Europe/Athens)
+# INDEX_Checklist_Docs.md
+**Auto-Generated Documentation Index**
 
-*Last synced with VERSIONS_INDEX.md:* 20/10/2025 – 11:42 (DEV-only)
-
-*Build:* f1d244f
-
-### Hall of Brands – Checklist Knowledge Base (V7.2.0R)
-*
-Centralized index for all documentation, scripts, and libraries used in the Hall of Brands automation systems.  
-_Last Updated: 16 Oct 2025_
+**Repository:** hob-kb-archives-72A1
+**Generated:** 21/10/2025 - 12:40 (GMT+3)
+**Timestamp:** 1761050409
 
 ---
 
-## 📁 Documentation (`/docs`)
-| File | Description | Link |
-|------|--------------|------|
-| **Functional_Flow_CHECKLIST_V7.md** | Functional overview of Checklist system | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Functional_Flow_CHECKLIST_V7.md) |
-| **Flow_Mapping_CHECKLIST_V7.md** | Diagram mapping of daily process flows | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Flow_Mapping_CHECKLIST_V7.md) |
-| **GAS_ChecklistV6_Project_Settings.md** | Core settings for GAS Checklist V6.2 project | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/GAS_ChecklistV6_Project_Settings.md) |
-| **Prompt_Current.md** | Current Prompt version reference | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/Prompt_Current.md) |
-| **CHAT_HISTORY.md** | Archived ChatGPT technical conversation history | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/docs/CHAT_HISTORY.md) |
-| **Images Folder** | Visual assets used in documentation | [Browse](https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs/Images) |
+## Purpose
+
+This file is **auto-generated** by GitHub Actions whenever any `.md`, `.py`, or `.yml` file is modified in the repository.
+
+All RAW GitHub URLs include cache-busting timestamps (`?ts=1761050409`) to ensure ChecklistGPT always reads the latest version of each file.
 
 ---
 
-## ⚙️ Libraries (`/libraries`)
-| Library | Version | Link |
-|----------|----------|------|
-| **HoBMastersLib.md** | V1.3 | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/HoBMastersLib.md) |
-| **MenuLib.md** | V7.0.0 | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/MenuLib.md) |
-| **PopupLib.md** | V2.0.0R | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/PopupLib.md) |
-| **AdminToolsLib.md** | V6.7.6 | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/libraries/AdminToolsLib.md) |
-| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md |
+## Documentation Structure
+
+
+### Root Level
+
+- [MD] **[CHANGELOG.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1761050409)**
+  `CHANGELOG.md`
+- [MD] **[INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1761050409)**
+  `INDEX_Checklist_Docs.md`
+- [MD] **[RAW_LINKS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1761050409)**
+  `RAW_LINKS_INDEX.md`
+- [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/README.md?ts=1761050409)**
+  `README.md`
+- [MD] **[SCRIPT_IDS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1761050409)**
+  `SCRIPT_IDS_INDEX.md`
+- [MD] **[SYSTEM_OVERVIEW.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1761050409)**
+  `SYSTEM_OVERVIEW.md`
+- [MD] **[VERSIONS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md?ts=1761050409)**
+  `VERSIONS_INDEX.md`
+- [MD] **[index.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md?ts=1761050409)**
+  `index.md`
+- [MD] **[notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md?ts=1761050409)**
+  `notes_for_gpt.md`
+- [PY] **[update_index_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py?ts=1761050409)**
+  `update_index_links.py`
+
+
+### Documentation (/docs/)
+
+- [MD] **[CHAT_HISTORY.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.md?ts=1761050409)**
+  `docs/CHAT_HISTORY.md`
+- [MD] **[Flow_Mapping_CHECKLIST_V7.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V7.md?ts=1761050409)**
+  `docs/Flow_Mapping_CHECKLIST_V7.md`
+- [MD] **[Functional_Flow_CHECKLIST_V7.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Functional_Flow_CHECKLIST_V7.md?ts=1761050409)**
+  `docs/Functional_Flow_CHECKLIST_V7.md`
+- [MD] **[GAS_ChecklistV6_Project_Settings.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md?ts=1761050409)**
+  `docs/GAS_ChecklistV6_Project_Settings.md`
+- [MD] **[Prompt_Current.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1761050409)**
+  `docs/Prompt_Current.md`
+
+
+### Version History (/docs/history/)
+
+- [MD] **[CHAT_HISTORY_20251018_1.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_1.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_1.md`
+- [MD] **[CHAT_HISTORY_20251018_10.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_10.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_10.md`
+- [MD] **[CHAT_HISTORY_20251018_2.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_2.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_2.md`
+- [MD] **[CHAT_HISTORY_20251018_3.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_3.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_3.md`
+- [MD] **[CHAT_HISTORY_20251018_4.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_4.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_4.md`
+- [MD] **[CHAT_HISTORY_20251018_5.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_5.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_5.md`
+- [MD] **[CHAT_HISTORY_20251018_6.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_6.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_6.md`
+- [MD] **[CHAT_HISTORY_20251018_7.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_7.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_7.md`
+- [MD] **[CHAT_HISTORY_20251018_8.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_8.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_8.md`
+- [MD] **[CHAT_HISTORY_20251018_9.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/CHAT_HISTORY_20251018_9.md?ts=1761050409)**
+  `docs/history/CHAT_HISTORY_20251018_9.md`
+- [MD] **[LATEST.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/LATEST.md?ts=1761050409)**
+  `docs/history/LATEST.md`
+- [MD] **[MANIFEST.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/MANIFEST.md?ts=1761050409)**
+  `docs/history/MANIFEST.md`
+- [MD] **[RAW_HISTORY_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md?ts=1761050409)**
+  `docs/history/RAW_HISTORY_INDEX.md`
+- [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/README.md?ts=1761050409)**
+  `docs/history/README.md`
+
+
+### Libraries (/libraries/)
+
+- [MD] **[AdminToolsLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md?ts=1761050409)**
+  `libraries/AdminToolsLib.md`
+- [MD] **[CAPABILITY_MAP_AdminToolsLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md?ts=1761050409)**
+  `libraries/CAPABILITY_MAP_AdminToolsLib.md`
+- [MD] **[CAPABILITY_MAP_HoBMastersLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md?ts=1761050409)**
+  `libraries/CAPABILITY_MAP_HoBMastersLib.md`
+- [MD] **[CAPABILITY_MAP_MenuLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md?ts=1761050409)**
+  `libraries/CAPABILITY_MAP_MenuLib.md`
+- [MD] **[CAPABILITY_MAP_PopupLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md?ts=1761050409)**
+  `libraries/CAPABILITY_MAP_PopupLib.md`
+- [MD] **[HoBMastersLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md?ts=1761050409)**
+  `libraries/HoBMastersLib.md`
+- [MD] **[MenuLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md?ts=1761050409)**
+  `libraries/MenuLib.md`
+- [MD] **[PopupLib.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md?ts=1761050409)**
+  `libraries/PopupLib.md`
+- [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1761050409)**
+  `libraries/README.md`
+
+
+### Scripts (/scripts/)
+
+- [MD] **[AutoDupl_File&DeleteTabs.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md?ts=1761050409)**
+  `scripts/AutoDupl_File&DeleteTabs.gs.md`
+- [MD] **[Blink.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Blink.gs.md?ts=1761050409)**
+  `scripts/Blink.gs.md`
+- [MD] **[Checklist.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md?ts=1761050409)**
+  `scripts/Checklist.gs.md`
+- [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/README.md?ts=1761050409)**
+  `scripts/README.md`
+- [MD] **[🧩 HoBMastersLib_Capability_Map_(V1.3).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20HoBMastersLib_Capability_Map_(V1.3).md?ts=1761050409)**
+  `scripts/🧩 HoBMastersLib_Capability_Map_(V1.3).md`
+- [MD] **[🧩 MenuLib_Capability_Map_(V7.0.0).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20MenuLib_Capability_Map_(V7.0.0).md?ts=1761050409)**
+  `scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md`
+- [MD] **[🧩 PopupLib_Capability_Map_(V2.0.0).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20PopupLib_Capability_Map_(V2.0.0).md?ts=1761050409)**
+  `scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md`
+
+
+### Tests (/tests/)
+
+- [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/README.md?ts=1761050409)**
+  `tests/README.md`
+- [PY] **[validate_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_links.py?ts=1761050409)**
+  `tests/validate_links.py`
+- [PY] **[validate_structure.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_structure.py?ts=1761050409)**
+  `tests/validate_structure.py`
+- [PY] **[validate_timestamps.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_timestamps.py?ts=1761050409)**
+  `tests/validate_timestamps.py`
 
 ---
 
-## 🧩 Scripts (`/scripts`)
-| Script | Version | Description | Link |
-|---------|----------|-------------|------|
-| **Checklist.gs.md** | V7.1.0R | Main entrypoint for store automation | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/Checklist.gs.md) |
-| **Blink.gs.md** | — | UI feedback animation helper | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/Blink.gs.md) |
-| **AutoDupl_File&DeleteTabs.gs.md** | — | Automates duplication & cleanup of daily tabs | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/scripts/AutoDupl_File&DeleteTabs.gs.md) |
+## Auto-Update Information
+
+**Trigger:** This index is automatically regenerated whenever any `.md`, `.py`, or `.yml` file is pushed to the `main` branch.
+
+**Workflow:** `.github/workflows/auto-generate-index.yml`
+
+**Cache-Busting:** All URLs include `?ts=<timestamp>` to force fresh reads by ChecklistGPT.
 
 ---
 
-## 🗂 Root Files
-| File | Description | Link |
-|------|--------------|------|
-| **SYSTEM_OVERVIEW.md** | Technical overview of the full automation system | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/SYSTEM_OVERVIEW.md) |
-| **index.md** | Main entry point (Knowledge Base landing) | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/index.md) |
-| **notes_for_gpt.md** | Internal guidance for GPT model integration | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/notes_for_gpt.md) |
-| **RAW_LINKS_INDEX.md** | Central reference for all raw URLs | [Open](https://github.com/2mrowman/hob-kb-archives-72A1/blob/main/RAW_LINKS_INDEX.md) |
-
----
-
-## 🔐 Version Reference (canonical)
-
-| Component                      | Version | Status         | Notes                                 |
-|--------------------------------|---------|----------------|----------------------------------------|
-| Checklist.gs                   | V7.2.1  | Stable Build   | Retail Stable Build                    |
-| AdminToolsLib                  | V6.8.0  | Stable         | Admin & protection utilities           |
-| MenuLib                        | V7.2.0  | Stable         | Dynamic UI menu                        |
-| PopupLib                       | V2.0.0R | Stable         | Modal popups                           |
-| HoBMastersLib                  | V1.3    | Stable         | Core master template helpers           |
-| Blink.gs.md                    | V2.0.1  | Stable         | Lightweight notifier utilities         |
-| AutoDupl_File&DeleteTabs.gs.md | V1.0.0  | Stable         | Monthly duplicate & cleanup workflow   |
-
-*Last synced with `VERSIONS_INDEX.md` on 19/10/2025 – 10:53 (Europe/Athens).*
-
----
-
-Maintained by **ChecklistGPT V5.0** – Hall of Brands Automation Stack  
+**Last Updated:** 21/10/2025 - 12:40 (GMT+3)
+**Automation Status:** Active

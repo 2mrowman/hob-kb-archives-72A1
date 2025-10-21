@@ -2,34 +2,6 @@
 *Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 16:13 (DEV-only)
 *Build:* c3fb871
 
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-
-*
-*
-*
-*
-*
-*
-*
-*
-*Last updated: 19/10/2025 – 12:43 (Europe/Athens)*
-
 // =====================================================================================
 // CHECKLIST V7.2.1 — Final Production Build – 17.10.2025 – 12:40
 // Auto-day creation restored (Installable Trigger)

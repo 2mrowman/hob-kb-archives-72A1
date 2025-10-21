@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
     paths:
       - "**/*.md"
+      - "*.md"
       - "docs/**"
       - "libraries/**"
       - "scripts/**"
@@ -36,33 +37,9 @@ jobs:
           git config --global core.quotepath false
           export LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-          git ls-files -z -- '*.md' 'docs/**/*.md' 'libraries/**/*.md' 'scripts/**/*.md' |           while IFS= read -r -d '' f; do
+          git ls-files -z -- '*.md' 'docs/**/*.md' 'libraries/**/*.md' 'scripts/**/*.md' | while IFS= read -r -d '' f; do
             sed -i 's/\r$//' "$f"
-            awk -v NOW="$NOW" -v SHA="$SHA" '
-              BEGIN{
-                lu="*Last updated:* " NOW " (Europe/Athens)";
-                ls="*Last synced with VERSIONS_INDEX.md:* " NOW " (DEV-only)";
-                bd="*Build:* " SHA;
-                printed=0;
-              }
-              NR<=20 && (
-                  $0 ~ /^\*?Last updated:/ ||
-                  $0 ~ /^\*?Last synced with VERSIONS_INDEX\.md:/ ||
-                  $0 ~ /^\*?Build:/ ||
-                  $0 ~ /^[[:space:]]*\*+[[:space:]]*$/ ||
-                  $0 ~ /^[[:space:]]*$/
-              ) { next }
-              {
-                if (printed==0) {
-                  print lu; print ls; print bd; print "";
-                  printed=1;
-                }
-                print
-              }
-              END{
-                if (printed==0) { print lu; print ls; print bd; print "" }
-              }
-            ' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
+            awk -v NOW="$NOW" -v SHA="$SHA" 'BEGIN { lu="*Last updated:* " NOW " (Europe/Athens)"; ls="*Last synced with VERSIONS_INDEX.md:* " NOW " (DEV-only)"; bd="*Build:* " SHA; printed=0; } NR<=20 && ($0 ~ /^\*?Last updated:/ || $0 ~ /^\*?Last synced with VERSIONS_INDEX\.md:/ || $0 ~ /^\*?Build:/ || $0 ~ /^[[:space:]]*\*+[[:space:]]*$/ || $0 ~ /^[[:space:]]*$/) { next } { if (printed==0) { print lu; print ls; print bd; print ""; printed=1; } print } END { if (printed==0) { print lu; print ls; print bd; print "" } }' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
 
             awk 'BEGIN{b=0} { if($0~/^[[:space:]]*$/){ if(b) next; b=1; print "" } else { b=0; print } }' "$f" > "$f.__tmp" && mv "$f.__tmp" "$f"
           done

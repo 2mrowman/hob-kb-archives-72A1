@@ -3,7 +3,7 @@
 *Build:* 00fcb53
 
 # 🧩 HoBMastersLib — Capability Map (V1.3)
-**URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md
+URL: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md
 ---
 ---
 ## Scope

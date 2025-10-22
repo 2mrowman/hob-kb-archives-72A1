@@ -1,7 +1,3 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
-
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
 // Changes: Formatting to single-line section headers (no ==== bars). Added owner action updateVersionInfo_Remote(desc).
 // Behavior: Auto-day on open (installable trigger). Clean HoB menu (no “Δημιουργία Νέας Ημέρας”). Full-dynamic template resolve.

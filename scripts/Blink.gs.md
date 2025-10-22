@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 // === BLINK V2.0.1 — Hotfix: “server error” exclusion (no throws when no UI) ======
 // Aligned with V2.0.0 (15.10.2025) — minimal, safe UI-guard; no behavior change for users.
@@ -8,7 +8,6 @@
 function _safeUi_() {
   try { return SpreadsheetApp.getUi(); } catch (e) { return null; }
 }
-
 // 1) Patch remindMissingNames: early return if no UI; never throw
 function remindMissingNames() {
   const ui = _safeUi_();
@@ -16,7 +15,6 @@ function remindMissingNames() {
     console.warn("Blink.remindMissingNames: headless context — skipped without error");
     return;                      //  → No exception → No generic failure email
   }
-
   const NAME_PROMPT = 'Όνομα Επώνυμο?';
   const COL_B = 2;
   const BLINK_CYCLES = 3;

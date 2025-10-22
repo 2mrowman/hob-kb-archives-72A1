@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿- Στο CHECKLIST.gs να έχουμε:
 - function createNewDay_AUTO_Local() {

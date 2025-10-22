@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿
 PopupLib.showErrorMessage("❌ Δεν βρέθηκε template στο HoB_Masters.");
@@ -9,12 +9,10 @@ PopupLib.showErrorMessage("❌ Δεν βρέθηκε template στο HoB_Masters
 Logger.log("⚠ Σφάλμα στο createNewDay_AUTO_Local: " + err);
 }
 }
-
 // ✅ Εύρεση σωστού template
 function getTemplateTabFromHoBMasters_() {
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const fileName = ss.getName().trim();
-
 try {
 const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName("Templates");

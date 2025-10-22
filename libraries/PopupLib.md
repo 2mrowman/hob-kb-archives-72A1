@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 //
 // Version: V2.0.0R – 07/10/2025 – Native Fallback Edition (PopupLib): custom modal όπου είναι εφικτό + αυτόματο fallback σε native alert/toast όταν δεν υπάρχει ενεργό UI context
@@ -13,7 +13,6 @@
  * 3) Αν ούτε alert επιτρέπεται → toast (Spreadsheet.toast)
  * 4) Πάντα σεβόμαστε onClose callback (αν δοθεί), ακόμα και στο fallback
  */
-
 // ✅ Functions included in this version (✅ = νέο/αλλαγμένο σε σχέση με V1.9.4):
 //  showCustomPopup
 //  showInfoMessage

@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿
 const BLINK_CYCLES = 3;
@@ -11,10 +11,8 @@ function createNewDay_AUTO(masterId, templateTab) {
 const ss = SpreadsheetApp.getActiveSpreadsheet();
 const tz = Session.getScriptTimeZone();
 const todayName = Utilities.formatDate(new Date(), tz, 'dd/MM');
-
 const exists = ss.getSheetByName(todayName);
 if (exists) {
-
 try { PopupLib.showCustomPopup('ℹ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>', 'info'); } catch (_) {}
 const masterSheet = ss.getSheetByName(MASTER_SHEET_NAME);
 if (masterSheet && !masterSheet.isSheetHidden()) masterSheet.hideSheet();

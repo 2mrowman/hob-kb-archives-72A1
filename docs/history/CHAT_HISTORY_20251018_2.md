@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿'error'); }
 }
@@ -9,14 +9,10 @@ try { AdminToolsLib.testTemplateTab(); }
 catch (err) { PopupLib.showCustomPopup('⚠ Σφάλμα (Test Template Tab):<br><br>' + (err.message || err),
 'error'); }
 }
-
 ## // ==========================
-
 // ✅ User Tools (Links → νέο tab χωρίς popup μηνύματα)
 // ==========================
-
 function openNeaParalaviForm() {
-
 openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8k
 O0/edit?usp=sharing");
 }

@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 /** HoBMastersLib v1.3 — Resilient Template Access + Retry Build (09/10/2025)
  *  Βελτίωση ασφάλειας στην πρόσβαση template sheet και αποφυγή προσωρινών σφαλμάτων.
@@ -9,13 +9,11 @@
 function fmtDate_(d, tz) {
   return Utilities.formatDate(d, tz || Session.getScriptTimeZone(), 'dd/MM');
 }
-
 function createNewDay(args) {
   try {
     if (!args || !args.masterId || !args.templateTab) {
       return { ok: false, msg: 'Λείπουν απαιτούμενα args (masterId, templateTab).' };
     }
-
     const ss = args.ss || SpreadsheetApp.getActiveSpreadsheet();
     const tz = Session.getScriptTimeZone();
     const newName = (args.newName && String(args.newName).trim()) || fmtDate_(new Date(), tz);

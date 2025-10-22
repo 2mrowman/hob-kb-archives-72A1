@@ -1,22 +1,16 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 **CHECKLIST SETTINGS**
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)
 [1\. CheckList.gs 2](#_heading=h.kt18tyytx6dl)
 [2\. Blink.gs Script 2](#_heading=h.pux873bu1398)
-
 [3\. AutoDupl_File&DeleteTabs.gs Script 2](#_heading=h.bemd7qw3qrlr)
-
 [GAS Libraries 3](#_heading=h.1ngzb8ejasbc)
-
 [A. «HoBMastersLib library» 3](#_heading=h.dcl56as8x19l)
-
 [B. MenuLib 3](#_heading=h.mu35p6s5y4hi)
-
 [C. PopuPLib 3](#_heading=h.8z3wjdmwbb2r)
-
 [D. AdminToolsLib 4](#_heading=h.8pwiokpcw48v)
 
 [CHECKLIST V6 - Triggers 4](#_heading=h.ol8fya1e4yco)

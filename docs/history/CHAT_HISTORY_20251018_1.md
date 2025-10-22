@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿*
  PDF To Markdown Converter
@@ -14,10 +14,8 @@ Result View
 Κατανοητό, DEK.
 Θα περιμένω πρώτα να μου δώσεις όλα τα αρχεία και μόνο όταν γράψεις **«ολοκλήρωσα»** και ζητήσεις κάτι
 συγκεκριμένο, τότε θα προχωρήσω.
-
 ✅ Έτοιμος να συνεχίσω όταν μου δώσεις το σήμα.
 **You said:**
-
 2. CHECKLIST V6 - Blink.gs.txt
 Document
 3. CHECKLIST V6 - AutoDupl_File&DeleteTabs.gs.txt

@@ -1,22 +1,18 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 # 📘 **Flow Mapping – CHECKLIST V7.1.0R (Popup Restoration Build)**
 ## 🧩 Overview
 Το παρόν αρχείο περιγράφει τη ροή λειτουργίας (flow mapping) του CHECKLIST συστήματος (έκδοση V7.1.0R), συμπεριλαμβανομένων όλων των triggers, scripts και βιβλιοθηκών που συνεργάζονται μέσω του Google Apps Script.  
 Είναι το τεχνικό reference document για developers και maintainers του project.
-
 ---
-
 ## ⚙️ System Architecture Summary
-
 | Επίπεδο | Περιγραφή | Αρχεία |
 |----------|------------|--------|
 | **Main Project** | Scripts που ανήκουν στο CHECKLIST αρχείο και τρέχουν triggers, onOpen, onEdit, duplication | `Checklist.gs`, `Blink.gs`, `AutoDupl_File&DeleteTabs.gs` |
 | **Libraries** | Βιβλιοθήκες GAS που παρέχουν λειτουργίες σε όλα τα stores | `AdminToolsLib`, `PopupLib`, `MenuLib`, `HoBMastersLib` |
 | **Master File** | Κεντρικό αρχείο με templates (Master Tabs) | `HoB_Masters` (`File ID: 1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI`) |
-
 ---
 
 ## 🧱 1. Main Scripts

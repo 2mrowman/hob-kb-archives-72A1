@@ -1,6 +1,6 @@
-*Last updated:* 21/10/2025 - 18:00 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 21/10/2025 - 18:00 (DEV-only)
-*Build:* 00fcb53
+*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
+*Build:* 0e80371
 
 ﻿Skip to content
 Chat history
@@ -9,13 +9,11 @@ You said:
 <title?
 11Checklistsetup
 </title>
-
 <START BEHAVIOR>
 – Do not start any instructions or dialogue automatically.  
 – Wait silently until DEK gives explicit context (e.g. “Μεταφερόμαστε από τη συζήτηση X”, “Ξεκίνα από το Βήμα 3”, “Προχώρα”).  
 – Only then begin step-by-step guidance.  
 </START BEHAVIOR>
-
 Μεταφερόμαστε από τη συζήτηση "10Checklistsetup"
 [CHECK-DEPS] Πριν απαντήσεις, έλεγξε όλα τα scripts & libraries στο KB (MANIFEST.md, LATEST.md, notes_for_gpt.md), τις εκδόσεις και τις συνδέσεις τους για το συγκεκριμένο project/αρχείο. Μίλα μόνο με βάση αυτά.
 ChecklistGPT V5.3.1 said:

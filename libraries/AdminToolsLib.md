@@ -4,8 +4,8 @@
 
 // ==========================
 // HoB - Admin Tools Library
+// Version: V6.9.0 – 22.10.2025 – remindMissingNames()Add `_safeUi_()` helper
 // Version: V6.8.0 – 17.10.2025 – Added Universal Version Updater (updateVersionInfo_Universal)
-// Version: V6.7.6 – 30.09.2025 – Bugfixes (Drive addFile FileRef, wrappers) – no logic changes
 // ==========================
 //
 // ✅ Functions included in this version:
@@ -165,33 +165,50 @@ function showMasterAndDeleteOthers() {
 // ==========================
 // 📌 Remind Missing Names (τρέχον φύλλο)
 // ==========================
-function remindMissingNames() {
-  try { SpreadsheetApp.getUi(); } catch (e) { return; }
+// Helper — returns Ui or null (prevents exceptions in headless triggers)
+function _safeUi_() {
+  try { return SpreadsheetApp.getUi(); } catch (e) { return null; }
+}
 
+function remindMissingNames() {
+  const ui = _safeUi_();
+  if (!ui) {
+    console.warn("AdminToolsLib.remindMissingNames: headless context — skipped without error");
+    return;
+  }
+  
+  const NAME_PROMPT = 'Όνομα Επώνυμο?';
+  const COL_B = 2;
+  
   const sh = SpreadsheetApp.getActiveSheet();
   const name = sh.getName();
-  if (name === 'START' || name === MASTER_SHEET_NAME) return;
-
+  if (["START", "MASTER"].includes(name)) return;
+  
   const last = sh.getLastRow();
   if (last < 2) return;
-
+  
   const rngB = sh.getRange(2, COL_B, last - 1, 1);
   const vals = rngB.getValues();
   const targets = [];
-
+  
   for (let i = 0; i < vals.length; i++) {
-    const v = String(vals[i][0] || '').trim();
-    if (v === NAME_PROMPT) targets.push(rngB.getCell(i + 1, 1));
+    const val = String(vals[i][0] || "").trim();
+    if (val === NAME_PROMPT) targets.push(rngB.getCell(i + 1, 1));
   }
-
-  if (targets.length > 0) {
-    const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
-    const message =
-      '🚨 Εντοπίστηκαν ' + targets.length +
-      ' κελιά με ασυμπλήρωτο το "<strong>' + NAME_PROMPT + '</strong>" !!!<br><br>' +
-      '📍 Κελιά: <strong>' + cellRefs + '</strong><br><br>' +
-      '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στη στήλη <strong>B</strong>.';
-    try { PopupLib.showCustomPopup(message, 'error'); } catch (_) {}
+  
+  if (targets.length === 0) return;
+  
+  const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
+  const message =
+    '🚨 Εντοπίστηκαν ' + targets.length + ' κελιά με ασυμπλήρωτο το "' + NAME_PROMPT + '" !!!\n' +
+    '📍 Κελιά: ' + cellRefs + '\n' +
+    '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη B.';
+  
+  try {
+    PopupLib.showCustomPopup(message, 'error');
+    Utilities.sleep(500);
+  } catch (e) {
+    console.error("AdminToolsLib.remindMissingNames popup failed (suppressed):", e);
   }
 }
 

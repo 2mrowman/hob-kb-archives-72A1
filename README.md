@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
 *Build:* 0e80371
 
-# Hall of Brands – Checklist Knowledge Base ΤΕΣΤ ΤΕΣΤ3 #####
+# Hall of Brands – Checklist Knowledge Base ΤΕΣΤ3 #####
 Internal reference for HoB automations & libraries.  
 All documents, libraries, and scripts of the Checklist System (V7.1.0R).
 ---

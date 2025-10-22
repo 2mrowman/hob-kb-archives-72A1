@@ -1,7 +1,6 @@
 *Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
 *Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
 *Build:* 0e80371
-
 // ==========================
 // HoB - Admin Tools Library
 // Version: V6.9.0 – 22.10.2025 – remindMissingNames()Add `_safeUi_()` helper

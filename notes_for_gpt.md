@@ -412,6 +412,9 @@ function createNewDay_AUTO(masterFileId, templateName) {
 **Αν ΟΠΟΙΟΔΗΠΟΤΕ είναι ΟΧΙ ❌, ΣΤΑΜΑΤΑ και διόρθωσε πριν απαντήσεις.**
 
 ---
+## 📘 Quick Reference Links
+- **Function Reference:** [FUNCTION_REFERENCE_CHECKLIST_V8.0.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/FUNCTION_REFERENCE_CHECKLIST_%20V8.0.md?ts=1729674000 )
+- **Flow Mapping:** [Flow_Mapping_CHECKLIST_V8.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V8.md?ts=1729674000 )
 
 ## 🏢 PROJECT OVERVIEW
 ### What is Hall of Brands (HoB)?

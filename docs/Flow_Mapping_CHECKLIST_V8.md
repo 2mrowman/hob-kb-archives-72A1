@@ -1,22 +1,19 @@
-# 📘 **Flow Mapping – CHECKLIST V8.0**
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
 
+# 📘 **Flow Mapping – CHECKLIST V8.0**
 ## 🧩 Overview
 This document describes the flow mapping of the CHECKLIST system (Version V8.0), including all triggers, scripts, and libraries. It serves as the primary technical reference.
-
 ---
-
 ## ⚙️ System Architecture
-
 The system is composed of three main layers:
-
 | Layer | Description | Files / Components |
 |---|---|---|
 | **Triggers** | Events that initiate workflows | `onOpen()`, `onEdit()`, Time-based |
 | **Main Scripts** | Core project files that respond to triggers | `Checklist.gs`, `Blink.gs`, `AutoDupl_File&DeleteTabs.gs` |
 | **Libraries** | Shared code for common functionalities | `AdminToolsLib`, `PopupLib`, `MenuLib`, `HoBMastersLib` |
-
 ### Visual Architecture Diagram
-
 The following diagram illustrates the high-level interaction between these components:
 
 ![Improved Flow Diagram V8.0](https://private-us-east-1.manuscdn.com/sessionFile/9GHksmrmwI6dru4ysZR8b8/sandbox/Eo5w99kAgoamLF9hLNFXwY-images_1761218916391_na1fn_L2hvbWUvdWJ1bnR1L2dhc19hbmFseXNpcy9pbXByb3ZlZF9mbG93X3Y4.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOUdIa3Ntcm13STZkcnU0eXNaUjhiOC9zYW5kYm94L0VvNXc5OWtBZ29hbUxGOWhMTkZYd1ktaW1hZ2VzXzE3NjEyMTg5MTYzOTFfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwyZGhjMTloYm1Gc2VYTnBjeTlwYlhCeWIzWmxaRjltYkc5M1gzWTQucG5nIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=MgD1RXv4i5oTrtMlzwVeplO1HL7wNdXZ4ZuPMiB-8~ug5UtR0VX7nDKbtBIhWeNUSgENsmnOVYkLWEVh8pQ0Wng21s3mcEx3nCheDNPFhdClcCS4naLcljXyoQgb4NLPelWYAWcXio9Zg0ef~HJAPll9yAY8Ysr4dHIt5QFfmsjiqlnl0JyVzbdGI8da84WdcC34uaD-bfMBHbbSms3V3GtXfM9IC~BhNTq4HUAgTew4GJBBGljrvriElug7jA5Ggf-Mm7Yl-lhJNS8FRWAn8cFGJ7pliD9~HvFk-D3o61H7zpj2u5Mrl515Zzu2-vdSRzghCv83URaAdUtNSv9vlQ__)

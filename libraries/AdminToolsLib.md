@@ -1,6 +1,7 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
+
 // ==========================
 // HoB - Admin Tools Library
 // Version: V6.10.0 – 22.10.2025 – B1 notification for headless triggers - - Sheet notification in B1 for time-driven triggers
@@ -191,15 +192,15 @@ function _safeUi_() {
 function remindMissingNames() {
   const ui = _safeUi_();
   const isHeadless = !ui;
-  
+
   const NAME_PROMPT = 'Όνομα Επώνυμο?';
   const COL_B = 2;
   const NOTIFICATION_CELL = 'B1';
   const ORIGINAL_B1_TEXT = 'Η ΕΡΓΑΣΙΑ ΓΙΝΕ ΑΠΟ\n(Όσοι συμμετείχαν)';
-  
+
   const sh = SpreadsheetApp.getActiveSheet();
   const name = sh.getName();
-  
+
   // Skip START and MASTER sheets
   if (["START", "MASTER"].includes(name)) {
     if (isHeadless) {
@@ -207,7 +208,7 @@ function remindMissingNames() {
     }
     return;
   }
-  
+
   const last = sh.getLastRow();
   if (last < 2) {
     if (isHeadless) {
@@ -215,21 +216,21 @@ function remindMissingNames() {
     }
     return;
   }
-  
+
   // Find all cells with NAME_PROMPT in column B
   const rngB = sh.getRange(2, COL_B, last - 1, 1);
   const vals = rngB.getValues();
   const targets = [];
-  
+
   for (let i = 0; i < vals.length; i++) {
     const val = String(vals[i][0] || "").trim();
     if (val === NAME_PROMPT) {
       targets.push(rngB.getCell(i + 1, 1));
     }
   }
-  
+
   const b1Cell = sh.getRange(NOTIFICATION_CELL);
-  
+
   // Case 1: Missing names found
   if (targets.length > 0) {
     const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
@@ -238,7 +239,7 @@ function remindMissingNames() {
       ' κελιά με ασυμπλήρωτο το "' + NAME_PROMPT + '" !!!\n' +
       '📍 Κελιά: ' + cellRefs + '\n' +
       '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη B.';
-    
+
     if (isHeadless) {
       // Headless context: Update B1 cell with notification
       try {
@@ -290,7 +291,6 @@ function remindMissingNames() {
     }
   }
 }
-
 
 // ==========================
 // 📌 Clear All Notes (όλα τα tabs εκτός START/MASTER)
@@ -458,5 +458,4 @@ function updateVersionInfo_Remote_() {
   file.setContent(finalContent);
   PopupLib.showSuccessMessage("✅ Ενημερώθηκε η έκδοση σε " + newVersion);
 }
-
 

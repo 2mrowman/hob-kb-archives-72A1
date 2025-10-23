@@ -1,6 +1,6 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
 
 ﻿var ui = SpreadsheetApp.getUi();
 var userEmail = Session.getEffectiveUser().getEmail();
@@ -17,7 +17,6 @@ menu.addItem(item.name, item.func);
 if (userEmail === ownerEmail) {
 menu.addSeparator();
 var ownerMenu = ui.createMenu("👑👑 Owner Menu");
-
 var ownerItems = getMenuItemsFromSheet("owner");
 ownerItems.forEach(function(item) {
 if (item.name && item.func) {

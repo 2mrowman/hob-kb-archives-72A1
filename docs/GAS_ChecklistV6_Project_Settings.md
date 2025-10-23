@@ -1,6 +1,6 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
 
 **CHECKLIST SETTINGS**
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)
@@ -12,11 +12,8 @@
 [B. MenuLib 3](#_heading=h.mu35p6s5y4hi)
 [C. PopuPLib 3](#_heading=h.8z3wjdmwbb2r)
 [D. AdminToolsLib 4](#_heading=h.8pwiokpcw48v)
-
 [CHECKLIST V6 - Triggers 4](#_heading=h.ol8fya1e4yco)
-
 [AdminToolsLib 4](#_heading=h.cx6oztijdpb2)
-
 [PopupLib>GAS - AdminToolsLib 5](#_heading=h.8epbo1l4arkl)
 
 [HoBMastersLib library settings 5](#_heading=h.43mm2esxqvve)

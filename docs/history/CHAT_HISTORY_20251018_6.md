@@ -1,6 +1,6 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
 
 ﻿
 PopupLib.showErrorMessage("❌ Δεν βρέθηκε template στο HoB_Masters.");
@@ -17,7 +17,6 @@ try {
 const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
 const tplSheet = masters.getSheetByName("Templates");
 if (!tplSheet) return null;
-
 const data = tplSheet.getRange(2, 1, tplSheet.getLastRow() - 1, 2).getValues();
 for (let i = 0; i < data.length; i++) {
 const [chkName, tplName] = data[i];

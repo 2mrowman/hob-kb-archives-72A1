@@ -1,6 +1,6 @@
-*Last updated:* 22/10/2025 - 13:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 22/10/2025 - 13:40 (DEV-only)
-*Build:* 0e80371
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
 
 ﻿'error'); }
 }
@@ -16,7 +16,6 @@ function openNeaParalaviForm() {
 openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8k
 O0/edit?usp=sharing");
 }
-
 function openSakoulesForm() {
 openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-
 7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing");

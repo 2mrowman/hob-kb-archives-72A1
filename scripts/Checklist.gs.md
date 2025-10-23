@@ -1,3 +1,7 @@
+*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
+*Build:* 65aa232
+
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
 // Changes: Formatting to single-line section headers (no ==== bars). Added owner action updateVersionInfo_Remote(desc).
 // Behavior: Auto-day on open (installable trigger). Clean HoB menu (no “Δημιουργία Νέας Ημέρας”). Full-dynamic template resolve.
@@ -12,10 +16,8 @@
 // - onEdit(e), TIMESTAMP(), testLibExists() unchanged
 // - runIntegrityCheck_()                    integrity validator
 // Alignment: HoB KB build 72A1
-
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
-
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -107,7 +109,6 @@ function hideLocalMasterIfVisible_() {
   if (others.length > 0) masterSheet.hideSheet();
 }
 
-
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {
   try {
@@ -150,7 +151,6 @@ function remindMissingNames() {
   AdminToolsLib.remindMissingNames();
 }
 
-
 // END OF FILE — CHECKLIST V7.3.1 — 18/10/2025 – 15:46
 // =====================================================================================
 
@@ -188,7 +188,6 @@ function updateVersionInfo_Remote(desc) {
   try { PopupLib.showSuccessMessage("✅ Η έκδοση ενημερώθηκε επιτυχώς!"); }
   catch (_) { ui.alert("✅ Η έκδοση ενημερώθηκε επιτυχώς!"); }
 }
-
 
 // INTEGRITY SELF-CHECK
 function runIntegrityCheck_() {

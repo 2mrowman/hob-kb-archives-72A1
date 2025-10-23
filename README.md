@@ -1,6 +1,6 @@
-*Last updated:* 23/10/2025 - 14:40 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:40 (DEV-only)
-*Build:* 80ebaec
+*Last updated:* 23/10/2025 - 14:46 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:46 (DEV-only)
+*Build:* 0bf787c
 
 # Hall of Brands – Checklist Knowledge Base ΤΕΣΤ3 #####
 Internal reference for HoB automations & libraries.  

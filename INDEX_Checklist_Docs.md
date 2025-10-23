@@ -35,6 +35,16 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761147580`) to ensur
 - [PY] **[update_index_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py?ts=1761147580)**
   `update_index_links.py`
 
+## 📚 Documentation Files
+
+| File | Description | RAW URL |
+|------|-------------|---------|
+| ... | ... | ... |
+| **FUNCTION_REFERENCE_CHECKLIST_V8.0.md** | Complete function reference with locations and calls | [RAW](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/FUNCTION_REFERENCE_CHECKLIST_%20V8.0.md?ts=1729674000 ) |
+| **Flow_Mapping_CHECKLIST_V8.md** | Improved flow mapping diagram | [RAW](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V8.md?ts=1729674000 ) |
+
+
+
 ### Documentation (/docs/)
 
 - [MD] **[CHAT_HISTORY.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.md?ts=1761147580)**

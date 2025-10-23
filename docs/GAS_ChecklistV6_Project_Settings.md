@@ -1,6 +1,6 @@
-*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
-*Build:* 65aa232
+*Last updated:* 23/10/2025 - 14:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:40 (DEV-only)
+*Build:* 80ebaec
 
 **CHECKLIST SETTINGS**
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)
@@ -15,9 +15,7 @@
 [CHECKLIST V6 - Triggers 4](#_heading=h.ol8fya1e4yco)
 [AdminToolsLib 4](#_heading=h.cx6oztijdpb2)
 [PopupLib>GAS - AdminToolsLib 5](#_heading=h.8epbo1l4arkl)
-
 [HoBMastersLib library settings 5](#_heading=h.43mm2esxqvve)
-
 [STOREs IDs 5](#_heading=h.yotxwkqdmy4e)
 
 # ΑΝΑΛΥΣΗ

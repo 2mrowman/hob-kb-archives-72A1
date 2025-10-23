@@ -1,6 +1,6 @@
-*Last updated:* 23/10/2025 - 14:34 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:34 (DEV-only)
-*Build:* 65aa232
+*Last updated:* 23/10/2025 - 14:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:40 (DEV-only)
+*Build:* 80ebaec
 
 GITHUB_PROMPT (V4.1.0) — 19/10/2025 – 08:18 — Short desc: GitHub KB coach
 ROLE

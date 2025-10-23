@@ -1,14 +1,13 @@
+*Last updated:* 23/10/2025 - 14:40 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:40 (DEV-only)
+*Build:* 80ebaec
+
 '''
 # 📘 FUNCTION REFERENCE - CHECKLIST V8.0
-
 This section provides a complete reference for all functions in the CHECKLIST automation system. It is designed to be the single source of truth for developers and the AI model, detailing where each function is located, its purpose, and its dependencies.
-
 ---
-
 ## 📂 Function Index by Location
-
 ### Scripts (Main Project)
-
 | Function Name | Description | Calls |
 |---|---|---|
 | `_safeUi_()` | (Blink.gs) Ensures a safe UI environment before execution. | - |

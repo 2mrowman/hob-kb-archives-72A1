@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 14:46 (DEV-only)
 *Build:* 0bf787c
 
-# HoB — VERSIONS INDEX
+# HoB — VERSIONS INDEX V8.0
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts**, **/libraries**, και **/docs**.
 
 ## Scripts & Libraries

@@ -1,6 +1,6 @@
-*Last updated:* 24/10/2025 - 08:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:45 (DEV-only)
-*Build:* 4ec5ea0
+*Last updated:* 24/10/2025 - 08:49 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:49 (DEV-only)
+*Build:* 2b5cad9
 
 # HoB — VERSIONS INDEX V8
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts**, **/libraries**, και **/docs**.

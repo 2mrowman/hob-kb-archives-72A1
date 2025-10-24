@@ -1,19 +1,25 @@
-*Last updated:* 24/10/2025 - 08:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:45 (DEV-only)
-*Build:* 4ec5ea0
+*Last updated:* 23/10/2025 - 01:00 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 23/10/2025 - 01:00 (DEV-only)
+*Build:* ENHANCED_V6.2.0
 
-### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.1.0)]
+### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.2.0)]
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
 ---
 Οδηγός για το GPT Model: από πού να διαβάζει **structure, versions, flow, history** του HoB automation stack.
 ---
+
 ## 🎯 Purpose
 Το repo λειτουργεί ως **lightweight Knowledge Base** για Google Apps Script, n8n και σχετικά συστήματα.  
 Το μοντέλο πρέπει να χρησιμοποιεί τα παρακάτω ως **canonical** πηγές.
+
 ---
+
 ## 🚨 ΚΑΝΟΝΑΣ #0: MANDATORY FILE READING (TOP PRIORITY)
+
 **ΑΥΤΟΣ Ο ΚΑΝΟΝΑΣ ΥΠΕΡΙΣΧΥΕΙ ΟΛΩΝ ΤΩΝ ΑΛΛΩΝ**
+
 ### Για ΚΑΘΕ ερώτηση που αφορά κώδικα, bugs, features, ή debugging:
+
 #### **ΒΗΜΑ 1: ΠΑΥΣΗ**
 - ❌ ΜΗΝ απαντήσεις αμέσως
 - ❌ ΜΗΝ υποθέσεις τι υπάρχει στον κώδικα
@@ -293,30 +299,30 @@ function createNewDay_AUTO(masterFileId, templateName) {
 
 - [ ] **Διάβασα το INDEX_Checklist_Docs.md**
   - Βρήκα τα σχετικά files (scripts, libraries)
-
+  
 - [ ] **Διάβασα το σχετικό script file**
   - Βρήκα το συγκεκριμένο function που αναφέρεται
   - Κατάλαβα τι κάνει
-
+  
 - [ ] **Διάβασα τις σχετικές libraries**
   - Ελέγξα τις dependencies
   - Κατάλαβα τη ροή δεδομένων
-
+  
 - [ ] **Διάβασα τα capability maps (αν χρειάζεται)**
   - Κατάλαβα τις advanced features
-
+  
 - [ ] **Ελέγξα το notes_for_gpt.md για known issues**
   - Έψαξα στο "GOTCHAS & PITFALLS" section
   - Έψαξα στο "Common Errors" section
-
+  
 - [ ] **Διάγνωσα το πραγματικό πρόβλημα**
   - Όχι υπόθεση, αλλά πραγματική διάγνωση
   - Βασισμένη σε ευρήματα από τον κώδικα
-
+  
 - [ ] **Μπορώ να αναφέρω συγκεκριμένες γραμμές κώδικα**
   - "Στο [file], γραμμή [X]..."
   - Παράθεση κώδικα
-
+  
 - [ ] **Η λύση μου βασίζεται σε πραγματικά ευρήματα**
   - Όχι γενικές θεωρητικές λύσεις
   - Συγκεκριμένες αλλαγές στον υπάρχοντα κώδικα
@@ -412,9 +418,6 @@ function createNewDay_AUTO(masterFileId, templateName) {
 **Αν ΟΠΟΙΟΔΗΠΟΤΕ είναι ΟΧΙ ❌, ΣΤΑΜΑΤΑ και διόρθωσε πριν απαντήσεις.**
 
 ---
-## 📘 Quick Reference Links
-- **Function Reference:** [FUNCTION_REFERENCE_CHECKLIST_V8.0.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/FUNCTION_REFERENCE_CHECKLIST_%20V8.0.md?ts=1729674000 )
-- **Flow Mapping:** [Flow_Mapping_CHECKLIST_V8.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V8.md?ts=1729674000 )
 
 ## 🏢 PROJECT OVERVIEW
 ### What is Hall of Brands (HoB)?
@@ -834,7 +837,7 @@ function showCustomPopupWithIcon(html, type, icon) {
   // In HoB_Masters → Templates sheet:
   // Column A: "HoB Checklist - Store 1"
   // Column B: "Master1_Store1"
-
+  
   // In Checklist.gs:
   const fileName = SpreadsheetApp.getActiveSpreadsheet().getName(); // "HoB Checklist - Store 1"
   const templateTab = getTemplateTabFromHoBMasters_(); // Returns "Master1_Store1"
@@ -863,12 +866,12 @@ function showCustomPopupWithIcon(html, type, icon) {
     const lock = LockService.getScriptLock();
     try {
       lock.waitLock(10000); // Wait up to 10 seconds
-
+      
       // Check if tab already exists (another user may have created it)
       if (_checkIfTodayExists()) {
         return 'TAB_ALREADY_EXISTS';
       }
-
+      
       // Create tab
       // ...
     } finally {
@@ -885,23 +888,23 @@ function showCustomPopupWithIcon(html, type, icon) {
   ```javascript
   function runIntegrityCheck_() {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-
+    
     // Check 1: Config sheet exists
     if (!ss.getSheetByName('Config')) {
       throw new Error('Config sheet missing');
     }
-
+    
     // Check 2: Master1 tab exists (hidden)
     const master = ss.getSheetByName('Master1');
     if (!master || !master.isSheetHidden()) {
       throw new Error('Master1 tab missing or visible');
     }
-
+    
     // Check 3: Owner filter present
     if (!_hasOwnerFilter()) {
       throw new Error('Owner filter missing');
     }
-
+    
     return 'INTEGRITY_OK';
   }
   ```
@@ -915,11 +918,11 @@ function showCustomPopupWithIcon(html, type, icon) {
   function remindMissingNames() {
     // This is a time-driven trigger
     const missingNames = _getMissingNames();
-
+    
     if (missingNames.length > 0) {
       // CORRECT: Use toast (works in time-driven)
       PopupLib.showToast('Missing names: ' + missingNames.join(', '));
-
+      
       // INCORRECT: Use dialog (fails in time-driven)
       // PopupLib.showDialog('Missing names', missingNames.join(', '));
     }
@@ -1096,11 +1099,9 @@ Execution-level Apps Script files (RAW):
 ---
 
 ## ✅ Session Self-Check (FAST)
-1) LATEST/MANIFEST: δήλωσε **LATEST_OK: <filename>** (ή **FALLBACK: <top-entry>**).  
-2) Φόρτωσε **RAW_LINKS_INDEX.md** → απάντησε **RAW_INDEX_OK**.  
-3) **NOTES_OK + FirstHeader** για το παρόν αρχείο.  
-4) **VERSIONS_TABLE** από `VERSIONS_INDEX.md` + **SYNC: OK/DIFF** με `INDEX_Checklist_Docs.md`.  
-5) **HISTORY_OK + Top3** από `docs/history/RAW_HISTORY_INDEX.md`.
+1) Φόρτωσε **RAW_LINKS_INDEX.md** → απάντησε **RAW_INDEX_OK**.  
+2) **NOTES_OK + FirstHeader** για το παρόν αρχείο.  
+3) **VERSIONS_TABLE** από `VERSIONS_INDEX.md` + **SYNC: OK/DIFF** με `INDEX_Checklist_Docs.md`.
 
 ---
 

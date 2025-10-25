@@ -1,6 +1,6 @@
-*Last updated:* 24/10/2025 - 08:49 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:49 (DEV-only)
-*Build:* 2b5cad9
+*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
+*Build:* 92779a1
 
 ### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.2.0)]
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md
@@ -14,7 +14,6 @@
 ## 🚨 ΚΑΝΟΝΑΣ #0: MANDATORY FILE READING (TOP PRIORITY)
 **ΑΥΤΟΣ Ο ΚΑΝΟΝΑΣ ΥΠΕΡΙΣΧΥΕΙ ΟΛΩΝ ΤΩΝ ΑΛΛΩΝ**
 ### Για ΚΑΘΕ ερώτηση που αφορά κώδικα, bugs, features, ή debugging:
-
 #### **ΒΗΜΑ 1: ΠΑΥΣΗ**
 - ❌ ΜΗΝ απαντήσεις αμέσως
 - ❌ ΜΗΝ υποθέσεις τι υπάρχει στον κώδικα
@@ -1123,7 +1122,6 @@ Execution-level Apps Script files (RAW):
 ---
 
 © Hall of Brands Automation Initiative | All rights reserved.
-
 
 ---
 

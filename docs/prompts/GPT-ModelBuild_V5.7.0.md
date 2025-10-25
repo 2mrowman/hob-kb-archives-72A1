@@ -1,6 +1,6 @@
-*Last updated:* 24/10/2025 - 08:49 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:49 (DEV-only)
-*Build:* 2b5cad9
+*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
+*Build:* 92779a1
 
 // Version: V5.7.0 – 23/10/2025 – Chat history system removed (redundant after notes_for_gpt V6.1.0 + RULE #0)
 // Prev: V5.6.0 – 21/10/2025 – RULE #0 + debugging workflow + examples + self-validation

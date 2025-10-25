@@ -1,6 +1,6 @@
-*Last updated:* 24/10/2025 - 08:49 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/10/2025 - 08:49 (DEV-only)
-*Build:* 2b5cad9
+*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
+*Build:* 92779a1
 
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
 // Changes: Formatting to single-line section headers (no ==== bars). Added owner action updateVersionInfo_Remote(desc).

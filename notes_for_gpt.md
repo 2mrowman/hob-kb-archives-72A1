@@ -457,7 +457,7 @@ function createNewDay_AUTO(masterFileId, templateName) {
 - **Logs** — Automation logs (optional, for debugging)
 - **Archive** — Historical data (optional, for reporting)
 
-**Master file:** `HoB_Masters` (ID: `1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI`)
+**Master file:** `HoB_Masters` [Contact admin for Script ID access]
 - Contains templates for all stores
 - Used by `HoBMastersLib` to create new tabs
 
@@ -1124,3 +1124,15 @@ Execution-level Apps Script files (RAW):
 
 © Hall of Brands Automation Initiative | All rights reserved.
 
+
+---
+
+## 🔐 Script IDs & API Keys
+
+**For security reasons, Script IDs, Library IDs, and API keys are not included in this public repository.**
+
+**To access Script IDs:**
+- Internal team members: Contact admin
+- Reference document: Available in private storage (Google Drive)
+
+**Last security update:** 25 Oct 2025

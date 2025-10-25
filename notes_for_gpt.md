@@ -457,7 +457,7 @@ function createNewDay_AUTO(masterFileId, templateName) {
 - **Logs** — Automation logs (optional, for debugging)
 - **Archive** — Historical data (optional, for reporting)
 
-**Master file:** `HoB_Masters` (ID: `1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI`)
+**Master file:** `HoB_Masters` (ID: [Contact admin for access])
 - Contains templates for all stores
 - Used by `HoBMastersLib` to create new tabs
 
@@ -646,10 +646,10 @@ function _logDebug(message) {
 
 | Library | Version | Depends On | Used By | Script ID |
 |---------|---------|------------|---------|-----------|
-| **HoBMastersLib** | v1.3 | (none) | AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **MenuLib** | v7.0.0 | PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **PopupLib** | v2.0.0 | (none) | MenuLib, AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **AdminToolsLib** | v6.8.0 | HoBMastersLib, PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
+| **HoBMastersLib** | v1.3 | (none) | AdminToolsLib, Checklist.gs | [Contact admin for Script ID] |
+| **MenuLib** | v7.0.0 | PopupLib | Checklist.gs | [Contact admin for Script ID] |
+| **PopupLib** | v2.0.0 | (none) | MenuLib, AdminToolsLib, Checklist.gs | [Contact admin for Script ID] |
+| **AdminToolsLib** | v6.8.0 | HoBMastersLib, PopupLib | Checklist.gs | [Contact admin for Script ID] |
 
 ### Function Dependencies (Critical)
 
@@ -928,7 +928,7 @@ function showCustomPopupWithIcon(html, type, icon) {
 
 **Error:** `ReferenceError: AdminToolsLib is not defined`
 - **Cause:** Library not added to project
-- **Fix:** `Resources → Libraries → Add AdminToolsLib (Script ID: [see SCRIPT_IDS_INDEX.md])`
+- **Fix:** `Resources → Libraries → Add AdminToolsLib (Script ID: [Contact admin for access])`
 
 **Error:** `Exception: Service invoked too many times for one day`
 - **Cause:** Exceeded daily quota (e.g., email sends: 100/day for free accounts)
@@ -1000,7 +1000,7 @@ const [a1, b1, c1] = values;
 ---
 
 ## 🔧 Core Canonical Files (RAW)
-- SCRIPT_IDS_INDEX.md — IDs: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1760960086  
+- SCRIPT_IDS_INDEX.md — **REMOVED FOR SECURITY** (Script IDs now stored in private Google Drive - contact admin for access)  
 - SYSTEM_OVERVIEW.md — Overview: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1760960086  
 - VERSIONS_INDEX.md — Versions: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md?ts=1760960086
 

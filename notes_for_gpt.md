@@ -477,9 +477,9 @@ Checklist.gs (main script)
 | Library | Depends On | Used By |
 |---------|------------|---------|
 | **HoBMastersLib** | (none) | AdminToolsLib, Checklist.gs |
-| **MenuLib** | PopupLib | Checklist.gs |
+| **MenuLib** | AdminToolsLib, PopupLib | Checklist.gs |
 | **PopupLib** | (none) | MenuLib, AdminToolsLib, Checklist.gs |
-| **AdminToolsLib** | HoBMastersLib, PopupLib | Checklist.gs |
+| **AdminToolsLib** | HoBMastersLib, PopupLib | MenuLib, Checklist.gs |
 
 ### Data Flow
 
@@ -646,9 +646,9 @@ function _logDebug(message) {
 | Library | Version | Depends On | Used By | Script ID |
 |---------|---------|------------|---------|-----------|
 | **HoBMastersLib** | v1.3 | (none) | AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **MenuLib** | v7.0.0 | PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
+| **MenuLib** | v7.0.0 | AdminToolsLib, PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
 | **PopupLib** | v2.0.0 | (none) | MenuLib, AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **AdminToolsLib** | v6.8.0 | HoBMastersLib, PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
+| **AdminToolsLib** | v6.8.0 | HoBMastersLib, PopupLib | MenuLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
 
 ### Function Dependencies (Critical)
 
@@ -659,6 +659,13 @@ function _logDebug(message) {
 **AdminToolsLib → PopupLib:**
 - `AdminToolsLib.createNewDay_AUTO()` → calls `PopupLib.showDialog()` (confirmation)
 - `AdminToolsLib.remindMissingNames()` → calls `PopupLib.showToast()` (reminder)
+
+**MenuLib → AdminToolsLib:**
+- `MenuLib.createNewDayFromMenu()` → calls `AdminToolsLib.createNewDay_AUTO()`
+- `MenuLib.clearAllNotesFromMenu()` → calls `AdminToolsLib.clearAllNotes()`
+- `MenuLib.showMasterAndDeleteOthersFromMenu()` → calls `AdminToolsLib.showMasterAndDeleteOthers()`
+- `MenuLib.remindMissingNamesFromMenu()` → calls `AdminToolsLib.remindMissingNames()`
+- `MenuLib.automatedDuplicateAndCleanupFromMenu()` → calls `AdminToolsLib.automatedDuplicateAndCleanup()`
 
 **MenuLib → PopupLib:**
 - `MenuLib.createMenu()` → calls `PopupLib.showDialog()` (error messages)
@@ -682,6 +689,123 @@ function _logDebug(message) {
 **Dependency sync:**
 - After updating library → **MUST** update `VERSIONS_INDEX.md`
 - After updating library → **MUST** test all dependent scripts
+
+---
+
+## 🔧 LIBRARY SETUP (MANDATORY)
+
+### When Creating or Migrating Libraries
+
+Each library **MUST** have its dependencies loaded **inside the library project** (not just in Checklist.gs).
+
+**Why?** When a library calls another library (e.g., MenuLib calls AdminToolsLib), the dependency must be loaded **in the calling library's project**.
+
+### Setup Order (Bottom-Up)
+
+**1. PopupLib** (No dependencies)
+- Dependencies: (none)
+- No setup needed
+- Deploy first
+
+**2. HoBMastersLib**
+- Dependencies: PopupLib (if needed)
+- Setup:
+  1. Open HoBMastersLib project
+  2. Libraries → Add PopupLib (if used)
+  3. Deploy
+
+**3. AdminToolsLib**
+- Dependencies: HoBMastersLib, PopupLib
+- Setup:
+  1. Open AdminToolsLib project
+  2. Libraries → Add HoBMastersLib
+  3. Libraries → Add PopupLib
+  4. Deploy
+
+**4. MenuLib**
+- Dependencies: AdminToolsLib, PopupLib
+- Setup:
+  1. Open MenuLib project
+  2. Libraries → Add AdminToolsLib
+  3. Libraries → Add PopupLib
+  4. Deploy
+
+**5. Checklist.gs**
+- Dependencies: MenuLib, AdminToolsLib, HoBMastersLib, PopupLib
+- Setup:
+  1. Open Checklist.gs project
+  2. Libraries → Add all 4 libraries
+  3. Save
+
+### Version Selection
+
+**For Development (CHECKLIST V7, testing):**
+- Use **HEAD** for all libraries
+- Instant updates, no redeploy needed
+- Easy debugging
+
+**For Production (Store files: RENTIHOB, GLYHOB, etc.):**
+- Use **Version 1** (or latest stable version)
+- Stable, predictable behavior
+- No unexpected changes
+
+### Deployment Workflow
+
+**When redeploying all libraries:**
+
+1. **PopupLib** → Deploy (no dependencies)
+2. **HoBMastersLib** → Deploy (depends on PopupLib)
+3. **AdminToolsLib** → Deploy (depends on HoBMastersLib, PopupLib)
+4. **MenuLib** → Deploy (depends on AdminToolsLib, PopupLib)
+5. **Checklist.gs** → Refresh all library versions
+
+**Important:** Always deploy in this order (bottom-up) to avoid dependency errors.
+
+### Re-deployment Same Version
+
+**When you change code or dependencies:**
+
+1. Manage deployments → Select active deployment
+2. Edit (pencil icon)
+3. Deploy (without changing version number)
+4. This updates the existing version with new code
+
+**You do NOT need to create a new version every time.**
+
+### Complete Dependency Map
+
+```
+PopupLib (no dependencies)
+  ↑
+  ├─ HoBMastersLib
+  ├─ AdminToolsLib ← HoBMastersLib
+  └─ MenuLib ← AdminToolsLib, PopupLib
+       ↑
+       └─ Checklist.gs ← MenuLib, AdminToolsLib, HoBMastersLib, PopupLib
+```
+
+### Troubleshooting: "AdminToolsLib is not defined"
+
+**Error:**
+```
+ReferenceError: AdminToolsLib is not defined
+at clearAllNotesFromMenu(Code:146:36)
+```
+
+**Cause:** MenuLib does NOT have AdminToolsLib loaded as a dependency.
+
+**Fix:**
+1. Open MenuLib project
+2. Libraries → Add AdminToolsLib
+   - Script ID: `1o-7UYDTvO3sR4aBGqfp1k-YZYfOxo1ytN2nGg-OJA9__qgZB1Qtd7lI2`
+   - Identifier: `AdminToolsLib`
+   - Version: HEAD (for dev) or 1 (for prod)
+3. Save
+4. Redeploy MenuLib
+5. Update Checklist.gs → MenuLib version
+6. Refresh sheet
+
+**Prevention:** Always check that libraries have their dependencies loaded **inside their own projects**.
 
 ---
 

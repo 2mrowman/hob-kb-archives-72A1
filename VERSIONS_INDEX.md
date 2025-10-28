@@ -21,8 +21,13 @@
 | libraries | HoBMastersLib.md | `V1.3` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/HoBMastersLib.md](/libraries/HoBMastersLib.md) |
 | libraries | MenuLib.md | `V7.2.1` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/MenuLib.md](/libraries/MenuLib.md) |
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 | libraries | PopupLib.md | `V1.9.4` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/PopupLib.md](/libraries/PopupLib.md) |
 | libraries | README.md | `unknown` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/README.md](/libraries/README.md) |
+=======
+| libraries | PopupLib.md | `V2.0.0` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/PopupLib.md](/libraries/PopupLib.md) |
+| libraries | README.md | `unknown` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/README.md](/libraries/README.md) |
+>>>>>>> Stashed changes
 =======
 | libraries | PopupLib.md | `V2.0.0` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/PopupLib.md](/libraries/PopupLib.md) |
 | libraries | README.md | `unknown` | 28/10/2025 – 08:42 | `4c27a1b` | [libraries/README.md](/libraries/README.md) |

@@ -2,9 +2,9 @@
 *Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
 *Build:* 92779a1
 
-// =====================================================================================
 // HoB - Menu Library
-// Version: V7.2.0 – 17/10/2025 – Cleaned menu loader + Owner submenu with version updater
+   // Version: V7.2.1 – 23.10.2025 – Direct call to HoBMastersLib
+   // Version: V7.2.0 – 17/10/2025 – Cleaned menu loader + Owner submenu with version updater
 // =====================================================================================
 //
 // ✅ Functions included in this version:
@@ -153,6 +153,7 @@ function testTemplateTabFromMenu() { AdminToolsLib.testTemplateTab(); }
 function testAllPopupsFromMenu() { PopupLib.testAllPopupsFromMenu(); }
 function automatedDuplicateAndCleanupFromMenu() { AdminToolsLib.automatedDuplicateAndCleanup(); }
 function showMasterAndDeleteOthersFromMenu() { AdminToolsLib.showMasterAndDeleteOthers(); }
+//function showMasterAndDeleteOthersFromMenu() { HoBMastersLib.showMasterAndDeleteOthers(); }
 function remindMissingNamesFromMenu() { AdminToolsLib.remindMissingNames(); }
 
 // --------------------------

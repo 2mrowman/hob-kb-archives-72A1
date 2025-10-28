@@ -2,8 +2,6 @@
 *Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
 *Build:* 92779a1
 
-//
-// Version: V2.0.0R – 07/10/2025 – Native Fallback Edition (PopupLib): custom modal όπου είναι εφικτό + αυτόματο fallback σε native alert/toast όταν δεν υπάρχει ενεργό UI context
 /**
  * PopupLib – Version 2.0.0
  * Στόχος: Να παραμείνει 100% συμβατό με τα υπάρχοντα calls (showCustomPopup, showInfoMessage, showWarningMessage, showErrorMessage, showSuccessMessage, testAllPopupsFromMenu)
@@ -13,6 +11,7 @@
  * 3) Αν ούτε alert επιτρέπεται → toast (Spreadsheet.toast)
  * 4) Πάντα σεβόμαστε onClose callback (αν δοθεί), ακόμα και στο fallback
  */
+
 // ✅ Functions included in this version (✅ = νέο/αλλαγμένο σε σχέση με V1.9.4):
 //  showCustomPopup
 //  showInfoMessage
@@ -81,6 +80,19 @@ function showCustomPopup(message, type, onClose) {
     try { this[onClose](); } catch (cbErr3) {}
   }
 }
+
+// ➤ Πρόσθεσέ το στο PopupLib (top-level, PUBLIC)
+function showToast(message, seconds) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (!ss) return;
+    var secs = Math.max(3, Math.min(30, Number(seconds) || 5));
+    ss.toast(String(message), 'Πληροφορία', secs);
+  } catch (e) {
+    try { Logger.log('PopupLib.showToast failed: ' + e); } catch (_){}
+  }
+}
+
 
 /** Βολικές συναρτήσεις (συμβατές με V1.9.4) */
 function showInfoMessage(message, onClose)    { showCustomPopup(message, "info", onClose); }

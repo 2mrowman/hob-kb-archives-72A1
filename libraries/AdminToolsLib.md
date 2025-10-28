@@ -2,13 +2,9 @@
 *Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
 *Build:* 92779a1
 
-// ==========================
 // HoB - Admin Tools Library
-// Version: V6.10.0 – 22.10.2025 – B1 notification for headless triggers - - Sheet notification in B1 for time-driven triggers
-// Version: V6.9.0 – 22.10.2025 – remindMissingNames()Add `_safeUi_()` helper
-// Version: V6.8.0 – 17.10.2025 – Added Universal Version Updater (updateVersionInfo_Universal)
-// ==========================
-//
+// Version: V6.11.0 – 23.10.2025 – Removed updateVersionInfo_Remote_ (non-functional)
+
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -34,7 +30,7 @@ const NAME_PROMPT   = 'Όνομα Επώνυμο?';
 const COL_B         = 2;        // Στήλη B
 const BLINK_CYCLES  = 3;        // Προαιρετικό blinking
 
-// ==========================
+
 // 📌 Δημιουργία νέας ημέρας (όνομα tab: dd/MM) + κρύψιμο MASTER
 // ==========================
 function createNewDay_AUTO(masterId, templateTab) {
@@ -66,24 +62,6 @@ function createNewDay_AUTO(masterId, templateTab) {
 
   try { PropertiesService.getDocumentProperties().setProperty('lastTabCreated', new Date().toISOString()); } catch (_) {}
   try { PopupLib.showCustomPopup('✅ Δημιουργήθηκε η νέα ημέρα: <b>' + todayName + '</b>', 'success'); } catch (_) {}
-}
-
-// ==========================
-// 📌 FILE-LEVEL Duplicate & Cleanup (ΑΝΤΙΓΡΑΦΟ στο φάκελο + ΚΑΘΑΡΙΣΜΟΣ στο ΤΡΕΧΟΝ αρχείο)
-// ==========================
-
-/** Wrapper για Owner Menu (μην αλλάξεις όνομα) */
-function automatedDuplicateAndCleanupFromMenu() {
-  try {
-    automatedDuplicateAndCleanup();
-  } catch (err) {
-    try {
-      PopupLib.showErrorMessage('⚠️ Σφάλμα (Duplicate & Cleanup):<br><br><code>' + String(err) + '</code>');
-    } catch (_) {
-      SpreadsheetApp.getUi().alert('Σφάλμα (Duplicate & Cleanup): ' + String(err));
-    }
-    throw err;
-  }
 }
 
 /**
@@ -414,48 +392,5 @@ function updateVersionInfo_Universal() {
   file.setContent(newContent);
 
   ui.alert(`✅ ${prefix} ενημερώθηκε επιτυχώς!\n\nΈκδοση: ${newVersion}\nΠεριγραφή: ${desc}`);
-}
-
-// =====================================================================================
-// REMOTE CLIENT VERSION UPDATER (for use from Checklist menu)
-// =====================================================================================
-function updateVersionInfo_Remote_() {
-  const user = Session.getEffectiveUser().getEmail();
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const owner = ss.getOwner().getEmail();
-  const allowed = "hobdeks@gmail.com";
-  if (user !== owner || user !== allowed) {
-    throw new Error("⛔ Μόνο ο ιδιοκτήτης μπορεί να ενημερώσει την έκδοση.");
-  }
-
-  const file = DriveApp.getFileById(ss.getId());
-  const content = file.getBlob().getDataAsString();
-  const versionRegex = /(\/\/\s*[A-Z_]+\s+V)(\d+)\.(\d+)\.(\d+)/;
-  const match = content.match(versionRegex);
-  if (!match) throw new Error("Δεν βρέθηκε γραμμή έκδοσης στο αρχείο.");
-
-  const prefix = match[1].replace(/\/|\s|V/g, "").trim();
-  const major = parseInt(match[2], 10);
-  const minor = parseInt(match[3], 10);
-  const patch = parseInt(match[4], 10) + 1;
-  const newVersion = `V${major}.${minor}.${patch}`;
-  const dateStr = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy – HH:mm");
-
-  const ui = SpreadsheetApp.getUi();
-  const prompt = ui.prompt(
-    "🧩 Ενημέρωση Έκδοσης",
-    "Γράψε σύντομη περιγραφή αλλαγής:",
-    ui.ButtonSet.OK_CANCEL
-  );
-  if (prompt.getSelectedButton() !== ui.Button.OK) return;
-  const desc = prompt.getResponseText().trim() || "(no description)";
-
-  const newHeader = `// ${prefix} ${newVersion} — ${dateStr}\n// ${desc}`;
-  const updated = content.replace(/\/\/\s*[A-Z_]+\s+V.*\n\/\/.*/, newHeader);
-  const logLine = `// ${prefix} ${newVersion} — ${dateStr} — ${desc}\n`;
-  const finalContent = updated + "\n" + logLine;
-
-  file.setContent(finalContent);
-  PopupLib.showSuccessMessage("✅ Ενημερώθηκε η έκδοση σε " + newVersion);
 }
 

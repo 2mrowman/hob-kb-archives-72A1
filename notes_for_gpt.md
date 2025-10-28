@@ -1,6 +1,6 @@
-*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
-*Build:* fd57e98
+*Last updated:* 28/10/2025 - 09:01 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 09:01 (DEV-only)
+*Build:* 053c02a
 
 ### notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.2.0)]
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md

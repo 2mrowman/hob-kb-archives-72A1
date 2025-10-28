@@ -1,6 +1,6 @@
-*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
-*Build:* fd57e98
+*Last updated:* 28/10/2025 - 09:01 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 09:01 (DEV-only)
+*Build:* 053c02a
 
 // CHECKLIST V7.3.2 — Production — 23/10/2025 – 17:30Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46

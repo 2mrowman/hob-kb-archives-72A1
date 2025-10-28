@@ -1,6 +1,6 @@
-*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
-*Build:* 92779a1
+*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
+*Build:* fd57e98
 
 // CHECKLIST V7.3.2 — Production — 23/10/2025 – 17:30Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
@@ -17,7 +17,6 @@
 // - onEdit(e), TIMESTAMP(), testLibExists() unchanged
 // - runIntegrityCheck_()                    integrity validator
 // Alignment: HoB KB build 72A1
-
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 
@@ -110,7 +109,6 @@ function hideLocalMasterIfVisible_() {
   const others = ss.getSheets().filter(sh => sh.getName() !== "MASTER" && !sh.isSheetHidden());
   if (others.length > 0) masterSheet.hideSheet();
 }
-
 
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {

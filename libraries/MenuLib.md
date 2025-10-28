@@ -1,6 +1,6 @@
-*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
-*Build:* 92779a1
+*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
+*Build:* fd57e98
 
 // HoB - Menu Library
    // Version: V7.2.1 – 23.10.2025 – Direct call to HoBMastersLib

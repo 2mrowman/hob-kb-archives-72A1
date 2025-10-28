@@ -1,6 +1,6 @@
-*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
-*Build:* 92779a1
+*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
+*Build:* fd57e98
 
 /**
  * PopupLib – Version 2.0.0
@@ -11,7 +11,6 @@
  * 3) Αν ούτε alert επιτρέπεται → toast (Spreadsheet.toast)
  * 4) Πάντα σεβόμαστε onClose callback (αν δοθεί), ακόμα και στο fallback
  */
-
 // ✅ Functions included in this version (✅ = νέο/αλλαγμένο σε σχέση με V1.9.4):
 //  showCustomPopup
 //  showInfoMessage
@@ -92,7 +91,6 @@ function showToast(message, seconds) {
     try { Logger.log('PopupLib.showToast failed: ' + e); } catch (_){}
   }
 }
-
 
 /** Βολικές συναρτήσεις (συμβατές με V1.9.4) */
 function showInfoMessage(message, onClose)    { showCustomPopup(message, "info", onClose); }

@@ -1,10 +1,9 @@
-*Last updated:* 25/10/2025 - 09:42 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
-*Build:* 92779a1
+*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
+*Build:* fd57e98
 
 // HoB - Admin Tools Library
 // Version: V6.11.0 – 23.10.2025 – Removed updateVersionInfo_Remote_ (non-functional)
-
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -29,7 +28,6 @@ const MASTER_SHEET_NAME     = 'MASTER';
 const NAME_PROMPT   = 'Όνομα Επώνυμο?';
 const COL_B         = 2;        // Στήλη B
 const BLINK_CYCLES  = 3;        // Προαιρετικό blinking
-
 
 // 📌 Δημιουργία νέας ημέρας (όνομα tab: dd/MM) + κρύψιμο MASTER
 // ==========================

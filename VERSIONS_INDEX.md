@@ -1,10 +1,9 @@
-*Last updated: 28/10/2025 – 08:43 (Europe/Athens)*
-*Build: 7d29b4b*
+*Last updated:* 28/10/2025 - 08:48 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 08:48 (DEV-only)
+*Build:* fd57e98
 
 # HoB — VERSIONS INDEX
-
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.
-
 | Type | File | Version | Last change (Athens) | Build | Path |
 |---|---|---|---|---|---|
 | scripts | AutoDupl_File&DeleteTabs.gs.md | `V1.0.0` | 28/10/2025 – 08:42 | `4c27a1b` | [scripts/AutoDupl_File&DeleteTabs.gs.md](/scripts/AutoDupl_File&DeleteTabs.gs.md) |

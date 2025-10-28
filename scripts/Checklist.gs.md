@@ -2,6 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 25/10/2025 - 09:42 (DEV-only)
 *Build:* 92779a1
 
+// CHECKLIST V7.3.2 — Production — 23/10/2025 – 17:30Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
 // CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
 // Changes: Formatting to single-line section headers (no ==== bars). Added owner action updateVersionInfo_Remote(desc).
 // Behavior: Auto-day on open (installable trigger). Clean HoB menu (no “Δημιουργία Νέας Ημέρας”). Full-dynamic template resolve.
@@ -16,8 +17,10 @@
 // - onEdit(e), TIMESTAMP(), testLibExists() unchanged
 // - runIntegrityCheck_()                    integrity validator
 // Alignment: HoB KB build 72A1
+
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
+
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -93,8 +96,7 @@ function loadMenuDynamically() {
     const ownerSub = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
     const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
     ownerItems.forEach(i => ownerSub.addItem(i.name, "MenuLib." + i.func));
-    ownerSub.addSeparator().addItem("🧩 Ενημέρωση Έκδοσης Script", "updateVersionInfo_Remote");
-    menu.addSeparator().addSubMenu(ownerSub);
+        menu.addSeparator().addSubMenu(ownerSub);
   }
 
   menu.addToUi();
@@ -108,6 +110,7 @@ function hideLocalMasterIfVisible_() {
   const others = ss.getSheets().filter(sh => sh.getName() !== "MASTER" && !sh.isSheetHidden());
   if (others.length > 0) masterSheet.hideSheet();
 }
+
 
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {
@@ -151,46 +154,11 @@ function remindMissingNames() {
   AdminToolsLib.remindMissingNames();
 }
 
-// END OF FILE — CHECKLIST V7.3.1 — 18/10/2025 – 15:46
-// =====================================================================================
+// =====END OF FILE — CHECKLIST V7.3.1 — 18/10/2025 – 15:46=====
 
-// ADMIN TOOLS
-
-// VERSION UPDATE (Owner action) — wrapper to AdminToolsLib
-function updateVersionInfo_Remote(desc) {
-  const ui = SpreadsheetApp.getUi();
-
-  let description = (desc || "").toString().trim();
-  if (!description) {
-    const p = ui.prompt(
-      "🧩 Ενημέρωση Έκδοσης",
-      "Πληκτρολόγησε σύντομη περιγραφή αλλαγής (μπαίνει στο header & changelog):",
-      ui.ButtonSet.OK_CANCEL
-    );
-    if (p.getSelectedButton() !== ui.Button.OK) return;
-    description = p.getResponseText().trim() || "(no description)";
-  }
-
-  try {
-    if (typeof AdminToolsLib.updateVersionInfo_Remote === "function") {
-      AdminToolsLib.updateVersionInfo_Remote(description);
-    } else if (typeof AdminToolsLib.updateVersionInfo_Remote_ === "function") {
-      AdminToolsLib.updateVersionInfo_Remote_(description);
-    } else {
-      throw new Error("Δεν βρέθηκε διαθέσιμη function στο AdminToolsLib (updateVersionInfo_Remote[_]).");
-    }
-  } catch (err) {
-    try { PopupLib.showErrorMessage("❌ Αποτυχία ενημέρωσης έκδοσης: " + err.message); }
-    catch (_) { ui.alert("❌ Αποτυχία ενημέρωσης έκδοσης: " + err.message); }
-    return;
-  }
-
-  try { PopupLib.showSuccessMessage("✅ Η έκδοση ενημερώθηκε επιτυχώς!"); }
-  catch (_) { ui.alert("✅ Η έκδοση ενημερώθηκε επιτυχώς!"); }
-}
-
+// ====ADMIN TOOLS=====
 // INTEGRITY SELF-CHECK
-function runIntegrityCheck_() {
+function runIntegrityCheck() {
   const fn = [
     "onOpen",
     "onOpen_Installed",
@@ -198,7 +166,6 @@ function runIntegrityCheck_() {
     "getTemplateTabFromHoBMasters_",
     "hideLocalMasterIfVisible_",
     "loadMenuDynamically",
-    "updateVersionInfo_Remote",
     "onEdit",
     "TIMESTAMP",
     "testLibExists"
@@ -221,5 +188,24 @@ function testLibExists() {
   } catch (e) {
     SpreadsheetApp.getUi().alert("ERROR: " + e.toString());
   }
+}
+
+function _sanity_popup() {
+  Logger.log('PopupLib = ' + typeof PopupLib);   // expect: 'object' ή 'function'
+  Logger.log('AdminToolsLib = ' + typeof AdminToolsLib);
+  PopupLib.showToast('Popup OK from main');      // πρέπει να εμφανιστεί toast
+}
+function _sanity_admin_calls_popup() {
+  // Καλεί internal που χρησιμοποιεί PopupLib (π.χ. reminder)
+  AdminToolsLib.remindMissingNames(); // να γράψει toast, όχι dialog, αν είναι time-driven
+}
+
+function testLibExists() {
+  SpreadsheetApp.getActive().toast(
+    'AdminToolsLib=' + typeof AdminToolsLib +
+    ' | MenuLib=' + typeof MenuLib +
+    ' | PopupLib=' + typeof PopupLib +
+    ' | HoBMastersLib=' + typeof HoBMastersLib,
+    'Libs', 10);
 }
 

@@ -646,9 +646,9 @@ function _logDebug(message) {
 | Library | Version | Depends On | Used By | Script ID |
 |---------|---------|------------|---------|-----------|
 | **HoBMastersLib** | v1.3 | (none) | AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **MenuLib** | v7.0.0 | AdminToolsLib, PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
+| **MenuLib** | v7.2.1 | AdminToolsLib, PopupLib | Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
 | **PopupLib** | v2.0.0 | (none) | MenuLib, AdminToolsLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
-| **AdminToolsLib** | v6.8.0 | HoBMastersLib, PopupLib | MenuLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
+| **AdminToolsLib** | v6.11.0 | HoBMastersLib, PopupLib | MenuLib, Checklist.gs | [see SCRIPT_IDS_INDEX.md] |
 
 ### Function Dependencies (Critical)
 

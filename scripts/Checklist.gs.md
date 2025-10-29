@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 09:01 (DEV-only)
 *Build:* 053c02a
 
-// CHECKLIST V7.3.2 — Production — 23/10/2025 – 17:30Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
+// CHECKLIST V7.3.3 — Production — 30/10/2025 – 13:30 - onEdit, Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
 
 
 const ENABLE_PLACEHOLDERS = false; // keep false in production
@@ -101,6 +101,10 @@ function hideLocalMasterIfVisible_() {
 
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {
+  if (!e || !e.range) {
+  console.log("onEdit: No event object (manual run)");
+  return;
+}
   try {
     const sheet = e.range.getSheet();
     const name = sheet.getName();
@@ -141,7 +145,8 @@ function remindMissingNames() {
   AdminToolsLib.remindMissingNames();
 }
 
-// =====END OF FILE — CHECKLIST V7.3.1 — 18/10/2025 – 15:46=====
+// _______END OF FILE — CHECKLIST V7.3.3 — Production — 29/10/2025_____
+
 
 // ====ADMIN TOOLS=====
 // INTEGRITY SELF-CHECK

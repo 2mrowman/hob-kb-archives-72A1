@@ -3,20 +3,8 @@
 *Build:* 053c02a
 
 // CHECKLIST V7.3.2 — Production — 23/10/2025 – 17:30Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
-// CHECKLIST V7.3.1 — Production — 18/10/2025 – 15:46
-// Changes: Formatting to single-line section headers (no ==== bars). Added owner action updateVersionInfo_Remote(desc).
-// Behavior: Auto-day on open (installable trigger). Clean HoB menu (no “Δημιουργία Νέας Ημέρας”). Full-dynamic template resolve.
-// Function Checklist (Compatibility Contract)
-// - onOpen(e)                               ✅ simple trigger: UI only
-// - onOpen_Installed(e)                     ✅ installable trigger: full privileges
-// - runTodayInit_()                         ✅ shared privileged entrypoint
-// - getTemplateTabFromHoBMasters_()         unchanged; dynamic lookup
-// - hideLocalMasterIfVisible_()             unchanged
-// - loadMenuDynamically()                   ✅ owner tools include “Ενημέρωση Έκδοσης Script”
-// - updateVersionInfo_Remote(desc)          ✅ NEW wrapper → AdminToolsLib
-// - onEdit(e), TIMESTAMP(), testLibExists() unchanged
-// - runIntegrityCheck_()                    integrity validator
-// Alignment: HoB KB build 72A1
+
+
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 
@@ -109,6 +97,7 @@ function hideLocalMasterIfVisible_() {
   const others = ss.getSheets().filter(sh => sh.getName() !== "MASTER" && !sh.isSheetHidden());
   if (others.length > 0) masterSheet.hideSheet();
 }
+
 
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {

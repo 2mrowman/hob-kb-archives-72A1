@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 09:01 (DEV-only)
 *Build:* 053c02a
 
-// CHECKLIST V7.3.3 — Production — 30/10/2025 – 13:30 - onEdit, Changes: Removed updateVersionInfo_Remote (non-functional). Clean owner menu.
+// CHECKLIST V7.4.0 — Production — 03/11/2025 – 11:30 - automatedDuplicateAndCleanu
 
 
 const ENABLE_PLACEHOLDERS = false; // keep false in production
@@ -145,4 +145,8 @@ function remindMissingNames() {
   AdminToolsLib.remindMissingNames();
 }
 
-// _______END OF FILE — CHECKLIST V7.3.3 — Production — 29/10/2025_____
+// Wrapper για trigger
+function automatedDuplicateAndCleanup() {
+  AdminToolsLib.automatedDuplicateAndCleanup();
+}
+// _______END OF FILE — CHECKLIST V7.4.0 — Production — 03/11/2025_____

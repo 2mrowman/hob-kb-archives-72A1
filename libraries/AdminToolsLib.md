@@ -3,7 +3,8 @@
 *Build:* 053c02a
 
 // HoB - Admin Tools Library
-// Version: V6.11.0 – 23.10.2025 – Removed updateVersionInfo_Remote_ (non-functional)
+// Version: V6.12.0 – 03.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables
+
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -14,15 +15,10 @@
 // testLibExists
 // testTemplateTab
 // testAllPopupsFromAdmin
-//
-// Notes:
-// • Διατηρείται ο αρχικός υπολογισμός YYMM = προηγούμενος μήνας.
-// • Δεν αλλάζει η ροή, μόνο διόρθωση τύπων προς Drive (File vs Spreadsheet)
-// • Τα ονόματα/wrappers μένουν ως έχουν για συμβατότητα με MenuLib.
 
 /// ===== ΡΥΘΜΙΣΕΙΣ =====
 const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
-const DESTINATION_FOLDER_ID = '1ryekzwj3owrxXSjt7ty0veKniq9TQq2K';             // Φάκελος προορισμού για μηνιαία αντίγραφα
+//const DESTINATION_FOLDER_ID = '1ryekzwj3owrxXSjt7ty0veKniq9TQq2K'; // Obsolete - now dynamic
 const MASTER_SHEET_NAME     = 'MASTER';
 
 const NAME_PROMPT   = 'Όνομα Επώνυμο?';
@@ -38,7 +34,7 @@ function createNewDay_AUTO(masterId, templateTab) {
 
   const exists = ss.getSheetByName(todayName);
   if (exists) {
-    try { PopupLib.showCustomPopup('ℹ️ Υπάρχει ήδη ημέρα: <b>' + todayName + '</b>', 'info'); } catch (_) {}
+    try { ss.toast('Υπάρχει ήδη ημέρα: ' + todayName, 'ℹ️ Πληροφορία', 3); } catch (_) {}
     const masterSheet = ss.getSheetByName(MASTER_SHEET_NAME);
     if (masterSheet && !masterSheet.isSheetHidden()) masterSheet.hideSheet();
     return;
@@ -62,49 +58,97 @@ function createNewDay_AUTO(masterId, templateTab) {
   try { PopupLib.showCustomPopup('✅ Δημιουργήθηκε η νέα ημέρα: <b>' + todayName + '</b>', 'success'); } catch (_) {}
 }
 
+
 /**
  * Κύρια ρουτίνα:
  * 1) Αντιγράφει το ΤΡΕΧΟΝ Spreadsheet στον φάκελο ως YYMM_OriginalName (προηγούμενος μήνας)
  * 2) Αφαιρεί editors στο ΝΕΟ αντίγραφο (εκτός owner)
  * 3) ΣΤΟ ΤΡΕΧΟΝ αρχείο: εμφανίζει MASTER & διαγράφει τα υπόλοιπα tabs
+ *
+ * @returns {GoogleAppsScript.Drive.File} Το νέο αντίγραφο αρχείου
  */
 function automatedDuplicateAndCleanup() {
-  Logger.log('🚀 Έναρξη Duplicate & Cleanup');
-
-  // (1) Πηγαίο αρχείο (ΤΡΕΧΟΝ)
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const originalFileId = ss.getId();
-  const originalFile   = DriveApp.getFileById(originalFileId);
-  let originalName     = originalFile.getName().replace(/Copy of |of /gi, '').trim();
-
-  // (2) Υπολογισμός YYMM (προηγούμενος μήνας) — ΔΕΝ αλλάζει
-  const today = new Date();
-  let yy = today.getFullYear().toString().slice(-2);
-  let mm = today.getMonth(); // 0..11
-  if (mm === 0) { mm = 12; yy = (parseInt(yy, 10) - 1).toString(); }
-  const yymm = yy + ('0' + mm).slice(-2);
-
-  // (3) Αντιγραφή στο φάκελο (Drive File API)
-  const folder = DriveApp.getFolderById(DESTINATION_FOLDER_ID);
-  const newFileName = yymm + '_' + originalName;
-  const newFile = originalFile.makeCopy(newFileName, folder);
-  Logger.log('✅ Αντίγραφο αρχείου: ' + newFileName);
-
-  // (4) Αφαίρεση editors εκτός owner στο ΝΕΟ αντίγραφο
-  removeAllUsersExceptOwner_(newFile);
-
-  // (5) ΚΑΘΑΡΙΣΜΟΣ ΣΤΟ ΤΡΕΧΟΝ Spreadsheet
-  showMasterAndDeleteOthers();
-
   try {
-    PopupLib.showSuccessMessage(
-      '✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b><br>📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).'
-    );
-  } catch (_) {}
+    Logger.log('🚀 Έναρξη Duplicate & Cleanup');
 
-  Logger.log('✅ Ολοκλήρωση Duplicate & Cleanup (copy→remove editors στο νέο, cleanup στο τρέχον).');
-  return newFile;
+    // 🔹 IDs αντλούνται δυναμικά από HoB_Masters → "Checklist_Master_Tables"
+    const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    const activeName = activeSpreadsheet.getName();
+
+    const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
+    const masterSheet = masters.getSheetByName('Checklist_Master_Tables') || masters.getSheetByName('Templates');
+
+    if (!masterSheet) {
+      throw new Error('Δεν βρέθηκε το φύλλο "Checklist_Master_Tables" ή "Templates" στο HoB_Masters.');
+    }
+
+    const data = masterSheet.getDataRange().getValues();
+    const headers = data[0].map(h => String(h).trim().toUpperCase());
+    const idxName = headers.indexOf('CHECKLIST FILENAME');
+    const idxFileId = headers.indexOf('FILE ID');
+    const idxFolder = headers.indexOf('FOLDER ID');
+
+    if (idxName === -1 || idxFileId === -1 || idxFolder === -1) {
+      throw new Error('Λείπουν στήλες: CHECKLIST FILENAME / FILE ID / FOLDER ID στο master sheet.');
+    }
+
+    let folderId = '';
+    let originalFileId = '';
+
+    for (let r = 1; r < data.length; r++) {
+      if (String(data[r][idxName]).trim() === activeName) {
+        originalFileId = String(data[r][idxFileId]).trim();
+        folderId = String(data[r][idxFolder]).trim();
+        break;
+      }
+    }
+
+    if (!folderId || !originalFileId) {
+      throw new Error('Δεν βρέθηκαν FILE ID / FOLDER ID για "' + activeName + '" στο master sheet.');
+    }
+
+    // (1) Πηγαίο αρχείο (ΤΡΕΧΟΝ)
+    const originalFile = DriveApp.getFileById(originalFileId);
+    const originalName = originalFile.getName().replace(/Copy of |of /gi, '').trim();
+
+    // (2) Υπολογισμός YYMM (προηγούμενος μήνας)
+    const today = new Date();
+    let yy = today.getFullYear().toString().slice(-2);
+    let mm = today.getMonth(); // 0..11
+    if (mm === 0) {
+      mm = 12;
+      yy = (parseInt(yy, 10) - 1).toString();
+    }
+    const yymm = yy + ('0' + mm).slice(-2);
+
+    // (3) Αντιγραφή στο φάκελο
+    const folder = DriveApp.getFolderById(folderId);
+    const newFileName = yymm + '_' + originalName;
+    const newFile = originalFile.makeCopy(newFileName, folder);
+    Logger.log('✅ Αντίγραφο αρχείου: ' + newFileName);
+
+    // (4) Αφαίρεση editors εκτός owner στο ΝΕΟ αντίγραφο
+    removeAllUsersExceptOwner_(newFile);
+
+    // (5) ΚΑΘΑΡΙΣΜΟΣ ΣΤΟ ΤΡΕΧΟΝ Spreadsheet
+    showMasterAndDeleteOthers();
+
+    try {
+      PopupLib.showSuccessMessage('✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b><br>📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).');
+    } catch (_) {}
+
+    Logger.log('✅ Ολοκλήρωση Duplicate & Cleanup');
+    return newFile;
+
+  } catch (error) {
+    Logger.log('⚠️ Σφάλμα: ' + error.toString());
+    try {
+      PopupLib.showErrorMessage('⚠️ Σφάλμα στο automatedDuplicateAndCleanup:<br><br>' + error.toString());
+    } catch (_) {}
+    throw error; // Re-throw για να το δει ο trigger
+  }
 }
+
 
 /** Αφαίρεση όλων των editors εκτός owner (Drive File) */
 function removeAllUsersExceptOwner_(file) {
@@ -119,6 +163,7 @@ function removeAllUsersExceptOwner_(file) {
     Logger.log('ℹ️ Δεν βρέθηκαν επιπλέον editors για: ' + file.getName());
   }
 }
+
 
 // ==========================
 // 📌 Show MASTER & Delete Others (ΣΤΟ ΤΡΕΧΟΝ αρχείο)
@@ -139,18 +184,10 @@ function showMasterAndDeleteOthers() {
   try { PopupLib.showCustomPopup('📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν τα υπόλοιπα.', 'info'); } catch (_) {}
 }
 
+
 // ==========================
 // 📌 Remind Missing Names (τρέχον φύλλο)
 // ==========================
-/**
- * Checks for missing names ("Όνομα Επώνυμο?") in column B.
- * 
- * Behavior:
- * - UI context (menu call): Shows popup dialog
- * - Headless context (time-driven trigger): Updates B1 cell with notification
- * 
- * @returns {void}
- */
 // Helper — returns Ui or null (prevents exceptions in headless triggers)
 function _safeUi_() {
   try { return SpreadsheetApp.getUi(); } catch (e) { return null; }
@@ -158,19 +195,17 @@ function _safeUi_() {
 
 /**
  * Checks for missing names ("Όνομα Επώνυμο?") in column B.
- * 
+ *
  * Behavior:
  * - UI context (menu call): Shows popup dialog
  * - Headless context (time-driven trigger): Updates B1 cell with notification
- * 
+ *
  * @returns {void}
  */
 function remindMissingNames() {
   const ui = _safeUi_();
   const isHeadless = !ui;
 
-  const NAME_PROMPT = 'Όνομα Επώνυμο?';
-  const COL_B = 2;
   const NOTIFICATION_CELL = 'B1';
   const ORIGINAL_B1_TEXT = 'Η ΕΡΓΑΣΙΑ ΓΙΝΕ ΑΠΟ\n(Όσοι συμμετείχαν)';
 
@@ -210,8 +245,8 @@ function remindMissingNames() {
   // Case 1: Missing names found
   if (targets.length > 0) {
     const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
-    const message = 
-      '🚨 Εντοπίστηκαν ' + targets.length + 
+    const message =
+      '🚨 Εντοπίστηκαν ' + targets.length +
       ' κελιά με ασυμπλήρωτο το "' + NAME_PROMPT + '" !!!\n' +
       '📍 Κελιά: ' + cellRefs + '\n' +
       '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη B.';
@@ -219,7 +254,7 @@ function remindMissingNames() {
     if (isHeadless) {
       // Headless context: Update B1 cell with notification
       try {
-        b1Cell.setValue('⚠️ ' + targets.length + ' ΟΝΟΜΑΤΑ ΛΕΙΠΟΥΝ! (' + cellRefs + ') ⚠️');
+        b1Cell.setValue(targets.length + '- ΟΝΟΜΑΤΑ ΛΕΙΠΟΥΝ!\n(' + cellRefs + ')').setWrap(true);
         b1Cell.setBackground('#ff0000');  // Red background
         b1Cell.setFontColor('#ffffff');   // White text
         b1Cell.setFontWeight('bold');
@@ -239,7 +274,7 @@ function remindMissingNames() {
         console.error("remindMissingNames: Popup failed (suppressed):", e);
       }
     }
-  } 
+  }
   // Case 2: No missing names - restore B1 to original
   else {
     if (isHeadless) {
@@ -268,6 +303,7 @@ function remindMissingNames() {
   }
 }
 
+
 // ==========================
 // 📌 Clear All Notes (όλα τα tabs εκτός START/MASTER)
 // ==========================
@@ -281,6 +317,7 @@ function clearAllNotes() {
   try { PopupLib.showCustomPopup('🧽 Καθαρίστηκαν όλα τα Notes.', 'success'); } catch (_) {}
 }
 
+
 // ==========================
 // 📌 Debug Context
 // ==========================
@@ -292,6 +329,7 @@ function debugUserContext() {
               '🕒 Ώρα: <b>' + new Date().toLocaleString() + '</b>';
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 }
+
 
 // ==========================
 // ✅ Tests
@@ -314,81 +352,5 @@ function testAllPopupsFromAdmin() {
   } catch (err) {
     Logger.log('Σφάλμα στο testAllPopupsFromAdmin: ' + err);
   }
-}
-
-// =====================================================================================
-// ADMINTOOLSLIB V6.8.0 — Universal Version Updater – 17.10.2025 – 13:55
-// =====================================================================================
-// 🔧 Function: updateVersionInfo_Universal()
-// Description:
-//  • Updates version header for ANY HoB script (Checklist, Blink, AutoDuplicate, etc.)
-//  • Automatically detects prefix (e.g. CHECKLIST / BLINK / AUTODUPLICATE).
-//  • Increments patch version (+0.0.1).
-//  • Updates build date & time.
-//  • Appends line to changelog block at the bottom.
-// =====================================================================================
-// Usage:
-//   1️⃣ Run → AdminToolsLib.updateVersionInfo_Universal()
-//   2️⃣ Type the script filename (e.g. Checklist.gs)
-//   3️⃣ Type a short description of the change
-//   4️⃣ The header and changelog update automatically
-// =====================================================================================
-
-function updateVersionInfo_Universal() {
-  const ui = SpreadsheetApp.getUi();
-  const promptFile = ui.prompt(
-    "🔧 Universal Version Updater",
-    "Πληκτρολόγησε το ακριβές όνομα του αρχείου (π.χ. Checklist.gs, Blink.gs):",
-    ui.ButtonSet.OK_CANCEL
-  );
-
-  if (promptFile.getSelectedButton() !== ui.Button.OK) return;
-  const filename = promptFile.getResponseText().trim();
-  if (!filename) return ui.alert("❌ Δεν δόθηκε όνομα αρχείου.");
-
-  const files = DriveApp.getFilesByName(filename);
-  if (!files.hasNext()) {
-    ui.alert(`❌ Δεν βρέθηκε αρχείο με όνομα "${filename}" στο Drive.`);
-    return;
-  }
-
-  const file = files.next();
-  const content = file.getBlob().getDataAsString();
-
-  // Detect prefix (CHECKLIST / BLINK / AUTODUPLICATE / HOBMASTERS / etc.)
-  const prefixMatch = content.match(/\/\/\s*([A-Z_]+)\s+V(\d+)\.(\d+)\.(\d+)/);
-  if (!prefixMatch) {
-    ui.alert("⚠️ Δεν βρέθηκε συμβατή γραμμή header (π.χ. // CHECKLIST Vx.x.x).");
-    return;
-  }
-
-  const prefix = prefixMatch[1];
-  const major = parseInt(prefixMatch[2], 10);
-  const minor = parseInt(prefixMatch[3], 10);
-  const patch = parseInt(prefixMatch[4], 10);
-
-  const newPatch = patch + 1;
-  const newVersion = `V${major}.${minor}.${newPatch}`;
-  const dateStr = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy – HH:mm");
-
-  const descPrompt = ui.prompt(
-    `Αρχείο: ${filename}\nPrefix: ${prefix}\nΤρέχουσα έκδοση: V${major}.${minor}.${patch}\nΝέα έκδοση: ${newVersion}\n\nΠληκτρολόγησε σύντομη περιγραφή αλλαγής:`,
-    ui.ButtonSet.OK_CANCEL
-  );
-  if (descPrompt.getSelectedButton() !== ui.Button.OK) return;
-  const desc = descPrompt.getResponseText().trim() || "(no description)";
-
-  // Build new header
-  const newHeader = `// ${prefix} ${newVersion} — ${dateStr}\n// ${desc}`;
-  const updated = content.replace(/\/\/\s*[A-Z_]+\s+V.*\n\/\/.*/, newHeader);
-
-  // Append changelog entry
-  const logLine = `// ${prefix} ${newVersion} — ${dateStr} — ${desc}\n`;
-  const newContent = updated + "\n" + logLine;
-
-  // Save new version
-  file.setContent(newContent);
-
-  ui.alert(`✅ ${prefix} ενημερώθηκε επιτυχώς!\n\nΈκδοση: ${newVersion}\nΠεριγραφή: ${desc}`);
 }
 

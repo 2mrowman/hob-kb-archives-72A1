@@ -3,14 +3,35 @@
 *Build:* 053c02a
 
 // =====================================================================================
-// AutoDupl_File&DeleteTabs V1.0.0 — Final Production Build – 10.04.2025 – 12:50
+// AutoDupl_File&DeleteTabs V2.0.0 — Reads from "Checklist_Master_Tables" Templates Tab
 // =====================================================================================
 function automatedDuplicateAndCleanup() {
   try {
     Logger.log('🚀 Έναρξη διαδικασίας.');
-    // 🔹 Ορισμός του φακέλου προορισμού και του αρχικού αρχείου
-    var folderId = "1ryekzwj3owrxXSjt7ty0veKniq9TQq2K"; // ➜ Αντικατέστησε με το ID του φακέλου
-    var originalFileId = "1ZqOvmW6TZxFD9LkGknSXlT-gO6fBqzGDDZKfU3mQOuI"; // ➜ Αντικατέστησε με το ID του αρχικού αρχείου
+    // 🔹 IDs αντλούνται δυναμικά από HoB_Masters → "Checklist_Master_Tables"
+    const activeName = SpreadsheetApp.getActiveSpreadsheet().getName();
+    const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
+    const masterSheet = masters.getSheetByName('Checklist_Master_Tables') || masters.getSheetByName('Templates');
+    const data = masterSheet.getDataRange().getValues();
+    const headers = data[0].map(h => String(h).trim().toUpperCase());
+    const idxName = headers.indexOf('CHECKLIST FILENAME');
+    const idxFileId = headers.indexOf('FILE ID');
+    const idxFolder = headers.indexOf('FOLDER ID');
+    if (idxName === -1 || idxFileId === -1 || idxFolder === -1) {
+      throw new Error('Λείπουν στήλες: CHECKLIST FILENAME / FILE ID / FOLDER ID στο master.');
+    }
+    let folderId = '';
+    let originalFileId = '';
+    for (let r = 1; r < data.length; r++) {
+      if (String(data[r][idxName]).trim() === activeName) {
+        originalFileId = String(data[r][idxFileId]).trim();
+        folderId = String(data[r][idxFolder]).trim();
+        break;
+      }
+    }
+    if (!folderId || !originalFileId) {
+      throw new Error('Δεν βρέθηκαν FILE ID / FOLDER ID για "' + activeName + '" στο master.');
+    }
     var folder = DriveApp.getFolderById(folderId);
     var originalFile = DriveApp.getFileById(originalFileId);
     // 🔹 Ανάκτηση του ονόματος του αρχείου και αφαίρεση "Copy of" και "of"
@@ -23,14 +44,11 @@ function automatedDuplicateAndCleanup() {
       month = 12;
       year = (parseInt(year) - 1).toString();
     }
+
     var yymm = year + ("0" + month).slice(-2);
-
-    // 🔹 Δημιουργία αντιγράφου με το νέο όνομα
-    var newFileName = yymm + "_" + originalFileName;
+    var newFileName = yymm + "_" + originalFileName;  // Δημιουργία αντιγράφου με το νέο όνομα
     var newFile = originalFile.makeCopy(newFileName, folder);
-
-    // 🔹 Αφαίρεση όλων των χρηστών εκτός του ιδιοκτήτη
-    removeAllUsersExceptOwner(newFile);
+    removeAllUsersExceptOwner(newFile); // Αφαίρεση όλων των χρηστών εκτός του ιδιοκτήτη
 
     Logger.log('✅ Το αρχείο αντιγράφηκε ως: ' + newFileName);
 

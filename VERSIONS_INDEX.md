@@ -1,10 +1,9 @@
-*Last updated: 03/11/2025 – 12:38 (Europe/Athens)*
-*Build: fedcb22*
+*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
+*Build:* 536798d
 
 # HoB — VERSIONS INDEX
-
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.
-
 | Type | File | Version | Last change (Athens) | Build | Path |
 |---|---|---|---|---|---|
 | scripts | Admin.gs.md | `V7.3.1` | 03/11/2025 – 12:38 | `fec000b` | [scripts/Admin.gs.md](/scripts/Admin.gs.md) |

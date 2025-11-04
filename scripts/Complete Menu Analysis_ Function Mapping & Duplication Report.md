@@ -1,17 +1,14 @@
+*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
+*Build:* 536798d
+
 # Complete Menu Analysis: Function Mapping & Duplication Report
-
 ## Executive Summary
-
 **CRITICAL FINDING: Η λειτουργικότητα υπάρχει ΗΔΗ στη βιβλιοθήκη!**
-
 Όλες οι συναρτήσεις που βλέπεις στο menu βρίσκονται ήδη στο `AdminToolsLib` και καλούνται μέσω του `MenuLib` ως wrappers. Το τοπικό script `AutoDupl_File&DeleteTabs.gs` είναι **παλιός, περιττός κώδικας** που δεν χρησιμοποιείται πλέον από το menu.
-
 ---
-
 ## Menu Structure Analysis
-
 ### User Confirmed Menu Items (from Image)
-
 | Menu Item (Εικ1) | Function Called | Location | Status |
 |-------------------|-----------------|----------|--------|
 | 🔴 **Δημιουργία Νέας Ημέρας** | `createNewDayFromMenu()` | MenuLib → AdminToolsLib.createNewDay_AUTO() | ✅ Working |
@@ -57,38 +54,38 @@ function automatedDuplicateAndCleanupFromMenu() {
 ```javascript
 function automatedDuplicateAndCleanup() {
   Logger.log('🚀 Έναρξη Duplicate & Cleanup');
-  
+
   // (1) Πηγαίο αρχείο (ΤΡΕΧΟΝ)
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const originalFileId = ss.getId();
   const originalFile   = DriveApp.getFileById(originalFileId);
   let originalName     = originalFile.getName().replace(/Copy of |of /gi, '').trim();
-  
+
   // (2) Υπολογισμός YYMM (προηγούμενος μήνας)
   const today = new Date();
   let yy = today.getFullYear().toString().slice(-2);
   let mm = today.getMonth(); // 0..11
   if (mm === 0) { mm = 12; yy = (parseInt(yy, 10) - 1).toString(); }
   const yymm = yy + ('0' + mm).slice(-2);
-  
+
   // (3) Αντιγραφή στο φάκελο
   const folder = DriveApp.getFolderById(DESTINATION_FOLDER_ID);
   const newFileName = yymm + '_' + originalName;
   const newFile = originalFile.makeCopy(newFileName, folder);
   Logger.log('✅ Αντίγραφο αρχείου: ' + newFileName);
-  
+
   // (4) Αφαίρεση editors εκτός owner στο ΝΕΟ αντίγραφο
   removeAllUsersExceptOwner_(newFile);
-  
+
   // (5) ΚΑΘΑΡΙΣΜΟΣ ΣΤΟ ΤΡΕΧΟΝ Spreadsheet
   showMasterAndDeleteOthers();
-  
+
   try {
     PopupLib.showSuccessMessage(
       '✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b><br>📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).'
     );
   } catch (_) {}
-  
+
   Logger.log('✅ Ολοκλήρωση Duplicate & Cleanup');
   return newFile;
 }

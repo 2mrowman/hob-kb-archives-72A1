@@ -1,10 +1,9 @@
-*Last updated:* 28/10/2025 - 09:01 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 28/10/2025 - 09:01 (DEV-only)
-*Build:* 053c02a
+*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
+*Build:* 536798d
 
 // HoB - Admin Tools Library
 // Version: V6.12.0 – 03.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables
-
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -15,7 +14,6 @@
 // testLibExists
 // testTemplateTab
 // testAllPopupsFromAdmin
-
 /// ===== ΡΥΘΜΙΣΕΙΣ =====
 const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
 //const DESTINATION_FOLDER_ID = '1ryekzwj3owrxXSjt7ty0veKniq9TQq2K'; // Obsolete - now dynamic
@@ -57,7 +55,6 @@ function createNewDay_AUTO(masterId, templateTab) {
   try { PropertiesService.getDocumentProperties().setProperty('lastTabCreated', new Date().toISOString()); } catch (_) {}
   try { PopupLib.showCustomPopup('✅ Δημιουργήθηκε η νέα ημέρα: <b>' + todayName + '</b>', 'success'); } catch (_) {}
 }
-
 
 /**
  * Κύρια ρουτίνα:
@@ -149,7 +146,6 @@ function automatedDuplicateAndCleanup() {
   }
 }
 
-
 /** Αφαίρεση όλων των editors εκτός owner (Drive File) */
 function removeAllUsersExceptOwner_(file) {
   const editors = file.getEditors();
@@ -163,7 +159,6 @@ function removeAllUsersExceptOwner_(file) {
     Logger.log('ℹ️ Δεν βρέθηκαν επιπλέον editors για: ' + file.getName());
   }
 }
-
 
 // ==========================
 // 📌 Show MASTER & Delete Others (ΣΤΟ ΤΡΕΧΟΝ αρχείο)
@@ -183,7 +178,6 @@ function showMasterAndDeleteOthers() {
 
   try { PopupLib.showCustomPopup('📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν τα υπόλοιπα.', 'info'); } catch (_) {}
 }
-
 
 // ==========================
 // 📌 Remind Missing Names (τρέχον φύλλο)
@@ -303,7 +297,6 @@ function remindMissingNames() {
   }
 }
 
-
 // ==========================
 // 📌 Clear All Notes (όλα τα tabs εκτός START/MASTER)
 // ==========================
@@ -317,7 +310,6 @@ function clearAllNotes() {
   try { PopupLib.showCustomPopup('🧽 Καθαρίστηκαν όλα τα Notes.', 'success'); } catch (_) {}
 }
 
-
 // ==========================
 // 📌 Debug Context
 // ==========================
@@ -329,7 +321,6 @@ function debugUserContext() {
               '🕒 Ώρα: <b>' + new Date().toLocaleString() + '</b>';
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 }
-
 
 // ==========================
 // ✅ Tests

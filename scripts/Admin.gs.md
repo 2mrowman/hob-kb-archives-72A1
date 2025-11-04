@@ -1,3 +1,7 @@
+*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
+*Build:* 536798d
+
 // ====ADMIN TOOLS=====
 // INTEGRITY SELF-CHECK
 function runIntegrityCheck() {
@@ -14,7 +18,6 @@ function runIntegrityCheck() {
   ];
   const missing = fn.filter(f => typeof this[f] !== "function");
   if (missing.length > 0) throw new Error("Missing functions: " + missing.join(", "));
-
   const user = Session.getEffectiveUser().getEmail();
   const owner = SpreadsheetApp.getActiveSpreadsheet().getOwner().getEmail();
   if (user !== owner) console.log("ℹ️ IntegrityCheck: User is not owner (" + user + ")");

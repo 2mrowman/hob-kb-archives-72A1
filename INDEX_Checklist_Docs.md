@@ -1,6 +1,6 @@
-*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
-*Build:* 536798d
+*Last updated:* 12/11/2025 - 14:49 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
+*Build:* 44f4b58
 
 # INDEX_Checklist_Docs.md
 **Auto-Generated Documentation Index**
@@ -14,7 +14,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1761825465`) to ensur
 ---
 ## Documentation Structure
 ### Root Level
-
 - [MD] **[CHANGELOG.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1761825465)**
   `CHANGELOG.md`
 - [MD] **[INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1761825465)**

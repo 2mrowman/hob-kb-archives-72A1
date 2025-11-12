@@ -1,10 +1,9 @@
-*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
-*Build:* 536798d
+*Last updated:* 12/11/2025 - 14:49 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
+*Build:* 44f4b58
 
 // HoB - Admin Tools Library
 // Version: V6.13.0 – 12.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables - Added E1 comment reminder
-
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup

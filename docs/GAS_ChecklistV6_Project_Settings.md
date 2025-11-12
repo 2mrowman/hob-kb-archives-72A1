@@ -1,6 +1,6 @@
-*Last updated:* 04/11/2025 - 13:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 04/11/2025 - 13:45 (DEV-only)
-*Build:* 536798d
+*Last updated:* 12/11/2025 - 14:49 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
+*Build:* 44f4b58
 
 **CHECKLIST SETTINGS**
 [GAS SCRIPTS 2](#_heading=h.vy9i6rmxtv6)

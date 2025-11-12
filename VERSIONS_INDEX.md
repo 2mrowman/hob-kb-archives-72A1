@@ -9,7 +9,7 @@
 | scripts | Admin.gs.md | `V7.3.1` | 03/11/2025 – 12:38 | `fec000b` | [scripts/Admin.gs.md](/scripts/Admin.gs.md) |
 | scripts | AutoDupl_File&DeleteTabs.gs.md | `V2.0.0` | 03/11/2025 – 12:38 | `fec000b` | [scripts/AutoDupl_File&DeleteTabs.gs.md](/scripts/AutoDupl_File&DeleteTabs.gs.md) |
 | scripts | Blink.gs.md | `V2.0.1` | 03/11/2025 – 12:38 | `fec000b` | [scripts/Blink.gs.md](/scripts/Blink.gs.md) |
-| scripts | Checklist.gs.md | `V7.4.0` | 03/11/2025 – 12:38 | `fec000b` | [scripts/Checklist.gs.md](/scripts/Checklist.gs.md) |
+| scripts | Checklist.gs.md | `V7.4.1` | 12/11/2025 – 12:38 | `fec000b` | [scripts/Checklist.gs.md](/scripts/Checklist.gs.md) |
 | scripts | Complete Menu Analysis_ Function Mapping & Duplication Report.md | `V2.0.0` | 03/11/2025 – 12:38 | `fec000b` | [scripts/Complete Menu Analysis_ Function Mapping & Duplication Report.md](/scripts/Complete Menu Analysis_ Function Mapping & Duplication Report.md) |
 | scripts | README.md | `unknown` | 03/11/2025 – 12:38 | `fec000b` | [scripts/README.md](/scripts/README.md) |
 | scripts | 🧩 HoBMastersLib_Capability_Map_(V1.3).md | `V1.3` | 03/11/2025 – 12:38 | `fec000b` | [scripts/🧩 HoBMastersLib_Capability_Map_(V1.3).md](/scripts/🧩 HoBMastersLib_Capability_Map_(V1.3).md) |

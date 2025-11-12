@@ -2,9 +2,12 @@
 *Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
 *Build:* 44f4b58
 
-// CHECKLIST V7.4.0 — Production — 03/11/2025 – 11:30 - automatedDuplicateAndCleanu
+// CHECKLIST V7.4.1 — Production — 12/11/2025 – 11:30 - automatedDuplicateAndCleanup +new onEdit
+
+
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
+
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -12,6 +15,7 @@ function onOpen(e) {
     .addItem("⏳ Φόρτωση Μενού…", "loadMenuDynamically")
     .addToUi();
 }
+
 // INSTALLABLE onOpen: FULL PRIVILEGES
 function onOpen_Installed(e) {
   try {
@@ -94,12 +98,13 @@ function hideLocalMasterIfVisible_() {
   if (others.length > 0) masterSheet.hideSheet();
 }
 
+
 // onEdit handler + TIMESTAMP helper
 function onEdit(e) {
   if (!e || !e.range) {
-  console.log("onEdit: No event object (manual run)");
-  return;
-}
+    console.log("onEdit: No event object (manual run)");
+    return;
+  }
   try {
     const sheet = e.range.getSheet();
     const name = sheet.getName();
@@ -109,19 +114,54 @@ function onEdit(e) {
     const row = e.range.getRow();
     const val = e.range.getValue();
     const timestampFormat = 'HH:mm:ss.000" - "dd/MM';
-    const colB = 2, colC = 3, colD = 4;
+    const colB = 2, colC = 3, colD = 4, colE = 5;
+    const placeholderB = "Όνομα Επώνυμο?";
+    const placeholderE = "Γράψτε το σχόλιο σας εδώ";
 
     if (col === colC) {
       const cellB = sheet.getRange(row, colB);
-      if (!cellB.getValue()) {
-        cellB.setValue("Όνομα Επώνυμο?").setFontColor("#d32f2f").setFontWeight("bold");
-      }
       const cellD = sheet.getRange(row, colD);
+      const cellE = sheet.getRange(row, colE);
+      const v = (e.value == null) ? "" : String(e.value).trim();
+
+      // Αν η Γ διαγραφεί → καθάρισε πλήρως Β–Δ–Ε (και styling)
+      if (v === "") {
+        cellB.clearContent().setFontColor(null).setFontWeight(null);
+        cellD.clearContent();
+        cellE.clearContent().setFontColor(null).setFontWeight(null);
+        return;
+      }
+
+      // Αν η Γ περιέχει "σχόλιο" → βάλε οδηγία στην Ε (μόνο αν άδεια)
+      if (v.toLowerCase().indexOf("σχόλιο") !== -1) {
+        if (!cellE.getValue()) {
+          cellE.setValue(placeholderE).setFontColor("#d32f2f").setFontWeight("bold");
+        }
+      } else {
+        // Αν αλλάξει από "σχόλιο" σε κάτι άλλο και η Ε έχει το placeholder → καθάρισε
+        if (cellE.getValue() === placeholderE) {
+          cellE.clearContent().setFontColor(null).setFontWeight(null);
+        }
+      }
+
+      // Αν η Β είναι άδεια και η Γ έχει τιμή → βάλε “Όνομα Επώνυμο?”
+      if (!cellB.getValue()) {
+        cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+      }
+
+      // Timestamp στη Δ
       cellD.setNumberFormat(timestampFormat).setValue(new Date());
     }
 
     if (col === colB && val && val !== "Όνομα Επώνυμο?") {
       e.range.setFontColor(null).setFontWeight(null).setBackground(null);
+    }
+
+    if (col === colE) {
+      const vE = (e.value == null) ? "" : String(e.value).trim();
+      if (vE && vE !== placeholderE) {
+        e.range.setFontColor(null).setFontWeight(null);
+      }
     }
   } catch (err) {
     console.error("❌ Σφάλμα στο onEdit:", err);
@@ -131,6 +171,8 @@ function onEdit(e) {
 function TIMESTAMP() {
   return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'HH:mm:ss.000" - "dd/MM');
 }
+
+
 
 /**
  * Wrapper for AdminToolsLib.remindMissingNames()
@@ -144,4 +186,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.4.0 — Production — 03/11/2025_____
+// _______END OF FILE — CHECKLIST V7.4.1 — Production — 12/11/2025_____

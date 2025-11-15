@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
 *Build:* 44f4b58
 
-// CHECKLIST V7.4.1 — Production — 12/11/2025 – 11:30 - automatedDuplicateAndCleanup +new onEdit
+// CHECKLIST V7.4.2 — Production — 14/11/2025 – 16:43 - automatedDuplicateAndCleanup +new onEdit V4
 
 
 const ENABLE_PLACEHOLDERS = false; // keep false in production
@@ -99,7 +99,7 @@ function hideLocalMasterIfVisible_() {
 }
 
 
-// onEdit handler + TIMESTAMP helper
+// onEdit handler + TIMESTAMP helper V4
 function onEdit(e) {
   if (!e || !e.range) {
     console.log("onEdit: No event object (manual run)");
@@ -124,7 +124,6 @@ function onEdit(e) {
       const cellE = sheet.getRange(row, colE);
       const v = (e.value == null) ? "" : String(e.value).trim();
 
-      // Αν η Γ διαγραφεί → καθάρισε πλήρως Β–Δ–Ε (και styling)
       if (v === "") {
         cellB.clearContent().setFontColor(null).setFontWeight(null);
         cellD.clearContent();
@@ -132,7 +131,6 @@ function onEdit(e) {
         return;
       }
 
-      // Αν η Γ περιέχει "σχόλιο" → βάλε οδηγία στην Ε (μόνο αν άδεια)
       if (v.toLowerCase().indexOf("σχόλιο") !== -1) {
         if (!cellE.getValue()) {
           cellE.setValue(placeholderE).setFontColor("#d32f2f").setFontWeight("bold");
@@ -144,9 +142,25 @@ function onEdit(e) {
         }
       }
 
-      // Αν η Β είναι άδεια και η Γ έχει τιμή → βάλε “Όνομα Επώνυμο?”
       if (!cellB.getValue()) {
-        cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+        var sticky = "";
+        try {
+          var r = row - 1;
+          while (r >= 2) {
+            var rowVals = sheet.getRange(r, colB, 1, (colE - colB + 1)).getValues()[0]; // B..E
+            var isAllEmpty = rowVals.every(function (x) { return String(x || "").trim() === ""; });
+            if (isAllEmpty) break;
+            var cand = String(rowVals[0] || "").trim();
+            if (cand && cand !== placeholderB) { sticky = cand; break; }
+            r--;
+          }
+        } catch (ignore) {}
+
+        if (sticky) {
+          cellB.setValue(sticky).setFontColor(null).setFontWeight(null); // δεν αγγίζουμε background
+        } else {
+          cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+        }
       }
 
       // Timestamp στη Δ
@@ -155,6 +169,9 @@ function onEdit(e) {
 
     if (col === colB && val && val !== "Όνομα Επώνυμο?") {
       e.range.setFontColor(null).setFontWeight(null).setBackground(null);
+      try {
+        PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', String(val).trim());
+      } catch (ignore) {}
     }
 
     if (col === colE) {
@@ -172,8 +189,6 @@ function TIMESTAMP() {
   return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'HH:mm:ss.000" - "dd/MM');
 }
 
-
-
 /**
  * Wrapper for AdminToolsLib.remindMissingNames()
  * Used by time-driven trigger
@@ -186,4 +201,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.4.1 — Production — 12/11/2025_____
+// _______END OF FILE — CHECKLIST V7.4.2 — Production — 14/11/2025_____

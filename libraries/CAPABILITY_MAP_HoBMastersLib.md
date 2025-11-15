@@ -1,6 +1,6 @@
-*Last updated:* 12/11/2025 - 14:49 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 12/11/2025 - 14:49 (DEV-only)
-*Build:* 44f4b58
+*Last updated:* 15/11/2025 - 17:50 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 15/11/2025 - 17:50 (DEV-only)
+*Build:* e1f22e5
 
 # 🧩 HoBMastersLib — Capability Map (V1.3)
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md

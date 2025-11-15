@@ -3,7 +3,8 @@
 *Build:* 44f4b58
 
 // HoB - Admin Tools Library
-// Version: V6.13.0 – 12.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables - Added E1 comment reminder
+// Version: V6.13.1 – 15.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables - Added E1 comment reminder  - LockService remindMissingNames added
+
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -14,17 +15,15 @@
 // testLibExists
 // testTemplateTab
 // testAllPopupsFromAdmin
-/// ===== ΡΥΘΜΙΣΕΙΣ =====
-const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
-//const DESTINATION_FOLDER_ID = '1ryekzwj3owrxXSjt7ty0veKniq9TQq2K'; // Obsolete - now dynamic
-const MASTER_SHEET_NAME     = 'MASTER';
 
+// ===== ΡΥΘΜΙΣΕΙΣ =====
+const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
+const MASTER_SHEET_NAME     = 'MASTER';
 const NAME_PROMPT   = 'Όνομα Επώνυμο?';
 const COL_B         = 2;        // Στήλη B
 const BLINK_CYCLES  = 3;        // Προαιρετικό blinking
 
 // 📌 Δημιουργία νέας ημέρας (όνομα tab: dd/MM) + κρύψιμο MASTER
-// ==========================
 function createNewDay_AUTO(masterId, templateTab) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const tz = Session.getScriptTimeZone();
@@ -55,6 +54,7 @@ function createNewDay_AUTO(masterId, templateTab) {
   try { PropertiesService.getDocumentProperties().setProperty('lastTabCreated', new Date().toISOString()); } catch (_) {}
   try { PopupLib.showCustomPopup('✅ Δημιουργήθηκε η νέα ημέρα: <b>' + todayName + '</b>', 'success'); } catch (_) {}
 }
+
 
 /**
  * Κύρια ρουτίνα:
@@ -146,6 +146,7 @@ function automatedDuplicateAndCleanup() {
   }
 }
 
+
 /** Αφαίρεση όλων των editors εκτός owner (Drive File) */
 function removeAllUsersExceptOwner_(file) {
   const editors = file.getEditors();
@@ -159,6 +160,7 @@ function removeAllUsersExceptOwner_(file) {
     Logger.log('ℹ️ Δεν βρέθηκαν επιπλέον editors για: ' + file.getName());
   }
 }
+
 
 // ==========================
 // 📌 Show MASTER & Delete Others (ΣΤΟ ΤΡΕΧΟΝ αρχείο)
@@ -178,6 +180,7 @@ function showMasterAndDeleteOthers() {
 
   try { PopupLib.showCustomPopup('📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν τα υπόλοιπα.', 'info'); } catch (_) {}
 }
+
 
 // ==========================
 // 📌 Remind Missing Names (τρέχον φύλλο)
@@ -201,101 +204,222 @@ function remindMissingNames() {
   const isHeadless = !ui;
 
   const NOTIFICATION_CELL = 'B1';
-  const ORIGINAL_B1_TEXT = 'Η ΕΡΓΑΣΙΑ ΓΙΝΕ ΑΠΟ\n(Όσοι συμμετείχαν)';
+  const ORIGINAL_B1_TEXT = 'Η ΕΡΓΑΣΙΑ ΕΓΙΝΕ ΑΠΟ\n(Όσοι συμμετείχαν)';
 
-  const sh = SpreadsheetApp.getActiveSheet();
-  const name = sh.getName();
+  // ==== ΝΕΕΣ ΣΤΑΘΕΡΕΣ ΓΙΑ ΤΟ Ε1 (ίδιο μοτίβο με Β1) ====
+  const NOTIFICATION_CELL_COMMENTS = 'E1';
+  const ORIGINAL_E1_TEXT = 'ΣΧΟΛΙΟ/ΑΙΤΙΑ';
+  const COMMENT_PLACEHOLDER = 'Γράψτε το σχόλιο σας εδώ';
+  const COL_C = 3; // Κατάσταση Εργασίας
+  const COL_E = 5; // Σχόλιο/Αιτία
 
-  // Skip START and MASTER sheets
-  if (["START", "MASTER"].includes(name)) {
-    if (isHeadless) {
-      console.log("remindMissingNames: Skipped (START/MASTER sheet)");
-    }
-    return;
-  }
+  // [RELIABILITY] Αποτροπή ταυτόχρονων εκτελέσεων & προσωρινών σφαλμάτων storage
+  const lock = LockService.getScriptLock();
+  let haveLock = false;
+  try {
+    try { haveLock = lock.tryLock(30000); } catch (_) {}
 
-  const last = sh.getLastRow();
-  if (last < 2) {
-    if (isHeadless) {
-      console.log("remindMissingNames: Skipped (no data rows)");
-    }
-    return;
-  }
-
-  // Find all cells with NAME_PROMPT in column B
-  const rngB = sh.getRange(2, COL_B, last - 1, 1);
-  const vals = rngB.getValues();
-  const targets = [];
-
-  for (let i = 0; i < vals.length; i++) {
-    const val = String(vals[i][0] || "").trim();
-    if (val === NAME_PROMPT) {
-      targets.push(rngB.getCell(i + 1, 1));
-    }
-  }
-
-  const b1Cell = sh.getRange(NOTIFICATION_CELL);
-
-  // Case 1: Missing names found
-  if (targets.length > 0) {
-    const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
-    const message =
-      '🚨 Εντοπίστηκαν ' + targets.length +
-      ' κελιά με ασυμπλήρωτο το "' + NAME_PROMPT + '" !!!\n' +
-      '📍 Κελιά: ' + cellRefs + '\n' +
-      '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη B.';
-
-    if (isHeadless) {
-      // Headless context: Update B1 cell with notification
-      try {
-        b1Cell.setValue(targets.length + '- ΟΝΟΜΑΤΑ ΛΕΙΠΟΥΝ!\n(' + cellRefs + ')').setWrap(true);
-        b1Cell.setBackground('#ff0000');  // Red background
-        b1Cell.setFontColor('#ffffff');   // White text
-        b1Cell.setFontWeight('bold');
-        b1Cell.setHorizontalAlignment('center');
-        SpreadsheetApp.flush();
-        console.log("remindMissingNames: B1 notification updated (" + targets.length + " missing names)");
-      } catch (e) {
-        console.error("remindMissingNames: Failed to update B1 notification:", e);
+    function _safeGetValues_(range) {
+      for (let i = 0; i < 3; i++) {
+        try { return range.getValues(); }
+        catch (err) {
+          if (String(err).indexOf('FAILED_PRECONDITION') !== -1) { Utilities.sleep(500 * (i + 1)); continue; }
+          throw err;
+        }
       }
-    } else {
-      // UI context: Show popup dialog
-      try {
-        PopupLib.showCustomPopup(message, 'error');
-        Utilities.sleep(500);
-        console.log("remindMissingNames: Popup shown (" + targets.length + " missing names)");
-      } catch (e) {
-        console.error("remindMissingNames: Popup failed (suppressed):", e);
+      return range.getValues();
+    }
+    function _safeGetBackground_(range) {
+      for (let i = 0; i < 3; i++) {
+        try { return range.getBackground(); }
+        catch (err) {
+          if (String(err).indexOf('FAILED_PRECONDITION') !== -1) { Utilities.sleep(500 * (i + 1)); continue; }
+          throw err;
+        }
+      }
+      return range.getBackground();
+    }
+
+    const sh = SpreadsheetApp.getActiveSheet();
+    const name = sh.getName();
+
+    // Skip START and MASTER sheets
+    if (["START", "MASTER"].includes(name)) {
+      if (isHeadless) {
+        console.log("remindMissingNames: Skipped (START/MASTER sheet)");
+      }
+      return;
+    }
+
+    const last = sh.getLastRow();
+    if (last < 2) {
+      if (isHeadless) {
+        console.log("remindMissingNames: Skipped (no data rows)");
+      }
+      return;
+    }
+
+    // Find all cells with NAME_PROMPT in column B
+    const rngB = sh.getRange(2, COL_B, last - 1, 1);
+    const vals = _safeGetValues_(rngB);
+    const targets = [];
+
+    for (let i = 0; i < vals.length; i++) {
+      const val = String(vals[i][0] || "").trim();
+      if (val === NAME_PROMPT) {
+        targets.push(rngB.getCell(i + 1, 1));
       }
     }
-  }
-  // Case 2: No missing names - restore B1 to original
-  else {
-    if (isHeadless) {
-      try {
-        // Check if B1 currently has notification (red background)
-        const currentBg = b1Cell.getBackground();
-        if (currentBg === '#ff0000' || currentBg === '#FF0000') {
-          // Restore original B1 text and style
-          b1Cell.setValue(ORIGINAL_B1_TEXT);
-          b1Cell.setBackground('#d9d9d9');  // Original gray background (adjust if needed)
-          b1Cell.setFontColor('#000000');   // Black text
+
+    const b1Cell = sh.getRange(NOTIFICATION_CELL);
+
+    // Case 1: Missing names found
+    if (targets.length > 0) {
+      const cellRefs = targets.map(c => c.getA1Notation()).join(', ');
+      const message =
+        '🚨 Εντοπίστηκαν ' + targets.length +
+        ' κελιά με ασυμπλήρωτο το "' + NAME_PROMPT + '" !!!\n' +
+        '📍 Κελιά: ' + cellRefs + '\n' +
+        '📝 Παρακαλώ συμπληρώστε το ονοματεπώνυμό σας στα κελιά αυτά στη στήλη B.';
+
+      if (isHeadless) {
+        // Headless context: Update B1 cell with notification
+        try {
+          b1Cell.setValue(targets.length + '- ΟΝΟΜΑΤΑ ΛΕΙΠΟΥΝ!\n(' + cellRefs + ')').setWrap(true);
+          b1Cell.setBackground('#ff0000');  // Original gray background (adjust if needed)
+          b1Cell.setFontColor('#ffffff');   // Black text
           b1Cell.setFontWeight('bold');
           b1Cell.setHorizontalAlignment('center');
           SpreadsheetApp.flush();
-          console.log("remindMissingNames: B1 notification cleared (all names filled)");
-        } else {
-          console.log("remindMissingNames: No missing names, B1 already normal");
+          console.log("remindMissingNames: B1 notification updated (" + targets.length + " missing names)");
+        } catch (e) {
+          console.error("remindMissingNames: Failed to update B1 notification:", e);
         }
-      } catch (e) {
-        console.error("remindMissingNames: Failed to restore B1:", e);
+      } else {
+        // UI context: Show popup dialog
+        try {
+          PopupLib.showCustomPopup(message, 'error');
+          Utilities.sleep(500);
+          console.log("remindMissingNames: Popup shown (" + targets.length + " missing names)");
+        } catch (e) {
+          console.error("remindMissingNames: Popup failed (suppressed):", e);
+        }
       }
-    } else {
-      // UI context: No popup needed
-      console.log("remindMissingNames: No missing names found");
     }
+    // Case 2: No missing names - restore B1 to original
+    else {
+      if (isHeadless) {
+        try {
+          // Check if B1 currently has notification (red background)
+          const currentBg = _safeGetBackground_(b1Cell);
+          if (currentBg === '#ff0000' || currentBg === '#FF0000') {
+            // Restore original B1 text and style
+            b1Cell.setValue(ORIGINAL_B1_TEXT);
+            b1Cell.setBackground('#d9d9d9');  // Original gray background (adjust if needed)
+            b1Cell.setFontColor('#000000');   // Black text
+            b1Cell.setFontWeight('bold');
+            b1Cell.setHorizontalAlignment('center');
+            SpreadsheetApp.flush();
+            console.log("remindMissingNames: B1 notification cleared (all names filled)");
+          } else {
+            console.log("remindMissingNames: No missing names, B1 already normal");
+          }
+        } catch (e) {
+          console.error("remindMissingNames: Failed to restore B1:", e);
+        }
+      } else {
+        // UI context: No popup needed
+        console.log("remindMissingNames: No missing names found");
+      }
+    }
+
+    // ====== ΝΕΟ BLOCK: Έλεγχος & υπόμνηση για ΣΧΟΛΙΑ στο E1 (ίδιο μοτίβο) ======
+
+    // Find rows where column C requires comment (contains "σχόλιο") and column E is empty or has placeholder
+    const rngC = sh.getRange(2, COL_C, last - 1, 1);
+    const rngE = sh.getRange(2, COL_E, last - 1, 1);
+    const valsC = _safeGetValues_(rngC);
+    const valsE = _safeGetValues_(rngE);
+    const commentTargets = [];
+
+    for (let i = 0; i < valsC.length; i++) {
+      const cVal = String(valsC[i][0] || "").toLowerCase();
+      if (cVal.indexOf("σχόλιο") !== -1) {
+        const eVal = String(valsE[i][0] || "").trim();
+        if (eVal === "" || eVal === COMMENT_PLACEHOLDER) {
+          commentTargets.push(rngE.getCell(i + 1, 1)); // store E-cell for reporting
+        }
+      }
+    }
+
+    const e1Cell = sh.getRange(NOTIFICATION_CELL_COMMENTS);
+
+    // Case 1 (E1): Missing comments found
+    if (commentTargets.length > 0) {
+      const eRefs = commentTargets.map(c => c.getA1Notation()).join(', ');
+      const messageComments =
+        '🚨 Εντοπίστηκαν ' + commentTargets.length +
+        ' κελιά χωρίς συμπληρωμένο σχόλιο.\n' +
+        '📍 Κελιά: ' + eRefs + '\n' +
+        '📝 Παρακαλώ συμπληρώστε τα σχόλιά σας στη στήλη Ε.';
+
+      if (isHeadless) {
+        // Headless context: Update E1 cell with notification
+        try {
+          e1Cell.setValue('ΣΥΜΠΛΗΡΩΣΤΕ ΤΑ ΣΧΟΛΙΑ ΣΑΣ!\n(' + eRefs + ')').setWrap(true);
+          e1Cell.setBackground('#ff0000');  // Original gray background (adjust if needed)
+          e1Cell.setFontColor('#ffffff');   // Black text
+          e1Cell.setFontWeight('bold');
+          e1Cell.setHorizontalAlignment('center');
+          SpreadsheetApp.flush();
+          console.log("remindMissingNames: E1 notification updated (" + commentTargets.length + " missing comments)");
+        } catch (e) {
+          console.error("remindMissingNames: Failed to update E1 notification:", e);
+        }
+      } else {
+        // UI context: Show popup dialog
+        try {
+          PopupLib.showCustomPopup(messageComments, 'warning');
+          Utilities.sleep(500);
+          console.log("remindMissingNames: Popup shown for comments (" + commentTargets.length + ")");
+        } catch (e) {
+          console.error("remindMissingNames: Popup for comments failed (suppressed):", e);
+        }
+      }
+    }
+    // Case 2 (E1): No missing comments - restore E1 to original
+    else {
+      if (isHeadless) {
+        try {
+          // Check if E1 currently has notification (red background)
+          const currentBgE = _safeGetBackground_(e1Cell);
+          if (currentBgE === '#ff0000' || currentBgE === '#FF0000') {
+            // Restore original E1 text and style
+            e1Cell.setValue(ORIGINAL_E1_TEXT);
+            e1Cell.setBackground('#d9d9d9');  // Original gray background (adjust if needed)
+            e1Cell.setFontColor('#000000');   // Black text
+            e1Cell.setFontWeight('bold');
+            e1Cell.setHorizontalAlignment('center');
+            SpreadsheetApp.flush();
+            console.log("remindMissingNames: E1 notification cleared (all comments OK)");
+          } else {
+            console.log("remindMissingNames: No missing comments, E1 already normal");
+          }
+        } catch (e) {
+          console.error("remindMissingNames: Failed to restore E1:", e);
+        }
+      } else {
+        // UI context: No popup needed
+        console.log("remindMissingNames: No missing comments found");
+      }
+    }
+  } finally {
+    if (haveLock) { try { lock.releaseLock(); } catch (_) {} }
   }
 }
+
+
+
 
 // ==========================
 // 📌 Clear All Notes (όλα τα tabs εκτός START/MASTER)
@@ -310,6 +434,7 @@ function clearAllNotes() {
   try { PopupLib.showCustomPopup('🧽 Καθαρίστηκαν όλα τα Notes.', 'success'); } catch (_) {}
 }
 
+
 // ==========================
 // 📌 Debug Context
 // ==========================
@@ -321,6 +446,7 @@ function debugUserContext() {
               '🕒 Ώρα: <b>' + new Date().toLocaleString() + '</b>';
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 }
+
 
 // ==========================
 // ✅ Tests

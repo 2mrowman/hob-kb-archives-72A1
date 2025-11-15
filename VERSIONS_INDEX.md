@@ -16,7 +16,7 @@
 | scripts | 🧩 HoBMastersLib_Capability_Map_(V1.3).md | `V1.3` | 12/11/2025 – 16:38 | `128c2ac` | [scripts/🧩 HoBMastersLib_Capability_Map_(V1.3).md](/scripts/🧩 HoBMastersLib_Capability_Map_(V1.3).md) |
 | scripts | 🧩 MenuLib_Capability_Map_(V7.0.0).md | `V7.0.0` | 12/11/2025 – 16:38 | `128c2ac` | [scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md](/scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md) |
 | scripts | 🧩 PopupLib_Capability_Map_(V2.0.0).md | `V2.0.0` | 12/11/2025 – 16:38 | `128c2ac` | [scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md](/scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md) |
-| libraries | AdminToolsLib.md | `V6.13.0` | 12/11/2025 – 16:38 | `128c2ac` | [libraries/AdminToolsLib.md](/libraries/AdminToolsLib.md) |
+| libraries | AdminToolsLib.md | `V6.13.1` | 15/11/2025 – 16:38 | `128c2ac` | [libraries/AdminToolsLib.md](/libraries/AdminToolsLib.md) |
 | libraries | CAPABILITY_MAP_AdminToolsLib.md | `V6.8.0` | 12/11/2025 – 16:38 | `128c2ac` | [libraries/CAPABILITY_MAP_AdminToolsLib.md](/libraries/CAPABILITY_MAP_AdminToolsLib.md) |
 | libraries | CAPABILITY_MAP_HoBMastersLib.md | `V1.3` | 12/11/2025 – 16:38 | `128c2ac` | [libraries/CAPABILITY_MAP_HoBMastersLib.md](/libraries/CAPABILITY_MAP_HoBMastersLib.md) |
 | libraries | CAPABILITY_MAP_MenuLib.md | `V7.0.0` | 12/11/2025 – 16:38 | `128c2ac` | [libraries/CAPABILITY_MAP_MenuLib.md](/libraries/CAPABILITY_MAP_MenuLib.md) |

@@ -1,5 +1,6 @@
-*Last updated:* 16/11/2025 - 21:00 (Europe/Athens)
-*Build:* (manual rebuild)
+*Last updated:* 16/11/2025 - 06:53 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:53 (DEV-only)
+*Build:* 7efb82d
 
 # HoB — VERSIONS INDEX
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.

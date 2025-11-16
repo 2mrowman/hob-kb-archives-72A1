@@ -1,69 +1,69 @@
-*Last updated:* 16/11/2025 - 06:50 (Europe/Athens)
+*Last updated:* 16/11/2025 - 07:11 (Europe/Athens)
 *Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:50 (DEV-only)
 *Build:* 475d0eb
 
-### Hall of Brands – RAW LINKS INDEX
+*Source: Full repository scan*
+# Hall of Brands – RAW LINKS INDEX
 Κεντρική αναφορά όλων των RAW URL για χρήση από GPT Models, Apps Script και n8n integrations.
 ---
 ## 🏠 ROOT FILES
 | File | RAW URL |
 |------|---------|
-| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/README.md |
-| notes_for_gpt.md | [https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md?ts=1760960086) |
+| CHANGELOG.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md |
 | INDEX_Checklist_Docs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md |
+| RAW_LINKS_INDEX.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md |
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/README.md |
 | SYSTEM_OVERVIEW.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md |
+| VERSIONS_INDEX.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/VERSIONS_INDEX.md |
 | index.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/index.md |
-| robots.txt | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/robots.txt |
-| .nojekyll | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/.nojekyll |
+| notes_for_gpt.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md |
 | update_index_links.py | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py |
+
 ---
 ## 📂 /docs/
 | File | RAW URL |
 |------|---------|
-| Prompt_Current.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md |
-| GAS_ChecklistV6_Project_Settings.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md |
+| FUNCTION_REFERENCE_CHECKLIST_ V8.0.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/FUNCTION_REFERENCE_CHECKLIST_%20V8.0.md |
+| Flow_Mapping_CHECKLIST_V8.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V8.md |
 | Functional_Flow_CHECKLIST_V7.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Functional_Flow_CHECKLIST_V7.md |
-| Flow_Mapping_CHECKLIST_V7.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Flow_Mapping_CHECKLIST_V7.md |
-| CHAT_HISTORY.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.md |
-| CHAT_HISTORY.pdf | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/CHAT_HISTORY.pdf |
-| Images/ (folder) | https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs/Images |
+| GAS_ChecklistV6_Project_Settings.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/GAS_ChecklistV6_Project_Settings.md |
+| Prompt_Current.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md |
 
 ---
-## 🕒 /docs/history/
+## ⚙️ Libraries (`/libraries/` )
 | File | RAW URL |
 |------|---------|
-| LATEST.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/LATEST.md |
-| MANIFEST.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/MANIFEST.md |
-| RAW_HISTORY_INDEX.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md |
-
-> **Note:** Τα τελευταία `CHAT_HISTORY_YYYYMMDD_X.md` (raw) παρατίθενται μέσα στο `RAW_HISTORY_INDEX.md`.
+| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/AdminToolsLib.md |
+| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md |
+| CAPABILITY_MAP_HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md |
+| CAPABILITY_MAP_MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md |
+| CAPABILITY_MAP_PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md |
+| HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md |
+| MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md |
+| PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md |
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md |
 
 ---
-
-## ⚙️ Libraries (`/libraries`)
-Core Apps Script libraries (RAW):
-
+## 🧠 Scripts (`/scripts/` )
 | File | RAW URL |
 |------|---------|
-| AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md?ts=1760960086 |
-| CAPABILITY_MAP_AdminToolsLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_AdminToolsLib.md?ts=1760960086 |
-| CAPABILITY_MAP_HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_HoBMastersLib.md?ts=1760960086 |
-| CAPABILITY_MAP_MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md?ts=1760960086 |
-| CAPABILITY_MAP_PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md?ts=1760960086 |
-| HoBMastersLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/HoBMastersLib.md?ts=1760960086 |
-| MenuLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/MenuLib.md?ts=1760960086 |
-| PopupLib.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/PopupLib.md?ts=1760960086 |
-| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1760960086 |
-
----
-
-## 🧩 /scripts/
-| File | RAW URL |
-|------|---------|
-| Checklist.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md |
+| Admin.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Admin.gs.md |
 | Blink.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Blink.gs.md |
-| AutoDupl_File&DeleteTabs.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/AutoDupl_File&DeleteTabs.gs.md |
+| Checklist.gs.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Checklist.gs.md |
+| Complete Menu Analysis_ Function Mapping & Duplication Report.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Complete%20Menu%20Analysis_%20Function%20Mapping%20&%20Duplication%20Report.md |
 | README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/README.md |
+| 🧩 HoBMastersLib_Capability_Map_(V1.3 ).md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20HoBMastersLib_Capability_Map_(V1.3 ).md |
+| 🧩 MenuLib_Capability_Map_(V7.0.0).md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20MenuLib_Capability_Map_(V7.0.0 ).md |
+| 🧩 PopupLib_Capability_Map_(V2.0.0).md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20PopupLib_Capability_Map_(V2.0.0 ).md |
+
+---
+## ✅ Tests (`/tests/`)
+| File | RAW URL |
+|------|---------|
+| README.md | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/README.md |
+| validate_links.py | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_links.py |
+| validate_structure.py | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_structure.py |
+| validate_timestamps.py | https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/tests/validate_timestamps.py |
 
 ---
 

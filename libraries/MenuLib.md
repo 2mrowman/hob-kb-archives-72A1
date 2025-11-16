@@ -3,8 +3,7 @@
 *Build:* 62ee83c
 
 // HoB - Menu Library
-   // Version: V7.2.1 – 23.10.2025 – Direct call to HoBMastersLib
-   // Version: V7.2.0 – 17/10/2025 – Cleaned menu loader + Owner submenu with version updater
+// Version: V7.2.2 – 16.11.2025 – Refactored error handling to use AdminToolsLib.showAdminPopup
 // =====================================================================================
 //
 // ✅ Functions included in this version:
@@ -37,26 +36,31 @@ function getOwnerEmail() {
 // MENU LOADER (Cleaned)
 // =====================================================================================
 function loadMenuDynamically() {
-  const userEmail = Session.getEffectiveUser().getEmail();
-  const ownerEmail = MenuLib.getOwnerEmail();
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const ui = SpreadsheetApp.getUi();
-  const menu = ui.createMenu("🗂️ HoB - Menu");
+  try {
+    const userEmail = Session.getEffectiveUser().getEmail();
+    const ownerEmail = MenuLib.getOwnerEmail();
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ui = SpreadsheetApp.getUi();
+    const menu = ui.createMenu("🗂️ HoB - Menu");
 
-  const userItems = MenuLib.getMenuItemsFromSheet("user");
-  userItems.forEach(i => menu.addItem(i.name, "MenuLib." + i.func));
+    const userItems = MenuLib.getMenuItemsFromSheet("user");
+    userItems.forEach(i => menu.addItem(i.name, "MenuLib." + i.func));
 
-  if (userEmail === ownerEmail && ss.getOwner().getEmail() === userEmail) {
-    const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
-    if (ownerItems.length > 0) {
-      const ownerSub = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
-      ownerItems.forEach(i => ownerSub.addItem(i.name, "MenuLib." + i.func));
-      ownerSub.addItem("🧩 Ενημέρωση Έκδοσης Script", "MenuLib.updateVersionFromMenu"); // ✅ new entry
-      menu.addSeparator().addSubMenu(ownerSub);
+    if (userEmail === ownerEmail && ss.getOwner().getEmail() === userEmail) {
+      const ownerItems = MenuLib.getMenuItemsFromSheet("owner");
+      if (ownerItems.length > 0) {
+        const ownerSub = ui.createMenu("🛠️ Εργαλεία Ιδιοκτήτη");
+        ownerItems.forEach(i => ownerSub.addItem(i.name, "MenuLib." + i.func));
+        ownerSub.addItem("🧩 Ενημέρωση Έκδοσης Script", "MenuLib.updateVersionFromMenu"); // ✅ new entry
+        menu.addSeparator().addSubMenu(ownerSub);
+      }
     }
-  }
 
-  menu.addToUi(); // ✅ fully dynamic (no hardcoded items)
+    menu.addToUi(); // ✅ fully dynamic (no hardcoded items)
+  } catch (err) {
+    // REFACTORED: Call AdminToolsLib wrapper instead of PopupLib directly
+    AdminToolsLib.showAdminPopup("Σφάλμα φόρτωσης μενού", err.message, "error");
+  }
 }
 
 // --------------------------
@@ -122,16 +126,16 @@ function getTemplateTabFromHoBMasters_() {
 // --------------------------
 // User Tools (Forms / Links)
 // --------------------------
-function openNeaParalaviForm() { openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8kO0/edit?usp=sharing"); }
-function openSakoulesForm() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing"); }
-function openForm_CreditTAXFree() { openUrlInNewTab("https://drive.google.com/file/d/1X-nZymdDICcRFP1r2TG7QuyArHw8swlJ/view?usp=sharing"); }
-function openForm_Elleipseis() { openUrlInNewTab("https://docs.google.com/document/d/1tEumPOt3GSSLF5mLBk9PcOMISQRjUQ58f4gHd0X1ugc/edit?usp=sharing"); }
-function openForm_AllagesTimon() { openUrlInNewTab("https://docs.google.com/document/d/14QROsEOZZx8DT_MFfLZOJPLq89wVo41cPT4JTpPen5w/edit?usp=sharing"); }
-function openForm_ElattomatikosProion() { openUrlInNewTab("https://docs.google.com/document/d/1buWOggRgUYjijcOSds4z6t4SkQZqL7leKar9r-dv-vI/edit?usp=sharing"); }
-function openForm_CheckKodikou() { openUrlInNewTab("https://docs.google.com/document/d/1nyuKkQCwb6EzK_WKy4m1ZvOm2RJp2xCM5dIKDxp0_sI/edit?usp=sharing"); }
-function openForm_AstoxiasParaggelias() { openUrlInNewTab("https://docs.google.com/document/d/1c1tyNvI70_Qd4GnblSau9NVhSGK4h2EyAOMHYx_RW08/edit?usp=sharing"); }
-function openForm_GenikiTaxydromiki() { openUrlInNewTab("https://docs.google.com/document/d/1nZEajIgrwQOyMWBcZ61KDPagnvacZfDsMcCI69XVkXI/edit?usp=sharing"); }
-function openForm_EmailsList() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-3sOYvihsFmQ8VZmEJsVmqPGu-lms/edit?usp=sharing"); }
+function openNeaParalaviForm() { openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8kO0/edit?usp=sharing" ); }
+function openSakoulesForm() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing" ); }
+function openForm_CreditTAXFree() { openUrlInNewTab("https://drive.google.com/file/d/1X-nZymdDICcRFP1r2TG7QuyArHw8swlJ/view?usp=sharing" ); }
+function openForm_Elleipseis() { openUrlInNewTab("https://docs.google.com/document/d/1tEumPOt3GSSLF5mLBk9PcOMISQRjUQ58f4gHd0X1ugc/edit?usp=sharing" ); }
+function openForm_AllagesTimon() { openUrlInNewTab("https://docs.google.com/document/d/14QROsEOZZx8DT_MFfLZOJPLq89wVo41cPT4JTpPen5w/edit?usp=sharing" ); }
+function openForm_ElattomatikosProion() { openUrlInNewTab("https://docs.google.com/document/d/1buWOggRgUYjijcOSds4z6t4SkQZqL7leKar9r-dv-vI/edit?usp=sharing" ); }
+function openForm_CheckKodikou() { openUrlInNewTab("https://docs.google.com/document/d/1nyuKkQCwb6EzK_WKy4m1ZvOm2RJp2xCM5dIKDxp0_sI/edit?usp=sharing" ); }
+function openForm_AstoxiasParaggelias() { openUrlInNewTab("https://docs.google.com/document/d/1c1tyNvI70_Qd4GnblSau9NVhSGK4h2EyAOMHYx_RW08/edit?usp=sharing" ); }
+function openForm_GenikiTaxydromiki() { openUrlInNewTab("https://docs.google.com/document/d/1nZEajIgrwQOyMWBcZ61KDPagnvacZfDsMcCI69XVkXI/edit?usp=sharing" ); }
+function openForm_EmailsList() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-3sOYvihsFmQ8VZmEJsVmqPGu-lms/edit?usp=sharing" ); }
 
 // --------------------------
 // Helper: Άνοιγμα URL σε νέο tab
@@ -171,7 +175,8 @@ function createNewDayFromMenu() {
     }
     AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab); // ✅ Proxy call
   } catch (err) {
-    PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu:<br>" + err);
+    PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu:  
+" + err);
   }
 }
 
@@ -192,6 +197,8 @@ function updateVersionFromMenu() {
   try {
     AdminToolsLib.updateVersionInfo_Remote_();
   } catch (err) {
-    PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση:<br><br>" + err.message);
+    PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση:  
+  
+" + err.message);
   }
 }

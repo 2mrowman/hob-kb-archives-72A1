@@ -3,7 +3,7 @@
 *Build:* 62ee83c
 
 // HoB - Admin Tools Library
-// Version: V6.13.1 – 15.11.2025 – Dynamic FOLDER ID lookup from Checklist_Master_Tables - Added E1 comment reminder  - LockService remindMissingNames added
+// Version: V6.14.0 – 16.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -14,6 +14,7 @@
 // testLibExists
 // testTemplateTab
 // testAllPopupsFromAdmin
+// showAdminPopup (NEW)
 // ===== ΡΥΘΜΙΣΕΙΣ =====
 const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
 const MASTER_SHEET_NAME     = 'MASTER';
@@ -128,7 +129,8 @@ function automatedDuplicateAndCleanup() {
     showMasterAndDeleteOthers();
 
     try {
-      PopupLib.showSuccessMessage('✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b><br>📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).');
+      PopupLib.showSuccessMessage('✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b>  
+📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).');
     } catch (_) {}
 
     Logger.log('✅ Ολοκλήρωση Duplicate & Cleanup');
@@ -137,7 +139,9 @@ function automatedDuplicateAndCleanup() {
   } catch (error) {
     Logger.log('⚠️ Σφάλμα: ' + error.toString());
     try {
-      PopupLib.showErrorMessage('⚠️ Σφάλμα στο automatedDuplicateAndCleanup:<br><br>' + error.toString());
+      PopupLib.showErrorMessage('⚠️ Σφάλμα στο automatedDuplicateAndCleanup:  
+  
+' + error.toString());
     } catch (_) {}
     throw error; // Re-throw για να το δει ο trigger
   }
@@ -431,8 +435,10 @@ function clearAllNotes() {
 function debugUserContext() {
   const email = Session.getEffectiveUser().getEmail();
   const docTitle = SpreadsheetApp.getActiveSpreadsheet().getName();
-  const msg = '👤 Χρήστης: <b>' + email + '</b><br>' +
-              '📄 Αρχείο: <b>' + docTitle + '</b><br>' +
+  const msg = '👤 Χρήστης: <b>' + email + '</b>  
+' +
+              '📄 Αρχείο: <b>' + docTitle + '</b>  
+' +
               '🕒 Ώρα: <b>' + new Date().toLocaleString() + '</b>';
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 }
@@ -460,3 +466,27 @@ function testAllPopupsFromAdmin() {
   }
 }
 
+/**
+ * [NEW V6.14.0] Generic wrapper to show a popup message via PopupLib.
+ * Centralizes UI messaging for other libraries.
+ * @param {string} title The title of the popup.
+ * @param {string} message The message to display.
+ * @param {string} type The type of popup ('error', 'success', 'info'). Defaults to 'info'.
+ */
+function showAdminPopup(title, message, type) {
+  type = type || 'info';
+  try {
+    if (type === 'error') {
+      PopupLib.showError(title, message);
+    } else if (type === 'success') {
+      PopupLib.showSuccessMessage(title + '  
+  
+' + message);
+    } else {
+      PopupLib.showInfo(title, message);
+    }
+  } catch (e) {
+    // Fallback to native alert if PopupLib fails for any reason
+    SpreadsheetApp.getUi().alert(title + ":\n" + message);
+  }
+}

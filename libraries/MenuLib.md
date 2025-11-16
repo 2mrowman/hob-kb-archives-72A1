@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 05:38 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 05:38 (DEV-only)
-*Build:* 62ee83c
+*Last updated:* 16/11/2025 - 06:50 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:50 (DEV-only)
+*Build:* 475d0eb
 
 // HoB - Menu Library
 // Version: V7.2.2 – 16.11.2025 – Refactored error handling to use AdminToolsLib.showAdminPopup
@@ -17,7 +17,6 @@
 // createNewDayFromMenu
 // updateVersionFromMenu
 // =====================================================================================
-
 // --------------------------
 // Constants
 // --------------------------
@@ -198,7 +197,7 @@ function updateVersionFromMenu() {
     AdminToolsLib.updateVersionInfo_Remote_();
   } catch (err) {
     PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση:  
-  
+
 " + err.message);
   }
 }

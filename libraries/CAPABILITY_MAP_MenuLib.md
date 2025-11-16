@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 05:38 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 05:38 (DEV-only)
-*Build:* 62ee83c
+*Last updated:* 16/11/2025 - 06:50 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:50 (DEV-only)
+*Build:* 475d0eb
 
 # 🧩 MenuLib — Capability Map (V7.0.0)
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_MenuLib.md

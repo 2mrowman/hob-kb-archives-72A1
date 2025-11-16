@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 05:38 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 05:38 (DEV-only)
-*Build:* 62ee83c
+*Last updated:* 16/11/2025 - 06:50 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:50 (DEV-only)
+*Build:* 475d0eb
 
 // HoB - Admin Tools Library
 // Version: V6.14.0 – 16.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
@@ -140,7 +140,7 @@ function automatedDuplicateAndCleanup() {
     Logger.log('⚠️ Σφάλμα: ' + error.toString());
     try {
       PopupLib.showErrorMessage('⚠️ Σφάλμα στο automatedDuplicateAndCleanup:  
-  
+
 ' + error.toString());
     } catch (_) {}
     throw error; // Re-throw για να το δει ο trigger
@@ -480,7 +480,7 @@ function showAdminPopup(title, message, type) {
       PopupLib.showError(title, message);
     } else if (type === 'success') {
       PopupLib.showSuccessMessage(title + '  
-  
+
 ' + message);
     } else {
       PopupLib.showInfo(title, message);

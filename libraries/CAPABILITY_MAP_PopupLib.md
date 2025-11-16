@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 06:53 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:53 (DEV-only)
-*Build:* 7efb82d
+*Last updated:* 16/11/2025 - 07:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 07:13 (DEV-only)
+*Build:* 9439c88
 
 # 🧩 PopupLib — Capability Map (V2.0.0)
 **URL:** https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/CAPABILITY_MAP_PopupLib.md

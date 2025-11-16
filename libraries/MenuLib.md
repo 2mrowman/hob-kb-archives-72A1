@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 06:53 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 06:53 (DEV-only)
-*Build:* 7efb82d
+*Last updated:* 16/11/2025 - 07:13 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 07:13 (DEV-only)
+*Build:* 9439c88
 
 // HoB - Menu Library
 // Version: V7.2.2 – 16.11.2025 – Refactored error handling to use AdminToolsLib.showAdminPopup

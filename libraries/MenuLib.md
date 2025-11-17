@@ -17,6 +17,7 @@
 // createNewDayFromMenu
 // updateVersionFromMenu
 // =====================================================================================
+
 // --------------------------
 // Constants
 // --------------------------
@@ -173,10 +174,10 @@ function createNewDayFromMenu() {
       return;
     }
     AdminToolsLib.createNewDay_AUTO(HOB_MASTERS_FILE_ID, templateTab); // ✅ Proxy call
-  } catch (err) {
-    PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu:  
-" + err);
-  }
+  // FIX #1 — createNewDayFromMenu()
+} catch (err) {
+  PopupLib.showErrorMessage("❌ Σφάλμα στο createNewDayFromMenu: " + err);
+}
 }
 
 // --------------------------
@@ -195,9 +196,8 @@ function updateVersionFromMenu() {
 
   try {
     AdminToolsLib.updateVersionInfo_Remote_();
-  } catch (err) {
-    PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση:  
-
-" + err.message);
-  }
+  // FIX #2 — updateVersionFromMenu()
+} catch (err) {
+  PopupLib.showErrorMessage("⚠️ Σφάλμα κατά την ενημέρωση: " + err.message);
+}
 }

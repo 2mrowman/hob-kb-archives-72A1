@@ -4,6 +4,11 @@
 
 // HoB - Admin Tools Library
 // Version: V6.14.0 – 16.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
+// Metadata:
+// Last updated: 16/11/2025 - 07:13 (Europe/Athens)
+// Last synced with VERSIONS_INDEX.md: 16/11/2025 - 07:13 (DEV-only)
+// Build: 9439c88
+
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -15,6 +20,7 @@
 // testTemplateTab
 // testAllPopupsFromAdmin
 // showAdminPopup (NEW)
+
 // ===== ΡΥΘΜΙΣΕΙΣ =====
 const HOB_MASTERS_FILE_ID   = '1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI'; // HoB_Masters
 const MASTER_SHEET_NAME     = 'MASTER';
@@ -109,7 +115,7 @@ function automatedDuplicateAndCleanup() {
     // (2) Υπολογισμός YYMM (προηγούμενος μήνας)
     const today = new Date();
     let yy = today.getFullYear().toString().slice(-2);
-    let mm = today.getMonth(); // 0..11
+    let mm = today.getMonth(); // 0..11 (προηγούμενος μήνας ως 1..12)
     if (mm === 0) {
       mm = 12;
       yy = (parseInt(yy, 10) - 1).toString();
@@ -129,8 +135,9 @@ function automatedDuplicateAndCleanup() {
     showMasterAndDeleteOthers();
 
     try {
-      PopupLib.showSuccessMessage('✅ Δημιουργήθηκε αντίγραφο: <b>' + newFileName + '</b>  
-📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>' + MASTER_SHEET_NAME + '</b>).');
+      PopupLib.showSuccessMessage(
+        `✅ Δημιουργήθηκε αντίγραφο: <b>${newFileName}</b>\n📋 Καθαρίστηκε το ΤΡΕΧΟΝ αρχείο (κρατήθηκε μόνο το <b>${MASTER_SHEET_NAME}</b>).`
+      );
     } catch (_) {}
 
     Logger.log('✅ Ολοκλήρωση Duplicate & Cleanup');
@@ -139,9 +146,9 @@ function automatedDuplicateAndCleanup() {
   } catch (error) {
     Logger.log('⚠️ Σφάλμα: ' + error.toString());
     try {
-      PopupLib.showErrorMessage('⚠️ Σφάλμα στο automatedDuplicateAndCleanup:  
-
-' + error.toString());
+      PopupLib.showErrorMessage(
+        `⚠️ Σφάλμα στο automatedDuplicateAndCleanup:\n\n${error.toString()}`
+      );
     } catch (_) {}
     throw error; // Re-throw για να το δει ο trigger
   }
@@ -284,8 +291,8 @@ function remindMissingNames() {
         // Headless context: Update B1 cell with notification
         try {
           b1Cell.setValue(targets.length + '- ΟΝΟΜΑΤΑ ΛΕΙΠΟΥΝ!\n(' + cellRefs + ')').setWrap(true);
-          b1Cell.setBackground('#ff0000');  // Original gray background (adjust if needed)
-          b1Cell.setFontColor('#ffffff');   // Black text
+          b1Cell.setBackground('#ff0000');
+          b1Cell.setFontColor('#ffffff');
           b1Cell.setFontWeight('bold');
           b1Cell.setHorizontalAlignment('center');
           SpreadsheetApp.flush();
@@ -313,8 +320,8 @@ function remindMissingNames() {
           if (currentBg === '#ff0000' || currentBg === '#FF0000') {
             // Restore original B1 text and style
             b1Cell.setValue(ORIGINAL_B1_TEXT);
-            b1Cell.setBackground('#d9d9d9');  // Original gray background (adjust if needed)
-            b1Cell.setFontColor('#000000');   // Black text
+            b1Cell.setBackground('#d9d9d9');
+            b1Cell.setFontColor('#000000');
             b1Cell.setFontWeight('bold');
             b1Cell.setHorizontalAlignment('center');
             SpreadsheetApp.flush();
@@ -365,8 +372,8 @@ function remindMissingNames() {
         // Headless context: Update E1 cell with notification
         try {
           e1Cell.setValue('ΣΥΜΠΛΗΡΩΣΤΕ ΤΑ ΣΧΟΛΙΑ ΣΑΣ!\n(' + eRefs + ')').setWrap(true);
-          e1Cell.setBackground('#ff0000');  // Original gray background (adjust if needed)
-          e1Cell.setFontColor('#ffffff');   // Black text
+          e1Cell.setBackground('#ff0000');
+          e1Cell.setFontColor('#ffffff');
           e1Cell.setFontWeight('bold');
           e1Cell.setHorizontalAlignment('center');
           SpreadsheetApp.flush();
@@ -394,8 +401,8 @@ function remindMissingNames() {
           if (currentBgE === '#ff0000' || currentBgE === '#FF0000') {
             // Restore original E1 text and style
             e1Cell.setValue(ORIGINAL_E1_TEXT);
-            e1Cell.setBackground('#d9d9d9');  // Original gray background (adjust if needed)
-            e1Cell.setFontColor('#000000');   // Black text
+            e1Cell.setBackground('#d9d9d9');
+            e1Cell.setFontColor('#000000');
             e1Cell.setFontWeight('bold');
             e1Cell.setHorizontalAlignment('center');
             SpreadsheetApp.flush();
@@ -435,11 +442,7 @@ function clearAllNotes() {
 function debugUserContext() {
   const email = Session.getEffectiveUser().getEmail();
   const docTitle = SpreadsheetApp.getActiveSpreadsheet().getName();
-  const msg = '👤 Χρήστης: <b>' + email + '</b>  
-' +
-              '📄 Αρχείο: <b>' + docTitle + '</b>  
-' +
-              '🕒 Ώρα: <b>' + new Date().toLocaleString() + '</b>';
+  const msg = `👤 Χρήστης: <b>${email}</b>\n📄 Αρχείο: <b>${docTitle}</b>\n🕒 Ώρα: <b>${new Date().toLocaleString()}</b>`;
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
 }
 
@@ -479,9 +482,7 @@ function showAdminPopup(title, message, type) {
     if (type === 'error') {
       PopupLib.showError(title, message);
     } else if (type === 'success') {
-      PopupLib.showSuccessMessage(title + '  
-
-' + message);
+      PopupLib.showSuccessMessage(`${title}\n\n${message}`);
     } else {
       PopupLib.showInfo(title, message);
     }

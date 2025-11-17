@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 21:45 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 21:45 (DEV-only)
-*Build:* (manual rebuild)
+*Last updated:* 17/11/2025 - 09:26 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 17/11/2025 - 09:26 (DEV-only)
+*Build:* d915f4b
 
 # INDEX_Checklist_Docs.md
 **Auto-Generated Documentation Index**

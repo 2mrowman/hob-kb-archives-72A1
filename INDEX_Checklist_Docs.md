@@ -1,23 +1,18 @@
+*Last updated:* 17/11/2025 - 09:26 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 17/11/2025 - 09:26 (DEV-only)
+*Build:* d915f4b
+
 # INDEX_Checklist_Docs.md
 **Auto-Generated Documentation Index**
-
 **Repository:** hob-kb-archives-72A1
 **Generated:** 16/11/2025 - 06:04 (GMT+3)
 **Timestamp:** 1763273083
-
 ---
-
 ## Purpose
-
 This file is **auto-generated** by GitHub Actions whenever any `.md`, `.py`, or `.yml` file is modified in the repository.
-
 All RAW GitHub URLs include cache-busting timestamps (`?ts=1763273083`) to ensure ChecklistGPT always reads the latest version of each file.
-
 ---
-
 ## Documentation Structure
-
-
 ### Root Level
 
 - [MD] **[CHANGELOG.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/CHANGELOG.md?ts=1763273083)**
@@ -39,7 +34,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1763273083`) to ensur
 - [PY] **[update_index_links.py](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/update_index_links.py?ts=1763273083)**
   `update_index_links.py`
 
-
 ### Documentation (/docs/)
 
 - [MD] **[FUNCTION_REFERENCE_CHECKLIST_ V8.0.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/FUNCTION_REFERENCE_CHECKLIST_%20V8.0.md?ts=1763273083)**
@@ -52,7 +46,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1763273083`) to ensur
   `docs/GAS_ChecklistV6_Project_Settings.md`
 - [MD] **[Prompt_Current.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/Prompt_Current.md?ts=1763273083)**
   `docs/Prompt_Current.md`
-
 
 ### Libraries (/libraries/)
 
@@ -75,7 +68,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1763273083`) to ensur
 - [MD] **[README.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/libraries/README.md?ts=1763273083)**
   `libraries/README.md`
 
-
 ### Scripts (/scripts/)
 
 - [MD] **[Admin.gs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/Admin.gs.md?ts=1763273083)**
@@ -94,7 +86,6 @@ All RAW GitHub URLs include cache-busting timestamps (`?ts=1763273083`) to ensur
   `scripts/🧩 MenuLib_Capability_Map_(V7.0.0).md`
 - [MD] **[🧩 PopupLib_Capability_Map_(V2.0.0).md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/scripts/🧩%20PopupLib_Capability_Map_(V2.0.0).md?ts=1763273083)**
   `scripts/🧩 PopupLib_Capability_Map_(V2.0.0).md`
-
 
 ### Tests (/tests/)
 

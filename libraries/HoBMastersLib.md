@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 07:13 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 07:13 (DEV-only)
-*Build:* 9439c88
+*Last updated:* 17/11/2025 - 09:26 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 17/11/2025 - 09:26 (DEV-only)
+*Build:* d915f4b
 
 /** HoBMastersLib v1.3 — Resilient Template Access + Retry Build (09/10/2025)
  *  Βελτίωση ασφάλειας στην πρόσβαση template sheet και αποφυγή προσωρινών σφαλμάτων.

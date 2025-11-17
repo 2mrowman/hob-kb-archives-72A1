@@ -1,6 +1,6 @@
-*Last updated:* 16/11/2025 - 07:13 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 16/11/2025 - 07:13 (DEV-only)
-*Build:* 9439c88
+*Last updated:* 17/11/2025 - 09:26 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 17/11/2025 - 09:26 (DEV-only)
+*Build:* d915f4b
 
 // === BLINK V2.0.1 — Hotfix: “server error” exclusion (no throws when no UI) ======
 // Aligned with V2.0.0 (15.10.2025) — minimal, safe UI-guard; no behavior change for users.

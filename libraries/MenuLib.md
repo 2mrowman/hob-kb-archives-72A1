@@ -3,7 +3,7 @@
 *Build:* ac791c9
 
 // HoB - Menu Library
-// Version: V7.2.2 – 16.11.2025 – Refactored error handling to use AdminToolsLib.showAdminPopup
+// Version: V7.2.3 – 20.11.2025 – Added (function openForm_EkpaidefsiTameiou)
 // =====================================================================================
 //
 // ✅ Functions included in this version:
@@ -123,7 +123,8 @@ function getTemplateTabFromHoBMasters_() {
 }
 
 // --------------------------
-// User Tools (Forms / Links)
+// User Tools (Forms / Links) 
+// [Προσθέτεις ένα function name (eg function openForm_"το ονομα που θέλω στο MenuList αρχείο πχ. "OnomasiaFunction"() { openUrlInNewTab("https://docs...."); })]
 // --------------------------
 function openNeaParalaviForm() { openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8kO0/edit?usp=sharing" ); }
 function openSakoulesForm() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing" ); }
@@ -135,6 +136,7 @@ function openForm_CheckKodikou() { openUrlInNewTab("https://docs.google.com/docu
 function openForm_AstoxiasParaggelias() { openUrlInNewTab("https://docs.google.com/document/d/1c1tyNvI70_Qd4GnblSau9NVhSGK4h2EyAOMHYx_RW08/edit?usp=sharing" ); }
 function openForm_GenikiTaxydromiki() { openUrlInNewTab("https://docs.google.com/document/d/1nZEajIgrwQOyMWBcZ61KDPagnvacZfDsMcCI69XVkXI/edit?usp=sharing" ); }
 function openForm_EmailsList() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/1_RyDNnbcTIUyoU-3sOYvihsFmQ8VZmEJsVmqPGu-lms/edit?usp=sharing" ); }
+function openForm_EkpaidefsiTameiou() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/1cZiLs15l2KQr5PIMYcUpqyuNIVALnoA8StahwQhpnnE/edit?usp=sharing"); }
 
 // --------------------------
 // Helper: Άνοιγμα URL σε νέο tab

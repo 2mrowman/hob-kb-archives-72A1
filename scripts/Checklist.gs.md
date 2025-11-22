@@ -162,11 +162,23 @@ function onEdit(e) {
       cellD.setNumberFormat(timestampFormat).setValue(new Date());
     }
 
-    if (col === colB && val && val !== "Όνομα Επώνυμο?") {
-      e.range.setFontColor(null).setFontWeight(null).setBackground(null);
-      try {
-        PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', String(val).trim());
-      } catch (ignore) {}
+    if (col === colB) {
+      const cellC = sheet.getRange(row, colC);
+      const vC = String(cellC.getValue() || "").trim();
+
+      // Αν δεν έχει γίνει επιλογή στη C, καθάρισε το όνομα στη B
+      // Στόχος: να μην παραμένουν εγγραφές ονόματος χωρίς αντίστοιχη επιλογή στη στήλη C.
+      if (!vC) {
+        e.range.clearContent();
+        return;
+      }
+
+      if (val && val !== "Όνομα Επώνυμο?") {
+        e.range.setFontColor(null).setFontWeight(null).setBackground(null);
+        try {
+          PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', String(val).trim());
+        } catch (ignore) {}
+      }
     }
 
     if (col === colE) {

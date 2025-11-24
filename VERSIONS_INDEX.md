@@ -1,10 +1,9 @@
-*Last updated: 20/11/2025 – 10:52 (Europe/Athens)*
-*Build: aeac42b*
+*Last updated:* 24/11/2025 - 15:39 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 24/11/2025 - 15:39 (DEV-only)
+*Build:* 21332c3
 
 # HoB — VERSIONS INDEX
-
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.
-
 | Type | File | Version | Last change (Athens) | Build | Path |
 |---|---|---|---|---|---|
 | scripts | Admin.gs.md | `V7.3.1` | 20/11/2025 – 09:26 | `58c49c2` | [scripts/Admin.gs.md](/scripts/Admin.gs.md) |

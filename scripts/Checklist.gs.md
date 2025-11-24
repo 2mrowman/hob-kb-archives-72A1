@@ -1,13 +1,10 @@
-*Last updated:* 20/11/2025 - 09:26 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 20/11/2025 - 09:26 (DEV-only)
-*Build:* ac791c9
+*Last updated:* 24/11/2025 - 15:39 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 24/11/2025 - 15:39 (DEV-only)
+*Build:* 21332c3
 
 // CHECKLIST V7.4.3 — Production — 21/11/2025 – 16:35 - automatedDuplicateAndCleanup +new onEdit delete names if C empty
-
-
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
-
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -15,7 +12,6 @@ function onOpen(e) {
     .addItem("⏳ Φόρτωση Μενού…", "loadMenuDynamically")
     .addToUi();
 }
-
 // INSTALLABLE onOpen: FULL PRIVILEGES
 function onOpen_Installed(e) {
   try {
@@ -97,7 +93,6 @@ function hideLocalMasterIfVisible_() {
   const others = ss.getSheets().filter(sh => sh.getName() !== "MASTER" && !sh.isSheetHidden());
   if (others.length > 0) masterSheet.hideSheet();
 }
-
 
 // onEdit handler + TIMESTAMP helper V5
 function onEdit(e) {

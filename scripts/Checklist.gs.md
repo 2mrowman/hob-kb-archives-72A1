@@ -2,9 +2,12 @@
 *Last synced with VERSIONS_INDEX.md:* 20/11/2025 - 09:26 (DEV-only)
 *Build:* ac791c9
 
-// CHECKLIST V7.4.2 — Production — 14/11/2025 – 16:43 - automatedDuplicateAndCleanup +new onEdit V4
+// CHECKLIST V7.4.3 — Production — 21/11/2025 – 16:35 - automatedDuplicateAndCleanup +new onEdit delete names if C empty
+
+
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
+
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -12,6 +15,7 @@ function onOpen(e) {
     .addItem("⏳ Φόρτωση Μενού…", "loadMenuDynamically")
     .addToUi();
 }
+
 // INSTALLABLE onOpen: FULL PRIVILEGES
 function onOpen_Installed(e) {
   try {
@@ -94,7 +98,8 @@ function hideLocalMasterIfVisible_() {
   if (others.length > 0) masterSheet.hideSheet();
 }
 
-// onEdit handler + TIMESTAMP helper V4
+
+// onEdit handler + TIMESTAMP helper V5
 function onEdit(e) {
   if (!e || !e.range) {
     console.log("onEdit: No event object (manual run)");
@@ -107,72 +112,117 @@ function onEdit(e) {
 
     const col = e.range.getColumn();
     const row = e.range.getRow();
-    const val = e.range.getValue();
     const timestampFormat = 'HH:mm:ss.000" - "dd/MM';
     const colB = 2, colC = 3, colD = 4, colE = 5;
     const placeholderB = "Όνομα Επώνυμο?";
     const placeholderE = "Γράψτε το σχόλιο σας εδώ";
 
     if (col === colC) {
-      const cellB = sheet.getRange(row, colB);
-      const cellD = sheet.getRange(row, colD);
-      const cellE = sheet.getRange(row, colE);
-      const v = (e.value == null) ? "" : String(e.value).trim();
+      const numRows = e.range.getNumRows();
+      const values = e.range.getValues();
 
-      if (v === "") {
-        cellB.clearContent().setFontColor(null).setFontWeight(null);
-        cellD.clearContent();
-        cellE.clearContent().setFontColor(null).setFontWeight(null);
-        return;
-      }
+      for (let i = 0; i < numRows; i++) {
+        const targetRow = row + i;
+        const cellB = sheet.getRange(targetRow, colB);
+        const cellD = sheet.getRange(targetRow, colD);
+        const cellE = sheet.getRange(targetRow, colE);
+        const v = (values[i] && values[i][0] != null) ? String(values[i][0]).trim() : "";
 
-      if (v.toLowerCase().indexOf("σχόλιο") !== -1) {
-        if (!cellE.getValue()) {
-          cellE.setValue(placeholderE).setFontColor("#d32f2f").setFontWeight("bold");
-        }
-      } else {
-        // Αν αλλάξει από "σχόλιο" σε κάτι άλλο και η Ε έχει το placeholder → καθάρισε
-        if (cellE.getValue() === placeholderE) {
+        if (v === "") {
+          cellB.clearContent().setFontColor(null).setFontWeight(null);
+          cellD.clearContent();
           cellE.clearContent().setFontColor(null).setFontWeight(null);
+          continue;
         }
-      }
 
-      if (!cellB.getValue()) {
-        var sticky = "";
-        try {
-          var r = row - 1;
-          while (r >= 2) {
-            var rowVals = sheet.getRange(r, colB, 1, (colE - colB + 1)).getValues()[0]; // B..E
-            var isAllEmpty = rowVals.every(function (x) { return String(x || "").trim() === ""; });
-            if (isAllEmpty) break;
-            var cand = String(rowVals[0] || "").trim();
-            if (cand && cand !== placeholderB) { sticky = cand; break; }
-            r--;
+        if (v.toLowerCase().indexOf("σχόλιο") !== -1) {
+          if (!cellE.getValue()) {
+            cellE.setValue(placeholderE).setFontColor("#d32f2f").setFontWeight("bold");
           }
-        } catch (ignore) {}
-
-        if (sticky) {
-          cellB.setValue(sticky).setFontColor(null).setFontWeight(null); // δεν αγγίζουμε background
         } else {
-          cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+          // Αν αλλάξει από "σχόλιο" σε κάτι άλλο και η Ε έχει το placeholder → καθάρισε
+          if (cellE.getValue() === placeholderE) {
+            cellE.clearContent().setFontColor(null).setFontWeight(null);
+          }
         }
-      }
 
-      // Timestamp στη Δ
-      cellD.setNumberFormat(timestampFormat).setValue(new Date());
+        if (!cellB.getValue()) {
+          var sticky = "";
+          try {
+            var r = targetRow - 1;
+            while (r >= 2) {
+              var rowVals = sheet.getRange(r, colB, 1, (colE - colB + 1)).getValues()[0]; // B..E
+              var isAllEmpty = rowVals.every(function (x) { return String(x || "").trim() === ""; });
+              if (isAllEmpty) break;
+              var cand = String(rowVals[0] || "").trim();
+              if (cand && cand !== placeholderB) { sticky = cand; break; }
+              r--;
+            }
+          } catch (ignore) {}
+
+          if (sticky) {
+            cellB.setValue(sticky).setFontColor(null).setFontWeight(null); // δεν αγγίζουμε background
+          } else {
+            cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+          }
+        }
+        cellD.setNumberFormat(timestampFormat).setValue(new Date());
+      }
     }
 
-    if (col === colB && val && val !== "Όνομα Επώνυμο?") {
-      e.range.setFontColor(null).setFontWeight(null).setBackground(null);
+    if (col === colB) {
+      const numRows = e.range.getNumRows();
+      const values = e.range.getValues();
+
+      for (let i = 0; i < numRows; i++) {
+        const targetRow = row + i;
+        const nameCell = sheet.getRange(targetRow, colB);
+        const choiceCell = sheet.getRange(targetRow, colC);
+        const choiceVal = String(choiceCell.getValue() || "").trim();
+        const nameVal = (values[i] && values[i][0] != null) ? String(values[i][0]).trim() : "";
+
+        if (!choiceVal) {
+          nameCell.clearContent();
+          continue;
+        }
+
+        if (nameVal && nameVal !== placeholderB) {
+          nameCell.setFontColor(null).setFontWeight(null).setBackground(null);
+          try {
+            PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', nameVal);
+          } catch (ignore) {}
+        }
+      }
+
       try {
-        PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', String(val).trim());
+        const lastRow = sheet.getLastRow();
+        if (lastRow >= 2) {
+          const rngAllB = sheet.getRange(2, colB, lastRow - 1, 1);
+          const rngAllC = sheet.getRange(2, colC, lastRow - 1, 1);
+          const bVals = rngAllB.getValues();
+          const cVals = rngAllC.getValues();
+          let needWrite = false;
+          for (let r = 0; r < bVals.length; r++) {
+            const cval = String(cVals[r][0] || "").trim();
+            if (!cval && String(bVals[r][0] || "").trim() !== "") {
+              bVals[r][0] = ""; // clear content μόνο όπου C είναι κενή
+              needWrite = true;
+            }
+          }
+          if (needWrite) rngAllB.setValues(bVals);
+        }
       } catch (ignore) {}
     }
 
     if (col === colE) {
-      const vE = (e.value == null) ? "" : String(e.value).trim();
-      if (vE && vE !== placeholderE) {
-        e.range.setFontColor(null).setFontWeight(null);
+      const numRows = e.range.getNumRows();
+      const values = e.range.getValues();
+
+      for (let i = 0; i < numRows; i++) {
+        const vE = (values[i] && values[i][0] != null) ? String(values[i][0]).trim() : "";
+        if (vE && vE !== placeholderE) {
+          e.range.offset(i, 0, 1, 1).setFontColor(null).setFontWeight(null);
+        }
       }
     }
   } catch (err) {
@@ -196,4 +246,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.4.2 — Production — 14/11/2025_____
+// _______END OF FILE — CHECKLIST V7.4.3 — Production — 21/11/2025_____

@@ -3,7 +3,7 @@
 *Build:* 21332c3
 
 // HoB - Menu Library
-// Version: V7.2.3 – 20.11.2025 – Added (function openForm_EkpaidefsiTameiou)
+// Version: V7.3.0 – 26.11.2025 – function applyValidation_B_requires_C_AllSheets
 // =====================================================================================
 //
 // ✅ Functions included in this version:
@@ -17,6 +17,7 @@
 // createNewDayFromMenu
 // updateVersionFromMenu
 // =====================================================================================
+
 // --------------------------
 // Constants
 // --------------------------
@@ -123,8 +124,7 @@ function getTemplateTabFromHoBMasters_() {
 }
 
 // --------------------------
-// User Tools (Forms / Links) 
-// [Προσθέτεις ένα function name (eg function openForm_"το ονομα που θέλω στο MenuList αρχείο πχ. "OnomasiaFunction"() { openUrlInNewTab("https://docs...."); })]
+// User Tools (Forms / Links)
 // --------------------------
 function openNeaParalaviForm() { openUrlInNewTab("https://docs.google.com/document/d/1qR3HybnWVqBfvyw2PVIM_yis9cXoBzm2MHLWk8L8kO0/edit?usp=sharing" ); }
 function openSakoulesForm() { openUrlInNewTab("https://docs.google.com/spreadsheets/d/17vuZ8bQt2G2Z0yN-7PGBo3U2IA2lnNH1ElMzbCUI18I/edit?usp=sharing" ); }
@@ -158,8 +158,9 @@ function testTemplateTabFromMenu() { AdminToolsLib.testTemplateTab(); }
 function testAllPopupsFromMenu() { PopupLib.testAllPopupsFromMenu(); }
 function automatedDuplicateAndCleanupFromMenu() { AdminToolsLib.automatedDuplicateAndCleanup(); }
 function showMasterAndDeleteOthersFromMenu() { AdminToolsLib.showMasterAndDeleteOthers(); }
-//function showMasterAndDeleteOthersFromMenu() { HoBMastersLib.showMasterAndDeleteOthers(); }
 function remindMissingNamesFromMenu() { AdminToolsLib.remindMissingNames(); }
+function applyValidationsFromMenu() { AdminToolsLib.applyValidation_B_requires_C_AllSheets(); }
+function setupInstallablesOnceFromMenu() { AdminToolsLib.setupInstallablesOnce(); }
 
 // --------------------------
 // ✅ Create New Day μέσω AdminToolsLib (proxy προς HoBMastersLib)

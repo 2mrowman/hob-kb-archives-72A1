@@ -3,11 +3,12 @@
 *Build:* 21332c3
 
 // HoB - Admin Tools Library
-// Version: V6.14.0 – 16.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
+// Version: V6.2.0 – 26.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
 // Metadata:
 // Last updated: 16/11/2025 - 07:13 (Europe/Athens)
 // Last synced with VERSIONS_INDEX.md: 16/11/2025 - 07:13 (DEV-only)
 // Build: 9439c88
+
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -489,4 +490,55 @@ function showAdminPopup(title, message, type) {
     // Fallback to native alert if PopupLib fails for any reason
     SpreadsheetApp.getUi().alert(title + ":\n" + message);
   }
+}
+
+// ===== VALIDATIONS: B requires C (όλα τα φύλλα εκτός START/MASTER) =====
+function applyValidation_B_requires_C_AllSheets() {
+  const ss = SpreadsheetApp.getActive();
+  ss.getSheets().forEach(sh => {
+    const nm = sh.getName();
+    if (nm === 'START' || nm === 'MASTER') return;
+
+    const firstDataRow = 2;
+    const lastRow = Math.max(firstDataRow, sh.getLastRow());
+    const numRows = lastRow - firstDataRow + 1;
+    if (numRows <= 0) return;
+
+    const rangeB = sh.getRange(firstDataRow, 2, numRows, 1); // B2:B
+    const rule = SpreadsheetApp.newDataValidation()
+      .setAllowInvalid(false)
+      .requireFormulaSatisfied('=LEN($C2)>0')
+      .setHelpText(
+        'Δεν επιτρέπεται τιμή στη στήλη Β αν δεν υπάρχει τιμή στη στήλη C του ίδιου row.\n' +
+        'Το όνομα συμπληρώνεται αυτόματα από το από πάνω κελί.'
+      )
+      .build();
+    rangeB.setDataValidation(rule);
+  });
+}
+
+// ===== One-time: δημιουργία installable onOpen στον ΤΡΕΧΟΝΤΑ φάκελο-σεναρίου =====
+function setupInstallablesOnce() {
+  const ssId = SpreadsheetApp.getActive().getId();
+  const triggers = ScriptApp.getProjectTriggers();
+  const exists = triggers.some(t => {
+    try {
+      return t.getHandlerFunction() === 'onOpen_Installed' &&
+             t.getEventType && t.getEventType() === ScriptApp.EventType.ON_OPEN &&
+             t.getTriggerSourceId && t.getTriggerSourceId() === ssId;
+    } catch (_) { return false; }
+  });
+  if (!exists) {
+    ScriptApp.newTrigger('onOpen_Installed') // <-- project-level wrapper (βλ. Checklist.gs)
+      .forSpreadsheet(ssId)
+      .onOpen()
+      .create();
+  }
+  try { PopupLib.showSuccessMessage('✅ Ενεργοποιήθηκε το installable onOpen για αυτό το αρχείο.'); } catch (_) {}
+}
+
+// ===== Core που θα καλέσει το project-level onOpen_Installed wrapper =====
+function onOpenInstalledCore_(e) {
+  try { applyValidation_B_requires_C_AllSheets(); } catch (err) { console.log('applyValidation init:', err); }
+  // Προαιρετικά και άλλα “always on-open” admin tasks στο μέλλον…
 }

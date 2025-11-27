@@ -1,8 +1,9 @@
-// CHECKLIST V7.4.6 — Production — 26/11/2025 applied applyValidation to onOpen_Installed
+// CHECKLIST V7.4.7 — Production — 26/11/2025 const ONOPEN_LOGS = false - applied applyValidation to onOpen_Installed
 
 
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
+const ONOPEN_LOGS = false;
 
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
@@ -15,13 +16,13 @@ function onOpen(e) {
 // INSTALLABLE onOpen: FULL PRIVILEGES
 function onOpen_Installed(e) {
   try { AdminToolsLib.onOpenInstalledCore_(e); } catch (err) { console.log('onOpenInstalledCore_ failed:', err); }
-  try {
-    runTodayInit_(); // auto create today's sheet
-  } catch (err) {
-    try {
-      PopupLib.showCustomPopup("⚠️ Σφάλμα στο άνοιγμα:<br><br>" + err.message, "error");
-    } catch (_) {
-      SpreadsheetApp.getUi().alert("⚠️ Σφάλμα στο άνοιγμα: " + err.message);
+   try { runTodayInit_ && runTodayInit_(); }
+  catch (err) {
+    if (e && e.source) {
+      try { PopupLib.showCustomPopup("⚠️ " + err.message, "error"); }
+      catch (_) { try { SpreadsheetApp.getUi().alert("⚠️ " + err.message); } catch(__) {} }
+    } else if (ONOPEN_LOGS) {
+      console.log('[onOpen_Installed] runTodayInit_ failed (no UI):', err && err.message);
     }
   }
 }
@@ -261,4 +262,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.4.6 — Production — 26/11/2025_____
+// _______END OF FILE — CHECKLIST V7.4.7 — Production — 26/11/2025_____

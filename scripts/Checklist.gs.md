@@ -1,4 +1,4 @@
-// CHECKLIST V7.4.7 — Production — 26/11/2025 const ONOPEN_LOGS = false - applied applyValidation to onOpen_Installed
+// CHECKLIST V7.5.0 — Production — 28/11/2025 const ONOPEN_LOGS = false - applied function __applyValidations_Fallback
 
 
 const ENABLE_PLACEHOLDERS = false; // keep false in production
@@ -15,14 +15,18 @@ function onOpen(e) {
 
 // INSTALLABLE onOpen: FULL PRIVILEGES
 function onOpen_Installed(e) {
-  try { AdminToolsLib.onOpenInstalledCore_(e); } catch (err) { console.log('onOpenInstalledCore_ failed:', err); }
-   try { runTodayInit_ && runTodayInit_(); }
+  try {
+    AdminToolsLib.applyValidation_B_requires_C_AllSheets();
+  } catch (err1) {
+
+    try { __applyValidations_Fallback_ && __applyValidations_Fallback_(); } catch (_) {}
+  }
+
+  try { runTodayInit_ && runTodayInit_(); }
   catch (err) {
     if (e && e.source) {
       try { PopupLib.showCustomPopup("⚠️ " + err.message, "error"); }
       catch (_) { try { SpreadsheetApp.getUi().alert("⚠️ " + err.message); } catch(__) {} }
-    } else if (ONOPEN_LOGS) {
-      console.log('[onOpen_Installed] runTodayInit_ failed (no UI):', err && err.message);
     }
   }
 }
@@ -96,7 +100,7 @@ function hideLocalMasterIfVisible_() {
   if (others.length > 0) masterSheet.hideSheet();
 }
 
-function applyValidation_B_requires_C() {
+/*function applyValidation_B_requires_C() {
   const sh = SpreadsheetApp.getActiveSheet();
   const name = sh.getName();
   if (["START", "MASTER"].includes(name)) return;
@@ -113,6 +117,25 @@ const rule = SpreadsheetApp.newDataValidation()
 
 rangeB.setDataValidation(rule);
 
+}*/
+
+function __applyValidations_Fallback_() {
+  const ss = SpreadsheetApp.getActive();
+  ss.getSheets().forEach(sh => {
+    const nm = sh.getName();
+    if (nm === 'START' || nm === 'MASTER') return;
+    const firstDataRow = 2;
+    const lastRow = Math.max(firstDataRow, sh.getLastRow());
+    const numRows = lastRow - firstDataRow + 1;
+    if (numRows <= 0) return;
+    const rangeB = sh.getRange(firstDataRow, 2, numRows, 1);
+    const rule = SpreadsheetApp.newDataValidation()
+      .setAllowInvalid(false)
+      .requireFormulaSatisfied('=LEN($C2)>0')
+      .setHelpText('Δεν επιτρέπεται η λειτουργία αυτή αν δεν υπάρχει επιλογή στη στήλη C.\nΤο όνομα συμπληρώνεται αυτόματα από το απο πάνω κελί.')
+      .build();
+    rangeB.setDataValidation(rule);
+  });
 }
 
 // onEdit handler + TIMESTAMP helper V5
@@ -262,4 +285,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.4.7 — Production — 26/11/2025_____
+// _______END OF FILE — CHECKLIST V7.5.0 — Production — 28/11/2025_____

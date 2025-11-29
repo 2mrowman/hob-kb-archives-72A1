@@ -3,9 +3,9 @@
 *Build:* 21332c3
 
 // HoB - Admin Tools Library
-// Version: V6.2.0 – 26.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
+// Version: V6.3.0 – 28.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
 // Metadata:
-// Last updated: 16/11/2025 - 07:13 (Europe/Athens)
+// Last updated: 28/11/2025 - 07:13 (Europe/Athens)
 // Last synced with VERSIONS_INDEX.md: 16/11/2025 - 07:13 (DEV-only)
 // Build: 9439c88
 
@@ -168,9 +168,9 @@ function removeAllUsersExceptOwner_(file) {
   }
 }
 
-// ==========================
+// ====================================================
 // 📌 Show MASTER & Delete Others (ΣΤΟ ΤΡΕΧΟΝ αρχείο)
-// ==========================
+// ====================================================
 function showMasterAndDeleteOthers() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const masterSheet = ss.getSheetByName(MASTER_SHEET_NAME);
@@ -187,9 +187,9 @@ function showMasterAndDeleteOthers() {
   try { PopupLib.showCustomPopup('📋 Εμφανίστηκε το <b>' + MASTER_SHEET_NAME + '</b> και διαγράφηκαν τα υπόλοιπα.', 'info'); } catch (_) {}
 }
 
-// ==========================
+// ====================================================
 // 📌 Remind Missing Names (τρέχον φύλλο)
-// ==========================
+// ====================================================
 // Helper — returns Ui or null (prevents exceptions in headless triggers)
 function _safeUi_() {
   try { return SpreadsheetApp.getUi(); } catch (e) { return null; }
@@ -423,9 +423,9 @@ function remindMissingNames() {
   }
 }
 
-// ==========================
+// ====================================================
 // 📌 Clear All Notes (όλα τα tabs εκτός START/MASTER)
-// ==========================
+// ====================================================
 function clearAllNotes() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   ss.getSheets().forEach(function (sheet) {
@@ -444,29 +444,6 @@ function debugUserContext() {
   const docTitle = SpreadsheetApp.getActiveSpreadsheet().getName();
   const msg = `👤 Χρήστης: <b>${email}</b>\n📄 Αρχείο: <b>${docTitle}</b>\n🕒 Ώρα: <b>${new Date().toLocaleString()}</b>`;
   try { PopupLib.showCustomPopup(msg, 'info'); } catch (_) {}
-}
-
-// ==========================
-// ✅ Tests
-// ==========================
-function testLibExists() { return true; }
-
-function testTemplateTab() {
-  const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
-  const tplSheet = masters.getSheetByName('Templates');
-  if (!tplSheet) throw new Error('Δεν βρέθηκε φύλλο Templates στο HoB_Masters');
-  return true;
-}
-
-function testAllPopupsFromAdmin() {
-  try {
-    PopupLib.showErrorMessage('🚨 Test Error από AdminToolsLib');   Utilities.sleep(300);
-    PopupLib.showInfoMessage('ℹ️ Test Info από AdminToolsLib');     Utilities.sleep(300);
-    PopupLib.showSuccessMessage('✅ Test Success από AdminToolsLib'); Utilities.sleep(300);
-    PopupLib.showWarningMessage('⚠️ Test Warning από AdminToolsLib');
-  } catch (err) {
-    Logger.log('Σφάλμα στο testAllPopupsFromAdmin: ' + err);
-  }
 }
 
 /**
@@ -490,6 +467,26 @@ function showAdminPopup(title, message, type) {
     // Fallback to native alert if PopupLib fails for any reason
     SpreadsheetApp.getUi().alert(title + ":\n" + message);
   }
+}
+
+function ensureSingleRemindTrigger_() {
+  const FN = "remindMissingNames";
+  const triggers = ScriptApp.getProjectTriggers();
+  let found = false;
+  for (const t of triggers) {
+    if (t.getHandlerFunction() === FN) {
+      if (!found) { found = true; continue; } // κρατάς το πρώτο
+      ScriptApp.deleteTrigger(t);             // σβήνεις διπλότυπα
+    }
+  }
+  if (!found) {
+    ScriptApp.newTrigger(FN).timeBased().everyMinutes(1).create(); // ίδιο interval με production
+  }
+}
+
+function admin_installOrFixTriggers() {
+  ensureSingleRemindTrigger_();
+  SpreadsheetApp.flush();
 }
 
 // ===== VALIDATIONS: B requires C (όλα τα φύλλα εκτός START/MASTER) =====
@@ -541,4 +538,28 @@ function setupInstallablesOnce() {
 function onOpenInstalledCore_(e) {
   try { applyValidation_B_requires_C_AllSheets(); } catch (err) { console.log('applyValidation init:', err); }
   // Προαιρετικά και άλλα “always on-open” admin tasks στο μέλλον…
+}
+
+
+// ==============================================================================
+//                             ✅ Tests
+// ==============================================================================
+function testLibExists() { return true; }
+
+function testTemplateTab() {
+  const masters = SpreadsheetApp.openById(HOB_MASTERS_FILE_ID);
+  const tplSheet = masters.getSheetByName('Templates');
+  if (!tplSheet) throw new Error('Δεν βρέθηκε φύλλο Templates στο HoB_Masters');
+  return true;
+}
+
+function testAllPopupsFromAdmin() {
+  try {
+    PopupLib.showErrorMessage('🚨 Test Error από AdminToolsLib');   Utilities.sleep(300);
+    PopupLib.showInfoMessage('ℹ️ Test Info από AdminToolsLib');     Utilities.sleep(300);
+    PopupLib.showSuccessMessage('✅ Test Success από AdminToolsLib'); Utilities.sleep(300);
+    PopupLib.showWarningMessage('⚠️ Test Warning από AdminToolsLib');
+  } catch (err) {
+    Logger.log('Σφάλμα στο testAllPopupsFromAdmin: ' + err);
+  }
 }

@@ -1,6 +1,6 @@
-*Last updated:* 24/11/2025 - 15:39 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/11/2025 - 15:39 (DEV-only)
-*Build:* 21332c3
+*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
+*Build:* ba7ee2e
 
 # 📘 FUNCTION REFERENCE - CHECKLIST V8.0
 This section provides a complete reference for all functions in the CHECKLIST automation system. It is designed to be the single source of truth for developers and the AI model, detailing where each function is located, its purpose, and its dependencies.

@@ -3,7 +3,7 @@
 *Build:* 21332c3
 
 // HoB - Admin Tools Library
-// Version: V6.3.0 – 28.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
+// Version: V6.4.0 – 29.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
 // Metadata:
 // Last updated: 28/11/2025 - 07:13 (Europe/Athens)
 // Last synced with VERSIONS_INDEX.md: 16/11/2025 - 07:13 (DEV-only)

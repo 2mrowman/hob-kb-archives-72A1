@@ -1,6 +1,6 @@
-*Last updated:* 24/11/2025 - 15:39 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/11/2025 - 15:39 (DEV-only)
-*Build:* 21332c3
+*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
+*Build:* ba7ee2e
 
 // HoB - Menu Library
 // Version: V7.3.0 – 26.11.2025 – function applyValidation_B_requires_C_AllSheets
@@ -17,7 +17,6 @@
 // createNewDayFromMenu
 // updateVersionFromMenu
 // =====================================================================================
-
 // --------------------------
 // Constants
 // --------------------------

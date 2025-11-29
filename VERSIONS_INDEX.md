@@ -1,10 +1,9 @@
-*Last updated: 29/11/2025 – 10:45 (Europe/Athens)*
-*Build: f4f1de7*
+*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
+*Build:* ba7ee2e
 
 # HoB — VERSIONS INDEX
-
 Συγκεντρωτικός πίνακας εκδόσεων από τα περιεχόμενα των φακέλων **/scripts** και **/libraries**.
-
 | Type | File | Version | Last change (Athens) | Build | Path |
 |---|---|---|---|---|---|
 | scripts | CheckList.gs.md | `V7.6.0` | 29/11/2025 – 10:45 | `f4f1de7` | [scripts/CheckList.gs.md](/scripts/CheckList.gs.md) |

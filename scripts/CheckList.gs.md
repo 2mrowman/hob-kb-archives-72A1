@@ -1,10 +1,11 @@
+*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
+*Build:* ba7ee2e
+
 // CHECKLIST V7.6.0 — Production — 29/11/2025 — Trigger_Updater compatible
-
-
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 const ONOPEN_LOGS = false;
-
 // SIMPLE onOpen: UI ONLY (no privileged calls)
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
@@ -12,7 +13,6 @@ function onOpen(e) {
     .addItem("⏳ Φόρτωση Μενού…", "loadMenuDynamically")
     .addToUi();
 }
-
 // INSTALLABLE onOpen: FULL PRIVILEGES (Time-based trigger στις 5 π.μ.)
 function onOpen_Installed(e) {
   // Δημιουργία νέου tab για τη μέρα

@@ -1,6 +1,6 @@
-*Last updated:* 24/11/2025 - 15:39 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 24/11/2025 - 15:39 (DEV-only)
-*Build:* 21332c3
+*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
+*Build:* ba7ee2e
 
 // HoB - Admin Tools Library
 // Version: V6.4.0 – 29.11.2025 – Added showAdminPopup wrapper for centralized UI messaging
@@ -8,7 +8,6 @@
 // Last updated: 28/11/2025 - 07:13 (Europe/Athens)
 // Last synced with VERSIONS_INDEX.md: 16/11/2025 - 07:13 (DEV-only)
 // Build: 9439c88
-
 // ✅ Functions included in this version:
 // createNewDay_AUTO (external master copy controlled by caller)
 // automatedDuplicateAndCleanup
@@ -483,7 +482,6 @@ function ensureSingleRemindTrigger_() {
     ScriptApp.newTrigger(FN).timeBased().everyMinutes(1).create(); // ίδιο interval με production
   }
 }
-
 
 //✅ Tests
 //===========================================

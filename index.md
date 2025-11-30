@@ -1,25 +1,25 @@
-*Last updated:* 20/11/2025 - 09:26 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 20/11/2025 - 09:26 (DEV-only)
-*Build:* ac791c9
+*Last updated:* 30/11/2025 - 06:51 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 06:51 (DEV-only)
+*Build:* refresh-1764478263
 
 ### Welcome to the **Hall of Brands Automation & Checklist Repository**.
 ---
 ## 📘 Documentation & Index
-👉 [INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md)
-📄 [RAW_LINKS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md)
-🧭 [SYSTEM_OVERVIEW.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md)
-🧩 [notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md)
-⚙️ [SCRIPT_IDS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md)
-🕒 [RAW_HISTORY_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md)
+👉 [INDEX_Checklist_Docs.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1764478263)
+📄 [RAW_LINKS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1764478263)
+🧭 [SYSTEM_OVERVIEW.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SYSTEM_OVERVIEW.md?ts=1764478263)
+🧩 [notes_for_gpt.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/notes_for_gpt.md?ts=1764478263)
+⚙️ [SCRIPT_IDS_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1764478263)
+🕒 [RAW_HISTORY_INDEX.md](https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md?ts=1764478263)
 ---
 ## 🗂 Key Library Folders
-- Libraries (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md#-libraries
+- Libraries (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1764478263#-libraries
   • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/libraries
-- Scripts (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md#-scripts
+- Scripts (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1764478263#-scripts
   • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/scripts
-- Docs/History (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md
+- Docs/History (raw index): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/history/RAW_HISTORY_INDEX.md?ts=1764478263
   • Browse: https://github.com/2mrowman/hob-kb-archives-72A1/tree/main/docs/history
-- Primary prompt (raw): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/prompts/GitHub_Prompt.md
+- Primary prompt (raw): https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/prompts/GitHub_Prompt.md?ts=1764478263
 
 ---
 
@@ -34,9 +34,9 @@ It serves as the single verified source for:
 ---
 
 ## 🧾 Quick Validation (for GPT Models)
-1. IDs → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md
-2. Versions/structure → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md
-3. Raw accessibility → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md
+1. IDs → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/SCRIPT_IDS_INDEX.md?ts=1764478263
+2. Versions/structure → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/INDEX_Checklist_Docs.md?ts=1764478263
+3. Raw accessibility → https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/RAW_LINKS_INDEX.md?ts=1764478263
 
 ---
 

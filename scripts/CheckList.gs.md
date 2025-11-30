@@ -113,7 +113,7 @@ rangeB.setDataValidation(rule);
 
 }
 
-function onEdit(e) {
+function onEdit(e) { //V6
   if (!e || !e.range) {
     console.log("onEdit: No event object (manual run)");
     return;
@@ -141,6 +141,41 @@ function onEdit(e) {
         const cellE = sheet.getRange(targetRow, colE);
         const v = (values[i] && values[i][0] != null) ? String(values[i][0]).trim() : "";
 
+        const prevRow = targetRow - 1;
+        if (prevRow >= 2) {
+          const prevBCell = sheet.getRange(prevRow, colB);
+          const prevCVal = String(sheet.getRange(prevRow, colC).getValue() || "").trim();
+          const prevBValRaw = String(prevBCell.getValue() || "");
+          const prevBVal = prevBValRaw.trim();
+          const missingName = (prevBVal === "" || prevBVal === "Όνομα Επώνυμο?" || prevBVal === "Όνομα Επώνυμο");
+          if (prevCVal !== "" && missingName) {
+            e.range.offset(i, 0, 1, 1).clearContent();
+            cellD.clearContent();
+            prevBCell.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+            SpreadsheetApp.getActiveSpreadsheet().toast('Συμπληρώστε το "Όνομα Επώνυμο" στην προηγούμενη γραμμή για να συνεχίσετε.', 'Ειδοποίηση', 3);
+            continue;
+          }
+        }
+
+        const lastRow = sheet.getLastRow();
+        const rngB = sheet.getRange(2, colB, Math.max(0, lastRow - 1), 1).getValues();
+        const rngC = sheet.getRange(2, colC, Math.max(0, lastRow - 1), 1).getValues();
+        let blockingRow = -1;
+        for (let rIdx = 0; rIdx < rngB.length; rIdx++) {
+          const bval = String(rngB[rIdx][0] || "").trim();
+          const cval = String(rngC[rIdx][0] || "").trim();
+          const missing = (bval === "" || bval === "Όνομα Επώνυμο?" || bval === "Όνομα Επώνυμο");
+          if (cval !== "" && missing) { blockingRow = rIdx + 2; break; }
+        }
+        if (blockingRow !== -1 && blockingRow !== targetRow) {
+          e.range.offset(i, 0, 1, 1).clearContent();
+          cellD.clearContent();
+          const bCell = sheet.getRange(blockingRow, colB);
+          bCell.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
+          SpreadsheetApp.getActiveSpreadsheet().toast('Υπάρχει ασυμπλήρωτο "Όνομα Επώνυμο". Συμπληρώστε το πριν προχωρήσετε.', 'Ειδοποίηση', 3);
+          continue;
+        }
+
         if (v === "") {
           cellB.clearContent().setFontColor(null).setFontWeight(null);
           cellD.clearContent();
@@ -153,7 +188,6 @@ function onEdit(e) {
             cellE.setValue(placeholderE).setFontColor("#d32f2f").setFontWeight("bold");
           }
         } else {
-          // Αν αλλάξει από "σχόλιο" σε κάτι άλλο και η Ε έχει το placeholder → καθάρισε
           if (cellE.getValue() === placeholderE) {
             cellE.clearContent().setFontColor(null).setFontWeight(null);
           }
@@ -164,7 +198,7 @@ function onEdit(e) {
           try {
             var r = targetRow - 1;
             while (r >= 2) {
-              var rowVals = sheet.getRange(r, colB, 1, (colE - colB + 1)).getValues()[0]; // B..E
+              var rowVals = sheet.getRange(r, colB, 1, (colE - colB + 1)).getValues()[0];
               var isAllEmpty = rowVals.every(function (x) { return String(x || "").trim() === ""; });
               if (isAllEmpty) break;
               var cand = String(rowVals[0] || "").trim();
@@ -174,7 +208,7 @@ function onEdit(e) {
           } catch (ignore) {}
 
           if (sticky) {
-            cellB.setValue(sticky).setFontColor(null).setFontWeight(null); // δεν αγγίζουμε background
+            cellB.setValue(sticky).setFontColor(null).setFontWeight(null);
           } else {
             cellB.setValue(placeholderB).setFontColor("#d32f2f").setFontWeight("bold");
           }
@@ -194,37 +228,11 @@ function onEdit(e) {
         const choiceVal = String(choiceCell.getValue() || "").trim();
         const nameVal = (values[i] && values[i][0] != null) ? String(values[i][0]).trim() : "";
 
-        if (!choiceVal) {
-          nameCell.clearContent();
-          continue;
-        }
-
         if (nameVal && nameVal !== placeholderB) {
           nameCell.setFontColor(null).setFontWeight(null).setBackground(null);
-          try {
-            PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', nameVal);
-          } catch (ignore) {}
+          try { PropertiesService.getDocumentProperties().setProperty('LAST_B_NAME', nameVal); } catch (ignore) {}
         }
       }
-
-      try {
-        const lastRow = sheet.getLastRow();
-        if (lastRow >= 2) {
-          const rngAllB = sheet.getRange(2, colB, lastRow - 1, 1);
-          const rngAllC = sheet.getRange(2, colC, lastRow - 1, 1);
-          const bVals = rngAllB.getValues();
-          const cVals = rngAllC.getValues();
-          let needWrite = false;
-          for (let r = 0; r < bVals.length; r++) {
-            const cval = String(cVals[r][0] || "").trim();
-            if (!cval && String(bVals[r][0] || "").trim() !== "") {
-              bVals[r][0] = ""; // clear content μόνο όπου C είναι κενή
-              needWrite = true;
-            }
-          }
-          if (needWrite) rngAllB.setValues(bVals);
-        }
-      } catch (ignore) {}
     }
 
     if (col === colD) {

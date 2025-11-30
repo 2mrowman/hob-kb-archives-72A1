@@ -1,6 +1,6 @@
-*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
-*Build:* ba7ee2e
+*Last updated:* 30/11/2025 - 07:43 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 07:43 (DEV-only)
+*Build:* 248c8ba
 
 # CHANGELOG – Hall of Brands Knowledge Base
 **Repository:** hob-kb-archives-72A1  

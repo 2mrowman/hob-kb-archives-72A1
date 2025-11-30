@@ -1,11 +1,13 @@
-# Session Self-Check — 2025-11-20
+*Last updated:* 30/11/2025 - 07:43 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 07:43 (DEV-only)
+*Build:* 248c8ba
 
+# Session Self-Check — 2025-11-20
 ## Checklist
 - RAW_INDEX_OK: Loaded `RAW_LINKS_INDEX.md` successfully.
 - NOTES_OK: Loaded `notes_for_gpt.md` (First header: `notes_for_gpt.md – Hall of Brands Knowledge Reference (V6.2.0)]`).
 - VERSIONS_TABLE: Recorded current entries from `VERSIONS_INDEX.md` (see summary below).
 - SYNC: DIFF — `VERSIONS_INDEX.md` last updated 20/11/2025 10:52, while `INDEX_Checklist_Docs.md` last synced 20/11/2025 09:26.
-
 ## VERSIONS_INDEX.md Summary
 - `Admin.gs.md` — V7.3.1 (20/11/2025 09:26, build 58c49c2)
 - `Blink.gs.md` — V2.0.1 (20/11/2025 09:26, build 58c49c2)

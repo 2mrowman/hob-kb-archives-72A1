@@ -1,0 +1,52 @@
+// To use in GraphvizOnline, copy the raw file contents only (not a diff).
+// Raw URL: https://raw.githubusercontent.com/2mrowman/hob-kb-archives-72A1/refs/heads/main/docs/graphviz/checklist_flow.dot
+
+digraph ChecklistFlow {
+  rankdir=LR;
+  node [shape=rectangle, style=filled, fillcolor="#f6f8fa", color="#d0d7de", fontname="Inter,Helvetica,sans-serif"];
+  edge [color="#57606a", fontname="Inter,Helvetica,sans-serif", fontsize=10];
+
+  subgraph cluster_triggers {
+    label="Triggers";
+    style=dashed;
+    color="#96a0aa";
+    onOpen [label="onOpen() trigger"];
+    onEdit [label="onEdit() trigger"];
+    timeBased [label="Time-based trigger\n(every ~20-30 min)"];
+  }
+
+  subgraph cluster_scripts {
+    label="Main Scripts";
+    style=dashed;
+    color="#96a0aa";
+    checklist [label="Checklist.gs\nentry point"];
+    blink [label="Blink.gs\nvisual cues"];
+    autoDupl [label="AutoDupl_File&DeleteTabs.gs\nmaster duplication & cleanup"];
+  }
+
+  subgraph cluster_libs {
+    label="Libraries";
+    style=dashed;
+    color="#96a0aa";
+    adminTools [label="AdminToolsLib\nadmin actions"];
+    popup [label="PopupLib\nUI feedback"];
+    menu [label="MenuLib\nmenu creation"];
+    masters [label="HoBMastersLib\ntemplate access"];
+  }
+
+  onOpen -> checklist [label="initialize & create menu"];
+  onEdit -> checklist [label="validation & orchestration"];
+  timeBased -> checklist [label="background tasks"];
+
+  checklist -> adminTools [label="create new day, reminders"];
+  checklist -> menu [label="build menus"];
+  checklist -> blink [label="highlight cells"];
+
+  adminTools -> masters [label="fetch template tab"];
+  adminTools -> popup [label="notify user"];
+  adminTools -> blink [label="attention cues"];
+
+  autoDupl -> adminTools [label="duplicate & cleanup"];
+  menu -> popup [label="menu errors"];
+  popup -> checklist [label="dialogs / popups", dir=back, arrowtail=normal, arrowhead=none, style=dashed];
+}

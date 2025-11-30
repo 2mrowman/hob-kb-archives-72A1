@@ -1,10 +1,10 @@
-*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
-*Build:* ba7ee2e
+*Last updated:* 30/11/2025 - 06:51 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 06:51 (DEV-only)
+*Build:* refresh-1764478263
 
 # Project Health & Sync Overhaul Report
-**Execution Date:** 20/11/2025 - 02:18 (Europe/Athens)
-**Build:** d915f4b
+**Execution Date:** 30/11/2025 - 06:51 (Europe/Athens)
+**Build:** refresh-1764478263
 ---
 ## ✅ ΦΑΣΗ 1: ΑΝΑΓΝΩΣΗ & ΔΙΑΓΝΩΣΗ
 ### Αρχεία που Διαβάστηκαν:
@@ -45,14 +45,18 @@
    - ✅ Καθαρίστηκε ο πίνακας - αφαιρέθηκαν τα README.md και τα "Complete Menu Analysis" (δεν είναι core scripts)
    - ✅ Διατηρήθηκαν ΜΟΝΟ τα ενεργά scripts και libraries με εκδόσεις
    - ✅ Επιβεβαιώθηκαν οι πραγματικές εκδόσεις από τις κεφαλίδες των αρχείων
-   - ✅ Ενημερώθηκε η ημερομηνία: **20/11/2025 – 02:18 (Europe/Athens)**
+   - ✅ Ενημερώθηκε η ημερομηνία: **30/11/2025 – 06:51 (Europe/Athens)**
 
 2. **INDEX_Checklist_Docs.md:**
-   - ✅ Ενημερώθηκε το **νέο timestamp: 1763623136**
-   - ✅ Όλοι οι σύνδεσμοι (RAW URLs) έχουν το νέο `?ts=1763623136` για cache-busting
-   - ✅ Διατηρήθηκαν ΟΛΑ τα αρχεία (root, docs, libraries, scripts, tests)
-   - ✅ Ενημερώθηκαν οι ημερομηνίες: **20/11/2025 - 02:18 (GMT+2)**
+   - ✅ Ενημερώθηκε το **νέο timestamp: 1764478263**
+   - ✅ Όλοι οι σύνδεσμοι (RAW URLs) έχουν το νέο `?ts=1764478263` για cache-busting
+   - ✅ Διατηρήθηκαν ΟΛΑ τα αρχεία (root, docs, libraries, scripts, tests) και προστέθηκε η ενότητα `/docs/graphviz/` (README + checklist_flow.dot)
+   - ✅ Ενημερώθηκαν οι ημερομηνίες: **30/11/2025 - 06:51 (GMT+2)**
    - ✅ Συγχρονίστηκε με το νέο VERSIONS_INDEX.md
+
+3. **RAW_LINKS_INDEX.md:**
+   - ✅ Προστέθηκαν οι RAW εγγραφές για τα νέα διαγράμματα Graphviz
+   - ✅ Όλοι οι σύνδεσμοι ανανεώθηκαν με `?ts=1764478263` για ομοιομορφία
 
 ### Στατιστικά:
 
@@ -71,11 +75,10 @@
 1. **VERSIONS_INDEX.md** - Καθαρός πίνακας με τις 7 ενεργές εκδόσεις
 2. **INDEX_Checklist_Docs.md** - Πλήρης κατάλογος με νέο timestamp για όλους τους συνδέσμους
 
-### Αλλαγές που Πρέπει να Γίνουν στο Repository:
+### Κατάσταση Repository:
 
-Αντικαταστήστε τα υπάρχοντα αρχεία με τα νέα:
-- `VERSIONS_INDEX.md` → Αντικαταστήστε με το `NEW_VERSIONS_INDEX.md`
-- `INDEX_Checklist_Docs.md` → Αντικαταστήστε με το `NEW_INDEX_Checklist_Docs.md`
+- Όλες οι αλλαγές έχουν ήδη εφαρμοστεί στο repository.
+- Δεν απαιτούνται επιπλέον αντικαταστάσεις ή χειροκίνητες ενέργειες.
 
 ---
 
@@ -85,4 +88,4 @@
 
 Το σύστημα είναι έτοιμο. Όλες οι εκδόσεις έχουν επιβεβαιωθεί, οι σύνδεσμοι έχουν ενημερωθεί με νέο timestamp, και τα αρχεία-δείκτες είναι πλήρως συγχρονισμένα.
 
-**Επόμενο Βήμα:** Κάντε commit τα νέα αρχεία στο GitHub repository.
+**Επόμενο Βήμα:** Καμία ενέργεια απαιτείται· το repository είναι ενημερωμένο.

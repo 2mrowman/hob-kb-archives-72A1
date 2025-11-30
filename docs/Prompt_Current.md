@@ -1,6 +1,6 @@
-*Last updated:* 29/11/2025 - 11:06 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 29/11/2025 - 11:06 (DEV-only)
-*Build:* ba7ee2e
+*Last updated:* 30/11/2025 - 06:51 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 06:51 (DEV-only)
+*Build:* refresh-1764478263
 
 # Prompt – Current Version
 **Version:** V1.0 – 14/10/2025  

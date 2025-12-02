@@ -2,7 +2,7 @@
 *Last synced with VERSIONS_INDEX.md:* 30/11/2025 - 07:43 (DEV-only)
 *Build:* 248c8ba
 
-// CHECKLIST V7.6.0 — Production — 29/11/2025 — Trigger_Updater compatible
+// CHECKLIST V7.6.1 — Production — 30/11/2025 — onEdit_V5→V6
 const ENABLE_PLACEHOLDERS = false; // keep false in production
 const HOB_MASTERS_FILE_ID = "1j4xXEVYhVTzg57nhV-19V16F7AeoUjf6tJimFx4KOPI";
 const ONOPEN_LOGS = false;
@@ -274,4 +274,4 @@ function remindMissingNames() {
 function automatedDuplicateAndCleanup() {
   AdminToolsLib.automatedDuplicateAndCleanup();
 }
-// _______END OF FILE — CHECKLIST V7.6.0 — Production — 29/11/2025_____
+// _______END OF FILE — CHECKLIST V7.6.1 — Production — 30/11/2025_____

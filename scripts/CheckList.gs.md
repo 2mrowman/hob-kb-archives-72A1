@@ -1,6 +1,6 @@
-*Last updated:* 08/01/2026 - 10:25 (Europe/Athens)
-*Last synced with VERSIONS_INDEX.md:* 08/01/2026 - 10:25 (DEV-only)
-*Build:* a251fce
+*Last updated:* 08/01/2026 - 10:39 (Europe/Athens)
+*Last synced with VERSIONS_INDEX.md:* 08/01/2026 - 10:39 (DEV-only)
+*Build:* 5b968ce
 
 // CHECKLIST V7.6.1 — Production — 30/11/2025 — onEdit_V5→V6
 const ENABLE_PLACEHOLDERS = false; // keep false in production
